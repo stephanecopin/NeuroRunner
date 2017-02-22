@@ -8,6 +8,7 @@ target 'NeuroRunner' do
   # Pods for NeuroRunner
 
   pod 'SnapKit', '~> 3.0'
+  pod 'AudioKit', '~> 3.5'
 
   end
 

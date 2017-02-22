@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		C55D0A173748985DE0C86AC8 /* Pods_NeuroRunner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19CE9D71EB15F053A62F1FB7 /* Pods_NeuroRunner.framework */; };
 		E82FF7691E5E132800AFE050 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF7681E5E132800AFE050 /* AppDelegate.swift */; };
-		E82FF76B1E5E132800AFE050 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF76A1E5E132800AFE050 /* ViewController.swift */; };
-		E82FF76E1E5E132800AFE050 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82FF76C1E5E132800AFE050 /* Main.storyboard */; };
+		E82FF76B1E5E132800AFE050 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF76A1E5E132800AFE050 /* HomeViewController.swift */; };
 		E82FF7701E5E132800AFE050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E82FF76F1E5E132800AFE050 /* Assets.xcassets */; };
 		E82FF7731E5E132800AFE050 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82FF7711E5E132800AFE050 /* LaunchScreen.storyboard */; };
 		E82FF77E1E5E132900AFE050 /* NeuroRunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF77D1E5E132900AFE050 /* NeuroRunnerTests.swift */; };
+		E8A99A161E5E156A0059D21C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A99A151E5E156A0059D21C /* User.swift */; };
+		E8A99A181E5E15900059D21C /* AirGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A99A171E5E15900059D21C /* AirGameView.swift */; };
+		E8A99A1A1E5E15A20059D21C /* AirGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A99A191E5E15A20059D21C /* AirGameViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +34,16 @@
 		3EE4BC3EA3E8A833E7BC0337 /* Pods-NeuroRunner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeuroRunner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NeuroRunner/Pods-NeuroRunner.debug.xcconfig"; sourceTree = "<group>"; };
 		E82FF7651E5E132800AFE050 /* NeuroRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeuroRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E82FF7681E5E132800AFE050 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E82FF76A1E5E132800AFE050 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E82FF76D1E5E132800AFE050 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E82FF76A1E5E132800AFE050 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E82FF76F1E5E132800AFE050 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E82FF7721E5E132800AFE050 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E82FF7741E5E132800AFE050 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E82FF7791E5E132900AFE050 /* NeuroRunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeuroRunnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E82FF77D1E5E132900AFE050 /* NeuroRunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuroRunnerTests.swift; sourceTree = "<group>"; };
 		E82FF77F1E5E132900AFE050 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8A99A151E5E156A0059D21C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		E8A99A171E5E15900059D21C /* AirGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirGameView.swift; sourceTree = "<group>"; };
+		E8A99A191E5E15A20059D21C /* AirGameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirGameViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,8 +106,10 @@
 			isa = PBXGroup;
 			children = (
 				E82FF7681E5E132800AFE050 /* AppDelegate.swift */,
-				E82FF76A1E5E132800AFE050 /* ViewController.swift */,
-				E82FF76C1E5E132800AFE050 /* Main.storyboard */,
+				E8A99A151E5E156A0059D21C /* User.swift */,
+				E8A99A171E5E15900059D21C /* AirGameView.swift */,
+				E8A99A191E5E15A20059D21C /* AirGameViewModel.swift */,
+				E82FF76A1E5E132800AFE050 /* HomeViewController.swift */,
 				E82FF76F1E5E132800AFE050 /* Assets.xcassets */,
 				E82FF7711E5E132800AFE050 /* LaunchScreen.storyboard */,
 				E82FF7741E5E132800AFE050 /* Info.plist */,
@@ -209,7 +215,6 @@
 			files = (
 				E82FF7731E5E132800AFE050 /* LaunchScreen.storyboard in Resources */,
 				E82FF7701E5E132800AFE050 /* Assets.xcassets in Resources */,
-				E82FF76E1E5E132800AFE050 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,8 +280,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E82FF76B1E5E132800AFE050 /* ViewController.swift in Sources */,
+				E82FF76B1E5E132800AFE050 /* HomeViewController.swift in Sources */,
+				E8A99A181E5E15900059D21C /* AirGameView.swift in Sources */,
+				E8A99A1A1E5E15A20059D21C /* AirGameViewModel.swift in Sources */,
 				E82FF7691E5E132800AFE050 /* AppDelegate.swift in Sources */,
+				E8A99A161E5E156A0059D21C /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,14 +307,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E82FF76C1E5E132800AFE050 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				E82FF76D1E5E132800AFE050 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		E82FF7711E5E132800AFE050 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
