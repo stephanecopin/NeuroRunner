@@ -1,0 +1,501 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C55D0A173748985DE0C86AC8 /* Pods_NeuroRunner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19CE9D71EB15F053A62F1FB7 /* Pods_NeuroRunner.framework */; };
+		E82FF7691E5E132800AFE050 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF7681E5E132800AFE050 /* AppDelegate.swift */; };
+		E82FF76B1E5E132800AFE050 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF76A1E5E132800AFE050 /* ViewController.swift */; };
+		E82FF76E1E5E132800AFE050 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82FF76C1E5E132800AFE050 /* Main.storyboard */; };
+		E82FF7701E5E132800AFE050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E82FF76F1E5E132800AFE050 /* Assets.xcassets */; };
+		E82FF7731E5E132800AFE050 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82FF7711E5E132800AFE050 /* LaunchScreen.storyboard */; };
+		E82FF77E1E5E132900AFE050 /* NeuroRunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF77D1E5E132900AFE050 /* NeuroRunnerTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		E82FF77A1E5E132900AFE050 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E82FF75D1E5E132800AFE050 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E82FF7641E5E132800AFE050;
+			remoteInfo = NeuroRunner;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		19CE9D71EB15F053A62F1FB7 /* Pods_NeuroRunner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeuroRunner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1D259B4A95FB79228845F94E /* Pods-NeuroRunner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeuroRunner.release.xcconfig"; path = "Pods/Target Support Files/Pods-NeuroRunner/Pods-NeuroRunner.release.xcconfig"; sourceTree = "<group>"; };
+		3EE4BC3EA3E8A833E7BC0337 /* Pods-NeuroRunner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeuroRunner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NeuroRunner/Pods-NeuroRunner.debug.xcconfig"; sourceTree = "<group>"; };
+		E82FF7651E5E132800AFE050 /* NeuroRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeuroRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E82FF7681E5E132800AFE050 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E82FF76A1E5E132800AFE050 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E82FF76D1E5E132800AFE050 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E82FF76F1E5E132800AFE050 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E82FF7721E5E132800AFE050 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E82FF7741E5E132800AFE050 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E82FF7791E5E132900AFE050 /* NeuroRunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeuroRunnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E82FF77D1E5E132900AFE050 /* NeuroRunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuroRunnerTests.swift; sourceTree = "<group>"; };
+		E82FF77F1E5E132900AFE050 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E82FF7621E5E132800AFE050 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C55D0A173748985DE0C86AC8 /* Pods_NeuroRunner.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E82FF7761E5E132900AFE050 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2F0C551BDD8AA9EADA354B8B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				19CE9D71EB15F053A62F1FB7 /* Pods_NeuroRunner.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CCA0A73004CC47548AD06198 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3EE4BC3EA3E8A833E7BC0337 /* Pods-NeuroRunner.debug.xcconfig */,
+				1D259B4A95FB79228845F94E /* Pods-NeuroRunner.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E82FF75C1E5E132800AFE050 = {
+			isa = PBXGroup;
+			children = (
+				E82FF7671E5E132800AFE050 /* NeuroRunner */,
+				E82FF77C1E5E132900AFE050 /* NeuroRunnerTests */,
+				E82FF7661E5E132800AFE050 /* Products */,
+				CCA0A73004CC47548AD06198 /* Pods */,
+				2F0C551BDD8AA9EADA354B8B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		E82FF7661E5E132800AFE050 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E82FF7651E5E132800AFE050 /* NeuroRunner.app */,
+				E82FF7791E5E132900AFE050 /* NeuroRunnerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E82FF7671E5E132800AFE050 /* NeuroRunner */ = {
+			isa = PBXGroup;
+			children = (
+				E82FF7681E5E132800AFE050 /* AppDelegate.swift */,
+				E82FF76A1E5E132800AFE050 /* ViewController.swift */,
+				E82FF76C1E5E132800AFE050 /* Main.storyboard */,
+				E82FF76F1E5E132800AFE050 /* Assets.xcassets */,
+				E82FF7711E5E132800AFE050 /* LaunchScreen.storyboard */,
+				E82FF7741E5E132800AFE050 /* Info.plist */,
+			);
+			path = NeuroRunner;
+			sourceTree = "<group>";
+		};
+		E82FF77C1E5E132900AFE050 /* NeuroRunnerTests */ = {
+			isa = PBXGroup;
+			children = (
+				E82FF77D1E5E132900AFE050 /* NeuroRunnerTests.swift */,
+				E82FF77F1E5E132900AFE050 /* Info.plist */,
+			);
+			path = NeuroRunnerTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E82FF7641E5E132800AFE050 /* NeuroRunner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E82FF7821E5E132900AFE050 /* Build configuration list for PBXNativeTarget "NeuroRunner" */;
+			buildPhases = (
+				A7569020C0B5D00F7584E85B /* [CP] Check Pods Manifest.lock */,
+				E82FF7611E5E132800AFE050 /* Sources */,
+				E82FF7621E5E132800AFE050 /* Frameworks */,
+				E82FF7631E5E132800AFE050 /* Resources */,
+				BFCA3E43A3B517CC533D8DFD /* [CP] Embed Pods Frameworks */,
+				9462BABB11B5A343F95DD9ED /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NeuroRunner;
+			productName = NeuroRunner;
+			productReference = E82FF7651E5E132800AFE050 /* NeuroRunner.app */;
+			productType = "com.apple.product-type.application";
+		};
+		E82FF7781E5E132900AFE050 /* NeuroRunnerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E82FF7851E5E132900AFE050 /* Build configuration list for PBXNativeTarget "NeuroRunnerTests" */;
+			buildPhases = (
+				E82FF7751E5E132900AFE050 /* Sources */,
+				E82FF7761E5E132900AFE050 /* Frameworks */,
+				E82FF7771E5E132900AFE050 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E82FF77B1E5E132900AFE050 /* PBXTargetDependency */,
+			);
+			name = NeuroRunnerTests;
+			productName = NeuroRunnerTests;
+			productReference = E82FF7791E5E132900AFE050 /* NeuroRunnerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E82FF75D1E5E132800AFE050 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0820;
+				LastUpgradeCheck = 0820;
+				ORGANIZATIONNAME = "Robert Deans";
+				TargetAttributes = {
+					E82FF7641E5E132800AFE050 = {
+						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = Y95395R97T;
+						ProvisioningStyle = Automatic;
+					};
+					E82FF7781E5E132900AFE050 = {
+						CreatedOnToolsVersion = 8.2.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = E82FF7641E5E132800AFE050;
+					};
+				};
+			};
+			buildConfigurationList = E82FF7601E5E132800AFE050 /* Build configuration list for PBXProject "NeuroRunner" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E82FF75C1E5E132800AFE050;
+			productRefGroup = E82FF7661E5E132800AFE050 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E82FF7641E5E132800AFE050 /* NeuroRunner */,
+				E82FF7781E5E132900AFE050 /* NeuroRunnerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E82FF7631E5E132800AFE050 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E82FF7731E5E132800AFE050 /* LaunchScreen.storyboard in Resources */,
+				E82FF7701E5E132800AFE050 /* Assets.xcassets in Resources */,
+				E82FF76E1E5E132800AFE050 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E82FF7771E5E132900AFE050 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		9462BABB11B5A343F95DD9ED /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NeuroRunner/Pods-NeuroRunner-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A7569020C0B5D00F7584E85B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BFCA3E43A3B517CC533D8DFD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NeuroRunner/Pods-NeuroRunner-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E82FF7611E5E132800AFE050 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E82FF76B1E5E132800AFE050 /* ViewController.swift in Sources */,
+				E82FF7691E5E132800AFE050 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E82FF7751E5E132900AFE050 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E82FF77E1E5E132900AFE050 /* NeuroRunnerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E82FF77B1E5E132900AFE050 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E82FF7641E5E132800AFE050 /* NeuroRunner */;
+			targetProxy = E82FF77A1E5E132900AFE050 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		E82FF76C1E5E132800AFE050 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E82FF76D1E5E132800AFE050 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E82FF7711E5E132800AFE050 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E82FF7721E5E132800AFE050 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E82FF7801E5E132900AFE050 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E82FF7811E5E132900AFE050 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E82FF7831E5E132900AFE050 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3EE4BC3EA3E8A833E7BC0337 /* Pods-NeuroRunner.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Y95395R97T;
+				INFOPLIST_FILE = NeuroRunner/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = rob.NeuroRunner;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		E82FF7841E5E132900AFE050 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D259B4A95FB79228845F94E /* Pods-NeuroRunner.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Y95395R97T;
+				INFOPLIST_FILE = NeuroRunner/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = rob.NeuroRunner;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		E82FF7861E5E132900AFE050 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = NeuroRunnerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = rob.NeuroRunnerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NeuroRunner.app/NeuroRunner";
+			};
+			name = Debug;
+		};
+		E82FF7871E5E132900AFE050 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = NeuroRunnerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = rob.NeuroRunnerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NeuroRunner.app/NeuroRunner";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E82FF7601E5E132800AFE050 /* Build configuration list for PBXProject "NeuroRunner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E82FF7801E5E132900AFE050 /* Debug */,
+				E82FF7811E5E132900AFE050 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E82FF7821E5E132900AFE050 /* Build configuration list for PBXNativeTarget "NeuroRunner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E82FF7831E5E132900AFE050 /* Debug */,
+				E82FF7841E5E132900AFE050 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E82FF7851E5E132900AFE050 /* Build configuration list for PBXNativeTarget "NeuroRunnerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E82FF7861E5E132900AFE050 /* Debug */,
+				E82FF7871E5E132900AFE050 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E82FF75D1E5E132800AFE050 /* Project object */;
+}
