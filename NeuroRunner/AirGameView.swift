@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import AudioKit
 
 class AirGameView: UIView {
     
@@ -15,6 +16,10 @@ class AirGameView: UIView {
     var startStopButton = UIButton()
     var timer = Timer()
     
+    var microphoneAnalysis: MicrophoneAnalysis!
+    var plot: AKNodeOutputPlot!
+    var audioInputPlot = EZAudioPlot()
+
     var pickerData = [Int]()
     
     // MARK: Initialization
@@ -43,6 +48,14 @@ class AirGameView: UIView {
             pickerData.append(number)
         }
         
+        microphoneAnalysis = MicrophoneAnalysis()
+        
+        plot = AKNodeOutputPlot(microphoneAnalysis.microphone, frame: audioInputPlot.bounds)
+        plot.plotType = .rolling
+        plot.shouldFill = true
+        plot.shouldMirror = true
+        plot.color = UIColor.blue
+        
     }
     
     func constrain() {
@@ -51,6 +64,17 @@ class AirGameView: UIView {
             $0.width.equalToSuperview().multipliedBy(0.8)
             $0.height.equalToSuperview().dividedBy(10)
             $0.centerX.centerY.equalToSuperview()
+        }
+        
+        addSubview(audioInputPlot)
+        audioInputPlot.snp.makeConstraints {
+            $0.top.leading.trailing.equalToSuperview()
+            $0.height.equalToSuperview().dividedBy(2)
+        }
+        
+        audioInputPlot.addSubview(plot)
+        plot.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
     }
     

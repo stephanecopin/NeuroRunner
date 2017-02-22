@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AudioKit
 
 
 class HomeViewController: UIViewController {
@@ -20,6 +21,9 @@ class HomeViewController: UIViewController {
         airGameView.snp.makeConstraints{
             $0.edges.equalToSuperview()
         }
+        
+        AudioKit.output = airGameView.microphoneAnalysis.silence
+        AudioKit.start()
     }
 
     override func didReceiveMemoryWarning() {
