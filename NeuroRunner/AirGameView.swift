@@ -12,6 +12,7 @@ import SnapKit
 class AirGameView: UIView {
     
     var pickerView = UIPickerView()
+    var pickerTimer: UIDatePicker!
     var startStopButton = UIButton()
     var timerLabel = UILabel()
     
@@ -19,7 +20,9 @@ class AirGameView: UIView {
     var seconds = 0
     var isTimerOn = false
     
-    var pickerData = [Int]()
+    var pickerMinutes = [Int]()
+    var pickerSeconds = [Int]()
+    var pickerCounter = [[Int]]()
     
     // MARK: Initialization
     required init?(coder aDecoder: NSCoder) {
@@ -38,12 +41,10 @@ class AirGameView: UIView {
     
     func configure() {
         backgroundColor = UIColor.cyan
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        
-        for number in 1...15 {
-            pickerData.append(number)
-        }
+
+        pickerTimer = UIDatePicker()
+        pickerTimer.datePickerMode = .countDownTimer
+
         
         startStopButton.setTitle("Start", for: .normal)
         startStopButton.setTitleColor(UIColor.blue, for: .normal)
@@ -59,8 +60,8 @@ class AirGameView: UIView {
     }
     
     func constrain() {
-        addSubview(pickerView)
-        pickerView.snp.makeConstraints {
+        addSubview(pickerTimer)
+        pickerTimer.snp.makeConstraints {
             $0.width.equalToSuperview().multipliedBy(0.8)
             $0.height.equalToSuperview().dividedBy(10)
             $0.centerX.centerY.equalToSuperview()
@@ -76,7 +77,7 @@ class AirGameView: UIView {
         timerLabel.snp.makeConstraints {
             $0.width.equalToSuperview()
             $0.height.equalToSuperview().dividedBy(10)
-            $0.bottom.equalTo(pickerView.snp.top).offset(-20)
+            $0.bottom.equalTo(pickerTimer.snp.top).offset(-20)
         }
         
         
@@ -103,27 +104,9 @@ class AirGameView: UIView {
     }
     
     func updateTimer() {
-        seconds += 1
+        seconds -= 1
         timerLabel.text = "\(seconds)"
         print("update timer \(seconds)")
-    }
-    
-}
-
-extension AirGameView: UIPickerViewDelegate, UIPickerViewDataSource {
- 
-    // MARK: Data Sources
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pickerData.count
-    }
-    
-    // MARK: Delegates
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return "\(pickerData[row])"
     }
     
 }
