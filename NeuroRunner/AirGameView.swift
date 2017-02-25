@@ -13,8 +13,12 @@ class AirGameView: UIView {
     
     var pickerView = UIPickerView()
     var startStopButton = UIButton()
+    var timerLabel = UILabel()
+    
     var timer = Timer()
-
+    var seconds = 0
+    var isTimerOn = false
+    
     var pickerData = [Int]()
     
     // MARK: Initialization
@@ -37,13 +41,21 @@ class AirGameView: UIView {
         pickerView.delegate = self
         pickerView.dataSource = self
         
-        startStopButton.titleLabel?.text = "Start"
-        
         for number in 1...15 {
             pickerData.append(number)
         }
         
+        startStopButton.setTitle("Start", for: .normal)
+        startStopButton.setTitleColor(UIColor.blue, for: .normal)
+        startStopButton.titleLabel?.font = UIFont(name: "MarkerFelt-Thin", size: 36)
+        startStopButton.backgroundColor = UIColor.green
+        startStopButton.addTarget(self, action: #selector(startStopButtonTapped), for: .touchUpInside)
         
+        timerLabel.backgroundColor = UIColor.orange
+        timerLabel.font = UIFont(name: "Verdana", size: 16)
+        timerLabel.text = "0"
+        timerLabel.textAlignment = .center
+
     }
     
     func constrain() {
@@ -54,6 +66,46 @@ class AirGameView: UIView {
             $0.centerX.centerY.equalToSuperview()
         }
         
+        addSubview(startStopButton)
+        startStopButton.snp.makeConstraints {
+            $0.bottom.width.equalToSuperview()
+            $0.height.equalToSuperview().dividedBy(10)
+        }
+        
+        addSubview(timerLabel)
+        timerLabel.snp.makeConstraints {
+            $0.width.equalToSuperview()
+            $0.height.equalToSuperview().dividedBy(10)
+            $0.bottom.equalTo(pickerView.snp.top).offset(-20)
+        }
+        
+        
+    }
+    
+    func startStopButtonTapped() {
+        print("start/stop tapped")
+        isTimerOn = !isTimerOn
+        print(isTimerOn)
+        
+        if isTimerOn {
+
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+            startStopButton.titleLabel?.text = "Stop"
+            startStopButton.setTitleColor(UIColor.white, for: .normal)
+            startStopButton.backgroundColor = UIColor.red
+        } else {
+            timer.invalidate()
+            startStopButton.titleLabel?.text = "Start"
+            startStopButton.setTitleColor(UIColor.blue, for: .normal)
+            startStopButton.backgroundColor = UIColor.green
+
+        }
+    }
+    
+    func updateTimer() {
+        seconds += 1
+        timerLabel.text = "\(seconds)"
+        print("update timer \(seconds)")
     }
     
 }
