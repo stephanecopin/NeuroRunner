@@ -73,7 +73,7 @@ class MicrophoneViewModel: NSObject, AVAudioRecorderDelegate {
         
     }
     
-    
+    var peakLevel = [Float]()
 }
 
 extension MicrophoneViewModel: MicrophoneDelegate {
@@ -83,23 +83,23 @@ extension MicrophoneViewModel: MicrophoneDelegate {
             levelTimer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(levelTimerCallback), userInfo: nil, repeats: true)
             audioRecorder.record()
             print("recording file at \(audioRecorder.url)")
-            print("peak meter is \(audioRecorder.peakPower(forChannel: 0))")
-            print("peak meter is \(audioRecorder.averagePower(forChannel: 0))")
-
         } else {
             audioRecorder.stop()
+            levelTimer = nil
+            print("MAX PEAK LEVEL = \(peakLevel.sorted().last)")
         }
     }
     
     func levelTimerCallback() {
     
         audioRecorder.updateMeters()
-        
+        peakLevel.append(audioRecorder.averagePower(forChannel: 0))
+
+        /*
         if audioRecorder.averagePower(forChannel: 0) > -7 {
-            print("Dis be da level I'm hearin' you in dat mic ")
+            print("Peak level detected above -7")
             print(audioRecorder.averagePower(forChannel: 0))
-            print("Do the thing I want, mofo")
-        }
+        } */
         
     }
     
