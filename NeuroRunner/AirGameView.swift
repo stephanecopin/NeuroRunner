@@ -20,8 +20,10 @@ class AirGameView: UIView {
     var timerView = UIView()
     
     var timer = Timer()
-    var seconds = 0
     var isTimerOn = false
+    var totalTime = 0
+    var seconds = 0
+    var minutes = 0
     
     // MARK: Initialization
     required init?(coder aDecoder: NSCoder) {
@@ -50,12 +52,12 @@ class AirGameView: UIView {
         startStopButton.backgroundColor = UIColor.green
         startStopButton.addTarget(self, action: #selector(startStopButtonTapped), for: .touchUpInside)
 
-        secondsLabel.font = UIFont(name: "Verdana", size: 16)
+        secondsLabel.font = UIFont(name: "Verdana", size: 20)
         secondsLabel.text = "00"
         secondsLabel.textAlignment = .center
         secondsLabel.adjustsFontSizeToFitWidth = true
         
-        minutesLabel.font = UIFont(name: "Verdana", size: 16)
+        minutesLabel.font = UIFont(name: "Verdana", size: 20)
         minutesLabel.text = "00:"
         minutesLabel.textAlignment = .center
         minutesLabel.adjustsFontSizeToFitWidth = true
@@ -102,15 +104,13 @@ class AirGameView: UIView {
     func startStopButtonTapped() {
         print("start/stop tapped")
         isTimerOn = !isTimerOn
-        print(isTimerOn)
-        
-        seconds = Int(pickerTimer.countDownDuration)
-        
-        
-        
+        totalTime = Int(pickerTimer.countDownDuration)
+
         if isTimerOn {
 
-            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
+
+            
             startStopButton.titleLabel?.text = "Stop"
             startStopButton.setTitleColor(UIColor.white, for: .normal)
             startStopButton.backgroundColor = UIColor.red
@@ -123,10 +123,29 @@ class AirGameView: UIView {
         }
     }
     
-    func updateTimer() {
-        seconds -= 1
+    func updateTimerLabel() {
+        totalTime -= 1
+        minutes = (totalTime / 60)
+        seconds = totalTime % 60
+        
         secondsLabel.text = "\(seconds)"
-        print("update timer \(seconds)")
+        minutesLabel.text = "\(minutes):"
+        
+        if 0...9 ~= seconds {
+            secondsLabel.text = "0\(seconds)"
+        }
+        
+        if minutes == 0 {
+            minutesLabel.text = "00"
+        }
+        
+        if totalTime == 0 {
+            timer.invalidate()
+            startStopButton.titleLabel?.text = "Start"
+            startStopButton.setTitleColor(UIColor.blue, for: .normal)
+            startStopButton.backgroundColor = UIColor.green
+        }
+
     }
     
 }
