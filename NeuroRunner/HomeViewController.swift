@@ -12,10 +12,17 @@ import UIKit
 class HomeViewController: UIViewController {
 
     var airGameView: AirGameView!
+    var microphoneViewModel: MicrophoneViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         airGameView = AirGameView()
+        microphoneViewModel = MicrophoneViewModel()
+        microphoneViewModel.configure()
+        microphoneViewModel.setUpRecorder()
+        
+        airGameView.microphoneDelegate = microphoneViewModel
+        
         view.addSubview(airGameView)
         airGameView.snp.makeConstraints{
             $0.edges.equalToSuperview()

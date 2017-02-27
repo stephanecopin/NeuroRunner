@@ -15,7 +15,7 @@
 		E82FF77E1E5E132900AFE050 /* NeuroRunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF77D1E5E132900AFE050 /* NeuroRunnerTests.swift */; };
 		E8A99A161E5E156A0059D21C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A99A151E5E156A0059D21C /* User.swift */; };
 		E8A99A181E5E15900059D21C /* AirGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A99A171E5E15900059D21C /* AirGameView.swift */; };
-		E8A99A1A1E5E15A20059D21C /* AirGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A99A191E5E15A20059D21C /* AirGameViewModel.swift */; };
+		E8A99A1A1E5E15A20059D21C /* MicrophoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A99A191E5E15A20059D21C /* MicrophoneViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,7 +43,7 @@
 		E82FF77F1E5E132900AFE050 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8A99A151E5E156A0059D21C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E8A99A171E5E15900059D21C /* AirGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirGameView.swift; sourceTree = "<group>"; };
-		E8A99A191E5E15A20059D21C /* AirGameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirGameViewModel.swift; sourceTree = "<group>"; };
+		E8A99A191E5E15A20059D21C /* MicrophoneViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicrophoneViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,7 +108,7 @@
 				E82FF7681E5E132800AFE050 /* AppDelegate.swift */,
 				E8A99A151E5E156A0059D21C /* User.swift */,
 				E8A99A171E5E15900059D21C /* AirGameView.swift */,
-				E8A99A191E5E15A20059D21C /* AirGameViewModel.swift */,
+				E8A99A191E5E15A20059D21C /* MicrophoneViewModel.swift */,
 				E82FF76A1E5E132800AFE050 /* HomeViewController.swift */,
 				E82FF76F1E5E132800AFE050 /* Assets.xcassets */,
 				E82FF7711E5E132800AFE050 /* LaunchScreen.storyboard */,
@@ -282,7 +282,7 @@
 			files = (
 				E82FF76B1E5E132800AFE050 /* HomeViewController.swift in Sources */,
 				E8A99A181E5E15900059D21C /* AirGameView.swift in Sources */,
-				E8A99A1A1E5E15A20059D21C /* AirGameViewModel.swift in Sources */,
+				E8A99A1A1E5E15A20059D21C /* MicrophoneViewModel.swift in Sources */,
 				E82FF7691E5E132800AFE050 /* AppDelegate.swift in Sources */,
 				E8A99A161E5E156A0059D21C /* User.swift in Sources */,
 			);

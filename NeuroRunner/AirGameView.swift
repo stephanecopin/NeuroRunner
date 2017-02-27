@@ -25,6 +25,8 @@ class AirGameView: UIView {
     var seconds = 0
     var minutes = 0
     
+    var microphoneDelegate: MicrophoneDelegate?
+    
     // MARK: Initialization
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -114,12 +116,13 @@ class AirGameView: UIView {
             startStopButton.titleLabel?.text = "Stop"
             startStopButton.setTitleColor(UIColor.white, for: .normal)
             startStopButton.backgroundColor = UIColor.red
+            microphoneDelegate?.recordAudio(isRecording: true)
         } else {
             timer.invalidate()
             startStopButton.titleLabel?.text = "Start"
             startStopButton.setTitleColor(UIColor.blue, for: .normal)
             startStopButton.backgroundColor = UIColor.green
-
+            microphoneDelegate?.recordAudio(isRecording: false)
         }
     }
     
