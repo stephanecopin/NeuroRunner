@@ -8,11 +8,19 @@
 
 import UIKit
 
-class ViewController: UIViewController {
 
+class HomeViewController: UIViewController {
+
+    var airGameView: AirGameView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        airGameView = AirGameView()
+        view.addSubview(airGameView)
+        airGameView.snp.makeConstraints{
+            $0.edges.equalToSuperview()
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {
