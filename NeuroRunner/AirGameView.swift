@@ -14,15 +14,14 @@ class AirGameView: UIView {
     var pickerView = UIPickerView()
     var pickerTimer: UIDatePicker!
     var startStopButton = UIButton()
-    var timerLabel = UILabel()
+    var secondsLabel = UILabel()
+    var minutesLabel = UILabel()
+    
+    var timerView = UIView()
     
     var timer = Timer()
     var seconds = 0
     var isTimerOn = false
-    
-    var pickerMinutes = [Int]()
-    var pickerSeconds = [Int]()
-    var pickerCounter = [[Int]]()
     
     // MARK: Initialization
     required init?(coder aDecoder: NSCoder) {
@@ -44,18 +43,24 @@ class AirGameView: UIView {
 
         pickerTimer = UIDatePicker()
         pickerTimer.datePickerMode = .countDownTimer
-
         
         startStopButton.setTitle("Start", for: .normal)
         startStopButton.setTitleColor(UIColor.blue, for: .normal)
         startStopButton.titleLabel?.font = UIFont(name: "MarkerFelt-Thin", size: 36)
         startStopButton.backgroundColor = UIColor.green
         startStopButton.addTarget(self, action: #selector(startStopButtonTapped), for: .touchUpInside)
+
+        secondsLabel.font = UIFont(name: "Verdana", size: 16)
+        secondsLabel.text = "00"
+        secondsLabel.textAlignment = .center
+        secondsLabel.adjustsFontSizeToFitWidth = true
         
-        timerLabel.backgroundColor = UIColor.orange
-        timerLabel.font = UIFont(name: "Verdana", size: 16)
-        timerLabel.text = "0"
-        timerLabel.textAlignment = .center
+        minutesLabel.font = UIFont(name: "Verdana", size: 16)
+        minutesLabel.text = "00:"
+        minutesLabel.textAlignment = .center
+        minutesLabel.adjustsFontSizeToFitWidth = true
+        
+        timerView.backgroundColor = UIColor.orange
 
     }
     
@@ -69,17 +74,28 @@ class AirGameView: UIView {
         
         addSubview(startStopButton)
         startStopButton.snp.makeConstraints {
-            $0.bottom.width.equalToSuperview()
+            $0.bottom.width.centerX.equalToSuperview()
             $0.height.equalToSuperview().dividedBy(10)
         }
         
-        addSubview(timerLabel)
-        timerLabel.snp.makeConstraints {
-            $0.width.equalToSuperview()
+        addSubview(timerView)
+        timerView.snp.makeConstraints {
+            $0.width.centerX.equalToSuperview()
             $0.height.equalToSuperview().dividedBy(10)
-            $0.bottom.equalTo(pickerTimer.snp.top).offset(-20)
+            $0.centerY.equalToSuperview().offset(-200)
+        }
+
+        timerView.addSubview(minutesLabel)
+        minutesLabel.snp.makeConstraints {
+            $0.top.bottom.height.equalToSuperview()
+            $0.trailing.equalTo(timerView.snp.centerX)
         }
         
+        timerView.addSubview(secondsLabel)
+        secondsLabel.snp.makeConstraints {
+            $0.top.bottom.height.equalToSuperview()
+            $0.leading.equalTo(timerView.snp.centerX)
+        }
         
     }
     
@@ -87,6 +103,10 @@ class AirGameView: UIView {
         print("start/stop tapped")
         isTimerOn = !isTimerOn
         print(isTimerOn)
+        
+        seconds = Int(pickerTimer.countDownDuration)
+        
+        
         
         if isTimerOn {
 
@@ -105,7 +125,7 @@ class AirGameView: UIView {
     
     func updateTimer() {
         seconds -= 1
-        timerLabel.text = "\(seconds)"
+        secondsLabel.text = "\(seconds)"
         print("update timer \(seconds)")
     }
     
