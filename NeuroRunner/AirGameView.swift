@@ -120,7 +120,6 @@ class AirGameView: UIView {
     }
     
     func startStopButtonTapped() {
-        print("start/stop tapped")
         isTimerOn = !isTimerOn
         totalTime = Int(pickerTimer.countDownDuration)
 

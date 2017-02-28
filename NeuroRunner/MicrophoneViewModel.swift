@@ -82,11 +82,11 @@ extension MicrophoneViewModel: MicrophoneDelegate {
         if isRecording {
             levelTimer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(levelTimerCallback), userInfo: nil, repeats: true)
             audioRecorder.record()
-            print("recording file at \(audioRecorder.url)")
+            print("recording to file")
         } else {
             audioRecorder.stop()
             levelTimer.invalidate()
-            print("MAX PEAK LEVEL = \(peakLevel.sorted().last)")
+            print("MAX PEAK LEVEL = \(peakLevel.sorted().last!)")
         }
     }
     
