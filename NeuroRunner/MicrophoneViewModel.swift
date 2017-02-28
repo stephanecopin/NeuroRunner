@@ -21,6 +21,9 @@ class MicrophoneViewModel: NSObject, AVAudioRecorderDelegate {
     var audioSession: AVAudioSession!
     
     var levelTimer: Timer!
+
+    var peakLevel = [Float]()
+
     
     func configure() {
         
@@ -73,7 +76,6 @@ class MicrophoneViewModel: NSObject, AVAudioRecorderDelegate {
         
     }
     
-    var peakLevel = [Float]()
 }
 
 extension MicrophoneViewModel: MicrophoneDelegate {

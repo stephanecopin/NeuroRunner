@@ -11,22 +11,22 @@ import SnapKit
 
 class AirGameView: UIView {
     
-    var pickerView = UIPickerView()
     var pickerTimer: UIDatePicker!
-    var startStopButton = UIButton()
-    var breathingButton = UIButton()
+    var timerView = UIView()
     var secondsLabel = UILabel()
     var minutesLabel = UILabel()
     
-    var timerView = UIView()
+    var startStopButton = UIButton()
+    var breathingButton = UIButton()
     
     var timer = Timer()
     var isTimerOn = false
-    var totalTime = 0
+    var totalTimeRemaining = 0
     var seconds = 0
     var minutes = 0
     
     var microphoneDelegate: MicrophoneDelegate?
+    var takingBreathDelegate: TakingBreathDelegate?
     
     // MARK: Initialization
     required init?(coder aDecoder: NSCoder) {
@@ -59,8 +59,8 @@ class AirGameView: UIView {
         breathingButton.setTitleColor(UIColor.white, for: .normal)
         breathingButton.titleLabel?.font = UIFont(name: "MarkerFelt-Thin", size: 28)
         breathingButton.backgroundColor = UIColor.blue
-        breathingButton.addTarget(self, action: #selector(takeBreath(_:)), for: .touchUpInside)
-        breathingButton.addTarget(self, action: #selector(releaseBreath(_:)), for: .touchDown)
+        breathingButton.addTarget(self, action: #selector(takeBreath(_:)), for: .touchDown)
+        breathingButton.addTarget(self, action: #selector(releaseBreath(_:)), for: .touchUpInside)
 
         secondsLabel.font = UIFont(name: "Verdana", size: 20)
         secondsLabel.text = "00"
@@ -121,7 +121,7 @@ class AirGameView: UIView {
     
     func startStopButtonTapped() {
         isTimerOn = !isTimerOn
-        totalTime = Int(pickerTimer.countDownDuration)
+        totalTimeRemaining = Int(pickerTimer.countDownDuration)
 
         if isTimerOn {
 
@@ -142,9 +142,9 @@ class AirGameView: UIView {
     }
     
     func updateTimerLabel() {
-        totalTime -= 1
-        minutes = (totalTime / 60)
-        seconds = totalTime % 60
+        totalTimeRemaining -= 1
+        minutes = (totalTimeRemaining / 60)
+        seconds = totalTimeRemaining % 60
         
         secondsLabel.text = "\(seconds)"
         minutesLabel.text = "\(minutes):"
@@ -157,22 +157,24 @@ class AirGameView: UIView {
             minutesLabel.text = "00:"
         }
         
-        if totalTime == 0 {
+        if totalTimeRemaining == 0 {
             timer.invalidate()
             startStopButton.setTitle("Start", for: .normal)
             startStopButton.setTitleColor(UIColor.blue, for: .normal)
             startStopButton.backgroundColor = UIColor.green
         }
-        print("time remaining = \(totalTime)")
+        print("time remaining = \(totalTimeRemaining)")
 
     }
     
     func takeBreath(_ sender: UIButton) {
-        sender.backgroundColor = UIColor.blue
+        takingBreathDelegate?.takingBreath()
+        sender.backgroundColor = UIColor.yellow
     }
     
     func releaseBreath(_ sender: UIButton) {
-        sender.backgroundColor = UIColor.yellow
+        sender.backgroundColor = UIColor.blue
+        takingBreathDelegate?.takingBreath()
     }
     
 }
