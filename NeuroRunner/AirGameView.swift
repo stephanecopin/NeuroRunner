@@ -11,7 +11,7 @@ import SnapKit
 
 class AirGameView: UIView {
     
-    var pickerTimer: UIDatePicker!
+    let pickerTimer = UIDatePicker()
     var timerView = UIView()
     var secondsLabel = UILabel()
     var minutesLabel = UILabel()
@@ -45,20 +45,21 @@ class AirGameView: UIView {
     
     func configure() {
         backgroundColor = UIColor.cyan
+        timerView.backgroundColor = UIColor.orange
 
-        pickerTimer = UIDatePicker()
         pickerTimer.datePickerMode = .countDownTimer
+        totalTimeRemaining = Int(pickerTimer.countDownDuration)
         
+        startStopButton.backgroundColor = UIColor.green
         startStopButton.setTitle("Start", for: .normal)
         startStopButton.setTitleColor(UIColor.blue, for: .normal)
         startStopButton.titleLabel?.font = UIFont(name: "MarkerFelt-Thin", size: 36)
-        startStopButton.backgroundColor = UIColor.green
         startStopButton.addTarget(self, action: #selector(startStopButtonTapped), for: .touchUpInside)
-        
+
+        breathingButton.backgroundColor = UIColor.blue
         breathingButton.setTitle("Taking a Breath", for: .normal)
         breathingButton.setTitleColor(UIColor.white, for: .normal)
         breathingButton.titleLabel?.font = UIFont(name: "MarkerFelt-Thin", size: 28)
-        breathingButton.backgroundColor = UIColor.blue
         breathingButton.addTarget(self, action: #selector(takeBreath(_:)), for: .touchDown)
         breathingButton.addTarget(self, action: #selector(releaseBreath(_:)), for: .touchUpInside)
 
@@ -72,8 +73,6 @@ class AirGameView: UIView {
         minutesLabel.textAlignment = .center
         minutesLabel.adjustsFontSizeToFitWidth = true
         
-        timerView.backgroundColor = UIColor.orange
-
     }
     
     func constrain() {
@@ -121,23 +120,23 @@ class AirGameView: UIView {
     
     func startStopButtonTapped() {
         isTimerOn = !isTimerOn
-        totalTimeRemaining = Int(pickerTimer.countDownDuration)
 
         if isTimerOn {
-
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
 
+            microphoneDelegate?.recordAudio(isRecording: true)
             
             startStopButton.setTitle("Stop", for: .normal)
             startStopButton.setTitleColor(UIColor.white, for: .normal)
             startStopButton.backgroundColor = UIColor.red
-            microphoneDelegate?.recordAudio(isRecording: true)
         } else {
             timer.invalidate()
+
+            microphoneDelegate?.recordAudio(isRecording: false)
+
             startStopButton.setTitle("Start", for: .normal)
             startStopButton.setTitleColor(UIColor.blue, for: .normal)
             startStopButton.backgroundColor = UIColor.green
-            microphoneDelegate?.recordAudio(isRecording: false)
         }
     }
     
