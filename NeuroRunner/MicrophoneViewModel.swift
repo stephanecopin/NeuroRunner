@@ -85,7 +85,7 @@ extension MicrophoneViewModel: MicrophoneDelegate {
             print("recording file at \(audioRecorder.url)")
         } else {
             audioRecorder.stop()
-            levelTimer = nil
+            levelTimer.invalidate()
             print("MAX PEAK LEVEL = \(peakLevel.sorted().last)")
         }
     }
@@ -94,12 +94,6 @@ extension MicrophoneViewModel: MicrophoneDelegate {
     
         audioRecorder.updateMeters()
         peakLevel.append(audioRecorder.averagePower(forChannel: 0))
-
-        /*
-        if audioRecorder.averagePower(forChannel: 0) > -7 {
-            print("Peak level detected above -7")
-            print(audioRecorder.averagePower(forChannel: 0))
-        } */
         
     }
     
