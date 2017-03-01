@@ -19,6 +19,9 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.title = "Home"
+
         airGameView = AirGameView()
         breathingViewModel = BreathingViewModel()
         microphoneViewModel = MicrophoneViewModel()
@@ -31,7 +34,8 @@ class HomeViewController: UIViewController {
         
         view.addSubview(airGameView)
         airGameView.snp.makeConstraints{
-            $0.edges.equalToSuperview()
+            $0.leading.trailing.top.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(-49)
         }
         
         breathingViewModel = BreathingViewModel()

@@ -12,15 +12,18 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var homeViewController: HomeViewController!
-
+    lazy var containerViewController: ContainerViewController = ContainerViewController()
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        window = UIWindow(frame: UIScreen.main.bounds)
-        homeViewController = HomeViewController()
         
-        window?.rootViewController = homeViewController
+        containerViewController.childVC = MainTabBarController()
+        containerViewController.setup(forAnimation: .slideUp)
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = containerViewController
         window?.makeKeyAndVisible()
+        
         return true
     }
 

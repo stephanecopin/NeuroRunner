@@ -20,6 +20,7 @@
 		E8ED99451E67688E00115DA6 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED99441E67688E00115DA6 /* MainTabBarController.swift */; };
 		E8ED99471E6768D400115DA6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED99461E6768D400115DA6 /* ProfileViewController.swift */; };
 		E8ED994D1E67691600115DA6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED994C1E67691600115DA6 /* ProfileView.swift */; };
+		E8ED994F1E676ABA00115DA6 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED994E1E676ABA00115DA6 /* ContainerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		E8ED99441E67688E00115DA6 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E8ED99461E6768D400115DA6 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E8ED994C1E67691600115DA6 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		E8ED994E1E676ABA00115DA6 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -138,6 +140,7 @@
 			children = (
 				E82FF7681E5E132800AFE050 /* AppDelegate.swift */,
 				E8ED99441E67688E00115DA6 /* MainTabBarController.swift */,
+				E8ED994E1E676ABA00115DA6 /* ContainerViewController.swift */,
 				E82FF76A1E5E132800AFE050 /* HomeViewController.swift */,
 				E8ED99461E6768D400115DA6 /* ProfileViewController.swift */,
 			);
@@ -326,6 +329,7 @@
 			files = (
 				E82FF76B1E5E132800AFE050 /* HomeViewController.swift in Sources */,
 				E8ED994D1E67691600115DA6 /* ProfileView.swift in Sources */,
+				E8ED994F1E676ABA00115DA6 /* ContainerViewController.swift in Sources */,
 				E8ED99431E64FEF700115DA6 /* BreathingViewModel.swift in Sources */,
 				E8A99A181E5E15900059D21C /* AirGameView.swift in Sources */,
 				E8ED99451E67688E00115DA6 /* MainTabBarController.swift in Sources */,
