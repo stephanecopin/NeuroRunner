@@ -24,6 +24,7 @@ class MicrophoneViewModel: NSObject, AVAudioRecorderDelegate {
 
     var peakLevel = [Float]()
 
+    var takingBreathDelegate: TakingBreathDelegate?
     
     func configure() {
         
@@ -82,7 +83,8 @@ extension MicrophoneViewModel: MicrophoneDelegate {
     
     func recordAudio(isRecording: Bool) {
         if isRecording {
-            levelTimer = Timer.scheduledTimer(timeInterval: 0.02, target: self, selector: #selector(levelTimerCallback), userInfo: nil, repeats: true)
+            //Timer to detect audio levels
+            levelTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(levelTimerCallback), userInfo: nil, repeats: true)
             audioRecorder.record()
             print("recording to file")
         } else {
@@ -92,11 +94,22 @@ extension MicrophoneViewModel: MicrophoneDelegate {
         }
     }
     
+    // Reads audio levels from microphone
     func levelTimerCallback() {
     
         audioRecorder.updateMeters()
+        
+        print("average power = \(audioRecorder.averagePower(forChannel: 0))")
+        if audioRecorder.averagePower(forChannel: 0) > -35 {
+            takingBreathDelegate?.addToTimeBreathingMicrophone()
+        }
+        
+        // Sorted to detect max level
         peakLevel.append(audioRecorder.averagePower(forChannel: 0))
+
         
     }
+    
+    
     
 }
