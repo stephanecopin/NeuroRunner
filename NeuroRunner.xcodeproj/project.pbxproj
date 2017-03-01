@@ -17,6 +17,9 @@
 		E8A99A181E5E15900059D21C /* AirGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A99A171E5E15900059D21C /* AirGameView.swift */; };
 		E8A99A1A1E5E15A20059D21C /* MicrophoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A99A191E5E15A20059D21C /* MicrophoneViewModel.swift */; };
 		E8ED99431E64FEF700115DA6 /* BreathingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED99421E64FEF700115DA6 /* BreathingViewModel.swift */; };
+		E8ED99451E67688E00115DA6 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED99441E67688E00115DA6 /* MainTabBarController.swift */; };
+		E8ED99471E6768D400115DA6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED99461E6768D400115DA6 /* ProfileViewController.swift */; };
+		E8ED994D1E67691600115DA6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED994C1E67691600115DA6 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,9 @@
 		E8A99A171E5E15900059D21C /* AirGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirGameView.swift; sourceTree = "<group>"; };
 		E8A99A191E5E15A20059D21C /* MicrophoneViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicrophoneViewModel.swift; sourceTree = "<group>"; };
 		E8ED99421E64FEF700115DA6 /* BreathingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreathingViewModel.swift; sourceTree = "<group>"; };
+		E8ED99441E67688E00115DA6 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		E8ED99461E6768D400115DA6 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		E8ED994C1E67691600115DA6 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,12 +113,10 @@
 		E82FF7671E5E132800AFE050 /* NeuroRunner */ = {
 			isa = PBXGroup;
 			children = (
-				E82FF7681E5E132800AFE050 /* AppDelegate.swift */,
-				E8A99A151E5E156A0059D21C /* User.swift */,
-				E8A99A171E5E15900059D21C /* AirGameView.swift */,
-				E8A99A191E5E15A20059D21C /* MicrophoneViewModel.swift */,
-				E8ED99421E64FEF700115DA6 /* BreathingViewModel.swift */,
-				E82FF76A1E5E132800AFE050 /* HomeViewController.swift */,
+				E8ED994B1E6768FE00115DA6 /* Models */,
+				E8ED994A1E6768F300115DA6 /* Views */,
+				E8ED99491E6768EA00115DA6 /* ViewModels */,
+				E8ED99481E6768E200115DA6 /* Controllers */,
 				E82FF76F1E5E132800AFE050 /* Assets.xcassets */,
 				E82FF7711E5E132800AFE050 /* LaunchScreen.storyboard */,
 				E82FF7741E5E132800AFE050 /* Info.plist */,
@@ -127,6 +131,43 @@
 				E82FF77F1E5E132900AFE050 /* Info.plist */,
 			);
 			path = NeuroRunnerTests;
+			sourceTree = "<group>";
+		};
+		E8ED99481E6768E200115DA6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E82FF7681E5E132800AFE050 /* AppDelegate.swift */,
+				E8ED99441E67688E00115DA6 /* MainTabBarController.swift */,
+				E82FF76A1E5E132800AFE050 /* HomeViewController.swift */,
+				E8ED99461E6768D400115DA6 /* ProfileViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		E8ED99491E6768EA00115DA6 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				E8A99A191E5E15A20059D21C /* MicrophoneViewModel.swift */,
+				E8ED99421E64FEF700115DA6 /* BreathingViewModel.swift */,
+			);
+			name = ViewModels;
+			sourceTree = "<group>";
+		};
+		E8ED994A1E6768F300115DA6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E8A99A171E5E15900059D21C /* AirGameView.swift */,
+				E8ED994C1E67691600115DA6 /* ProfileView.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		E8ED994B1E6768FE00115DA6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				E8A99A151E5E156A0059D21C /* User.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -284,10 +325,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E82FF76B1E5E132800AFE050 /* HomeViewController.swift in Sources */,
+				E8ED994D1E67691600115DA6 /* ProfileView.swift in Sources */,
 				E8ED99431E64FEF700115DA6 /* BreathingViewModel.swift in Sources */,
 				E8A99A181E5E15900059D21C /* AirGameView.swift in Sources */,
+				E8ED99451E67688E00115DA6 /* MainTabBarController.swift in Sources */,
 				E8A99A1A1E5E15A20059D21C /* MicrophoneViewModel.swift in Sources */,
 				E82FF7691E5E132800AFE050 /* AppDelegate.swift in Sources */,
+				E8ED99471E6768D400115DA6 /* ProfileViewController.swift in Sources */,
 				E8A99A161E5E156A0059D21C /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
