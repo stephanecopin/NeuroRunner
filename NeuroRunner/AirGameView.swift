@@ -122,16 +122,17 @@ class AirGameView: UIView {
         isTimerOn = !isTimerOn
 
         if isTimerOn {
+            // Creates timer for label
             timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
-
-            microphoneDelegate?.recordAudio(isRecording: true)
             
             startStopButton.setTitle("Stop", for: .normal)
             startStopButton.setTitleColor(UIColor.white, for: .normal)
             startStopButton.backgroundColor = UIColor.red
+            
+            microphoneDelegate?.recordAudio(isRecording: true)
+
         } else {
             timer.invalidate()
-
             microphoneDelegate?.recordAudio(isRecording: false)
 
             startStopButton.setTitle("Start", for: .normal)
@@ -158,6 +159,8 @@ class AirGameView: UIView {
         
         if totalTimeRemaining == 0 {
             timer.invalidate()
+            microphoneDelegate?.recordAudio(isRecording: false)
+
             startStopButton.setTitle("Start", for: .normal)
             startStopButton.setTitleColor(UIColor.blue, for: .normal)
             startStopButton.backgroundColor = UIColor.green
@@ -166,14 +169,16 @@ class AirGameView: UIView {
 
     }
     
+    
+    
     func takeBreath(_ sender: UIButton) {
-        takingBreathDelegate?.takingBreath()
+        takingBreathDelegate?.addToTimeBreathingButton(isBreathing: true)
         sender.backgroundColor = UIColor.yellow
     }
     
     func releaseBreath(_ sender: UIButton) {
         sender.backgroundColor = UIColor.blue
-        takingBreathDelegate?.takingBreath()
+        takingBreathDelegate?.addToTimeBreathingButton(isBreathing: false)
     }
     
 }
