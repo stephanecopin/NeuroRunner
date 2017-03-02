@@ -60,6 +60,7 @@ class AirGameView: UIView {
         breathingButton.setTitle("Taking a Breath", for: .normal)
         breathingButton.setTitleColor(UIColor.white, for: .normal)
         breathingButton.titleLabel?.font = UIFont(name: "MarkerFelt-Thin", size: 28)
+        breathingButton.isHidden = true
         breathingButton.addTarget(self, action: #selector(takeBreath(_:)), for: .touchDown)
         breathingButton.addTarget(self, action: #selector(releaseBreath(_:)), for: .touchUpInside)
 
@@ -122,23 +123,37 @@ class AirGameView: UIView {
         isTimerOn = !isTimerOn
 
         if isTimerOn {
-            // Creates timer for label
-            timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
-            
-            startStopButton.setTitle("Stop", for: .normal)
-            startStopButton.setTitleColor(UIColor.white, for: .normal)
-            startStopButton.backgroundColor = UIColor.red
-            
-            microphoneDelegate?.recordAudio(isRecording: true)
-
+            timerOn()
         } else {
-            timer.invalidate()
-            microphoneDelegate?.recordAudio(isRecording: false)
-
-            startStopButton.setTitle("Start", for: .normal)
-            startStopButton.setTitleColor(UIColor.blue, for: .normal)
-            startStopButton.backgroundColor = UIColor.green
+            timerOff()
         }
+    }
+    
+    func timerOn() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
+        
+        breathingButton.isHidden = false
+        
+        startStopButton.setTitle("Stop", for: .normal)
+        startStopButton.setTitleColor(UIColor.white, for: .normal)
+        startStopButton.backgroundColor = UIColor.red
+        
+        microphoneDelegate?.recordAudio(isRecording: true)
+        
+
+        
+        
+    }
+    
+    func timerOff() {
+        timer.invalidate()
+        microphoneDelegate?.recordAudio(isRecording: false)
+        
+        breathingButton.isHidden = true
+        
+        startStopButton.setTitle("Start", for: .normal)
+        startStopButton.setTitleColor(UIColor.blue, for: .normal)
+        startStopButton.backgroundColor = UIColor.green
     }
     
     func updateTimerLabel() {
@@ -158,18 +173,9 @@ class AirGameView: UIView {
         }
         
         if totalTimeRemaining == 0 {
-            timer.invalidate()
-            microphoneDelegate?.recordAudio(isRecording: false)
-
-            startStopButton.setTitle("Start", for: .normal)
-            startStopButton.setTitleColor(UIColor.blue, for: .normal)
-            startStopButton.backgroundColor = UIColor.green
+            timerOff()
         }
-        print("time remaining = \(totalTimeRemaining)")
-
     }
-    
-    
     
     func takeBreath(_ sender: UIButton) {
         takingBreathDelegate?.addToTimeBreathingButton(isBreathing: true)
@@ -179,6 +185,18 @@ class AirGameView: UIView {
     func releaseBreath(_ sender: UIButton) {
         sender.backgroundColor = UIColor.blue
         takingBreathDelegate?.addToTimeBreathingButton(isBreathing: false)
+    }
+    
+}
+
+extension AirGameView: BreathingViewUpdate {
+    
+    func breathingDetected(isDetected: Bool) {
+        if isDetected {
+            backgroundColor = UIColor.blue
+        } else {
+            backgroundColor = UIColor.cyan
+        }
     }
     
 }

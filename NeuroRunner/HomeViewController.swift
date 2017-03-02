@@ -31,6 +31,7 @@ class HomeViewController: UIViewController {
         airGameView.microphoneDelegate = microphoneViewModel
         airGameView.takingBreathDelegate = breathingViewModel
         microphoneViewModel.takingBreathDelegate = breathingViewModel
+        microphoneViewModel.breathingViewUpdateDelegate = airGameView
         
         view.addSubview(airGameView)
         airGameView.snp.makeConstraints{

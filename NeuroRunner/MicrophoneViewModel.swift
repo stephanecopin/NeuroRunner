@@ -14,6 +14,12 @@ protocol MicrophoneDelegate {
     
 }
 
+protocol BreathingViewUpdate {
+    
+    func breathingDetected(isDetected: Bool)
+    
+}
+
 class MicrophoneViewModel: NSObject, AVAudioRecorderDelegate {
     
     var audioRecorder: AVAudioRecorder!
@@ -21,10 +27,12 @@ class MicrophoneViewModel: NSObject, AVAudioRecorderDelegate {
     var audioSession: AVAudioSession!
     
     var levelTimer: Timer!
-
+    
     var peakLevel = [Float]()
-
+    var minBreathingLevel: Float = -35
+    
     var takingBreathDelegate: TakingBreathDelegate?
+    var breathingViewUpdateDelegate: BreathingViewUpdate?
     
     func configure() {
         
@@ -76,7 +84,6 @@ class MicrophoneViewModel: NSObject, AVAudioRecorderDelegate {
         }
         
     }
-    
 }
 
 extension MicrophoneViewModel: MicrophoneDelegate {
@@ -90,26 +97,20 @@ extension MicrophoneViewModel: MicrophoneDelegate {
         } else {
             audioRecorder.stop()
             levelTimer.invalidate()
-            print("MAX PEAK LEVEL = \(peakLevel.sorted().last!)")
         }
     }
     
-    // Reads audio levels from microphone
     func levelTimerCallback() {
-    
         audioRecorder.updateMeters()
         
-        print("average power = \(audioRecorder.averagePower(forChannel: 0))")
-        if audioRecorder.averagePower(forChannel: 0) > -35 {
+        if audioRecorder.averagePower(forChannel: 0) > minBreathingLevel {
             takingBreathDelegate?.addToTimeBreathingMicrophone()
+            breathingViewUpdateDelegate?.breathingDetected(isDetected: true)
+        } else {
+            breathingViewUpdateDelegate?.breathingDetected(isDetected: false)
         }
-        
-        // Sorted to detect max level
-        peakLevel.append(audioRecorder.averagePower(forChannel: 0))
 
-        
     }
-    
     
     
 }
