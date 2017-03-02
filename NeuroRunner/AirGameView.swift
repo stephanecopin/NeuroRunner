@@ -56,7 +56,7 @@ class AirGameView: UIView {
         startStopButton.titleLabel?.font = UIFont(name: "MarkerFelt-Thin", size: 36)
         startStopButton.addTarget(self, action: #selector(startStopButtonTapped), for: .touchUpInside)
 
-        breathingButton.backgroundColor = UIColor.blue
+        breathingButton.backgroundColor = UIColor.purple
         breathingButton.setTitle("Taking a Breath", for: .normal)
         breathingButton.setTitleColor(UIColor.white, for: .normal)
         breathingButton.titleLabel?.font = UIFont(name: "MarkerFelt-Thin", size: 28)
@@ -183,7 +183,7 @@ class AirGameView: UIView {
     }
     
     func releaseBreath(_ sender: UIButton) {
-        sender.backgroundColor = UIColor.blue
+        sender.backgroundColor = UIColor.purple
         takingBreathDelegate?.addToTimeBreathingButton(isBreathing: false)
     }
     
