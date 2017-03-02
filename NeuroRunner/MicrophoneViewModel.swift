@@ -59,11 +59,7 @@ class MicrophoneViewModel: NSObject, AVAudioRecorderDelegate {
     
     func setUpRecorder() {
         
-        let audioFile = "recordingSession.audioFile.m4a"
-        
-        let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-        let documentsDirectory = paths[0]
-        let audioFilename = documentsDirectory.appendingPathComponent(audioFile)
+        let urlPathNull = URL.init(fileURLWithPath: "/dev/null")
         
         let settings = [AVFormatIDKey : Int(kAudioFormatAppleLossless),
                         AVEncoderAudioQualityKey : AVAudioQuality.max.rawValue,
@@ -71,11 +67,11 @@ class MicrophoneViewModel: NSObject, AVAudioRecorderDelegate {
                         AVSampleRateKey: 44100.0 ] as [String : Any]
         
         do {
-            audioRecorder =  try AVAudioRecorder(url: audioFilename, settings: settings)
+            audioRecorder =  try AVAudioRecorder(url: urlPathNull, settings: settings)
             audioRecorder.delegate = self
             audioRecorder.prepareToRecord()
             audioRecorder.isMeteringEnabled = true
-            print("ready to record at \(audioFilename)")
+            print("ready to record!")
         } catch {
             if let err = error as Error? {
                 print("AVAudioRecorder error: \(err.localizedDescription)")
@@ -93,7 +89,7 @@ extension MicrophoneViewModel: MicrophoneDelegate {
             //Timer to detect audio levels
             levelTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(levelTimerCallback), userInfo: nil, repeats: true)
             audioRecorder.record()
-            print("recording to file")
+            print("recording")
         } else {
             audioRecorder.stop()
             levelTimer.invalidate()
