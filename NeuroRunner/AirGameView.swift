@@ -16,6 +16,9 @@ class AirGameView: UIView {
     var secondsLabel = UILabel()
     var minutesLabel = UILabel()
     
+    var backgroundView: UIImageView!
+    var blurView: UIVisualEffectView!
+    
     var startStopButton = UIButton()
     var breathingButton = UIButton()
     
@@ -44,7 +47,15 @@ class AirGameView: UIView {
     }
     
     func configure() {
-        backgroundColor = UIColor.cyan
+        
+        blurView = UIVisualEffectView(effect: UIBlurEffect(style: .prominent))
+        blurView.alpha = 0.4
+        
+        let backgroundImage = #imageLiteral(resourceName: "mountain")
+        
+        backgroundView = UIImageView(frame: CGRect(origin: CGPoint.init(x: -745, y: 0), size: backgroundImage.size))
+        backgroundView.image = backgroundImage
+
         timerView.backgroundColor = UIColor.orange
 
         pickerTimer.datePickerMode = .countDownTimer
@@ -77,6 +88,12 @@ class AirGameView: UIView {
     }
     
     func constrain() {
+        addSubview(backgroundView)
+        backgroundView.addSubview(blurView)
+        blurView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
         addSubview(pickerTimer)
         pickerTimer.snp.makeConstraints {
             $0.width.equalToSuperview().multipliedBy(0.8)
