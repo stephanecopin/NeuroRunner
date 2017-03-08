@@ -210,9 +210,9 @@ extension AirGameView: BreathingViewUpdate {
     
     func breathingDetected(isDetected: Bool) {
         if isDetected {
-            backgroundColor = UIColor.blue
+            blurView.alpha = 0
         } else {
-            backgroundColor = UIColor.cyan
+            blurView.alpha = 0.4
         }
     }
     
