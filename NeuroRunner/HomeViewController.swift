@@ -7,11 +7,10 @@
 //
 
 import UIKit
+import RealmSwift
 
 
 class HomeViewController: UIViewController {
-
-    let user = User()
 
     var airGameView: AirGameView!
     var microphoneViewModel: MicrophoneViewModel!
@@ -40,6 +39,19 @@ class HomeViewController: UIViewController {
         }
         
         breathingViewModel = BreathingViewModel()
+        
+        
+        let newUser = User()
+        let newGame = AirHungerGame()
+        
+        newUser.name = "Me"
+        newUser.airHungerGames.append(newGame)
+        
+        let realm = try! Realm()
+        
+        try! realm.write {
+            realm.add(newUser)
+        }
         
     }
 

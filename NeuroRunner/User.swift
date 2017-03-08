@@ -6,14 +6,11 @@
 //  Copyright © 2017 Robert Deans. All rights reserved.
 //
 
-import Foundation
+import RealmSwift
 
-class User {
+class User: Object {
     
-    let name: String
-    
-    init(name: String) {
-        self.name = name
-    }
+    dynamic var name = ""
+    let airHungerGames = List<AirHungerGame>()
     
 }
