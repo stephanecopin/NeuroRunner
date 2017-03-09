@@ -171,6 +171,9 @@ class AirGameView: UIView {
         startStopButton.setTitle("Start", for: .normal)
         startStopButton.setTitleColor(UIColor.blue, for: .normal)
         startStopButton.backgroundColor = UIColor.green
+        
+        blurView.alpha = 0.4
+
     }
     
     func updateTimerLabel() {

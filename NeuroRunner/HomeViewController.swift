@@ -16,10 +16,23 @@ class HomeViewController: UIViewController {
     var microphoneViewModel: MicrophoneViewModel!
     var breathingViewModel: BreathingViewModel!
     
+    func toggleMic() {
+        microphoneViewModel.isMicrophoneEnabled = !microphoneViewModel.isMicrophoneEnabled
+        
+        if microphoneViewModel.isMicrophoneEnabled {
+            navigationItem.rightBarButtonItem?.title = "Mic Enabled"
+        } else {
+            navigationItem.rightBarButtonItem?.title = "Mic Disabled"
+        }
+
+
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         navigationItem.title = "Home"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Mic Enabled", style: .plain, target: self, action: #selector(toggleMic))
 
         airGameView = AirGameView()
         breathingViewModel = BreathingViewModel()

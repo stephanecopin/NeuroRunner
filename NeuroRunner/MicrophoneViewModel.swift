@@ -34,6 +34,8 @@ class MicrophoneViewModel: NSObject, AVAudioRecorderDelegate {
     var takingBreathDelegate: TakingBreathDelegate?
     var breathingViewUpdateDelegate: BreathingViewUpdate?
     
+    var isMicrophoneEnabled = true
+    
     func configure() {
         
         audioSession = AVAudioSession.sharedInstance()
@@ -85,12 +87,12 @@ class MicrophoneViewModel: NSObject, AVAudioRecorderDelegate {
 extension MicrophoneViewModel: MicrophoneDelegate {
     
     func recordAudio(isRecording: Bool) {
-        if isRecording {
+        if isRecording && isMicrophoneEnabled {
             //Timer to detect audio levels
             levelTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(levelTimerCallback), userInfo: nil, repeats: true)
             audioRecorder.record()
             print("recording")
-        } else {
+        } else if isMicrophoneEnabled {
             audioRecorder.stop()
             levelTimer.invalidate()
         }
