@@ -9,6 +9,7 @@ target 'NeuroRunner' do
 
   pod 'SnapKit', '~> 3.0'
   pod 'RealmSwift'
+  pod 'Charts'
 
   end
 

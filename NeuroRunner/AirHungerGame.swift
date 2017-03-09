@@ -8,8 +8,11 @@
 
 import RealmSwift
 
+
 class AirHungerGame: Object {
     
-
+    dynamic var timeSpentBreathing = 0.0
+    dynamic var timeSpentHungering = 0.0
+    dynamic var dateOfExercise = NSDate()
     
 }

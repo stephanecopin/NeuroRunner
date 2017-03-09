@@ -197,10 +197,12 @@ class AirGameView: UIView {
     func takeBreath(_ sender: UIButton) {
         takingBreathDelegate?.addToTimeBreathingButton(isBreathing: true)
         sender.backgroundColor = UIColor.yellow
+        blurView.alpha = 0
     }
     
     func releaseBreath(_ sender: UIButton) {
         sender.backgroundColor = UIColor.purple
+        blurView.alpha = 0.4
         takingBreathDelegate?.addToTimeBreathingButton(isBreathing: false)
     }
     
