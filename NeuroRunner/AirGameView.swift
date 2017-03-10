@@ -59,7 +59,6 @@ class AirGameView: UIView {
         timerView.backgroundColor = UIColor.orange
 
         pickerTimer.datePickerMode = .countDownTimer
-        totalTimeRemaining = Int(pickerTimer.countDownDuration)
         
         startStopButton.backgroundColor = UIColor.green
         startStopButton.setTitle("Start", for: .normal)
@@ -147,6 +146,9 @@ class AirGameView: UIView {
     }
     
     func timerOn() {
+        
+        totalTimeRemaining = Int(pickerTimer.countDownDuration)
+        
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
         
         breathingButton.isHidden = false
@@ -189,10 +191,10 @@ class AirGameView: UIView {
             minutesLabel.text = "00:"
         }
         
+        // TIMER == 00:00 WILL CREATE INSTANCE OF GAME
         if totalTimeRemaining == 0 {
             timerOff()
             takingBreathDelegate?.createAirHungerGame(totalTime: 60.0)
-            
         }
     }
     

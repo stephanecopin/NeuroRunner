@@ -34,7 +34,7 @@ class MicrophoneViewModel: NSObject, AVAudioRecorderDelegate {
     var takingBreathDelegate: TakingBreathDelegate?
     var breathingViewUpdateDelegate: BreathingViewUpdate?
     
-    var isMicrophoneEnabled = true
+    var isMicrophoneEnabled = false
     
     override init() {
         super.init()

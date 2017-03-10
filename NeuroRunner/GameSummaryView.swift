@@ -13,6 +13,8 @@ class GameSummaryView: UIView {
     
     var lastGame: AirHungerGame!
     
+    var blurView: UIVisualEffectView!
+    let summaryView = UIView()
     let dismissButton = UIButton()
     let breathingLabel = UILabel()
     
@@ -31,7 +33,7 @@ class GameSummaryView: UIView {
         
         lastGame = game
 
-        breathingLabel.text = String(lastGame.timeSpentBreathing)
+        breathingLabel.text = "\(lastGame.timeSpentBreathing) seconds breathing"
         
         configure()
         constrain()
@@ -39,34 +41,46 @@ class GameSummaryView: UIView {
     
     func configure() {
         
+        blurView = UIVisualEffectView(effect: UIBlurEffect(style: .prominent))
+        blurView.alpha = 0.4
+        
+        summaryView.backgroundColor = UIColor.purple
+        
         breathingLabel.font = UIFont(name: "MarkerFelt-Thin", size: 28)
-
         
         dismissButton.setTitle("OK", for: .normal)
-        dismissButton.backgroundColor = UIColor.green
+        dismissButton.backgroundColor = UIColor.blue
         dismissButton.setTitleColor(UIColor.white, for: .normal)
         dismissButton.titleLabel?.font = UIFont(name: "MarkerFelt-Thin", size: 28)
-        dismissButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
         
     }
 
     func constrain() {
+        /*
+        addSubview(blurView)
+        blurView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        */
         
-        addSubview(breathingLabel)
+        addSubview(summaryView)
+        summaryView.snp.makeConstraints {
+            $0.centerX.centerY.equalToSuperview()
+            $0.width.equalToSuperview().multipliedBy(0.8)
+            $0.height.equalToSuperview().multipliedBy(0.6)
+
+        }
+        
+        summaryView.addSubview(breathingLabel)
         breathingLabel.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
         }
         
-        addSubview(dismissButton)
+        summaryView.addSubview(dismissButton)
         dismissButton.snp.makeConstraints {
-            $0.width.bottom.equalToSuperview()
+            $0.width.centerX.bottom.equalToSuperview()
             $0.height.equalToSuperview().dividedBy(10)
         }
-        
-    }
-    
-    func dismissView() {
-        print("dismiss View tapped")
         
     }
 }

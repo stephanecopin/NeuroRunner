@@ -27,6 +27,8 @@ class AirGameViewModel: TakingBreathDelegate {
     let store = DataStore.shared
     var user: User!
     
+    var presentGameSummaryDelegate: PresentGameSummaryDelegate?
+    
     var timeBreathingButton = 0.0
     var timeBreathingMicrophone = 0.0
     var totalTimeBreathing: Double {
@@ -65,15 +67,29 @@ class AirGameViewModel: TakingBreathDelegate {
     
     func createAirHungerGame(totalTime: Double) {
         newGame = AirHungerGame()
-        newGame.timeSpentBreathing = totalTimeBreathing
-        newGame.timeSpentHungering = totalTime - totalTimeBreathing
+        newGame.timeSpentBreathing = totalTimeBreathing.roundTo(places: 2)
+        newGame.timeSpentHungering = totalTime - totalTimeBreathing.roundTo(places: 2)
 
         user.airHungerGames.append(newGame)
+        print("VM user airGame count is \(user.airHungerGames.count)")
+        presentGameSummaryDelegate?.presentGameSummary()
         
         print("Date = \(newGame.dateOfExercise)")
         print("time breathing microphone = \(timeBreathingMicrophone)")
         print("time breathing button = \(timeBreathingButton)")
+        print("newGame returned to nil")
+        newGame = nil
+        timeBreathingButton = 0.0
+        timeBreathingMicrophone = 0.0
 
     }
     
+}
+
+extension Double {
+    /// Rounds the double to decimal places value
+    func roundTo(places:Int) -> Double {
+        let divisor = pow(10.0, Double(places))
+        return (self * divisor).rounded() / divisor
+    }
 }

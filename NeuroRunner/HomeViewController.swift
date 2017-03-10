@@ -16,6 +16,8 @@ class HomeViewController: UIViewController {
     let airGameViewModel = AirGameViewModel()
     let microphoneViewModel = MicrophoneViewModel()
     
+    var gameSummaryViewController: GameSummaryViewController!
+    
     let store = DataStore.shared
     var user: User!
     
@@ -33,14 +35,14 @@ class HomeViewController: UIViewController {
         
         // Customize Navigation Bar
         navigationItem.title = "Home"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Mic Enabled", style: .plain, target: self, action: #selector(toggleMic))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Mic Disabled", style: .plain, target: self, action: #selector(toggleMic))
         
         // Set Delegates
         airGameView.microphoneDelegate = microphoneViewModel
         airGameView.takingBreathDelegate = airGameViewModel
         microphoneViewModel.takingBreathDelegate = airGameViewModel
         microphoneViewModel.breathingViewUpdateDelegate = airGameView
-        
+        airGameViewModel.presentGameSummaryDelegate = self
         
         // Add View
         view.addSubview(airGameView)
@@ -67,27 +69,30 @@ class HomeViewController: UIViewController {
 
 }
 
-protocol PresentGameSummary {
+protocol PresentGameSummaryDelegate {
     
     func presentGameSummary()
     
 }
 
-extension HomeViewController: PresentGameSummary {
+extension HomeViewController: PresentGameSummaryDelegate {
     
     func presentGameSummary() {
+        print("presentGameSummary delegate called")
 
-        if user.airHungerGames.count > 0 {
-            let lastGame = user.airHungerGames[0]
-            let gameSummary = GameSummaryView(with: lastGame)
-            
-            view.addSubview(gameSummary)
-            gameSummary.snp.makeConstraints {
-                $0.centerX.centerY.equalToSuperview()
-                $0.width.height.equalToSuperview().multipliedBy(0.8)
-            }
-            
+        gameSummaryViewController = GameSummaryViewController()
+        
+        addChildViewController(gameSummaryViewController)
+        
+        view.addSubview(gameSummaryViewController.view)
+        gameSummaryViewController.view.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
+        
+        gameSummaryViewController.didMove(toParentViewController: nil)
+        
+        view.layoutIfNeeded()
+        
     }
 }
 
