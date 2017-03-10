@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C55D0A173748985DE0C86AC8 /* Pods_NeuroRunner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19CE9D71EB15F053A62F1FB7 /* Pods_NeuroRunner.framework */; };
+		E8090A131E732A6E002F79F7 /* GameSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8090A121E732A6E002F79F7 /* GameSummaryView.swift */; };
 		E8116AED1E6FC9DF0048859A /* AirHungerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8116AEC1E6FC9DF0048859A /* AirHungerGame.swift */; };
 		E82FF7691E5E132800AFE050 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF7681E5E132800AFE050 /* AppDelegate.swift */; };
 		E82FF76B1E5E132800AFE050 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF76A1E5E132800AFE050 /* HomeViewController.swift */; };
@@ -18,7 +19,7 @@
 		E8A99A181E5E15900059D21C /* AirGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A99A171E5E15900059D21C /* AirGameView.swift */; };
 		E8A99A1A1E5E15A20059D21C /* MicrophoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A99A191E5E15A20059D21C /* MicrophoneViewModel.swift */; };
 		E8D1B1CE1E6B7BF000FD9A68 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D1B1CD1E6B7BF000FD9A68 /* DataStore.swift */; };
-		E8ED99431E64FEF700115DA6 /* BreathingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED99421E64FEF700115DA6 /* BreathingViewModel.swift */; };
+		E8ED99431E64FEF700115DA6 /* AirGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED99421E64FEF700115DA6 /* AirGameViewModel.swift */; };
 		E8ED99451E67688E00115DA6 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED99441E67688E00115DA6 /* MainTabBarController.swift */; };
 		E8ED99471E6768D400115DA6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED99461E6768D400115DA6 /* ProfileViewController.swift */; };
 		E8ED994D1E67691600115DA6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED994C1E67691600115DA6 /* ProfileView.swift */; };
@@ -39,6 +40,7 @@
 		19CE9D71EB15F053A62F1FB7 /* Pods_NeuroRunner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeuroRunner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D259B4A95FB79228845F94E /* Pods-NeuroRunner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeuroRunner.release.xcconfig"; path = "Pods/Target Support Files/Pods-NeuroRunner/Pods-NeuroRunner.release.xcconfig"; sourceTree = "<group>"; };
 		3EE4BC3EA3E8A833E7BC0337 /* Pods-NeuroRunner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeuroRunner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NeuroRunner/Pods-NeuroRunner.debug.xcconfig"; sourceTree = "<group>"; };
+		E8090A121E732A6E002F79F7 /* GameSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSummaryView.swift; sourceTree = "<group>"; };
 		E8116AEC1E6FC9DF0048859A /* AirHungerGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirHungerGame.swift; sourceTree = "<group>"; };
 		E82FF7651E5E132800AFE050 /* NeuroRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeuroRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E82FF7681E5E132800AFE050 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -53,7 +55,7 @@
 		E8A99A171E5E15900059D21C /* AirGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirGameView.swift; sourceTree = "<group>"; };
 		E8A99A191E5E15A20059D21C /* MicrophoneViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicrophoneViewModel.swift; sourceTree = "<group>"; };
 		E8D1B1CD1E6B7BF000FD9A68 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
-		E8ED99421E64FEF700115DA6 /* BreathingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreathingViewModel.swift; sourceTree = "<group>"; };
+		E8ED99421E64FEF700115DA6 /* AirGameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirGameViewModel.swift; sourceTree = "<group>"; };
 		E8ED99441E67688E00115DA6 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E8ED99461E6768D400115DA6 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E8ED994C1E67691600115DA6 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
@@ -164,7 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				E8A99A191E5E15A20059D21C /* MicrophoneViewModel.swift */,
-				E8ED99421E64FEF700115DA6 /* BreathingViewModel.swift */,
+				E8ED99421E64FEF700115DA6 /* AirGameViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -173,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				E8A99A171E5E15900059D21C /* AirGameView.swift */,
+				E8090A121E732A6E002F79F7 /* GameSummaryView.swift */,
 				E8ED994C1E67691600115DA6 /* ProfileView.swift */,
 			);
 			name = Views;
@@ -343,8 +346,9 @@
 			files = (
 				E82FF76B1E5E132800AFE050 /* HomeViewController.swift in Sources */,
 				E8ED994D1E67691600115DA6 /* ProfileView.swift in Sources */,
+				E8090A131E732A6E002F79F7 /* GameSummaryView.swift in Sources */,
 				E8ED994F1E676ABA00115DA6 /* ContainerViewController.swift in Sources */,
-				E8ED99431E64FEF700115DA6 /* BreathingViewModel.swift in Sources */,
+				E8ED99431E64FEF700115DA6 /* AirGameViewModel.swift in Sources */,
 				E8D1B1CE1E6B7BF000FD9A68 /* DataStore.swift in Sources */,
 				E8116AED1E6FC9DF0048859A /* AirHungerGame.swift in Sources */,
 				E8A99A181E5E15900059D21C /* AirGameView.swift in Sources */,
