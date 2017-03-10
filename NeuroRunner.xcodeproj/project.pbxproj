@@ -489,6 +489,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 3EE4BC3EA3E8A833E7BC0337 /* Pods-NeuroRunner.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Y95395R97T;
 				INFOPLIST_FILE = NeuroRunner/Info.plist;
@@ -503,6 +504,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1D259B4A95FB79228845F94E /* Pods-NeuroRunner.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Y95395R97T;
 				INFOPLIST_FILE = NeuroRunner/Info.plist;

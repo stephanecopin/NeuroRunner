@@ -52,7 +52,7 @@ class AirGameViewModel: TakingBreathDelegate {
             timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (timer) in
                 
                 self.timeBreathingButton += 0.1
-                print("time spent breathing with button = \(self.timeBreathingButton) seconds")
+                print("time spent breathing with button = \(self.timeBreathingButton.roundTo(places: 2)) seconds")
                 
             }
         } else {

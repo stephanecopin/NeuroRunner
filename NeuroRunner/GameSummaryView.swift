@@ -8,6 +8,8 @@
 
 import UIKit
 import SnapKit
+import Charts
+import RealmSwift
 
 class GameSummaryView: UIView {
     
@@ -17,6 +19,8 @@ class GameSummaryView: UIView {
     let summaryView = UIView()
     let dismissButton = UIButton()
     let breathingLabel = UILabel()
+    
+    let pieChartView = PieChartView()
     
     
     // MARK: Initialization
@@ -36,6 +40,7 @@ class GameSummaryView: UIView {
         breathingLabel.text = "\(lastGame.timeSpentBreathing) seconds breathing"
         
         configure()
+        createChart()
         constrain()
     }
     
@@ -71,9 +76,11 @@ class GameSummaryView: UIView {
 
         }
         
-        summaryView.addSubview(breathingLabel)
-        breathingLabel.snp.makeConstraints {
+        summaryView.addSubview(pieChartView)
+        pieChartView.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
+            $0.width.equalToSuperview()
+            $0.height.equalTo(pieChartView.snp.width)
         }
         
         summaryView.addSubview(dismissButton)
@@ -83,4 +90,61 @@ class GameSummaryView: UIView {
         }
         
     }
+    
+    func createChart() {
+        
+        let timeBreathing = lastGame.timeSpentBreathing
+        let timeHungering = lastGame.timeSpentHungering
+        var totalTime: Double {
+            return timeBreathing + timeHungering
+        }
+        print("Charts timeBreathing = \(timeBreathing)")
+        print("Charts timeHungering = \(timeHungering)")
+
+        let chartSections = ["Time Breathing", "Time Hungering"]
+        let sectionTimes = [timeBreathing, timeHungering]
+        
+        setCharts(dataPoints: chartSections, values: sectionTimes)
+        
+    }
+    
+    
+    func setCharts(dataPoints: [String], values: [Double]) {
+        
+        var dataEntries: [PieChartDataEntry] = []
+        
+        for i in 0..<dataPoints.count {
+            let dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i])
+            dataEntries.append(dataEntry)
+        }
+        
+        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "Units Sold")
+        let pieChartData = PieChartData(dataSet: pieChartDataSet)
+        pieChartView.data = pieChartData
+        
+        var colors: [UIColor] = []
+        
+        for _ in 0..<dataPoints.count {
+            let red = Double(arc4random_uniform(256))
+            let green = Double(arc4random_uniform(256))
+            let blue = Double(arc4random_uniform(256))
+            
+            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
+            colors.append(color)
+        }
+        
+        pieChartDataSet.colors = colors
+        
+        
+    }
 }
+
+
+
+
+
+
+
+
+
+
