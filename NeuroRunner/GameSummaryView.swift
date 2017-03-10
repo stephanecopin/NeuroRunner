@@ -14,11 +14,17 @@ import RealmSwift
 class GameSummaryView: UIView {
     
     var lastGame: AirHungerGame!
+    var timeBreathing = 0.0
+    var timeHungering = 0.0
+    
+    var totalTime: Double {
+        return timeBreathing + timeHungering
+    }
     
     var blurView: UIVisualEffectView!
     let summaryView = UIView()
     let dismissButton = UIButton()
-    let breathingLabel = UILabel()
+    let titleLabel = UILabel()
     
     let pieChartView = PieChartView()
     
@@ -36,8 +42,6 @@ class GameSummaryView: UIView {
         self.init(frame: CGRect.zero)
         
         lastGame = game
-
-        breathingLabel.text = "\(lastGame.timeSpentBreathing) seconds breathing"
         
         configure()
         createChart()
@@ -46,12 +50,17 @@ class GameSummaryView: UIView {
     
     func configure() {
         
+        timeBreathing = lastGame.timeSpentBreathing
+        timeHungering = lastGame.timeSpentHungering
+        
         blurView = UIVisualEffectView(effect: UIBlurEffect(style: .prominent))
         blurView.alpha = 0.4
         
         summaryView.backgroundColor = UIColor.purple
         
-        breathingLabel.font = UIFont(name: "MarkerFelt-Thin", size: 28)
+        titleLabel.text = "Last Game\n\(lastGame.dateOfExercise)"
+        titleLabel.textAlignment = .center
+        titleLabel.font = UIFont(name: "MarkerFelt-Thin", size: 28)
         
         dismissButton.setTitle("OK", for: .normal)
         dismissButton.backgroundColor = UIColor.blue
@@ -76,6 +85,11 @@ class GameSummaryView: UIView {
 
         }
         
+        summaryView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints {
+            $0.top.centerX.equalToSuperview()
+        }
+        
         summaryView.addSubview(pieChartView)
         pieChartView.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
@@ -92,14 +106,6 @@ class GameSummaryView: UIView {
     }
     
     func createChart() {
-        
-        let timeBreathing = lastGame.timeSpentBreathing
-        let timeHungering = lastGame.timeSpentHungering
-        var totalTime: Double {
-            return timeBreathing + timeHungering
-        }
-        print("Charts timeBreathing = \(timeBreathing)")
-        print("Charts timeHungering = \(timeHungering)")
 
         let chartSections = ["Time Breathing", "Time Hungering"]
         let sectionTimes = [timeBreathing, timeHungering]
@@ -118,7 +124,7 @@ class GameSummaryView: UIView {
             dataEntries.append(dataEntry)
         }
         
-        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "Units Sold")
+        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "Legend Label")
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
         pieChartView.data = pieChartData
         

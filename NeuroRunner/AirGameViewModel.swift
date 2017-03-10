@@ -50,9 +50,7 @@ class AirGameViewModel: TakingBreathDelegate {
         
         if isBreathing {
             timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (timer) in
-                
                 self.timeBreathingButton += 0.1
-                print("time spent breathing with button = \(self.timeBreathingButton.roundTo(places: 2)) seconds")
                 
             }
         } else {
@@ -62,7 +60,6 @@ class AirGameViewModel: TakingBreathDelegate {
     
     func addToTimeBreathingMicrophone() {
         timeBreathingMicrophone += 0.1
-        print("time sprint breathing with microphone = \(timeBreathingMicrophone) seconds")
     }
     
     func createAirHungerGame(totalTime: Double) {
