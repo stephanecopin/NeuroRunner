@@ -156,10 +156,7 @@ class AirGameView: UIView {
         startStopButton.backgroundColor = UIColor.red
         
         microphoneDelegate?.recordAudio(isRecording: true)
-        
 
-        
-        
     }
     
     func timerOff() {
@@ -194,6 +191,8 @@ class AirGameView: UIView {
         
         if totalTimeRemaining == 0 {
             timerOff()
+            takingBreathDelegate?.createAirHungerGame(totalTime: 60.0)
+            
         }
     }
     
@@ -207,6 +206,10 @@ class AirGameView: UIView {
         sender.backgroundColor = UIColor.purple
         blurView.alpha = 0.4
         takingBreathDelegate?.addToTimeBreathingButton(isBreathing: false)
+    }
+    
+    func showSummary() {
+        
     }
     
 }

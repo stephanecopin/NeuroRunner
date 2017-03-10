@@ -1,5 +1,5 @@
 //
-//  BreathingViewModel.swift
+//  AirGameViewModel.swift
 //  NeuroRunner
 //
 //  Created by Robert Deans on 2/27/17.
@@ -14,11 +14,18 @@ protocol TakingBreathDelegate {
     
     func addToTimeBreathingMicrophone()
     
+    func createAirHungerGame(totalTime: Double)
+
+    
 }
 
-class BreathingViewModel: TakingBreathDelegate {
+class AirGameViewModel: TakingBreathDelegate {
     
     var timer: Timer!
+    var newGame: AirHungerGame!
+    
+    let store = DataStore.shared
+    var user: User!
     
     var timeBreathingButton = 0.0
     var timeBreathingMicrophone = 0.0
@@ -28,26 +35,45 @@ class BreathingViewModel: TakingBreathDelegate {
         }
     }
     
+    // *** Make sure that microphone and button are not duplicating information
+    
+    // *** Delete any unnecessary instances of DataStore
+    
+    init() {
+        user = store.user
+    }
+    
+    
     func addToTimeBreathingButton(isBreathing: Bool) {
         
         if isBreathing {
             timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (timer) in
                 
-                
                 self.timeBreathingButton += 0.1
                 print("time spent breathing with button = \(self.timeBreathingButton) seconds")
                 
             }
-            
         } else {
-            
             timer.invalidate()
         }
-        print("timebreathing microphone = \(timeBreathingMicrophone)")
     }
     
     func addToTimeBreathingMicrophone() {
         timeBreathingMicrophone += 0.1
+        print("time sprint breathing with microphone = \(timeBreathingMicrophone) seconds")
+    }
+    
+    func createAirHungerGame(totalTime: Double) {
+        newGame = AirHungerGame()
+        newGame.timeSpentBreathing = totalTimeBreathing
+        newGame.timeSpentHungering = totalTime - totalTimeBreathing
+
+        user.airHungerGames.append(newGame)
+        
+        print("Date = \(newGame.dateOfExercise)")
+        print("time breathing microphone = \(timeBreathingMicrophone)")
+        print("time breathing button = \(timeBreathingButton)")
+
     }
     
 }

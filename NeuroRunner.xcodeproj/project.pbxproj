@@ -96,6 +96,16 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		E8090A111E73207E002F79F7 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				E82FF7681E5E132800AFE050 /* AppDelegate.swift */,
+				E8ED994E1E676ABA00115DA6 /* ContainerViewController.swift */,
+				E8ED99441E67688E00115DA6 /* MainTabBarController.swift */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
 		E82FF75C1E5E132800AFE050 = {
 			isa = PBXGroup;
 			children = (
@@ -143,9 +153,7 @@
 		E8ED99481E6768E200115DA6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E82FF7681E5E132800AFE050 /* AppDelegate.swift */,
-				E8ED99441E67688E00115DA6 /* MainTabBarController.swift */,
-				E8ED994E1E676ABA00115DA6 /* ContainerViewController.swift */,
+				E8090A111E73207E002F79F7 /* Managers */,
 				E82FF76A1E5E132800AFE050 /* HomeViewController.swift */,
 				E8ED99461E6768D400115DA6 /* ProfileViewController.swift */,
 			);

@@ -36,6 +36,12 @@ class MicrophoneViewModel: NSObject, AVAudioRecorderDelegate {
     
     var isMicrophoneEnabled = true
     
+    override init() {
+        super.init()
+        configure()
+        setUpRecorder()
+    }
+    
     func configure() {
         
         audioSession = AVAudioSession.sharedInstance()

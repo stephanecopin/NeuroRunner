@@ -14,35 +14,27 @@ class HomeViewController: UIViewController {
 
     var airGameView: AirGameView!
     var microphoneViewModel: MicrophoneViewModel!
-    var breathingViewModel: BreathingViewModel!
+    var airGameViewModel: AirGameViewModel!
     
-    func toggleMic() {
-        microphoneViewModel.isMicrophoneEnabled = !microphoneViewModel.isMicrophoneEnabled
-        
-        if microphoneViewModel.isMicrophoneEnabled {
-            navigationItem.rightBarButtonItem?.title = "Mic Enabled"
-        } else {
-            navigationItem.rightBarButtonItem?.title = "Mic Disabled"
-        }
-
-
-    }
+    let store = DataStore.shared
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        user = store.user
         
         navigationItem.title = "Home"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Mic Enabled", style: .plain, target: self, action: #selector(toggleMic))
 
         airGameView = AirGameView()
-        breathingViewModel = BreathingViewModel()
+        airGameViewModel = AirGameViewModel()
         microphoneViewModel = MicrophoneViewModel()
-        microphoneViewModel.configure()
-        microphoneViewModel.setUpRecorder()
+
         
         airGameView.microphoneDelegate = microphoneViewModel
-        airGameView.takingBreathDelegate = breathingViewModel
-        microphoneViewModel.takingBreathDelegate = breathingViewModel
+        airGameView.takingBreathDelegate = airGameViewModel
+        microphoneViewModel.takingBreathDelegate = airGameViewModel
         microphoneViewModel.breathingViewUpdateDelegate = airGameView
         
         view.addSubview(airGameView)
@@ -51,9 +43,9 @@ class HomeViewController: UIViewController {
             $0.bottom.equalToSuperview().offset(-49)
         }
         
-        breathingViewModel = BreathingViewModel()
+        airGameViewModel = AirGameViewModel()
         
-        
+        /*
         let newUser = User()
         let newGame = AirHungerGame()
         
@@ -65,9 +57,20 @@ class HomeViewController: UIViewController {
         try! realm.write {
             realm.add(newUser)
         }
+        */
         
     }
 
+    func toggleMic() {
+        microphoneViewModel.isMicrophoneEnabled = !microphoneViewModel.isMicrophoneEnabled
+        
+        if microphoneViewModel.isMicrophoneEnabled {
+            navigationItem.rightBarButtonItem?.title = "Mic Enabled"
+        } else {
+            navigationItem.rightBarButtonItem?.title = "Mic Disabled"
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
