@@ -7,15 +7,25 @@
 //
 
 import UIKit
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     lazy var containerViewController: ContainerViewController = ContainerViewController()
+    let store = DataStore.shared
     
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        // Sees if a user exists in Realm database; if not initializes one
+        if store.realm.objects(User.self).count == 0 {
+            store.user = User()
+            store.addUserToRealm()
+        } else {
+            store.user = store.realm.objects(User.self).first
+        }
         
         containerViewController.childVC = MainTabBarController()
         containerViewController.setup(forAnimation: .slideUp)

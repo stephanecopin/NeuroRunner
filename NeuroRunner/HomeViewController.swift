@@ -19,23 +19,21 @@ class HomeViewController: UIViewController {
     var gameSummaryViewController: GameSummaryViewController!
     
     let store = DataStore.shared
-    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         initialSetup()
         
+        let realmUser = store.realm.objects(User.self)
+        
+        print("REALM HAS \(realmUser.count) USERS!")
+        print("LOCAL USER HAS \(store.user.airHungerGames.count) games")
+        
         
     }
 
     func initialSetup() {
-        //Adds user to Realm ***First time only???
-//        store.addUserToRealm()
-        
-        // Connect to singleton
-        user = store.user
-        
         // Customize Navigation Bar
         navigationItem.title = "Home"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Mic Disabled", style: .plain, target: self, action: #selector(toggleMic))

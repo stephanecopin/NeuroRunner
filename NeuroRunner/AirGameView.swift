@@ -211,11 +211,7 @@ class AirGameView: UIView {
         blurView.alpha = 0.4
         takingBreathDelegate?.addToTimeBreathingButton(isBreathing: false)
     }
-    
-    func showSummary() {
-        
-    }
-    
+
 }
 
 extension AirGameView: BreathingViewUpdate {

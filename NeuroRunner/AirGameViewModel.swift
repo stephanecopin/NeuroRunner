@@ -67,7 +67,10 @@ class AirGameViewModel: TakingBreathDelegate {
         newGame.timeSpentBreathing = totalTimeBreathing.roundTo(places: 2)
         newGame.timeSpentHungering = totalTime - totalTimeBreathing.roundTo(places: 2)
 
-        user.airHungerGames.append(newGame)
+        try! store.realm.write {
+            user.airHungerGames.append(newGame)
+        }
+        
         print("VM user airGame count is \(user.airHungerGames.count)")
         presentGameSummaryDelegate?.presentGameSummary()
         

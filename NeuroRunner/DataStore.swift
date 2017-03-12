@@ -10,10 +10,11 @@ import Foundation
 import RealmSwift
 
 final class DataStore {
-    static let shared = DataStore()
     
-    let user = User()
+    static let shared = DataStore()
     let realm = try! Realm()
+
+    var user: User! = User()
 
     func addUserToRealm() {
         try! realm.write {
