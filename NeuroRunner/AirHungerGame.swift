@@ -13,6 +13,6 @@ class AirHungerGame: Object {
     
     dynamic var timeSpentBreathing = 0.0
     dynamic var timeSpentHungering = 0.0
-    dynamic var dateOfExercise = NSDate()
+    dynamic var dateOfExercise: Date = Date()
     
 }

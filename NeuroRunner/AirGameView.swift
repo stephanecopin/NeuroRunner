@@ -24,6 +24,7 @@ class AirGameView: UIView {
     
     var timer = Timer()
     var isTimerOn = false
+    var initialStartTime = 0.0
     var totalTimeRemaining = 0
     var seconds = 0
     var minutes = 0
@@ -148,7 +149,8 @@ class AirGameView: UIView {
     func timerOn() {
         
         totalTimeRemaining = Int(pickerTimer.countDownDuration)
-        
+        initialStartTime = Double(totalTimeRemaining)
+
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
         
         breathingButton.isHidden = false
@@ -194,7 +196,7 @@ class AirGameView: UIView {
         // TIMER == 00:00 WILL CREATE INSTANCE OF GAME
         if totalTimeRemaining == 0 {
             timerOff()
-            takingBreathDelegate?.createAirHungerGame(totalTime: 60.0)
+            takingBreathDelegate?.createAirHungerGame(totalTime: initialStartTime)
         }
     }
     

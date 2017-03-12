@@ -13,12 +13,21 @@ class ProfileViewController: UIViewController {
     let store = DataStore.shared
     var user: User!
     
+    var profileView: ProfileView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         user = store.user
         
         navigationItem.title = "Profile"
+        
+        profileView = ProfileView()
+
+        view.addSubview(profileView)
+        profileView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
 
     }
 
@@ -27,5 +36,17 @@ class ProfileViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppearing")
+        view.willRemoveSubview(profileView)
+
+        profileView = ProfileView()
+        
+        view.addSubview(profileView)
+        profileView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    
+    }
 
 }

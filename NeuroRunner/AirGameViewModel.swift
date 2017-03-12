@@ -75,9 +75,11 @@ class AirGameViewModel: TakingBreathDelegate {
         print("time breathing microphone = \(timeBreathingMicrophone)")
         print("time breathing button = \(timeBreathingButton)")
         print("newGame returned to nil")
+        
         newGame = nil
         timeBreathingButton = 0.0
         timeBreathingMicrophone = 0.0
+        
 
     }
     

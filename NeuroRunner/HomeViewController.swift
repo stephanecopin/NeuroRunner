@@ -30,6 +30,9 @@ class HomeViewController: UIViewController {
     }
 
     func initialSetup() {
+        //Adds user to Realm ***First time only???
+//        store.addUserToRealm()
+        
         // Connect to singleton
         user = store.user
         
