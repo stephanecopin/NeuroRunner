@@ -19,8 +19,8 @@ class GameSummaryViewController: UIViewController {
 
         user = store.user
 
-        if user.airHungerGames.count > 0 {
-            let lastGame = user.airHungerGames[0]
+        if user.airHungerGames.count > 0, let lastGame = user.airHungerGames.last {
+
             gameSummaryView = GameSummaryView(with: lastGame)
             
             view.addSubview(gameSummaryView)

@@ -49,6 +49,8 @@ class ProfileView: UIView {
         
         barChartView.noDataText = "No data to present yet"
 
+        barChartView.xAxis.granularity = 1.0
+        
         backgroundColor = UIColor.cyan
         
     }
@@ -108,8 +110,13 @@ class ProfileView: UIView {
         
         barChartView.data = chartData
         
+        
         let xAxis = barChartView.xAxis
         xAxis.valueFormatter = axisFormatDelegate
+        xAxis.labelRotationAngle = -45
+        
+        
+        
     }
     
 }
@@ -118,7 +125,7 @@ extension ProfileView: IAxisValueFormatter {
     
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "h:mm a, MMM d"
+        dateFormatter.dateFormat = "MM/dd/yyyy"
         return dateFormatter.string(from: Date(timeIntervalSince1970: value))
     }
     
