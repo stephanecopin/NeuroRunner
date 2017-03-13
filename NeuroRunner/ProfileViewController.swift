@@ -22,8 +22,8 @@ class ProfileViewController: UIViewController {
         
         navigationItem.title = "Profile"
 
-        let color1 = UIColor(red: 34/255.0, green: 91/255.0, blue: 102/255.0, alpha: 1.0)
-        let color2 = UIColor(red: 141/255.0, green: 191/255.9, blue: 103/255.0, alpha: 1.0)
+        let color2 = UIColor.startButtonStart
+        let color1 = UIColor.themeWhite
         
         let backgroundGradient = CALayer.makeGradient(firstColor: color1, secondColor: color2)
         

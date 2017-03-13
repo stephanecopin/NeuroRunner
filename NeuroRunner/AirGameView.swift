@@ -176,6 +176,9 @@ class AirGameView: UIView {
         startStopButton.setTitle("Start", for: .normal)
         startStopButton.backgroundColor = UIColor.startButtonStart
         
+        secondsLabel.text = "00"
+        minutesLabel.text = "00:"
+        
         blurView.alpha = 0.4
 
     }

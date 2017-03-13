@@ -26,6 +26,8 @@ class ProfileView: UIView {
     var lineChartDataSet: LineChartDataSet!
     var barChartDataSet: BarChartDataSet!
     weak var axisFormatDelegate: IAxisValueFormatter?
+    
+    var chartUIView: UIView!
         
     
     // MARK: Initialization
@@ -41,6 +43,9 @@ class ProfileView: UIView {
         self.init(frame: CGRect.zero)
         user = store.user
         userGames = user.airHungerGames
+        chartUIView = UIView()
+        chartUIView.layer.cornerRadius = 25
+        chartUIView.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         
         createChart()
         configureChart()
@@ -51,11 +56,16 @@ class ProfileView: UIView {
     
     func constrain() {
 
-        addSubview(combinedChartView)
-        combinedChartView.snp.makeConstraints {
+        addSubview(chartUIView)
+        chartUIView.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
-            $0.width.equalToSuperview()
-            $0.height.equalTo(combinedChartView.snp.width)
+            $0.width.equalToSuperview().multipliedBy(0.9)
+            $0.height.equalTo(chartUIView.snp.width)
+        }
+        
+        chartUIView.addSubview(combinedChartView)
+        combinedChartView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
         }
         
     }
@@ -64,9 +74,9 @@ class ProfileView: UIView {
         lineChartDataSet.mode = .cubicBezier
         lineChartDataSet.lineCapType = .butt
         lineChartDataSet.setCircleColor(UIColor.blue)
-        lineChartDataSet.setColor(UIColor.red)
+        lineChartDataSet.setColor(UIColor.green)
         
-        barChartDataSet.setColor(UIColor.purple)
+        barChartDataSet.setColor(UIColor.breathingButtonOff)
         
         axisFormatDelegate = self
         let xAxis = combinedChartView.xAxis
