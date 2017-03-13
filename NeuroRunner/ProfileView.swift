@@ -21,7 +21,7 @@ class ProfileView: UIView {
     var gameLengths = [Double]()
     var gamePercents = [Double]()
     
-    let barChartView = BarChartView()
+    let combinedChartView = CombinedChartView()
     weak var axisFormatDelegate: IAxisValueFormatter?
     
     
@@ -47,9 +47,9 @@ class ProfileView: UIView {
         
         axisFormatDelegate = self
         
-        barChartView.noDataText = "No data to present yet"
+        combinedChartView.noDataText = "No data to present yet"
 
-        barChartView.xAxis.granularity = 1.0
+        combinedChartView.xAxis.granularity = 1.0
         
         backgroundColor = UIColor.cyan
         
@@ -57,11 +57,11 @@ class ProfileView: UIView {
     
     func constrain() {
 
-        addSubview(barChartView)
-        barChartView.snp.makeConstraints {
+        addSubview(combinedChartView)
+        combinedChartView.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
             $0.width.equalToSuperview()
-            $0.height.equalTo(barChartView.snp.width)
+            $0.height.equalTo(combinedChartView.snp.width)
         }
         
     }
@@ -75,47 +75,64 @@ class ProfileView: UIView {
     }
     
     func getDataAndCreateBarChart() {
-        var shouldBeDates = [String]()
         for game in userGames {
             var counter = 1
             let gameLength = ((game.timeSpentBreathing + game.timeSpentHungering) / 60)
             gameLengths.append(gameLength)
             
+            let percent = ((game.timeSpentHungering) / (game.timeSpentBreathing + game.timeSpentHungering))
+            
+            gamePercents.append(percent)
+            
             gameDates.append(game.dateOfExercise)
             
-            shouldBeDates.append("\(counter)")
+
             counter += 1
             
         }
         print("gameDates = \(gameDates)")
         print("percentHungering = \(gameLengths)")
         
-        createBarChart(dataPoints: gameDates, values: gameLengths)
+        createBarChart(dateOfGame: gameDates, lengthOfGame: gameLengths, percentOfGame: gamePercents)
     }
     
-    func createBarChart(dataPoints: [Date], values: [Double]) {
+    func createBarChart(dateOfGame: [Date], lengthOfGame: [Double], percentOfGame: [Double]) {
         
-        var dataEntries = [BarChartDataEntry]()
         
-        for i in 0..<dataPoints.count {
+        
+        var barDataEntries = [ChartDataEntry]()
+        var lineDataEntries = [ChartDataEntry]()
+        
+        for i in 0..<dateOfGame.count {
             
-            let dataEntry = BarChartDataEntry(x: Double(i+1), y: values[i])
-            
-            dataEntries.append(dataEntry)
+            let barDataEntry = BarChartDataEntry(x: Double(i+1), y: lengthOfGame[i])
+            barDataEntries.append(barDataEntry)
+
+            let lineDataEntry = ChartDataEntry(x: Double(i+1), y: percentOfGame[i])
+                
+            lineDataEntries.append(lineDataEntry)
             
         }
         
-        let chartDataSet = BarChartDataSet(values: dataEntries, label: "Length of Games")
-        let chartData = BarChartData(dataSet: chartDataSet)
-        
-        barChartView.data = chartData
+        let lineChartDataSet = LineChartDataSet(values: lineDataEntries, label: "Percent of Time Hungering")
+        let lineChartData = LineChartData(dataSet: lineChartDataSet)
         
         
-        let xAxis = barChartView.xAxis
+        let barChartDataSet = BarChartDataSet(values: barDataEntries, label: "Length of Games")
+        let barChartData = BarChartData(dataSet: barChartDataSet)
+        
+        
+        
+        let xAxis = combinedChartView.xAxis
         xAxis.valueFormatter = axisFormatDelegate
         xAxis.labelRotationAngle = -45
         
+        let combinedChartData = CombinedChartData()
         
+        combinedChartData.barData = barChartData
+        combinedChartData.lineData = lineChartData
+        
+        combinedChartView.data = combinedChartData
         
     }
     
