@@ -14,8 +14,8 @@ class MainTabBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        homeNC.tabBarItem = UITabBarItem(title: "Home", image: nil, tag: 0)
-        profileNC.tabBarItem = UITabBarItem(title: "Profile", image: nil, tag: 1)
+        homeNC.tabBarItem = UITabBarItem(title: "Home", image: #imageLiteral(resourceName: "Home Tab Bar"), tag: 0)
+        profileNC.tabBarItem = UITabBarItem(title: "Profile", image: #imageLiteral(resourceName: "Profile Tab Bar"), tag: 1)
         
         viewControllers = [homeNC, profileNC]
 

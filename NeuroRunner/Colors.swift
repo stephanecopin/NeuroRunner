@@ -15,7 +15,14 @@ extension UIColor {
     public static let themeGrass = UIColor(red: 141 / 255, green: 191 / 255, blue: 103 / 255, alpha: 1)
     public static let themeSunshine = UIColor(red: 252 / 255, green: 203 / 255, blue: 95 / 255, alpha: 1)
     public static let themeCoral = UIColor(red: 252 / 255, green: 110 / 255, blue: 89 / 255, alpha: 1)
-    public static let themeWhite = UIColor(red: 242 / 255, green: 242 / 255, blue: 242 / 255, alpha: 1)
+    public static let themeWhite = UIColor(red: 250 / 255, green: 250 / 255, blue: 250 / 255, alpha: 1)
+    
+    public static let startButtonStart = UIColor(red: 0/255, green: 37/255, blue: 127/255, alpha: 1)
+    public static let startButtonStop = UIColor(red: 178/255, green: 18/255, blue: 18/255, alpha: 1)
+    
+    public static let breathingButtonOn = UIColor(red: 0/255, green: 230/255, blue: 255/255, alpha: 1)
+    public static let breathingButtonOff = UIColor(red: 90/255, green: 0/255, blue: 168/255, alpha: 1)
+
 }
 
 // MARK: Gradients

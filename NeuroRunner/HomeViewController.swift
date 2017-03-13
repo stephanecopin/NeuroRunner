@@ -36,7 +36,7 @@ class HomeViewController: UIViewController {
     func initialSetup() {
         // Customize Navigation Bar
         navigationItem.title = "Home"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Mic Disabled", style: .plain, target: self, action: #selector(toggleMic))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Enable Mic", style: .plain, target: self, action: #selector(toggleMic))
         
         // Set Delegates
         airGameView.microphoneDelegate = microphoneViewModel
@@ -57,9 +57,9 @@ class HomeViewController: UIViewController {
         microphoneViewModel.isMicrophoneEnabled = !microphoneViewModel.isMicrophoneEnabled
         
         if microphoneViewModel.isMicrophoneEnabled {
-            navigationItem.rightBarButtonItem?.title = "Mic Enabled"
+            navigationItem.rightBarButtonItem?.title = "Disable Mic"
         } else {
-            navigationItem.rightBarButtonItem?.title = "Mic Disabled"
+            navigationItem.rightBarButtonItem?.title = "Enable Mic"
         }
     }
     
