@@ -10,6 +10,7 @@
 		C55D0A173748985DE0C86AC8 /* Pods_NeuroRunner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19CE9D71EB15F053A62F1FB7 /* Pods_NeuroRunner.framework */; };
 		E8090A131E732A6E002F79F7 /* GameSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8090A121E732A6E002F79F7 /* GameSummaryView.swift */; };
 		E8090A151E733802002F79F7 /* GameSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8090A141E733802002F79F7 /* GameSummaryViewController.swift */; };
+		E8090A181E764D71002F79F7 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8090A171E764D71002F79F7 /* Colors.swift */; };
 		E8116AED1E6FC9DF0048859A /* AirHungerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8116AEC1E6FC9DF0048859A /* AirHungerGame.swift */; };
 		E82FF7691E5E132800AFE050 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF7681E5E132800AFE050 /* AppDelegate.swift */; };
 		E82FF76B1E5E132800AFE050 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF76A1E5E132800AFE050 /* HomeViewController.swift */; };
@@ -43,6 +44,7 @@
 		3EE4BC3EA3E8A833E7BC0337 /* Pods-NeuroRunner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeuroRunner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NeuroRunner/Pods-NeuroRunner.debug.xcconfig"; sourceTree = "<group>"; };
 		E8090A121E732A6E002F79F7 /* GameSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSummaryView.swift; sourceTree = "<group>"; };
 		E8090A141E733802002F79F7 /* GameSummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSummaryViewController.swift; sourceTree = "<group>"; };
+		E8090A171E764D71002F79F7 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E8116AEC1E6FC9DF0048859A /* AirHungerGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirHungerGame.swift; sourceTree = "<group>"; };
 		E82FF7651E5E132800AFE050 /* NeuroRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeuroRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E82FF7681E5E132800AFE050 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				E82FF7711E5E132800AFE050 /* LaunchScreen.storyboard */,
 				E82FF7741E5E132800AFE050 /* Info.plist */,
 				E8D1B1CD1E6B7BF000FD9A68 /* DataStore.swift */,
+				E8090A171E764D71002F79F7 /* Colors.swift */,
 			);
 			path = NeuroRunner;
 			sourceTree = "<group>";
@@ -348,6 +351,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E82FF76B1E5E132800AFE050 /* HomeViewController.swift in Sources */,
+				E8090A181E764D71002F79F7 /* Colors.swift in Sources */,
 				E8ED994D1E67691600115DA6 /* ProfileView.swift in Sources */,
 				E8090A131E732A6E002F79F7 /* GameSummaryView.swift in Sources */,
 				E8ED994F1E676ABA00115DA6 /* ContainerViewController.swift in Sources */,

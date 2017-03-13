@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
         
         let realmUser = store.realm.objects(User.self)
         
-        print("REALM HAS \(realmUser.count) USERS!")
+        print("REALM HAS \(realmUser.count) USER(S)!")
         print("LOCAL USER HAS \(store.user.airHungerGames.count) games")
         
         

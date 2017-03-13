@@ -44,6 +44,7 @@ class ContainerViewController: UIViewController {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.blue
+        
     }
     
     // MARK: Setup

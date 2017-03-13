@@ -17,6 +17,7 @@ class ProfileView: UIView {
     
     var user: User!
     var userGames = List<AirHungerGame>()
+    
     var gameDates = [Date]()
     var gameLengths = [Double]()
     var gamePercents = [Double]()
@@ -25,7 +26,7 @@ class ProfileView: UIView {
     var lineChartDataSet: LineChartDataSet!
     var barChartDataSet: BarChartDataSet!
     weak var axisFormatDelegate: IAxisValueFormatter?
-    
+        
     
     // MARK: Initialization
     required init?(coder aDecoder: NSCoder) {
@@ -40,13 +41,13 @@ class ProfileView: UIView {
         self.init(frame: CGRect.zero)
         user = store.user
         userGames = user.airHungerGames
-        backgroundColor = UIColor.cyan
-
+        
         createChart()
         configureChart()
         constrain()
     }
     
+
     
     func constrain() {
 
@@ -62,6 +63,10 @@ class ProfileView: UIView {
     func configureChart() {
         lineChartDataSet.mode = .cubicBezier
         lineChartDataSet.lineCapType = .butt
+        lineChartDataSet.setCircleColor(UIColor.blue)
+        lineChartDataSet.setColor(UIColor.red)
+        
+        barChartDataSet.setColor(UIColor.purple)
         
         axisFormatDelegate = self
         let xAxis = combinedChartView.xAxis
@@ -70,8 +75,18 @@ class ProfileView: UIView {
         xAxis.spaceMin = 0.5
         xAxis.spaceMax = 0.5
         
+        let yFormatter = NumberFormatter()
+        yFormatter.numberStyle = NumberFormatter.Style.none
+        combinedChartView.leftAxis.valueFormatter = DefaultAxisValueFormatter(formatter: yFormatter)
+        
         combinedChartView.noDataText = "No data to present yet"
+        
+        let description = Description()
+        description.text = ""
+        combinedChartView.chartDescription = description
+        
         combinedChartView.xAxis.granularity = 1.0
+        
         
         
         
@@ -84,7 +99,8 @@ class ProfileView: UIView {
             let gameLength = ((game.timeSpentBreathing + game.timeSpentHungering) / 60)
             gameLengths.append(gameLength)
             
-            let percent = ((game.timeSpentHungering) / (game.timeSpentBreathing + game.timeSpentHungering))
+            // percent = total gameLength * percentage spent breathing
+            let percent = ( gameLength * ((game.timeSpentHungering) / (game.timeSpentBreathing + game.timeSpentHungering)))
             gamePercents.append(percent)
             
             gameDates.append(game.dateOfExercise)
@@ -130,6 +146,7 @@ extension ProfileView: IAxisValueFormatter {
         dateFormatter.dateFormat = "MM/dd/yyyy"
         return dateFormatter.string(from: Date(timeIntervalSince1970: value))
     }
+    
     
 }
 
