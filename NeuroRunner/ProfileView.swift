@@ -67,9 +67,14 @@ class ProfileView: UIView {
         let xAxis = combinedChartView.xAxis
         xAxis.valueFormatter = axisFormatDelegate
         xAxis.labelRotationAngle = -45
+        xAxis.spaceMin = 0.5
+        xAxis.spaceMax = 0.5
         
         combinedChartView.noDataText = "No data to present yet"
         combinedChartView.xAxis.granularity = 1.0
+        
+        
+        
     }
     
     func createChart() {
