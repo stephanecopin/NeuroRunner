@@ -186,7 +186,7 @@ class AirGameView: UIView {
     }
     
     func updateTimerLabel() {
-        totalTimeRemaining -= 30
+        totalTimeRemaining -= 5
         minutes = (totalTimeRemaining / 60)
         seconds = totalTimeRemaining % 60
         

@@ -29,8 +29,8 @@ class AirGameViewModel: TakingBreathDelegate {
     
     var presentGameSummaryDelegate: PresentGameSummaryDelegate?
     
-    var timeBreathingButton = 0.0
-    var timeBreathingMicrophone = 0.0
+    var timeBreathingButton = 0.00
+    var timeBreathingMicrophone = 0.00
     var totalTimeBreathing: Double {
         get {
             return timeBreathingButton + timeBreathingMicrophone
@@ -49,8 +49,8 @@ class AirGameViewModel: TakingBreathDelegate {
     func addToTimeBreathingButton(isBreathing: Bool) {
         
         if isBreathing {
-            timer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { (timer) in
-                self.timeBreathingButton += 0.1
+            timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (timer) in
+                self.timeBreathingButton += 0.01
                 
             }
         } else {
@@ -59,10 +59,11 @@ class AirGameViewModel: TakingBreathDelegate {
     }
     
     func addToTimeBreathingMicrophone() {
-        timeBreathingMicrophone += 0.1
+        timeBreathingMicrophone += 0.01
     }
     
     func createAirHungerGame(totalTime: Double) {
+        
         newGame = AirHungerGame()
         newGame.timeSpentBreathing = totalTimeBreathing.roundTo(places: 2)
         newGame.timeSpentHungering = totalTime - totalTimeBreathing.roundTo(places: 2)
@@ -76,12 +77,15 @@ class AirGameViewModel: TakingBreathDelegate {
         
         print("Date = \(newGame.dateOfExercise)")
         print("time breathing microphone = \(timeBreathingMicrophone)")
-        print("time breathing button = \(timeBreathingButton)")
+        print("time breathing button = \(timeBreathingButton.roundTo(places: 2))")
+        print("time hungering = \((totalTime - timeBreathingButton).roundTo(places: 2))")
+
+        print("total time = \(totalTime)")
         print("newGame returned to nil")
         
         newGame = nil
-        timeBreathingButton = 0.0
-        timeBreathingMicrophone = 0.0
+        timeBreathingButton = 0.00
+        timeBreathingMicrophone = 0.00
         
 
     }

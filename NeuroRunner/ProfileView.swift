@@ -28,7 +28,7 @@ class ProfileView: UIView {
     weak var axisFormatDelegate: IAxisValueFormatter?
     
     var chartUIView: UIView!
-        
+    
     
     // MARK: Initialization
     required init?(coder aDecoder: NSCoder) {
@@ -47,15 +47,17 @@ class ProfileView: UIView {
         chartUIView.layer.cornerRadius = 25
         chartUIView.backgroundColor = UIColor.white.withAlphaComponent(0.2)
         
-        createChart()
-        configureChart()
-        constrain()
+        if user.airHungerGames.count > 0 {
+            createChart()
+            configureChart()
+            constrain()
+        }
     }
     
-
+    
     
     func constrain() {
-
+        
         addSubview(chartUIView)
         chartUIView.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
@@ -69,7 +71,7 @@ class ProfileView: UIView {
         }
         
     }
-
+    
     func configureChart() {
         lineChartDataSet.mode = .cubicBezier
         lineChartDataSet.lineCapType = .butt
@@ -103,7 +105,7 @@ class ProfileView: UIView {
     }
     
     func createChart() {
-
+        
         for game in userGames {
             
             let gameLength = ((game.timeSpentBreathing + game.timeSpentHungering) / 60)
@@ -124,7 +126,7 @@ class ProfileView: UIView {
             
             let barDataEntry = BarChartDataEntry(x: Double(i+1), y: gameLengths[i])
             barDataEntries.append(barDataEntry)
-
+            
             let lineDataEntry = ChartDataEntry(x: Double(i+1), y: gamePercents[i])
             lineDataEntries.append(lineDataEntry)
             

@@ -24,6 +24,8 @@ extension UIColor {
     
     public static let breathingButtonOn = UIColor(red: 0/255, green: 230/255, blue: 255/255, alpha: 1)
     public static let breathingButtonOff = UIColor(red: 90/255, green: 0/255, blue: 168/255, alpha: 1)
+    
+    public static let babyBlue = UIColor(red: 71/255, green: 189/255, blue: 250/255, alpha: 1)
 
     // GameSummary Colors
     public static let darkColor1 = UIColor(red: 78/255, green: 0/255, blue: 156/255, alpha: 1)

@@ -53,7 +53,8 @@ class GameSummaryView: UIView {
         
         timeBreathing = lastGame.timeSpentBreathing
         timeHungering = lastGame.timeSpentHungering
-        
+        print("lastGame.timeSpentBreathing = \(lastGame.timeSpentBreathing)")
+        print("lastGame.timeSpentBreathing.rounded = \(lastGame.timeSpentBreathing.roundTo(places: 2))")
         blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
 //        blurView.alpha = 0.9
         
@@ -67,7 +68,7 @@ class GameSummaryView: UIView {
         titleLabel.textColor = UIColor.white
         
         dismissButton.setTitle("OK", for: .normal)
-        dismissButton.backgroundColor = UIColor.blue
+        dismissButton.backgroundColor = UIColor.babyBlue
         dismissButton.setTitleColor(UIColor.white, for: .normal)
         dismissButton.titleLabel?.font = UIFont(name: "MarkerFelt-Thin", size: 28)
 
@@ -105,17 +106,24 @@ class GameSummaryView: UIView {
         summaryView.addSubview(dismissButton)
         dismissButton.snp.makeConstraints {
             $0.width.centerX.bottom.equalToSuperview()
-            $0.height.equalToSuperview().dividedBy(10)
+            $0.height.equalToSuperview().dividedBy(8)
         }
         
     }
     
     
     func createChart() {
-        
+//        let numberFormatter = NumberFormatter()
+//        numberFormatter.minimumFractionDigits = 2
+//        numberFormatter.maximumFractionDigits = 2
+//        
+//        let totalTimeString = numberFormatter.string(from: NSNumber(floatLiteral: totalTime))
+//        let breathingTimeString = numberFormatter.string(from: NSNumber(floatLiteral: timeBreathing))
+//        let hungerTimeString = numberFormatter.string(from: NSNumber(floatLiteral: timeHungering))
+//        
+//        
         let sectionNames = ["Time Breathing", "Time Hungering"]
         let sectionTimes = [timeBreathing, timeHungering]
-        
         var dataEntries: [PieChartDataEntry] = []
         
         for i in 0..<sectionNames.count {
@@ -123,24 +131,42 @@ class GameSummaryView: UIView {
             dataEntries.append(dataEntry)
         }
         
-        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "Legend Label")
+        let pieChartDataSet = PieChartDataSet(values: dataEntries, label: "")
         let pieChartData = PieChartData(dataSet: pieChartDataSet)
         pieChartView.data = pieChartData
         
-        var colors: [UIColor] = []
-        
+        // Pie Chart Customization
         let darkColors = [UIColor.darkColor1, UIColor.darkColor2, UIColor.darkColor3]
         let lightColors = [UIColor.lightColor1, UIColor.lightColor2, UIColor.lightColor3]
-       
+        var colors: [UIColor] = []
         colors.append(lightColors[Int(arc4random_uniform(3))])
         colors.append(darkColors[Int(arc4random_uniform(3))])
-        
         pieChartDataSet.colors = colors
         
-        
+        let description = Description()
+        description.text = ""
+        pieChartView.chartDescription = description
+
     }
 }
 
+//extension GameSummaryView: IValueFormatter {
+//    
+//    func stringForValue(_ value: Double, entry: ChartDataEntry, dataSetIndex: Int, viewPortHandler: ViewPortHandler?) -> String {
+//
+//        let numberFormatter = NumberFormatter()
+//        numberFormatter.minimumFractionDigits = 2
+//        numberFormatter.maximumFractionDigits = 2
+//        
+//        let totalTimeString = numberFormatter.string(from: NSNumber(floatLiteral: totalTime))
+//        let breathingTimeString = numberFormatter.string(from: NSNumber(floatLiteral: timeBreathing))
+//        let hungerTimeString = numberFormatter.string(from: NSNumber(floatLiteral: timeHungering))
+//        
+//        return breathingTimeString!
+//        
+//    }
+//    
+//}
 
 
 
