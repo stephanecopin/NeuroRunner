@@ -22,6 +22,8 @@ class ProfileView: UIView {
     var gamePercents = [Double]()
     
     let combinedChartView = CombinedChartView()
+    var lineChartDataSet: LineChartDataSet!
+    var barChartDataSet: BarChartDataSet!
     weak var axisFormatDelegate: IAxisValueFormatter?
     
     
@@ -36,24 +38,15 @@ class ProfileView: UIView {
     
     convenience init() {
         self.init(frame: CGRect.zero)
-        configure()
-        getDataAndCreateBarChart()
+        user = store.user
+        userGames = user.airHungerGames
+        backgroundColor = UIColor.cyan
+
+        createChart()
+        configureChart()
         constrain()
     }
     
-    func configure() {
-        user = store.user
-        userGames = user.airHungerGames
-        
-        axisFormatDelegate = self
-        
-        combinedChartView.noDataText = "No data to present yet"
-
-        combinedChartView.xAxis.granularity = 1.0
-        
-        backgroundColor = UIColor.cyan
-        
-    }
     
     func constrain() {
 
@@ -65,67 +58,53 @@ class ProfileView: UIView {
         }
         
     }
-    
-    func setLineData() {
+
+    func configureChart() {
+        lineChartDataSet.mode = .cubicBezier
+        lineChartDataSet.lineCapType = .butt
         
+        axisFormatDelegate = self
+        let xAxis = combinedChartView.xAxis
+        xAxis.valueFormatter = axisFormatDelegate
+        xAxis.labelRotationAngle = -45
+        
+        combinedChartView.noDataText = "No data to present yet"
+        combinedChartView.xAxis.granularity = 1.0
     }
     
-    func setBarData() {
-        
-    }
-    
-    func getDataAndCreateBarChart() {
+    func createChart() {
+
         for game in userGames {
-            var counter = 1
+            
             let gameLength = ((game.timeSpentBreathing + game.timeSpentHungering) / 60)
             gameLengths.append(gameLength)
             
             let percent = ((game.timeSpentHungering) / (game.timeSpentBreathing + game.timeSpentHungering))
-            
             gamePercents.append(percent)
             
             gameDates.append(game.dateOfExercise)
             
-
-            counter += 1
-            
         }
-        print("gameDates = \(gameDates)")
-        print("percentHungering = \(gameLengths)")
-        
-        createBarChart(dateOfGame: gameDates, lengthOfGame: gameLengths, percentOfGame: gamePercents)
-    }
-    
-    func createBarChart(dateOfGame: [Date], lengthOfGame: [Double], percentOfGame: [Double]) {
-        
-        
         
         var barDataEntries = [ChartDataEntry]()
         var lineDataEntries = [ChartDataEntry]()
         
-        for i in 0..<dateOfGame.count {
+        for i in 0..<user.airHungerGames.count {
             
-            let barDataEntry = BarChartDataEntry(x: Double(i+1), y: lengthOfGame[i])
+            let barDataEntry = BarChartDataEntry(x: Double(i+1), y: gameLengths[i])
             barDataEntries.append(barDataEntry)
 
-            let lineDataEntry = ChartDataEntry(x: Double(i+1), y: percentOfGame[i])
-                
+            let lineDataEntry = ChartDataEntry(x: Double(i+1), y: gamePercents[i])
             lineDataEntries.append(lineDataEntry)
             
         }
         
-        let lineChartDataSet = LineChartDataSet(values: lineDataEntries, label: "Percent of Time Hungering")
+        lineChartDataSet = LineChartDataSet(values: lineDataEntries, label: "Percent of Time Hungering")
         let lineChartData = LineChartData(dataSet: lineChartDataSet)
         
         
-        let barChartDataSet = BarChartDataSet(values: barDataEntries, label: "Length of Games")
+        barChartDataSet = BarChartDataSet(values: barDataEntries, label: "Length of Games")
         let barChartData = BarChartData(dataSet: barChartDataSet)
-        
-        
-        
-        let xAxis = combinedChartView.xAxis
-        xAxis.valueFormatter = axisFormatDelegate
-        xAxis.labelRotationAngle = -45
         
         let combinedChartData = CombinedChartData()
         
@@ -138,6 +117,7 @@ class ProfileView: UIView {
     
 }
 
+// Helps to format the X-Axis labels
 extension ProfileView: IAxisValueFormatter {
     
     func stringForValue(_ value: Double, axis: AxisBase?) -> String {
