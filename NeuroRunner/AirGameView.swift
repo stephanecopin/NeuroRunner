@@ -159,6 +159,7 @@ class AirGameView: UIView {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
         
         breathingButton.isHidden = false
+        pickerTimer.isHidden = true
         
         startStopButton.setTitle("Stop", for: .normal)
         startStopButton.backgroundColor = UIColor.startButtonStop
@@ -172,7 +173,8 @@ class AirGameView: UIView {
         microphoneDelegate?.recordAudio(isRecording: false)
         
         breathingButton.isHidden = true
-        
+        pickerTimer.isHidden = false
+
         startStopButton.setTitle("Start", for: .normal)
         startStopButton.backgroundColor = UIColor.startButtonStart
         
@@ -184,7 +186,7 @@ class AirGameView: UIView {
     }
     
     func updateTimerLabel() {
-        totalTimeRemaining -= 1
+        totalTimeRemaining -= 30
         minutes = (totalTimeRemaining / 60)
         seconds = totalTimeRemaining % 60
         

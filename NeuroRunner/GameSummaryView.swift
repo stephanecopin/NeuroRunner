@@ -23,7 +23,7 @@ class GameSummaryView: UIView {
     
     var blurView: UIVisualEffectView!
     let summaryView = UIView()
-    let dismissButton = UIButton()
+    var dismissButton = UIButton()
     let titleLabel = UILabel()
     
     let pieChartView = PieChartView()
@@ -50,32 +50,36 @@ class GameSummaryView: UIView {
     
     func configure() {
         
+        
         timeBreathing = lastGame.timeSpentBreathing
         timeHungering = lastGame.timeSpentHungering
         
-        blurView = UIVisualEffectView(effect: UIBlurEffect(style: .prominent))
-        blurView.alpha = 0.4
+        blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
+//        blurView.alpha = 0.9
         
-        summaryView.backgroundColor = UIColor.purple
+        summaryView.backgroundColor = UIColor.white.withAlphaComponent(0.4)
+        summaryView.layer.cornerRadius = 25
+        summaryView.clipsToBounds = true
         
         titleLabel.text = "Last Game\n\(lastGame.dateOfExercise)"
         titleLabel.textAlignment = .center
-        titleLabel.font = UIFont(name: "MarkerFelt-Thin", size: 28)
+        titleLabel.font = UIFont(name: "MarkerFelt-Thin", size: 38)
+        titleLabel.textColor = UIColor.white
         
         dismissButton.setTitle("OK", for: .normal)
         dismissButton.backgroundColor = UIColor.blue
         dismissButton.setTitleColor(UIColor.white, for: .normal)
         dismissButton.titleLabel?.font = UIFont(name: "MarkerFelt-Thin", size: 28)
-        
+
     }
 
     func constrain() {
-        /*
+        
         addSubview(blurView)
         blurView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-        */
+ 
         
         addSubview(summaryView)
         summaryView.snp.makeConstraints {
@@ -87,7 +91,8 @@ class GameSummaryView: UIView {
         
         summaryView.addSubview(titleLabel)
         titleLabel.snp.makeConstraints {
-            $0.top.centerX.equalToSuperview()
+            $0.centerX.equalToSuperview()
+            $0.top.equalToSuperview().offset(10)
         }
         
         summaryView.addSubview(pieChartView)
@@ -105,22 +110,16 @@ class GameSummaryView: UIView {
         
     }
     
+    
     func createChart() {
-
-        let chartSections = ["Time Breathing", "Time Hungering"]
+        
+        let sectionNames = ["Time Breathing", "Time Hungering"]
         let sectionTimes = [timeBreathing, timeHungering]
-        
-        setCharts(dataPoints: chartSections, values: sectionTimes)
-        
-    }
-    
-    
-    func setCharts(dataPoints: [String], values: [Double]) {
         
         var dataEntries: [PieChartDataEntry] = []
         
-        for i in 0..<dataPoints.count {
-            let dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i])
+        for i in 0..<sectionNames.count {
+            let dataEntry = PieChartDataEntry(value: sectionTimes[i], label: sectionNames[i])
             dataEntries.append(dataEntry)
         }
         
@@ -130,14 +129,11 @@ class GameSummaryView: UIView {
         
         var colors: [UIColor] = []
         
-        for _ in 0..<dataPoints.count {
-            let red = Double(arc4random_uniform(256))
-            let green = Double(arc4random_uniform(256))
-            let blue = Double(arc4random_uniform(256))
-            
-            let color = UIColor(red: CGFloat(red/255), green: CGFloat(green/255), blue: CGFloat(blue/255), alpha: 1)
-            colors.append(color)
-        }
+        let darkColors = [UIColor.darkColor1, UIColor.darkColor2, UIColor.darkColor3]
+        let lightColors = [UIColor.lightColor1, UIColor.lightColor2, UIColor.lightColor3]
+       
+        colors.append(lightColors[Int(arc4random_uniform(3))])
+        colors.append(darkColors[Int(arc4random_uniform(3))])
         
         pieChartDataSet.colors = colors
         
