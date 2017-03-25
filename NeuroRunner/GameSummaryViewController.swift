@@ -45,7 +45,6 @@ class GameSummaryViewController: UIViewController {
         view.removeFromSuperview()
         removeFromParentViewController()
 
-        //THIS IS A NEW COMMENT
     }
 
     override func didReceiveMemoryWarning() {
