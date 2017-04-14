@@ -21,10 +21,12 @@
 		E8A99A181E5E15900059D21C /* AirGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A99A171E5E15900059D21C /* AirGameView.swift */; };
 		E8A99A1A1E5E15A20059D21C /* MicrophoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A99A191E5E15A20059D21C /* MicrophoneViewModel.swift */; };
 		E8B51E7E1EA1106A00432031 /* CustomTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E7D1EA1106A00432031 /* CustomTimer.swift */; };
-		E8B51E801EA1124300432031 /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E7F1EA1124300432031 /* Exercise.swift */; };
+		E8B51E801EA1124300432031 /* ExerciseEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E7F1EA1124300432031 /* ExerciseEnum.swift */; };
 		E8B51E821EA112B000432031 /* BalanceExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E811EA112B000432031 /* BalanceExercise.swift */; };
 		E8B51E841EA12C3A00432031 /* Microphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E831EA12C3A00432031 /* Microphone.swift */; };
 		E8B51E861EA1332600432031 /* InputTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E851EA1332600432031 /* InputTimer.swift */; };
+		E8B51E881EA1340E00432031 /* InputMethodEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E871EA1340E00432031 /* InputMethodEnum.swift */; };
+		E8B51E8A1EA1345A00432031 /* Gyroscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E891EA1345A00432031 /* Gyroscope.swift */; };
 		E8D1B1CE1E6B7BF000FD9A68 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D1B1CD1E6B7BF000FD9A68 /* DataStore.swift */; };
 		E8ED99431E64FEF700115DA6 /* AirGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED99421E64FEF700115DA6 /* AirGameViewModel.swift */; };
 		E8ED99451E67688E00115DA6 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED99441E67688E00115DA6 /* MainTabBarController.swift */; };
@@ -64,10 +66,12 @@
 		E8A99A171E5E15900059D21C /* AirGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirGameView.swift; sourceTree = "<group>"; };
 		E8A99A191E5E15A20059D21C /* MicrophoneViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MicrophoneViewModel.swift; sourceTree = "<group>"; };
 		E8B51E7D1EA1106A00432031 /* CustomTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTimer.swift; sourceTree = "<group>"; };
-		E8B51E7F1EA1124300432031 /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		E8B51E7F1EA1124300432031 /* ExerciseEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseEnum.swift; sourceTree = "<group>"; };
 		E8B51E811EA112B000432031 /* BalanceExercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceExercise.swift; sourceTree = "<group>"; };
 		E8B51E831EA12C3A00432031 /* Microphone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Microphone.swift; sourceTree = "<group>"; };
 		E8B51E851EA1332600432031 /* InputTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputTimer.swift; sourceTree = "<group>"; };
+		E8B51E871EA1340E00432031 /* InputMethodEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputMethodEnum.swift; sourceTree = "<group>"; };
+		E8B51E891EA1345A00432031 /* Gyroscope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gyroscope.swift; sourceTree = "<group>"; };
 		E8D1B1CD1E6B7BF000FD9A68 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		E8ED99421E64FEF700115DA6 /* AirGameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirGameViewModel.swift; sourceTree = "<group>"; };
 		E8ED99441E67688E00115DA6 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
@@ -167,6 +171,35 @@
 			path = NeuroRunnerTests;
 			sourceTree = "<group>";
 		};
+		E8B51E8B1EA1349900432031 /* Exercises */ = {
+			isa = PBXGroup;
+			children = (
+				E8B51E7F1EA1124300432031 /* ExerciseEnum.swift */,
+				E8116AEC1E6FC9DF0048859A /* AirHungerExercise.swift */,
+				E8B51E811EA112B000432031 /* BalanceExercise.swift */,
+			);
+			name = Exercises;
+			sourceTree = "<group>";
+		};
+		E8B51E8C1EA134A900432031 /* Sensors */ = {
+			isa = PBXGroup;
+			children = (
+				E8B51E871EA1340E00432031 /* InputMethodEnum.swift */,
+				E8B51E831EA12C3A00432031 /* Microphone.swift */,
+				E8B51E891EA1345A00432031 /* Gyroscope.swift */,
+			);
+			name = Sensors;
+			sourceTree = "<group>";
+		};
+		E8B51E8D1EA134B400432031 /* Timers */ = {
+			isa = PBXGroup;
+			children = (
+				E8B51E7D1EA1106A00432031 /* CustomTimer.swift */,
+				E8B51E851EA1332600432031 /* InputTimer.swift */,
+			);
+			name = Timers;
+			sourceTree = "<group>";
+		};
 		E8ED99481E6768E200115DA6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -201,12 +234,9 @@
 			isa = PBXGroup;
 			children = (
 				E8A99A151E5E156A0059D21C /* User.swift */,
-				E8B51E7D1EA1106A00432031 /* CustomTimer.swift */,
-				E8B51E851EA1332600432031 /* InputTimer.swift */,
-				E8B51E831EA12C3A00432031 /* Microphone.swift */,
-				E8B51E7F1EA1124300432031 /* Exercise.swift */,
-				E8116AEC1E6FC9DF0048859A /* AirHungerExercise.swift */,
-				E8B51E811EA112B000432031 /* BalanceExercise.swift */,
+				E8B51E8D1EA134B400432031 /* Timers */,
+				E8B51E8C1EA134A900432031 /* Sensors */,
+				E8B51E8B1EA1349900432031 /* Exercises */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -368,7 +398,7 @@
 				E82FF76B1E5E132800AFE050 /* HomeViewController.swift in Sources */,
 				E8090A181E764D71002F79F7 /* Colors.swift in Sources */,
 				E8ED994D1E67691600115DA6 /* ProfileView.swift in Sources */,
-				E8B51E801EA1124300432031 /* Exercise.swift in Sources */,
+				E8B51E801EA1124300432031 /* ExerciseEnum.swift in Sources */,
 				E8B51E841EA12C3A00432031 /* Microphone.swift in Sources */,
 				E8090A131E732A6E002F79F7 /* GameSummaryView.swift in Sources */,
 				E8ED994F1E676ABA00115DA6 /* ContainerViewController.swift in Sources */,
@@ -380,8 +410,10 @@
 				E8ED99451E67688E00115DA6 /* MainTabBarController.swift in Sources */,
 				E8090A151E733802002F79F7 /* GameSummaryViewController.swift in Sources */,
 				E8A99A1A1E5E15A20059D21C /* MicrophoneViewModel.swift in Sources */,
+				E8B51E8A1EA1345A00432031 /* Gyroscope.swift in Sources */,
 				E82FF7691E5E132800AFE050 /* AppDelegate.swift in Sources */,
 				E8B51E861EA1332600432031 /* InputTimer.swift in Sources */,
+				E8B51E881EA1340E00432031 /* InputMethodEnum.swift in Sources */,
 				E8ED99471E6768D400115DA6 /* ProfileViewController.swift in Sources */,
 				E8B51E821EA112B000432031 /* BalanceExercise.swift in Sources */,
 				E8A99A161E5E156A0059D21C /* User.swift in Sources */,

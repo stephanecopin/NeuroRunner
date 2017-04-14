@@ -11,6 +11,6 @@ import RealmSwift
 class User: Object {
     
     dynamic var name = ""
-    let airHungerGames = List<AirHungerGame>()
+    let airHungerGames = List<BreathingExercise>()
     
 }

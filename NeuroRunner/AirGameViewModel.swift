@@ -22,7 +22,7 @@ protocol TakingBreathDelegate {
 class AirGameViewModel: TakingBreathDelegate {
     
     var timer: Timer!
-    var newGame: AirHungerGame!
+    var newGame: BreathingExercise!
     
     let store = DataStore.shared
     var user: User!
@@ -64,7 +64,7 @@ class AirGameViewModel: TakingBreathDelegate {
     
     func createAirHungerGame(totalTime: Double) {
         
-        newGame = AirHungerGame()
+        newGame = BreathingExercise()
         newGame.timeSpentBreathing = totalTimeBreathing.roundTo(places: 2)
         newGame.timeSpentHungering = totalTime - totalTimeBreathing.roundTo(places: 2)
 

@@ -1,5 +1,5 @@
 //
-//  InputTimer.swift
+//  InputMethod.swift
 //  NeuroRunner
 //
 //  Created by Robert Deans on 4/14/17.
@@ -8,10 +8,6 @@
 
 import Foundation
 
-class InputTimer: Timer {
-    
-    var inputTimer: InputTimer!
-
-//    var inputMethod: InputMethod
-    
+enum InputMethod {
+    case Microphone, Gyroscope
 }

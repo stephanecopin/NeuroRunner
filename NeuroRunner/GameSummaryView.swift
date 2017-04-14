@@ -13,7 +13,7 @@ import RealmSwift
 
 class GameSummaryView: UIView {
     
-    var lastGame: AirHungerGame!
+    var lastGame: BreathingExercise!
     var timeBreathing = 0.0
     var timeHungering = 0.0
     
@@ -38,7 +38,7 @@ class GameSummaryView: UIView {
         super.init(frame: frame)
     }
     
-    convenience init(with game: AirHungerGame) {
+    convenience init(with game: BreathingExercise) {
         self.init(frame: CGRect.zero)
         
         lastGame = game

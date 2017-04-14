@@ -16,7 +16,7 @@ class ProfileView: UIView {
     let store = DataStore.shared
     
     var user: User!
-    var userGames = List<AirHungerGame>()
+    var userGames = List<BreathingExercise>()
     
     var gameDates = [Date]()
     var gameLengths = [Double]()
