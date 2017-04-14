@@ -1,5 +1,5 @@
 //
-//  Exercise.swift
+//  InputTimer.swift
 //  NeuroRunner
 //
 //  Created by Robert Deans on 4/14/17.
@@ -8,6 +8,8 @@
 
 import Foundation
 
-enum Exercise {
-    case AirHungerGame, BalanceExercise
+class InputTimer: Timer {
+    
+    
+    
 }

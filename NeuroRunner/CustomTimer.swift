@@ -8,15 +8,38 @@
 
 import Foundation
 
-struct CustomTimer {
+class ExerciseTimer {
     
-    var primaryTimer: Timer
-    var inputTimer: Timer
-    var exercise: Exercise
-
+    var primaryTimer: Timer!
     // Primary timer should count up and/or count down
-    // Is input for game manual or automatic (microphone)
+    
+    var inputTimer: InputTimer!
     // Input timer should count up
+    var totalInputTime = 0.0
+    // Is input for game manual or automatic (microphone)
+    
+    let microphone = Microphone()
+    
+//    var exercise: Exercise
+    
+    
+    init() {
+
+    }
+
+}
+
+extension ExerciseTimer {
+    
+    
+    func startPrimaryTimer() {
+        primaryTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(doSomething), userInfo: nil, repeats: true)
+        
+    }
+    
+    @objc func doSomething() {
+        
+    }
     
     
     

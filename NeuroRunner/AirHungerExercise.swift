@@ -8,7 +8,6 @@
 
 import RealmSwift
 
-
 class AirHungerGame: Object {
     
     dynamic var timeSpentBreathing = 0.0
