@@ -28,6 +28,7 @@
 		E8B51E881EA1340E00432031 /* InputMethodEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E871EA1340E00432031 /* InputMethodEnum.swift */; };
 		E8B51E8A1EA1345A00432031 /* Gyroscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E891EA1345A00432031 /* Gyroscope.swift */; };
 		E8D1B1CE1E6B7BF000FD9A68 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D1B1CD1E6B7BF000FD9A68 /* DataStore.swift */; };
+		E8E7E1A51EA47BE800ED7834 /* Double Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E7E1A41EA47BE800ED7834 /* Double Ext.swift */; };
 		E8ED99431E64FEF700115DA6 /* AirGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED99421E64FEF700115DA6 /* AirGameViewModel.swift */; };
 		E8ED99451E67688E00115DA6 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED99441E67688E00115DA6 /* MainTabBarController.swift */; };
 		E8ED99471E6768D400115DA6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED99461E6768D400115DA6 /* ProfileViewController.swift */; };
@@ -73,6 +74,7 @@
 		E8B51E871EA1340E00432031 /* InputMethodEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputMethodEnum.swift; sourceTree = "<group>"; };
 		E8B51E891EA1345A00432031 /* Gyroscope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gyroscope.swift; sourceTree = "<group>"; };
 		E8D1B1CD1E6B7BF000FD9A68 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
+		E8E7E1A41EA47BE800ED7834 /* Double Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double Ext.swift"; sourceTree = "<group>"; };
 		E8ED99421E64FEF700115DA6 /* AirGameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirGameViewModel.swift; sourceTree = "<group>"; };
 		E8ED99441E67688E00115DA6 /* MainTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		E8ED99461E6768D400115DA6 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -156,7 +158,7 @@
 				E82FF76F1E5E132800AFE050 /* Assets.xcassets */,
 				E82FF7711E5E132800AFE050 /* LaunchScreen.storyboard */,
 				E82FF7741E5E132800AFE050 /* Info.plist */,
-				E8D1B1CD1E6B7BF000FD9A68 /* DataStore.swift */,
+				E8E7E1A41EA47BE800ED7834 /* Double Ext.swift */,
 				E8090A171E764D71002F79F7 /* Colors.swift */,
 			);
 			path = NeuroRunner;
@@ -233,6 +235,7 @@
 		E8ED994B1E6768FE00115DA6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				E8D1B1CD1E6B7BF000FD9A68 /* DataStore.swift */,
 				E8A99A151E5E156A0059D21C /* User.swift */,
 				E8B51E8D1EA134B400432031 /* Timers */,
 				E8B51E8C1EA134A900432031 /* Sensors */,
@@ -408,6 +411,7 @@
 				E8B51E7E1EA1106A00432031 /* CustomTimer.swift in Sources */,
 				E8A99A181E5E15900059D21C /* AirGameView.swift in Sources */,
 				E8ED99451E67688E00115DA6 /* MainTabBarController.swift in Sources */,
+				E8E7E1A51EA47BE800ED7834 /* Double Ext.swift in Sources */,
 				E8090A151E733802002F79F7 /* GameSummaryViewController.swift in Sources */,
 				E8A99A1A1E5E15A20059D21C /* MicrophoneViewModel.swift in Sources */,
 				E8B51E8A1EA1345A00432031 /* Gyroscope.swift in Sources */,

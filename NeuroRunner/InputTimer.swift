@@ -11,7 +11,9 @@ import Foundation
 class InputTimer: Timer {
     
     var inputTimer: InputTimer!
+    var totalInputTime = 0.0
 
-//    var inputMethod: InputMethod
+    var inputMethod: InputMethod?
+    // Microphone, Gyroscope
     
 }

@@ -21,11 +21,12 @@ protocol TakingBreathDelegate {
 
 class AirGameViewModel: TakingBreathDelegate {
     
-    var timer: Timer!
-    var newGame: BreathingExercise!
-    
     let store = DataStore.shared
     var user: User!
+    
+    var timer: Timer!
+    var newExercise: BreathingExercise!
+    let customTimer = ExerciseTimer()
     
     var presentGameSummaryDelegate: PresentGameSummaryDelegate?
     
@@ -37,15 +38,21 @@ class AirGameViewModel: TakingBreathDelegate {
         }
     }
     
-    // *** Make sure that microphone and button are not duplicating information
-    
-    // *** Delete any unnecessary instances of DataStore
-    
+    // TODO: Make sure that microphone and button are not duplicating information
+        
     init() {
         user = store.user
     }
     
+    func startExercise() {
+        // set up countdown timer?
+        // set up input timer
+        
+        
+        
+    }
     
+    // TODO: combine these to functions; get to correspond directly to input button and/or microphone
     func addToTimeBreathingButton(isBreathing: Bool) {
         
         if isBreathing {
@@ -64,18 +71,18 @@ class AirGameViewModel: TakingBreathDelegate {
     
     func createAirHungerGame(totalTime: Double) {
         
-        newGame = BreathingExercise()
-        newGame.timeSpentBreathing = totalTimeBreathing.roundTo(places: 2)
-        newGame.timeSpentHungering = totalTime - totalTimeBreathing.roundTo(places: 2)
+        newExercise = BreathingExercise()
+        newExercise.timeSpentBreathing = totalTimeBreathing.roundTo(places: 2)
+        newExercise.timeSpentHungering = totalTime - totalTimeBreathing.roundTo(places: 2)
 
         try! store.realm.write {
-            user.airHungerGames.append(newGame)
+            user.airHungerGames.append(newExercise)
         }
         
         print("VM user airGame count is \(user.airHungerGames.count)")
         presentGameSummaryDelegate?.presentGameSummary()
         
-        print("Date = \(newGame.dateOfExercise)")
+        print("Date = \(newExercise.dateOfExercise)")
         print("time breathing microphone = \(timeBreathingMicrophone)")
         print("time breathing button = \(timeBreathingButton.roundTo(places: 2))")
         print("time hungering = \((totalTime - timeBreathingButton).roundTo(places: 2))")
@@ -83,19 +90,11 @@ class AirGameViewModel: TakingBreathDelegate {
         print("total time = \(totalTime)")
         print("newGame returned to nil")
         
-        newGame = nil
+        newExercise = nil
         timeBreathingButton = 0.00
         timeBreathingMicrophone = 0.00
         
 
     }
     
-}
-
-extension Double {
-    /// Rounds the double to decimal places value
-    func roundTo(places:Int) -> Double {
-        let divisor = pow(10.0, Double(places))
-        return (self * divisor).rounded() / divisor
-    }
 }

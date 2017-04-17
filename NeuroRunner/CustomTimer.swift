@@ -12,15 +12,13 @@ class ExerciseTimer {
     
     var primaryTimer: Timer!
     // Primary timer should count up and/or count down
+    var countdownTimer = 0.0
     
     var inputTimer: InputTimer!
     // Input timer should count up
-    var totalInputTime = 0.0
     // Is input for game manual or automatic (microphone)
     
-    let microphone = Microphone()
-    
-//    var exercise: Exercise
+    var exercise: Exercise?
     
     
     init() {

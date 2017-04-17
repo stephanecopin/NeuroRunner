@@ -13,36 +13,68 @@ class AirGameView: UIView {
     
     let pickerTimer = UIDatePicker()
     var timerLabelView = UIView()
-    var secondsLabel = UILabel()
-    var minutesLabel = UILabel()
+    var secondsLabel = UILabel() {
+        didSet {
+            secondsLabel.text = "\(seconds)"
+            if 0...9 ~= seconds {
+                secondsLabel.text = "0\(seconds)"
+            }
+        }
+    }
+    var minutesLabel = UILabel() {
+        didSet {
+            minutesLabel.text = "\(minutes):"
+            if minutes == 0 {
+                minutesLabel.text = "00:"
+            }
+        }
+    }
+
     
-    var backgroundView: UIImageView!
+    var backgroundImageView: UIImageView!
     var blurView: UIVisualEffectView!
     
     var startStopButton = UIButton()
     var breathingButton = UIButton()
     
+    // TODO: Create a separate TimerView() aka CustomPickerView
+    
     var timer = Timer()
     var isTimerOn = false
+    
     var initialStartTime = 0.0
     var totalTimeRemaining = 0
-    var seconds = 0
-    var minutes = 0
+    var seconds: Int {
+        get {
+            return (totalTimeRemaining % 60)
+        }
+    }
+    var minutes: Int {
+        get {
+            return (totalTimeRemaining / 60)
+        }
+    }
     
     var microphoneDelegate: MicrophoneDelegate?
     var takingBreathDelegate: TakingBreathDelegate?
     
+    
+    
+    
+    
+    
+    
+    let airGameViewModel = AirGameViewModel()
+    
+    
     // MARK: Initialization
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-    }
-    
-    convenience init() {
-        self.init(frame: CGRect.zero)
         configure()
         constrain()
     }
@@ -53,9 +85,8 @@ class AirGameView: UIView {
         blurView.alpha = 0.4
         
         let backgroundImage = #imageLiteral(resourceName: "mountain")
-        
-        backgroundView = UIImageView(frame: CGRect(origin: CGPoint.init(x: -745, y: 0), size: backgroundImage.size))
-        backgroundView.image = backgroundImage
+        backgroundImageView = UIImageView(frame: CGRect(origin: CGPoint.init(x: -745, y: 0), size: backgroundImage.size))
+        backgroundImageView.image = backgroundImage
 
 
         pickerTimer.datePickerMode = .countDownTimer
@@ -93,8 +124,8 @@ class AirGameView: UIView {
     }
     
     func constrain() {
-        addSubview(backgroundView)
-        backgroundView.addSubview(blurView)
+        addSubview(backgroundImageView)
+        backgroundImageView.addSubview(blurView)
         blurView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
@@ -141,6 +172,7 @@ class AirGameView: UIView {
         
     }
     
+    // Start/Stop Button
     func startStopButtonTapped() {
         isTimerOn = !isTimerOn
 
@@ -153,6 +185,7 @@ class AirGameView: UIView {
     
     func timerOn() {
         
+        // ALL visual cues
         totalTimeRemaining = Int(pickerTimer.countDownDuration)
         initialStartTime = Double(totalTimeRemaining)
 
@@ -163,6 +196,10 @@ class AirGameView: UIView {
         
         startStopButton.setTitle("Stop", for: .normal)
         startStopButton.backgroundColor = UIColor.startButtonStop
+        
+        
+        // Should start a timer, record input
+        airGameViewModel.startExercise()
         
         microphoneDelegate?.recordAudio(isRecording: true)
 
@@ -187,9 +224,10 @@ class AirGameView: UIView {
     
     func updateTimerLabel() {
         totalTimeRemaining -= 5
-        minutes = (totalTimeRemaining / 60)
-        seconds = totalTimeRemaining % 60
-        
+        print("total time: \(totalTimeRemaining)")
+        print("minutes: \(minutes), seconds: \(seconds)")
+
+        // TODO: Move inside of didSet
         secondsLabel.text = "\(seconds)"
         minutesLabel.text = "\(minutes):"
         
