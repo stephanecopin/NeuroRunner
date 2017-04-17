@@ -73,7 +73,8 @@ class AirGameView: UIView {
     }
     
     func configure() {
-        
+        //TODO: set delegate of microphone to this?
+//        airGameViewModel.
         blurView = UIVisualEffectView(effect: UIBlurEffect(style: .prominent))
         blurView.alpha = 0.4
         
@@ -239,20 +240,21 @@ class AirGameView: UIView {
     func takeBreath(_ sender: UIButton) {
         sender.backgroundColor = UIColor.breathingButtonOn
         blurView.alpha = 0
-        airGameViewModel.addToTimeBreathingButton(isBreathing: true)
+//        airGameViewModel.addToTimeBreathingButton(isBreathing: true)
+        airGameViewModel.inputTimer.addTimeToTotalInput(with: .manual)
     }
     
     func releaseBreath(_ sender: UIButton) {
         sender.backgroundColor = UIColor.breathingButtonOff
         blurView.alpha = 0.4
-        airGameViewModel.addToTimeBreathingButton(isBreathing: false)
+        airGameViewModel.inputTimer.inputTimer.invalidate()
     }
 
 }
 
-extension AirGameView: BreathingViewUpdateDelegate {
+extension AirGameView: SensorViewUpdateDelegate {
     
-    func breathingDetected(isDetected: Bool) {
+    func sensoryInputDetected(_ isDetected: Bool) {
         if isDetected {
             blurView.alpha = 0
         } else {

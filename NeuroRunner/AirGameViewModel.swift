@@ -19,7 +19,8 @@ class AirGameViewModel {
     
     var presentGameSummaryDelegate: PresentGameSummaryDelegate?
     
-    var isManualInput = true
+    var inputMethod: InputMethod = .manual
+    var inputTimer: InputTimer!
     var timeBreathingButton = 0.00
     var timeBreathingInput = 0.00
     // TODO: should not combine; one or the other
@@ -27,6 +28,7 @@ class AirGameViewModel {
     
     init() {
         user = store.user
+        inputTimer = InputTimer(inputMethod: inputMethod)
     }
     
     func startExercise(with initialStartTime: Double?) {
@@ -37,7 +39,7 @@ class AirGameViewModel {
                 // When countdownTimer == 0; completion:
                 self.createAirHungerGame(totalTime: initialStartTime)
             })
-
+            
             // set up input timer
             
         }
@@ -46,7 +48,7 @@ class AirGameViewModel {
     
     func cancelExercise() {
         exerciseTimer.primaryTimer.invalidate()
-//        customTimer.inputTimer.invalidate()
+        //        customTimer.inputTimer.invalidate()
         timeBreathingButton = 0.00
         timeBreathingInput = 0.00
     }
@@ -55,20 +57,28 @@ class AirGameViewModel {
         print("creating!!!")
         newExercise = BreathingExercise()
         
-        if isManualInput {
+        switch inputMethod {
+        case .manual:
             newExercise.timeSpentBreathing = timeBreathingButton.roundTo(places: 2)
             newExercise.timeSpentHungering = totalTime - timeBreathingButton.roundTo(places: 2)
-        } else {
-            newExercise.timeSpentBreathing = timeBreathingInput.roundTo(places: 2)
-            newExercise.timeSpentHungering = totalTime - timeBreathingInput.roundTo(places: 2)
+        case .Microphone:
+            break
+        case .Gyroscope:
+            //not a valid input
+            break
         }
+        
+        
+        newExercise.timeSpentBreathing = inputTimer.totalInputTime.roundTo(places: 2)
+        newExercise.timeSpentHungering = totalTime - inputTimer.totalInputTime.roundTo(places: 2)
+        
         
         try! store.realm.write {
             user.airHungerGames.append(newExercise)
         }
         
         presentGameSummaryDelegate?.presentGameSummary()
-
+        
         print("User airGame count is \(user.airHungerGames.count)")
         print("Date = \(newExercise.dateOfExercise)")
         print("time breathing = \(newExercise.timeSpentBreathing)")
@@ -79,6 +89,7 @@ class AirGameViewModel {
         newExercise = nil
         timeBreathingButton = 0.00
         timeBreathingInput = 0.00
+        inputTimer.totalInputTime = 0.0
         
     }
     

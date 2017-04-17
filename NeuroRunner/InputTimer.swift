@@ -12,8 +12,8 @@ class InputTimer {
     
     var inputTimer: Timer!
     var totalInputTime = 0.0
-
-    var inputMethod: InputMethod = .manual {
+    
+    var inputMethod: InputMethod {
         didSet {
             switch inputMethod {
             case .Microphone :
@@ -25,19 +25,30 @@ class InputTimer {
             }
         }
     }
-    var microphone: Microphone?
-    var gyroscope: Gyroscope?
+    
+    // TODO: Make this safer
+    var microphone: Microphone!
+    var gyroscope: Gyroscope!
+    
+    init(inputMethod: InputMethod) {
+        self.inputMethod = inputMethod
+    }
     
 }
 
 extension InputTimer {
     
-
-    
-    func addTimeToPrimaryTimer() {
-        inputTimer = Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true, block: { (timer) in
-            self.totalInputTime += 0.1
-        })
+    func addTimeToTotalInput(with inputMethod: InputMethod) {
+        switch inputMethod {
+        case .Microphone:
+            totalInputTime = microphone.levelTimerCallback()
+        case .Gyroscope: break
+        //
+        case .manual:
+        inputTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (timer) in
+            self.totalInputTime += 0.01
+            }
+        }
     }
     
     func clearTimer() {

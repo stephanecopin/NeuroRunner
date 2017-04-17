@@ -15,9 +15,12 @@ class Microphone: NSObject, AVAudioRecorderDelegate {
     var audioSession: AVAudioSession!
     
     var levelTimer: Timer!
-    var isMicrophoneEnabled = false
     var minInputLevel: Float = -35
     var peakLevel = [Float]()
+    var timeAbovePeak: Double = 0.0
+    
+    var sensorViewUpdateDelegate: SensorViewUpdateDelegate?
+    var isMicrophoneEnabled = false
     
     override init() {
         super.init()
@@ -77,7 +80,7 @@ extension Microphone {
     func observeAudioLevels(isRecording: Bool) {
         if isRecording && isMicrophoneEnabled {
             // Send data to inputTimer
-            levelTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(levelTimerCallback), userInfo: nil, repeats: true)
+            levelTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(levelTimerCallback), userInfo: nil, repeats: true)
             audioRecorder.record()
             print("recording")
         } else if isMicrophoneEnabled {
@@ -86,16 +89,23 @@ extension Microphone {
         }
     }
     
-    func levelTimerCallback() {
+    func levelTimerCallback() -> Double {
         audioRecorder.updateMeters()
         
         if audioRecorder.averagePower(forChannel: 0) > minInputLevel {
-            // add time to inputTimer
-            
+            timeAbovePeak += 0.01
+            sensorViewUpdateDelegate?.sensoryInputDetected(true)
+            return timeAbovePeak
         } else {
-            // Set back to inactive
-            
+            sensorViewUpdateDelegate?.sensoryInputDetected(false)
         }
+        return timeAbovePeak
     }
+    
+}
+
+protocol SensorViewUpdateDelegate {
+    
+    func sensoryInputDetected(_ isDetected: Bool)
     
 }
