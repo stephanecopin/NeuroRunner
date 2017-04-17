@@ -8,25 +8,14 @@
 
 import Foundation
 
-protocol TakingBreathDelegate {
-    
-    func addToTimeBreathingButton(isBreathing: Bool)
-    
-    func addToTimeBreathingMicrophone()
-    
-    func createAirHungerGame(totalTime: Double)
-    
-    
-}
-
-class AirGameViewModel: TakingBreathDelegate {
+class AirGameViewModel {
     
     let store = DataStore.shared
     var user: User!
     
     var timer: Timer!
     var newExercise: BreathingExercise!
-    let customTimer = ExerciseTimer()
+    let exerciseTimer = ExerciseTimer()
     
     var presentGameSummaryDelegate: PresentGameSummaryDelegate?
     
@@ -43,9 +32,9 @@ class AirGameViewModel: TakingBreathDelegate {
     func startExercise(with initialStartTime: Double?) {
         
         if let initialStartTime = initialStartTime {
-            customTimer.countdownTime = initialStartTime
-            customTimer.startPrimaryTimer(completion: {
-                // When customTimer's countdownTime == 0, timerInvalidate() and completion()
+            exerciseTimer.countdownTime = initialStartTime
+            exerciseTimer.startPrimaryTimer(completion: {
+                // When countdownTimer == 0; completion:
                 self.createAirHungerGame(totalTime: initialStartTime)
             })
 
@@ -56,7 +45,7 @@ class AirGameViewModel: TakingBreathDelegate {
     }
     
     func cancelExercise() {
-        customTimer.primaryTimer.invalidate()
+        exerciseTimer.primaryTimer.invalidate()
 //        customTimer.inputTimer.invalidate()
         timeBreathingButton = 0.00
         timeBreathingInput = 0.00

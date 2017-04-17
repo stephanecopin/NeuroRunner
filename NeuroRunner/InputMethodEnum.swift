@@ -9,5 +9,5 @@
 import Foundation
 
 enum InputMethod {
-    case Microphone, Gyroscope
+    case Microphone, Gyroscope, manual
 }

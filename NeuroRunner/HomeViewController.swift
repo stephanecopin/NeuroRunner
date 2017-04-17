@@ -39,7 +39,6 @@ class HomeViewController: UIViewController {
         
         // Set Delegates
         airGameView.microphoneDelegate = microphoneViewModel
-        microphoneViewModel.takingBreathDelegate = airGameView.airGameViewModel
         microphoneViewModel.breathingViewUpdateDelegate = airGameView
         airGameView.airGameViewModel.presentGameSummaryDelegate = self
         

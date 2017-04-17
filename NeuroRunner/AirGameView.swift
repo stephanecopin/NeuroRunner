@@ -11,8 +11,11 @@ import SnapKit
 
 class AirGameView: UIView {
     
+    let airGameViewModel = AirGameViewModel()
+    
     let pickerTimer = UIDatePicker()
     var timerLabelView = UIView()
+    
     var secondsLabel = UILabel() {
         didSet {
             secondsLabel.text = "\(seconds)"
@@ -29,13 +32,6 @@ class AirGameView: UIView {
             }
         }
     }
-
-    
-    var backgroundImageView: UIImageView!
-    var blurView: UIVisualEffectView!
-    
-    var startStopButton = UIButton()
-    var breathingButton = UIButton()
     
     // TODO: Create a separate TimerView() aka CustomPickerView
     
@@ -55,9 +51,13 @@ class AirGameView: UIView {
         }
     }
     
-    var microphoneDelegate: MicrophoneDelegate?
+    var backgroundImageView: UIImageView!
+    var blurView: UIVisualEffectView!
     
-    let airGameViewModel = AirGameViewModel()
+    var startStopButton = UIButton()
+    var breathingButton = UIButton()
+    
+    var microphoneDelegate: MicrophoneDelegate?
     
     
     // MARK: Initialization

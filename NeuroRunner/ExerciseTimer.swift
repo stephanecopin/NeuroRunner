@@ -10,21 +10,13 @@ import Foundation
 
 class ExerciseTimer {
     
-    enum CountUpDown {
-        case up, down
-    }
-    
     var primaryTimer: Timer!
-    // Primary timer should count up and/or count down
+    // should count up and/or count down
     var countdownTime = 0.0
-    
-    var inputTimer: InputTimer!
-    // Input timer should count up
-    // Is input for game manual or automatic (microphone)
-    
-    var exercise: Exercise?
 
 }
+
+// TODO: Program intervals?
 
 extension ExerciseTimer {
     
@@ -52,8 +44,7 @@ extension ExerciseTimer {
         countdownTime += 1
     }
     
-    func clearTimers() {
-        inputTimer.invalidate()
+    func clearTimer() {
         primaryTimer.invalidate()
         countdownTime = 0.0
     }

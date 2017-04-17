@@ -31,7 +31,8 @@ class MicrophoneViewModel: NSObject, AVAudioRecorderDelegate {
     var peakLevel = [Float]()
     var minBreathingLevel: Float = -35
     
-    var takingBreathDelegate: TakingBreathDelegate?
+    // TODO: This used to talk to the AirGameViewModel; implement another way
+//    var takingBreathDelegate: TakingBreathDelegate?
     var breathingViewUpdateDelegate: BreathingViewUpdateDelegate?
     
     var isMicrophoneEnabled = false
@@ -108,7 +109,9 @@ extension MicrophoneViewModel: MicrophoneDelegate {
         audioRecorder.updateMeters()
         
         if audioRecorder.averagePower(forChannel: 0) > minBreathingLevel {
-            takingBreathDelegate?.addToTimeBreathingMicrophone()
+            
+            
+//            takingBreathDelegate?.addToTimeBreathingMicrophone()
             breathingViewUpdateDelegate?.breathingDetected(isDetected: true)
         } else {
             breathingViewUpdateDelegate?.breathingDetected(isDetected: false)

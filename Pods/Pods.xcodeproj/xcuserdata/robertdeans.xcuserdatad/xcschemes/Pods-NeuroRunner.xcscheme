@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0830"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8901876A929AB60EF99147E79CC79309"
+               BlueprintIdentifier = "30735D6046576928021FAB227F3455FE"
                BuildableName = "Pods_NeuroRunner.framework"
                BlueprintName = "Pods-NeuroRunner"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8901876A929AB60EF99147E79CC79309"
+            BlueprintIdentifier = "30735D6046576928021FAB227F3455FE"
             BuildableName = "Pods_NeuroRunner.framework"
             BlueprintName = "Pods-NeuroRunner"
             ReferencedContainer = "container:Pods.xcodeproj">

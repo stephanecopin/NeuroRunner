@@ -14,11 +14,9 @@ class Microphone: NSObject, AVAudioRecorderDelegate {
     var audioPlayer: AVAudioPlayer!
     var audioSession: AVAudioSession!
     
-
-    
+    var levelTimer: Timer!
     var isMicrophoneEnabled = false
-    var minBreathingLevel: Float = -35
-
+    var minInputLevel: Float = -35
     var peakLevel = [Float]()
     
     override init() {
@@ -28,10 +26,7 @@ class Microphone: NSObject, AVAudioRecorderDelegate {
     }
     
     func configure() {
-        
         audioSession = AVAudioSession.sharedInstance()
-        
-        // Request microphone permission
         do {
             try audioSession.setCategory(AVAudioSessionCategoryRecord)
             try audioSession.setActive(true)
@@ -51,7 +46,6 @@ class Microphone: NSObject, AVAudioRecorderDelegate {
     }
     
     func setUpRecorder() {
-        
         // This URL path ensures that data is not stored to phone
         let urlPathNull = URL.init(fileURLWithPath: "/dev/null")
         
@@ -59,7 +53,6 @@ class Microphone: NSObject, AVAudioRecorderDelegate {
                         AVEncoderAudioQualityKey : AVAudioQuality.max.rawValue,
                         AVNumberOfChannelsKey: 1,
                         AVSampleRateKey: 44100.0 ] as [String : Any]
-        
         do {
             audioRecorder =  try AVAudioRecorder(url: urlPathNull, settings: settings)
             audioRecorder.delegate = self
@@ -72,35 +65,36 @@ class Microphone: NSObject, AVAudioRecorderDelegate {
                 audioRecorder = nil
             }
         }
-        
     }
     
     func calibrateAmbientNoise() {
-// TODO:       minBreathingLevel = new calibrated setting in relation to ambient noise
+        // TODO:       minBreathingLevel = new calibrated setting in relation to ambient noise
     }
 }
 
 extension Microphone {
     
-    func recordAudio(isRecording: Bool) {
+    func observeAudioLevels(isRecording: Bool) {
         if isRecording && isMicrophoneEnabled {
             // Send data to inputTimer
+            levelTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(levelTimerCallback), userInfo: nil, repeats: true)
             audioRecorder.record()
             print("recording")
         } else if isMicrophoneEnabled {
             audioRecorder.stop()
-            // Invalidate inputTimer
+            levelTimer.invalidate()
         }
     }
     
     func levelTimerCallback() {
         audioRecorder.updateMeters()
         
-        if audioRecorder.averagePower(forChannel: 0) > minBreathingLevel {
-            // Indicate that an action / input is taking place
+        if audioRecorder.averagePower(forChannel: 0) > minInputLevel {
+            // add time to inputTimer
             
         } else {
             // Set back to inactive
+            
         }
     }
     
