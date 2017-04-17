@@ -14,6 +14,8 @@ class Microphone: NSObject, AVAudioRecorderDelegate {
     var audioPlayer: AVAudioPlayer!
     var audioSession: AVAudioSession!
     
+
+    
     var isMicrophoneEnabled = false
     var minBreathingLevel: Float = -35
 
@@ -96,6 +98,7 @@ extension Microphone {
         
         if audioRecorder.averagePower(forChannel: 0) > minBreathingLevel {
             // Indicate that an action / input is taking place
+            
         } else {
             // Set back to inactive
         }

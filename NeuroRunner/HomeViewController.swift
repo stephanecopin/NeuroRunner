@@ -13,7 +13,6 @@ import RealmSwift
 class HomeViewController: UIViewController {
 
     let airGameView = AirGameView()
-    let airGameViewModel = AirGameViewModel()
     let microphoneViewModel = MicrophoneViewModel()
     
     var gameSummaryViewController: GameSummaryViewController!
@@ -40,10 +39,9 @@ class HomeViewController: UIViewController {
         
         // Set Delegates
         airGameView.microphoneDelegate = microphoneViewModel
-        airGameView.takingBreathDelegate = airGameViewModel
-        microphoneViewModel.takingBreathDelegate = airGameViewModel
+        microphoneViewModel.takingBreathDelegate = airGameView.airGameViewModel
         microphoneViewModel.breathingViewUpdateDelegate = airGameView
-        airGameViewModel.presentGameSummaryDelegate = self
+        airGameView.airGameViewModel.presentGameSummaryDelegate = self
         
         // Add View
         view.addSubview(airGameView)

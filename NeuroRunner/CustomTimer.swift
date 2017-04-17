@@ -10,35 +10,47 @@ import Foundation
 
 class ExerciseTimer {
     
+    enum CountUpDown {
+        case up, down
+    }
+    
     var primaryTimer: Timer!
     // Primary timer should count up and/or count down
-    var countdownTimer = 0.0
+    var countdownTime = 0.0
     
     var inputTimer: InputTimer!
     // Input timer should count up
     // Is input for game manual or automatic (microphone)
     
     var exercise: Exercise?
-    
-    
-    init() {
-
-    }
 
 }
 
 extension ExerciseTimer {
     
     
-    func startPrimaryTimer() {
-        primaryTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(doSomething), userInfo: nil, repeats: true)
+    func startPrimaryTimer(completion: @escaping () -> ()) {
+        primaryTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
+            self.countdownTime -= 5
+            if self.countdownTime == 0.0 {
+                self.primaryTimer.invalidate()
+                completion()
+            }
+        })
         
     }
     
-    @objc func doSomething() {
-        
+    @objc func removeTimeFromPrimaryTimer() {
+        countdownTime -= 5
+        print("countdown time = \(countdownTime)")
+        if countdownTime == 0.0 {
+            primaryTimer.invalidate()
+        }
     }
     
+    @objc func addTimeToPrimaryTimer() {
+        countdownTime += 1
+    }
     
     
 }

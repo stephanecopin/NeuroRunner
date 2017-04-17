@@ -14,6 +14,7 @@ class InputTimer: Timer {
     var totalInputTime = 0.0
 
     var inputMethod: InputMethod?
+    var microphone: Microphone!
     // Microphone, Gyroscope
     
 }

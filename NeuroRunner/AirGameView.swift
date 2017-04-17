@@ -56,13 +56,6 @@ class AirGameView: UIView {
     }
     
     var microphoneDelegate: MicrophoneDelegate?
-    var takingBreathDelegate: TakingBreathDelegate?
-    
-    
-    
-    
-    
-    
     
     let airGameViewModel = AirGameViewModel()
     
@@ -198,16 +191,13 @@ class AirGameView: UIView {
         startStopButton.backgroundColor = UIColor.startButtonStop
         
         
-        // Should start a timer, record input
-        airGameViewModel.startExercise()
-        
-        microphoneDelegate?.recordAudio(isRecording: true)
+        // Begins Exercise
+        airGameViewModel.startExercise(with: initialStartTime)
 
     }
     
     func timerOff() {
         timer.invalidate()
-        microphoneDelegate?.recordAudio(isRecording: false)
         
         breathingButton.isHidden = true
         pickerTimer.isHidden = false
@@ -219,6 +209,9 @@ class AirGameView: UIView {
         minutesLabel.text = "00:"
         
         blurView.alpha = 0.4
+        
+        // Cancels exercise
+//        airGameViewModel.cancelExercise()
 
     }
     
@@ -242,25 +235,24 @@ class AirGameView: UIView {
         // TIMER == 00:00 WILL CREATE INSTANCE OF GAME
         if totalTimeRemaining == 0 {
             timerOff()
-            takingBreathDelegate?.createAirHungerGame(totalTime: initialStartTime)
         }
     }
     
     func takeBreath(_ sender: UIButton) {
-        takingBreathDelegate?.addToTimeBreathingButton(isBreathing: true)
         sender.backgroundColor = UIColor.breathingButtonOn
         blurView.alpha = 0
+        airGameViewModel.addToTimeBreathingButton(isBreathing: true)
     }
     
     func releaseBreath(_ sender: UIButton) {
         sender.backgroundColor = UIColor.breathingButtonOff
         blurView.alpha = 0.4
-        takingBreathDelegate?.addToTimeBreathingButton(isBreathing: false)
+        airGameViewModel.addToTimeBreathingButton(isBreathing: false)
     }
 
 }
 
-extension AirGameView: BreathingViewUpdate {
+extension AirGameView: BreathingViewUpdateDelegate {
     
     func breathingDetected(isDetected: Bool) {
         if isDetected {

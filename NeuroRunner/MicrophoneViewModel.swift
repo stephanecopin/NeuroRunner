@@ -14,7 +14,7 @@ protocol MicrophoneDelegate {
     
 }
 
-protocol BreathingViewUpdate {
+protocol BreathingViewUpdateDelegate {
     
     func breathingDetected(isDetected: Bool)
     
@@ -32,7 +32,7 @@ class MicrophoneViewModel: NSObject, AVAudioRecorderDelegate {
     var minBreathingLevel: Float = -35
     
     var takingBreathDelegate: TakingBreathDelegate?
-    var breathingViewUpdateDelegate: BreathingViewUpdate?
+    var breathingViewUpdateDelegate: BreathingViewUpdateDelegate?
     
     var isMicrophoneEnabled = false
     
