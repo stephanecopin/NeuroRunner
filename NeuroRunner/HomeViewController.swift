@@ -38,7 +38,6 @@ class HomeViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Enable Mic", style: .plain, target: self, action: #selector(toggleMic))
         
         // Set Delegates
-        airGameView.microphoneDelegate = microphoneViewModel
         airGameView.airGameViewModel.presentGameSummaryDelegate = self
         
         // Add View

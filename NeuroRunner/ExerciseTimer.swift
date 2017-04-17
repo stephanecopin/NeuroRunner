@@ -7,6 +7,7 @@
 //
 
 import Foundation
+// TODO: Eventually will have capability to program intervals?
 
 class ExerciseTimer {
     
@@ -16,12 +17,10 @@ class ExerciseTimer {
 
 }
 
-// TODO: Program intervals?
-
 extension ExerciseTimer {
     
     
-    func startPrimaryTimer(completion: @escaping () -> ()) {
+    func startCountDownTimer(completion: @escaping () -> ()) {
         primaryTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
             self.countdownTime -= 5
             if self.countdownTime == 0.0 {
@@ -32,17 +31,7 @@ extension ExerciseTimer {
         
     }
     
-    @objc func removeTimeFromPrimaryTimer() {
-        countdownTime -= 5
-        print("countdown time = \(countdownTime)")
-        if countdownTime == 0.0 {
-            primaryTimer.invalidate()
-        }
-    }
-    
-    @objc func addTimeToPrimaryTimer() {
-        countdownTime += 1
-    }
+    // func startCountUpTimer() { }
     
     func clearTimer() {
         primaryTimer.invalidate()

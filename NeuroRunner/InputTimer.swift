@@ -43,7 +43,7 @@ extension InputTimer {
         case .Microphone:
             totalInputTime = microphone.levelTimerCallback()
         case .Gyroscope: break
-        //
+        // TODO: eventually will incorporate Gyroscope settings
         case .manual:
         inputTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (timer) in
             self.totalInputTime += 0.01

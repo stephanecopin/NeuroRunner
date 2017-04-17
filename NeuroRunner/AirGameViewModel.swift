@@ -13,62 +13,48 @@ class AirGameViewModel {
     let store = DataStore.shared
     var user: User!
     
-    var timer: Timer!
     var newExercise: BreathingExercise!
     let exerciseTimer = ExerciseTimer()
+    var inputTimer: InputTimer!
+    // TODO: Make sure this works when input Method is changed
+    var inputMethod: InputMethod = .manual {
+        didSet {
+            inputTimer.inputMethod = self.inputMethod
+        }
+    }
     
     var presentGameSummaryDelegate: PresentGameSummaryDelegate?
-    
-    var inputMethod: InputMethod = .manual
-    var inputTimer: InputTimer!
-    var timeBreathingButton = 0.00
-    var timeBreathingInput = 0.00
-    // TODO: should not combine; one or the other
-    // To make sure that microphone and button are not duplicating information
-    
+
     init() {
         user = store.user
         inputTimer = InputTimer(inputMethod: inputMethod)
     }
+}
+
+// MARK: ViewModel Methods
+extension AirGameViewModel {
     
     func startExercise(with initialStartTime: Double?) {
+        // Optional because exercise may count up instead of down
         
+        // If is countdown
         if let initialStartTime = initialStartTime {
             exerciseTimer.countdownTime = initialStartTime
-            exerciseTimer.startPrimaryTimer(completion: {
-                // When countdownTimer == 0; completion:
+            exerciseTimer.startCountDownTimer(completion: {
                 self.createAirHungerGame(totalTime: initialStartTime)
             })
-            
-            // set up input timer
-            
         }
-        
     }
     
     func cancelExercise() {
-        exerciseTimer.primaryTimer.invalidate()
-        //        customTimer.inputTimer.invalidate()
-        timeBreathingButton = 0.00
-        timeBreathingInput = 0.00
+        // Resets all timers and data
+        exerciseTimer.clearTimer()
+        inputTimer.clearTimer()
     }
     
     func createAirHungerGame(totalTime: Double) {
-        print("creating!!!")
         newExercise = BreathingExercise()
-        
-        switch inputMethod {
-        case .manual:
-            newExercise.timeSpentBreathing = timeBreathingButton.roundTo(places: 2)
-            newExercise.timeSpentHungering = totalTime - timeBreathingButton.roundTo(places: 2)
-        case .Microphone:
-            break
-        case .Gyroscope:
-            //not a valid input
-            break
-        }
-        
-        
+
         newExercise.timeSpentBreathing = inputTimer.totalInputTime.roundTo(places: 2)
         newExercise.timeSpentHungering = totalTime - inputTimer.totalInputTime.roundTo(places: 2)
         
@@ -84,35 +70,12 @@ class AirGameViewModel {
         print("time breathing = \(newExercise.timeSpentBreathing)")
         print("time hungering = \(newExercise.timeSpentHungering)")
         print("total time = \(totalTime)")
-        print("newGame returned to nil")
         
         newExercise = nil
-        timeBreathingButton = 0.00
-        timeBreathingInput = 0.00
-        inputTimer.totalInputTime = 0.0
+        cancelExercise()
         
     }
     
 }
 
-// MARK: Input timer methods
-extension AirGameViewModel {
-    
-    // TODO: combine these to functions; get to correspond directly to input button and/or microphone
-    func addToTimeBreathingButton(isBreathing: Bool) {
-        
-        if isBreathing {
-            timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (timer) in
-                self.timeBreathingButton += 0.01
-            }
-        } else {
-            timer.invalidate()
-        }
-    }
-    
-    func addToTimeBreathingMicrophone() {
-        timeBreathingInput += 0.01
-        
-        
-    }
-}
+

@@ -38,7 +38,6 @@ class AirGameView: UIView {
     var viewTimer = Timer()
     var isTimerOn = false
     
-    var initialStartTime = 0.0
     var totalTimeRemaining = 0
     var seconds: Int {
         get {
@@ -57,8 +56,6 @@ class AirGameView: UIView {
     var startStopButton = UIButton()
     var breathingButton = UIButton()
     
-    var microphoneDelegate: MicrophoneDelegate?
-    
     
     // MARK: Initialization
     required init?(coder aDecoder: NSCoder) {
@@ -73,15 +70,13 @@ class AirGameView: UIView {
     }
     
     func configure() {
-        //TODO: set delegate of microphone to this?
-//        airGameViewModel.
+        //TODO: set delegate of sensorViewChange to this View?
         blurView = UIVisualEffectView(effect: UIBlurEffect(style: .prominent))
         blurView.alpha = 0.4
         
         let backgroundImage = #imageLiteral(resourceName: "mountain")
         backgroundImageView = UIImageView(frame: CGRect(origin: CGPoint.init(x: -745, y: 0), size: backgroundImage.size))
         backgroundImageView.image = backgroundImage
-
 
         pickerTimer.datePickerMode = .countDownTimer
         
@@ -166,12 +161,13 @@ class AirGameView: UIView {
         
     }
     
-    // Start/Stop Button
+    // Only Start/Stop Button can begin or cancel Exercise via ViewModel
     func startStopButtonTapped() {
         isTimerOn = !isTimerOn
 
         if isTimerOn {
             timerOn()
+            airGameViewModel.startExercise(with: Double(totalTimeRemaining))
         } else {
             timerOff()
             airGameViewModel.cancelExercise()
@@ -179,10 +175,7 @@ class AirGameView: UIView {
     }
     
     func timerOn() {
-        
-        // ALL visual cues
         totalTimeRemaining = Int(pickerTimer.countDownDuration)
-        initialStartTime = Double(totalTimeRemaining)
 
         viewTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
         
@@ -191,11 +184,6 @@ class AirGameView: UIView {
         
         startStopButton.setTitle("Stop", for: .normal)
         startStopButton.backgroundColor = UIColor.startButtonStop
-        
-        
-        // Begins Exercise
-        airGameViewModel.startExercise(with: initialStartTime)
-
     }
     
     func timerOff() {
@@ -211,27 +199,21 @@ class AirGameView: UIView {
         minutesLabel.text = "00:"
         
         blurView.alpha = 0.4
-
     }
     
     func updateTimerLabel() {
         totalTimeRemaining -= 5
-        print("total time: \(totalTimeRemaining)")
-        print("minutes: \(minutes), seconds: \(seconds)")
-
-        // TODO: Move inside of didSet
+        
+        // TODO: Remaining logic should be didSet
         secondsLabel.text = "\(seconds)"
         minutesLabel.text = "\(minutes):"
-        
         if 0...9 ~= seconds {
             secondsLabel.text = "0\(seconds)"
         }
-        
         if minutes == 0 {
             minutesLabel.text = "00:"
         }
         
-        // TIMER == 00:00 WILL CREATE INSTANCE OF GAME
         if totalTimeRemaining == 0 {
             timerOff()
         }
@@ -240,20 +222,22 @@ class AirGameView: UIView {
     func takeBreath(_ sender: UIButton) {
         sender.backgroundColor = UIColor.breathingButtonOn
         blurView.alpha = 0
-//        airGameViewModel.addToTimeBreathingButton(isBreathing: true)
         airGameViewModel.inputTimer.addTimeToTotalInput(with: .manual)
+        // Does not handle data, only provides stimulus for input
     }
     
     func releaseBreath(_ sender: UIButton) {
         sender.backgroundColor = UIColor.breathingButtonOff
         blurView.alpha = 0.4
         airGameViewModel.inputTimer.inputTimer.invalidate()
+        // Does not handle/alter data, only ends timer
     }
 
 }
 
 extension AirGameView: SensorViewUpdateDelegate {
     
+    // Strictly for visual cues
     func sensoryInputDetected(_ isDetected: Bool) {
         if isDetected {
             blurView.alpha = 0
