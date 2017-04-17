@@ -39,7 +39,7 @@ class AirGameView: UIView {
     
     // TODO: Create a separate TimerView() aka CustomPickerView
     
-    var timer = Timer()
+    var viewTimer = Timer()
     var isTimerOn = false
     
     var initialStartTime = 0.0
@@ -173,6 +173,7 @@ class AirGameView: UIView {
             timerOn()
         } else {
             timerOff()
+            airGameViewModel.cancelExercise()
         }
     }
     
@@ -182,7 +183,7 @@ class AirGameView: UIView {
         totalTimeRemaining = Int(pickerTimer.countDownDuration)
         initialStartTime = Double(totalTimeRemaining)
 
-        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
+        viewTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
         
         breathingButton.isHidden = false
         pickerTimer.isHidden = true
@@ -197,7 +198,7 @@ class AirGameView: UIView {
     }
     
     func timerOff() {
-        timer.invalidate()
+        viewTimer.invalidate()
         
         breathingButton.isHidden = true
         pickerTimer.isHidden = false
@@ -209,9 +210,6 @@ class AirGameView: UIView {
         minutesLabel.text = "00:"
         
         blurView.alpha = 0.4
-        
-        // Cancels exercise
-//        airGameViewModel.cancelExercise()
 
     }
     

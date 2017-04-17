@@ -52,5 +52,10 @@ extension ExerciseTimer {
         countdownTime += 1
     }
     
+    func clearTimers() {
+        inputTimer.invalidate()
+        primaryTimer.invalidate()
+        countdownTime = 0.0
+    }
     
 }

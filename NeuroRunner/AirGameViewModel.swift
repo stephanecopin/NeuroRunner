@@ -80,11 +80,10 @@ class AirGameViewModel: TakingBreathDelegate {
         
         presentGameSummaryDelegate?.presentGameSummary()
 
-        print("VM user airGame count is \(user.airHungerGames.count)")
+        print("User airGame count is \(user.airHungerGames.count)")
         print("Date = \(newExercise.dateOfExercise)")
-        print("time breathing microphone = \(timeBreathingInput)")
-        print("time breathing button = \(timeBreathingButton.roundTo(places: 2))")
-        print("time hungering = \((totalTime - timeBreathingButton).roundTo(places: 2))")
+        print("time breathing = \(newExercise.timeSpentBreathing)")
+        print("time hungering = \(newExercise.timeSpentHungering)")
         print("total time = \(totalTime)")
         print("newGame returned to nil")
         
