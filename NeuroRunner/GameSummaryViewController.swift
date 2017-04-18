@@ -35,7 +35,6 @@ class GameSummaryViewController: UIViewController {
     }
     
     func dismissView() {
-        print("dismiss View tapped")
         /*
         if let parent = parent as? HomeViewController {
             // set properties of parent as they were

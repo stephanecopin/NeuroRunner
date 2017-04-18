@@ -41,12 +41,8 @@ extension InputTimer {
     }
     
     func clearTimer() {
-        print("CLEAR TIMER")
         inputTimer.invalidate()
-        print("TIMER CLEARED")
         totalInputTime = 0.0
-        print("Post-Clear: total input time = \(self.totalInputTime)")
-
     }
     
     func addUsingMicrophone() {

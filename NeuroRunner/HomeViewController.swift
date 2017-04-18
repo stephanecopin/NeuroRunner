@@ -58,9 +58,7 @@ class HomeViewController: UIViewController {
             navigationItem.rightBarButtonItem?.title = "Mic Disabled"
             airGameView.airGameViewModel.inputMethod = .manual
         }
-        
-        print(airGameView.airGameViewModel.inputTimer.microphone.isMicrophoneEnabled)
-        print("VC input method\(airGameView.airGameViewModel.inputTimer.inputMethod)")
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -79,8 +77,6 @@ protocol PresentGameSummaryDelegate {
 extension HomeViewController: PresentGameSummaryDelegate {
     
     func presentGameSummary() {
-        print("presentGameSummary delegate called")
-
         gameSummaryViewController = GameSummaryViewController()
         
         addChildViewController(gameSummaryViewController)

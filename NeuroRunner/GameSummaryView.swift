@@ -53,10 +53,7 @@ class GameSummaryView: UIView {
         
         timeBreathing = lastGame.timeSpentBreathing
         timeHungering = lastGame.timeSpentHungering
-        print("lastGame.timeSpentBreathing = \(lastGame.timeSpentBreathing)")
-        print("lastGame.timeSpentBreathing.rounded = \(lastGame.timeSpentBreathing.roundTo(places: 2))")
         blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
-//        blurView.alpha = 0.9
         
         summaryView.backgroundColor = UIColor.white.withAlphaComponent(0.4)
         summaryView.layer.cornerRadius = 25

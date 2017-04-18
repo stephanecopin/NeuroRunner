@@ -40,7 +40,6 @@ extension AirGameViewModel {
         // If is countdown
         if let initialStartTime = initialStartTime {
             exerciseTimer.countdownTime = initialStartTime
-            print("VM input method\(inputTimer.inputMethod)")
 
             inputTimer.addTimeToTotalInput()
             
