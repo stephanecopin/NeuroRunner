@@ -40,6 +40,10 @@ extension AirGameViewModel {
         // If is countdown
         if let initialStartTime = initialStartTime {
             exerciseTimer.countdownTime = initialStartTime
+            print("VM input method\(inputTimer.inputMethod)")
+
+            inputTimer.addTimeToTotalInput()
+            
             exerciseTimer.startCountDownTimer(completion: {
                 self.createAirHungerGame(totalTime: initialStartTime)
             })
@@ -48,6 +52,11 @@ extension AirGameViewModel {
     
     func cancelExercise() {
         // Resets all timers and data
+        
+        if inputTimer.microphone.isMicrophoneEnabled {
+            inputTimer.microphone.audioRecorder.stop()
+        }
+        
         exerciseTimer.clearTimer()
         inputTimer.clearTimer()
     }

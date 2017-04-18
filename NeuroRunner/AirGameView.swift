@@ -60,7 +60,7 @@ class AirGameView: UIView {
     // MARK: Initialization
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-
+        
     }
     
     override init(frame: CGRect) {
@@ -70,14 +70,15 @@ class AirGameView: UIView {
     }
     
     func configure() {
-        //TODO: set delegate of sensorViewChange to this View?
+        airGameViewModel.inputTimer.microphone.sensorViewUpdateDelegate = self
+        
         blurView = UIVisualEffectView(effect: UIBlurEffect(style: .prominent))
         blurView.alpha = 0.4
         
         let backgroundImage = #imageLiteral(resourceName: "mountain")
         backgroundImageView = UIImageView(frame: CGRect(origin: CGPoint.init(x: -745, y: 0), size: backgroundImage.size))
         backgroundImageView.image = backgroundImage
-
+        
         pickerTimer.datePickerMode = .countDownTimer
         
         startStopButton.backgroundColor = UIColor.startButtonStart
@@ -86,7 +87,7 @@ class AirGameView: UIView {
         startStopButton.setTitleShadowColor(UIColor.green, for: .normal)
         startStopButton.titleLabel?.font = UIFont(name: "MarkerFelt-Thin", size: 36)
         startStopButton.addTarget(self, action: #selector(startStopButtonTapped), for: .touchUpInside)
-
+        
         breathingButton.backgroundColor = UIColor.breathingButtonOff
         breathingButton.layer.cornerRadius = 15
         breathingButton.layer.borderColor = UIColor.startButtonStart.cgColor
@@ -95,9 +96,9 @@ class AirGameView: UIView {
         breathingButton.setTitleColor(UIColor.white, for: .normal)
         breathingButton.titleLabel?.font = UIFont(name: "MarkerFelt-Thin", size: 28)
         breathingButton.isHidden = true
-        breathingButton.addTarget(self, action: #selector(takeBreath(_:)), for: .touchDown)
-        breathingButton.addTarget(self, action: #selector(releaseBreath(_:)), for: .touchUpInside)
-
+        breathingButton.addTarget(self, action: #selector(takeBreathManualInput(_:)), for: .touchDown)
+        breathingButton.addTarget(self, action: #selector(releaseBreathManualInput(_:)), for: .touchUpInside)
+        
         secondsLabel.font = UIFont(name: "AvenirNext-UltraLight", size: 75)
         secondsLabel.textColor = UIColor.white
         secondsLabel.text = "00"
@@ -146,7 +147,7 @@ class AirGameView: UIView {
             $0.height.equalToSuperview().dividedBy(10)
             $0.centerY.equalToSuperview().offset(-180)
         }
-
+        
         timerLabelView.addSubview(minutesLabel)
         minutesLabel.snp.makeConstraints {
             $0.top.bottom.height.equalToSuperview()
@@ -164,7 +165,7 @@ class AirGameView: UIView {
     // Only Start/Stop Button can begin or cancel Exercise via ViewModel
     func startStopButtonTapped() {
         isTimerOn = !isTimerOn
-
+        
         if isTimerOn {
             timerOn()
             airGameViewModel.startExercise(with: Double(totalTimeRemaining))
@@ -176,10 +177,11 @@ class AirGameView: UIView {
     
     func timerOn() {
         totalTimeRemaining = Int(pickerTimer.countDownDuration)
-
-        viewTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
         
-        breathingButton.isHidden = false
+        viewTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
+        if airGameViewModel.inputTimer.microphone.isMicrophoneEnabled == false {
+            breathingButton.isHidden = false
+        }
         pickerTimer.isHidden = true
         
         startStopButton.setTitle("Stop", for: .normal)
@@ -191,7 +193,7 @@ class AirGameView: UIView {
         
         breathingButton.isHidden = true
         pickerTimer.isHidden = false
-
+        
         startStopButton.setTitle("Start", for: .normal)
         startStopButton.backgroundColor = UIColor.startButtonStart
         
@@ -199,6 +201,7 @@ class AirGameView: UIView {
         minutesLabel.text = "00:"
         
         blurView.alpha = 0.4
+        isTimerOn = false
     }
     
     func updateTimerLabel() {
@@ -219,20 +222,20 @@ class AirGameView: UIView {
         }
     }
     
-    func takeBreath(_ sender: UIButton) {
+    func takeBreathManualInput(_ sender: UIButton) {
         sender.backgroundColor = UIColor.breathingButtonOn
         blurView.alpha = 0
-        airGameViewModel.inputTimer.addTimeToTotalInput(with: .manual)
+        airGameViewModel.inputTimer.addUsingManual()
         // Does not handle data, only provides stimulus for input
     }
     
-    func releaseBreath(_ sender: UIButton) {
+    func releaseBreathManualInput(_ sender: UIButton) {
         sender.backgroundColor = UIColor.breathingButtonOff
         blurView.alpha = 0.4
         airGameViewModel.inputTimer.inputTimer.invalidate()
         // Does not handle/alter data, only ends timer
     }
-
+    
 }
 
 extension AirGameView: SensorViewUpdateDelegate {

@@ -13,22 +13,11 @@ class InputTimer {
     var inputTimer: Timer!
     var totalInputTime = 0.0
     
-    var inputMethod: InputMethod {
-        didSet {
-            switch inputMethod {
-            case .Microphone :
-                microphone = Microphone()
-            case .Gyroscope :
-                gyroscope = Gyroscope()
-            default: break
-                // something
-            }
-        }
-    }
+    // TODO: InputMethod is tied to AGVM's didSet; will models deinitialize? should they be lazy vars?
+    var inputMethod: InputMethod
     
-    // TODO: Make this safer
-    var microphone: Microphone!
-    var gyroscope: Gyroscope!
+    lazy var microphone = Microphone()
+    lazy var gyroscope = Gyroscope()
     
     init(inputMethod: InputMethod) {
         self.inputMethod = inputMethod
@@ -38,22 +27,45 @@ class InputTimer {
 
 extension InputTimer {
     
-    func addTimeToTotalInput(with inputMethod: InputMethod) {
+    func addTimeToTotalInput() {
+        print("input method = \(inputMethod)")
         switch inputMethod {
         case .Microphone:
-            totalInputTime = microphone.levelTimerCallback()
-        case .Gyroscope: break
-        // TODO: eventually will incorporate Gyroscope settings
+            addUsingMicrophone()
+        case .Gyroscope:
+            addUsingGyroscope()
         case .manual:
-        inputTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (timer) in
-            self.totalInputTime += 0.01
-            }
+//            addUsingManual()
+            break
         }
     }
     
     func clearTimer() {
+        print("CLEAR TIMER")
         inputTimer.invalidate()
+        print("TIMER CLEARED")
         totalInputTime = 0.0
+    }
+    
+    func addUsingMicrophone() {
+        microphone.audioRecorder.record()
+        inputTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (timer) in
+            self.totalInputTime = self.microphone.levelTimerCallback()
+            print("total input time = \(self.totalInputTime)")
+
+        }
+    }
+    
+    func addUsingManual() {
+        print("manual input")
+        inputTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (timer) in
+            self.totalInputTime += 0.01
+            print("total input time = \(self.totalInputTime)")
+        }
+    }
+    
+    func addUsingGyroscope() {
+        
     }
     
 }

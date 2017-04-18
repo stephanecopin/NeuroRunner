@@ -14,7 +14,6 @@ class Microphone: NSObject, AVAudioRecorderDelegate {
     var audioPlayer: AVAudioPlayer!
     var audioSession: AVAudioSession!
     
-    var levelTimer: Timer!
     var minInputLevel: Float = -35
     var peakLevel = [Float]()
     var timeAbovePeak: Double = 0.0
@@ -75,19 +74,8 @@ class Microphone: NSObject, AVAudioRecorderDelegate {
     }
 }
 
+// MARK: Observation methods
 extension Microphone {
-    
-    func observeAudioLevels(isRecording: Bool) {
-        if isRecording && isMicrophoneEnabled {
-            // Send data to inputTimer
-            levelTimer = Timer.scheduledTimer(timeInterval: 0.01, target: self, selector: #selector(levelTimerCallback), userInfo: nil, repeats: true)
-            audioRecorder.record()
-            print("recording")
-        } else if isMicrophoneEnabled {
-            audioRecorder.stop()
-            levelTimer.invalidate()
-        }
-    }
     
     func levelTimerCallback() -> Double {
         audioRecorder.updateMeters()

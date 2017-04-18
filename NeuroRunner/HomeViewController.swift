@@ -12,12 +12,11 @@ import RealmSwift
 
 class HomeViewController: UIViewController {
 
+    let store = DataStore.shared
     let airGameView = AirGameView()
-    let microphoneViewModel = MicrophoneViewModel()
-    
     var gameSummaryViewController: GameSummaryViewController!
     
-    let store = DataStore.shared
+    var isMicrophoneEnabled = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +34,7 @@ class HomeViewController: UIViewController {
     func initialSetup() {
         // Customize Navigation Bar
         navigationItem.title = "Home"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Enable Mic", style: .plain, target: self, action: #selector(toggleMic))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Mic Disabled", style: .plain, target: self, action: #selector(toggleMic))
         
         // Set Delegates
         airGameView.airGameViewModel.presentGameSummaryDelegate = self
@@ -49,13 +48,19 @@ class HomeViewController: UIViewController {
     }
     
     func toggleMic() {
-        microphoneViewModel.isMicrophoneEnabled = !microphoneViewModel.isMicrophoneEnabled
+        airGameView.airGameViewModel.inputTimer.microphone.isMicrophoneEnabled = !airGameView.airGameViewModel.inputTimer.microphone.isMicrophoneEnabled
         
-        if microphoneViewModel.isMicrophoneEnabled {
-            navigationItem.rightBarButtonItem?.title = "Disable Mic"
+        
+        if airGameView.airGameViewModel.inputTimer.microphone.isMicrophoneEnabled {
+            navigationItem.rightBarButtonItem?.title = "Mic Enabled"
+            airGameView.airGameViewModel.inputMethod = .Microphone
         } else {
-            navigationItem.rightBarButtonItem?.title = "Enable Mic"
+            navigationItem.rightBarButtonItem?.title = "Mic Disabled"
+            airGameView.airGameViewModel.inputMethod = .manual
         }
+        
+        print(airGameView.airGameViewModel.inputTimer.microphone.isMicrophoneEnabled)
+        print("VC input method\(airGameView.airGameViewModel.inputTimer.inputMethod)")
     }
     
     override func didReceiveMemoryWarning() {
