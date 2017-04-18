@@ -90,6 +90,11 @@ extension Microphone {
         return timeAbovePeak
     }
     
+    func clearMicrophone() {
+        audioRecorder.stop()
+        timeAbovePeak = 0.0
+    }
+    
 }
 
 protocol SensorViewUpdateDelegate {

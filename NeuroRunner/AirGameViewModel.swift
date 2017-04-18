@@ -54,7 +54,7 @@ extension AirGameViewModel {
         // Resets all timers and data
         
         if inputTimer.microphone.isMicrophoneEnabled {
-            inputTimer.microphone.audioRecorder.stop()
+            inputTimer.microphone.clearMicrophone()
         }
         
         exerciseTimer.clearTimer()
