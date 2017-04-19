@@ -41,15 +41,10 @@ extension InputTimer {
     }
     
     func clearTimer() {
-<<<<<<< HEAD
-        inputTimer.invalidate()
-        totalInputTime = 0.0
-=======
         totalInputTime = 0.0
         if inputTimer != nil {
             inputTimer.invalidate()
         }
->>>>>>> timer
     }
     
     private func addUsingMicrophone() {

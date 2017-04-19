@@ -43,13 +43,6 @@ extension AirGameViewModel {
     func startExercise(with initialStartTime: Double?, countdownDirection: Direction) {
         // Optional because exercise may count up instead of down
         
-<<<<<<< HEAD
-        // If is countdown
-        if let initialStartTime = initialStartTime {
-            exerciseTimer.countdownTime = initialStartTime
-
-=======
-        print("start exercise direction \(countdownDirection)")
         if countdownDirection == .Down {
             if let initialStartTime = initialStartTime {
                 exerciseTimer.totalTime = initialStartTime
@@ -61,7 +54,6 @@ extension AirGameViewModel {
                 })
             }
         } else {
->>>>>>> timer
             inputTimer.addTimeToTotalInput()
         }
     }
