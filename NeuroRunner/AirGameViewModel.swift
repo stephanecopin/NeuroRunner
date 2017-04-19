@@ -23,8 +23,14 @@ class AirGameViewModel {
         }
     }
     
+    var timerDirection: Direction = .Down {
+        didSet {
+            exerciseTimer.direction = timerDirection
+        }
+    }
+    
     var presentGameSummaryDelegate: PresentGameSummaryDelegate?
-
+    
     init() {
         user = store.user
         inputTimer = InputTimer(inputMethod: inputMethod)
@@ -34,18 +40,29 @@ class AirGameViewModel {
 // MARK: ViewModel Methods
 extension AirGameViewModel {
     
-    func startExercise(with initialStartTime: Double?) {
+    func startExercise(with initialStartTime: Double?, countdownDirection: Direction) {
         // Optional because exercise may count up instead of down
         
+<<<<<<< HEAD
         // If is countdown
         if let initialStartTime = initialStartTime {
             exerciseTimer.countdownTime = initialStartTime
 
+=======
+        print("start exercise direction \(countdownDirection)")
+        if countdownDirection == .Down {
+            if let initialStartTime = initialStartTime {
+                exerciseTimer.totalTime = initialStartTime
+                
+                inputTimer.addTimeToTotalInput()
+                
+                exerciseTimer.startCountDownTimer(completion: {
+                    self.createAirHungerGame(totalTime: initialStartTime)
+                })
+            }
+        } else {
+>>>>>>> timer
             inputTimer.addTimeToTotalInput()
-            
-            exerciseTimer.startCountDownTimer(completion: {
-                self.createAirHungerGame(totalTime: initialStartTime)
-            })
         }
     }
     
@@ -62,7 +79,7 @@ extension AirGameViewModel {
     
     func createAirHungerGame(totalTime: Double) {
         newExercise = BreathingExercise()
-
+        
         newExercise.timeSpentBreathing = inputTimer.totalInputTime.roundTo(places: 2)
         newExercise.timeSpentHungering = totalTime - inputTimer.totalInputTime.roundTo(places: 2)
         

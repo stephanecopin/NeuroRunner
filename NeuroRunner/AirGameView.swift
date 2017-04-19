@@ -11,8 +11,10 @@ import SnapKit
 
 class AirGameView: UIView {
     
+    // View Model
     let airGameViewModel = AirGameViewModel()
     
+    // Timer UI Elements
     let pickerTimer = UIDatePicker()
     var timerLabelView = UIView()
     
@@ -33,29 +35,40 @@ class AirGameView: UIView {
         }
     }
     
-    // TODO: Create a separate TimerView() aka CustomPickerView
-    
+    // Timer Hardware
     var viewTimer = Timer()
     var isTimerOn = false
     
-    var totalTimeRemaining = 0
+    var totalTime = 0
     var seconds: Int {
         get {
-            return (totalTimeRemaining % 60)
+            return (totalTime % 60)
         }
     }
     var minutes: Int {
         get {
-            return (totalTimeRemaining / 60)
+            return (totalTime / 60)
         }
     }
     
+    var timerDirection: Direction {
+        if upDownSegmentedControl.selectedSegmentIndex == 0 {
+            airGameViewModel.timerDirection = .Down
+            return .Down
+        } else {
+            airGameViewModel.timerDirection = .Up
+            return .Up
+        }
+    }
+    
+    // Exercise buttons
+    let startStopButton = UIButton()
+    lazy var breathingButton = UIButton()
+    var upDownSegmentedControl: UISegmentedControl!
+    
+    // Background UI
     var backgroundImageView: UIImageView!
     var blurView: UIVisualEffectView!
-    
-    var startStopButton = UIButton()
-    var breathingButton = UIButton()
-    
     
     // MARK: Initialization
     required init?(coder aDecoder: NSCoder) {
@@ -71,6 +84,10 @@ class AirGameView: UIView {
     
     func configure() {
         airGameViewModel.inputTimer.microphone.sensorViewUpdateDelegate = self
+        
+        let items = ["Down", "Up"]
+        upDownSegmentedControl = UISegmentedControl(items: items)
+        upDownSegmentedControl.selectedSegmentIndex = 0
         
         blurView = UIVisualEffectView(effect: UIBlurEffect(style: .prominent))
         blurView.alpha = 0.4
@@ -127,6 +144,12 @@ class AirGameView: UIView {
             $0.centerX.centerY.equalToSuperview()
         }
         
+        addSubview(upDownSegmentedControl)
+        upDownSegmentedControl.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(pickerTimer.snp.bottom).offset(15)
+        }
+        
         addSubview(startStopButton)
         startStopButton.snp.makeConstraints {
             $0.bottom.width.centerX.equalToSuperview()
@@ -168,15 +191,20 @@ class AirGameView: UIView {
         
         if isTimerOn {
             timerOn()
-            airGameViewModel.startExercise(with: Double(totalTimeRemaining))
+            airGameViewModel.startExercise(with: Double(totalTime), countdownDirection: timerDirection)
         } else {
             timerOff()
+            if timerDirection == .Up {
+                airGameViewModel.createAirHungerGame(totalTime: Double(totalTime))
+            }
             airGameViewModel.cancelExercise()
         }
     }
     
     func timerOn() {
-        totalTimeRemaining = Int(pickerTimer.countDownDuration)
+        isTimerOn = true
+        
+        totalTime = Int(pickerTimer.countDownDuration)
         
         viewTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
         if airGameViewModel.inputTimer.microphone.isMicrophoneEnabled == false {
@@ -205,7 +233,12 @@ class AirGameView: UIView {
     }
     
     func updateTimerLabel() {
-        totalTimeRemaining -= 5
+        
+        if timerDirection == .Down {
+            totalTime -= 5
+        } else {
+            totalTime += 5
+        }
         
         // TODO: Remaining logic should be didSet
         secondsLabel.text = "\(seconds)"
@@ -217,7 +250,7 @@ class AirGameView: UIView {
             minutesLabel.text = "00:"
         }
         
-        if totalTimeRemaining == 0 {
+        if totalTime == 0 {
             timerOff()
         }
     }
@@ -225,6 +258,7 @@ class AirGameView: UIView {
     func takeBreathManualInput(_ sender: UIButton) {
         sender.backgroundColor = UIColor.breathingButtonOn
         blurView.alpha = 0
+        
         airGameViewModel.inputTimer.addUsingManual()
         // Does not handle data, only provides stimulus for input
     }
@@ -232,7 +266,9 @@ class AirGameView: UIView {
     func releaseBreathManualInput(_ sender: UIButton) {
         sender.backgroundColor = UIColor.breathingButtonOff
         blurView.alpha = 0.4
-        airGameViewModel.inputTimer.inputTimer.invalidate()
+        if let timer = airGameViewModel.inputTimer.inputTimer {
+            timer.invalidate()
+        }
         // Does not handle/alter data, only ends timer
     }
     

@@ -28,24 +28,32 @@ class InputTimer {
 extension InputTimer {
     
     func addTimeToTotalInput() {
-        print("input method = \(inputMethod)")
+        print("InputTimer input method = \(inputMethod)")
         switch inputMethod {
         case .Microphone:
             addUsingMicrophone()
         case .Gyroscope:
             addUsingGyroscope()
         case .manual:
-//            addUsingManual()
+            // manual input must be entered via the View's button
             break
         }
     }
     
     func clearTimer() {
+<<<<<<< HEAD
         inputTimer.invalidate()
         totalInputTime = 0.0
+=======
+        totalInputTime = 0.0
+        if inputTimer != nil {
+            inputTimer.invalidate()
+        }
+>>>>>>> timer
     }
     
-    func addUsingMicrophone() {
+    private func addUsingMicrophone() {
+        print("microphone input")
         microphone.audioRecorder.record()
         inputTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (timer) in
             self.totalInputTime = self.microphone.levelTimerCallback()
@@ -62,7 +70,7 @@ extension InputTimer {
         }
     }
     
-    func addUsingGyroscope() {
+    private func addUsingGyroscope() {
         
     }
     
