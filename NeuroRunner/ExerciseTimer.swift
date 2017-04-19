@@ -9,12 +9,16 @@
 import Foundation
 // TODO: Eventually will have capability to program intervals?
 
+enum Direction {
+    case Up, Down
+}
+
 class ExerciseTimer {
+
     
     var primaryTimer: Timer!
-    // should count up and/or count down
+    var direction: Direction = .Down
     var countdownTime = 0.0
-
 }
 
 extension ExerciseTimer {

@@ -11,8 +11,10 @@ import SnapKit
 
 class AirGameView: UIView {
     
+    // View Model
     let airGameViewModel = AirGameViewModel()
     
+    // Timer UI Elements
     let pickerTimer = UIDatePicker()
     var timerLabelView = UIView()
     
@@ -33,8 +35,7 @@ class AirGameView: UIView {
         }
     }
     
-    // TODO: Create a separate TimerView() aka CustomPickerView
-    
+    // Timer Hardware
     var viewTimer = Timer()
     var isTimerOn = false
     
@@ -50,12 +51,24 @@ class AirGameView: UIView {
         }
     }
     
+    var timerDirection: Direction {
+        if upDownSegmentedControl.selectedSegmentIndex == 0 {
+            airGameViewModel.exerciseTimer.direction = .Down
+            return .Down
+        } else {
+            airGameViewModel.exerciseTimer.direction = .Up
+            return .Up
+        }
+    }
+    
+    // Exercise buttons
+    let startStopButton = UIButton()
+    lazy var breathingButton = UIButton()
+    var upDownSegmentedControl: UISegmentedControl!
+    
+    // Background UI
     var backgroundImageView: UIImageView!
     var blurView: UIVisualEffectView!
-    
-    var startStopButton = UIButton()
-    var breathingButton = UIButton()
-    
     
     // MARK: Initialization
     required init?(coder aDecoder: NSCoder) {
@@ -71,6 +84,10 @@ class AirGameView: UIView {
     
     func configure() {
         airGameViewModel.inputTimer.microphone.sensorViewUpdateDelegate = self
+        
+        let items = ["Down", "Up"]
+        upDownSegmentedControl = UISegmentedControl(items: items)
+        upDownSegmentedControl.selectedSegmentIndex = 0
         
         blurView = UIVisualEffectView(effect: UIBlurEffect(style: .prominent))
         blurView.alpha = 0.4
@@ -125,6 +142,12 @@ class AirGameView: UIView {
             $0.width.equalToSuperview().multipliedBy(0.8)
             $0.height.equalToSuperview().dividedBy(10)
             $0.centerX.centerY.equalToSuperview()
+        }
+        
+        addSubview(upDownSegmentedControl)
+        upDownSegmentedControl.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalTo(pickerTimer.snp.bottom).offset(15)
         }
         
         addSubview(startStopButton)
