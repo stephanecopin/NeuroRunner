@@ -83,7 +83,7 @@ class AirGameView: UIView {
     }
     
     func configure() {
-        airGameViewModel.inputTimer.microphone.sensorViewUpdateDelegate = self
+//       ***  airGameViewModel.inputTimer.microphone.sensorViewUpdateDelegate = self
         
         let items = ["Down", "Up"]
         upDownSegmentedControl = UISegmentedControl(items: items)
