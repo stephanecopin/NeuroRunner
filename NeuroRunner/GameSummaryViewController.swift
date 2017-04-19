@@ -41,10 +41,14 @@ class GameSummaryViewController: UIViewController {
             // set properties of parent as they were
         }
         */
+        
+        dismiss(animated: true, completion: nil)
+        
+        /* Old transition
         willMove(toParentViewController: nil)
         view.removeFromSuperview()
         removeFromParentViewController()
-
+        */
     }
 
     override func didReceiveMemoryWarning() {
