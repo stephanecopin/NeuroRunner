@@ -194,9 +194,7 @@ class AirGameView: UIView {
             airGameViewModel.startExercise(with: Double(totalTime), countdownDirection: timerDirection)
         } else {
             timerOff()
-            print("timer direction = \(timerDirection)")
             if timerDirection == .Up {
-//                this button behaves inherently differently
                 airGameViewModel.createAirHungerGame(totalTime: Double(totalTime))
             }
             airGameViewModel.cancelExercise()
@@ -261,7 +259,6 @@ class AirGameView: UIView {
         sender.backgroundColor = UIColor.breathingButtonOn
         blurView.alpha = 0
         
-        print("View input method = \(airGameViewModel.inputTimer.inputMethod)")
         airGameViewModel.inputTimer.addUsingManual()
         // Does not handle data, only provides stimulus for input
     }
