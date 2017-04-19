@@ -18,7 +18,7 @@ class ExerciseTimer {
     
     var primaryTimer: Timer!
     var direction: Direction = .Down
-    var countdownTime = 0.0
+    var totalTime = 0.0
 }
 
 extension ExerciseTimer {
@@ -26,20 +26,25 @@ extension ExerciseTimer {
     
     func startCountDownTimer(completion: @escaping () -> ()) {
         primaryTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
-            self.countdownTime -= 5
-            if self.countdownTime == 0.0 {
+            self.totalTime -= 5
+            if self.totalTime == 0.0 {
                 self.primaryTimer.invalidate()
                 completion()
             }
         })
-        
     }
     
-    // func startCountUpTimer() { }
+    func startCountUpTimer() {
+        primaryTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
+            self.totalTime += 5
+        })
+    }
     
     func clearTimer() {
-        primaryTimer.invalidate()
-        countdownTime = 0.0
+        totalTime = 0.0
+        if primaryTimer != nil {
+            primaryTimer.invalidate()
+        }
     }
     
 }

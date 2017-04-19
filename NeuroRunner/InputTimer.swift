@@ -41,15 +41,13 @@ extension InputTimer {
     }
     
     func clearTimer() {
-        print("CLEAR TIMER")
-        inputTimer.invalidate()
-        print("TIMER CLEARED")
         totalInputTime = 0.0
-        print("Post-Clear: total input time = \(self.totalInputTime)")
-
+        if inputTimer != nil {
+            inputTimer.invalidate()
+        }
     }
     
-    func addUsingMicrophone() {
+    private func addUsingMicrophone() {
         microphone.audioRecorder.record()
         inputTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (timer) in
             self.totalInputTime = self.microphone.levelTimerCallback()
@@ -58,7 +56,7 @@ extension InputTimer {
         }
     }
     
-    func addUsingManual() {
+    private func addUsingManual() {
         print("manual input")
         inputTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (timer) in
             self.totalInputTime += 0.01
@@ -66,7 +64,7 @@ extension InputTimer {
         }
     }
     
-    func addUsingGyroscope() {
+    private func addUsingGyroscope() {
         
     }
     

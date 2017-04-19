@@ -53,10 +53,10 @@ class AirGameView: UIView {
     
     var timerDirection: Direction {
         if upDownSegmentedControl.selectedSegmentIndex == 0 {
-            airGameViewModel.exerciseTimer.direction = .Down
+            airGameViewModel.timerDirection = .Down
             return .Down
         } else {
-            airGameViewModel.exerciseTimer.direction = .Up
+            airGameViewModel.timerDirection = .Up
             return .Up
         }
     }
@@ -191,14 +191,19 @@ class AirGameView: UIView {
         
         if isTimerOn {
             timerOn()
-            airGameViewModel.startExercise(with: Double(totalTimeRemaining))
+            airGameViewModel.startExercise(with: Double(totalTimeRemaining), countdownDirection: timerDirection)
         } else {
             timerOff()
+            /* if timerDirection == .Down {
+                this button behaves inherently differently
+            */
             airGameViewModel.cancelExercise()
         }
     }
     
     func timerOn() {
+        isTimerOn = true
+        
         totalTimeRemaining = Int(pickerTimer.countDownDuration)
         
         viewTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
@@ -228,7 +233,12 @@ class AirGameView: UIView {
     }
     
     func updateTimerLabel() {
-        totalTimeRemaining -= 5
+        
+        if timerDirection == .Down {
+            totalTimeRemaining -= 5
+        } else {
+            totalTimeRemaining += 5
+        }
         
         // TODO: Remaining logic should be didSet
         secondsLabel.text = "\(seconds)"
@@ -248,7 +258,9 @@ class AirGameView: UIView {
     func takeBreathManualInput(_ sender: UIButton) {
         sender.backgroundColor = UIColor.breathingButtonOn
         blurView.alpha = 0
-        airGameViewModel.inputTimer.addUsingManual()
+        
+        print("manual input method is \(airGameViewModel.inputTimer.inputMethod)")
+        airGameViewModel.inputTimer.addTimeToTotalInput()
         // Does not handle data, only provides stimulus for input
     }
     
