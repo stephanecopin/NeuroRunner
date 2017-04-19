@@ -15,7 +15,7 @@ class InputTimer {
     
     // TODO: InputMethod is tied to AGVM's didSet; will models deinitialize? should they be lazy vars?
     var inputMethod: InputMethod
-    /// ***
+    /// *** reset microphone back to lazy var
     var microphone: Microphone!
     lazy var gyroscope = Gyroscope()
     

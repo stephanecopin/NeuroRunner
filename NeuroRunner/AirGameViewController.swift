@@ -79,20 +79,22 @@ protocol PresentGameSummaryDelegate {
 extension AirGameViewController: PresentGameSummaryDelegate {
     
     func presentGameSummary() {
-        print("presentGameSummary delegate called")
-
         gameSummaryViewController = GameSummaryViewController()
-        
+
+        gameSummaryViewController.providesPresentationContextTransitionStyle = true
+        gameSummaryViewController.definesPresentationContext = true
+        gameSummaryViewController.modalPresentationStyle = .overFullScreen
+        self.present(gameSummaryViewController, animated: true, completion: nil)
+/*      Old transition
         addChildViewController(gameSummaryViewController)
-        
         view.addSubview(gameSummaryViewController.view)
         gameSummaryViewController.view.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-        
         gameSummaryViewController.didMove(toParentViewController: nil)
-        
         view.layoutIfNeeded()
+
+*/
         
     }
 }

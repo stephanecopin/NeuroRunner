@@ -35,6 +35,7 @@
 		E8ED994F1E676ABA00115DA6 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED994E1E676ABA00115DA6 /* ContainerViewController.swift */; };
 		E8F519DA1EA7D2B0005DF4FE /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F519D91EA7D2B0005DF4FE /* InfoViewController.swift */; };
 		E8F519DC1EA7D3D9005DF4FE /* ExerciseMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F519DB1EA7D3D9005DF4FE /* ExerciseMenuViewController.swift */; };
+		E8F519DF1EA7E24E005DF4FE /* BalanceGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F519DE1EA7E24E005DF4FE /* BalanceGameViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,7 @@
 		E8ED994E1E676ABA00115DA6 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		E8F519D91EA7D2B0005DF4FE /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		E8F519DB1EA7D3D9005DF4FE /* ExerciseMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseMenuViewController.swift; sourceTree = "<group>"; };
+		E8F519DE1EA7E24E005DF4FE /* BalanceGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceGameViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -249,6 +251,7 @@
 			isa = PBXGroup;
 			children = (
 				E8F519DB1EA7D3D9005DF4FE /* ExerciseMenuViewController.swift */,
+				E8F519DE1EA7E24E005DF4FE /* BalanceGameViewController.swift */,
 				E82FF76A1E5E132800AFE050 /* AirGameViewController.swift */,
 				E8090A141E733802002F79F7 /* GameSummaryViewController.swift */,
 			);
@@ -424,6 +427,7 @@
 				E8ED99451E67688E00115DA6 /* MainTabBarController.swift in Sources */,
 				E8E7E1A51EA47BE800ED7834 /* Double Ext.swift in Sources */,
 				E8F519DC1EA7D3D9005DF4FE /* ExerciseMenuViewController.swift in Sources */,
+				E8F519DF1EA7E24E005DF4FE /* BalanceGameViewController.swift in Sources */,
 				E8090A151E733802002F79F7 /* GameSummaryViewController.swift in Sources */,
 				E8B51E8A1EA1345A00432031 /* Gyroscope.swift in Sources */,
 				E82FF7691E5E132800AFE050 /* AppDelegate.swift in Sources */,

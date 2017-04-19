@@ -207,7 +207,7 @@ class AirGameView: UIView {
         totalTime = Int(pickerTimer.countDownDuration)
         
         viewTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
-        if airGameViewModel.inputTimer.microphone.isMicrophoneEnabled == false {
+        if airGameViewModel.inputTimer.inputMethod == .manual {
             breathingButton.isHidden = false
         }
         pickerTimer.isHidden = true

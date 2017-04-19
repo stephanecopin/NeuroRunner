@@ -37,7 +37,7 @@ class AirGameViewModel {
     }
 }
 
-// MARK: ViewModel Methods
+// MARK: Game Methods
 extension AirGameViewModel {
     
     func startExercise(with initialStartTime: Double?, countdownDirection: Direction) {
@@ -62,7 +62,7 @@ extension AirGameViewModel {
     func cancelExercise() {
         // Resets all timers and data
         
-        if inputTimer.microphone.isMicrophoneEnabled {
+        if inputTimer.inputMethod == .Microphone {
             inputTimer.microphone.clearMicrophone()
         }
         
@@ -82,13 +82,7 @@ extension AirGameViewModel {
         }
         
         presentGameSummaryDelegate?.presentGameSummary()
-        
-        print("User airGame count is \(user.airHungerGames.count)")
-        print("Date = \(newExercise.dateOfExercise)")
-        print("time breathing = \(newExercise.timeSpentBreathing)")
-        print("time hungering = \(newExercise.timeSpentHungering)")
-        print("total time = \(totalTime)")
-        
+             
         newExercise = nil
         cancelExercise()
         
