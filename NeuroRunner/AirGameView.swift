@@ -39,15 +39,15 @@ class AirGameView: UIView {
     var viewTimer = Timer()
     var isTimerOn = false
     
-    var totalTimeRemaining = 0
+    var totalTime = 0
     var seconds: Int {
         get {
-            return (totalTimeRemaining % 60)
+            return (totalTime % 60)
         }
     }
     var minutes: Int {
         get {
-            return (totalTimeRemaining / 60)
+            return (totalTime / 60)
         }
     }
     
@@ -191,12 +191,14 @@ class AirGameView: UIView {
         
         if isTimerOn {
             timerOn()
-            airGameViewModel.startExercise(with: Double(totalTimeRemaining), countdownDirection: timerDirection)
+            airGameViewModel.startExercise(with: Double(totalTime), countdownDirection: timerDirection)
         } else {
             timerOff()
-            /* if timerDirection == .Down {
-                this button behaves inherently differently
-            */
+            print("timer direction = \(timerDirection)")
+            if timerDirection == .Up {
+//                this button behaves inherently differently
+                airGameViewModel.createAirHungerGame(totalTime: Double(totalTime))
+            }
             airGameViewModel.cancelExercise()
         }
     }
@@ -204,7 +206,7 @@ class AirGameView: UIView {
     func timerOn() {
         isTimerOn = true
         
-        totalTimeRemaining = Int(pickerTimer.countDownDuration)
+        totalTime = Int(pickerTimer.countDownDuration)
         
         viewTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
         if airGameViewModel.inputTimer.microphone.isMicrophoneEnabled == false {
@@ -235,9 +237,9 @@ class AirGameView: UIView {
     func updateTimerLabel() {
         
         if timerDirection == .Down {
-            totalTimeRemaining -= 5
+            totalTime -= 5
         } else {
-            totalTimeRemaining += 5
+            totalTime += 5
         }
         
         // TODO: Remaining logic should be didSet
@@ -250,7 +252,7 @@ class AirGameView: UIView {
             minutesLabel.text = "00:"
         }
         
-        if totalTimeRemaining == 0 {
+        if totalTime == 0 {
             timerOff()
         }
     }
@@ -259,15 +261,17 @@ class AirGameView: UIView {
         sender.backgroundColor = UIColor.breathingButtonOn
         blurView.alpha = 0
         
-        print("manual input method is \(airGameViewModel.inputTimer.inputMethod)")
-        airGameViewModel.inputTimer.addTimeToTotalInput()
+        print("View input method = \(airGameViewModel.inputTimer.inputMethod)")
+        airGameViewModel.inputTimer.addUsingManual()
         // Does not handle data, only provides stimulus for input
     }
     
     func releaseBreathManualInput(_ sender: UIButton) {
         sender.backgroundColor = UIColor.breathingButtonOff
         blurView.alpha = 0.4
-        airGameViewModel.inputTimer.inputTimer.invalidate()
+        if let timer = airGameViewModel.inputTimer.inputTimer {
+            timer.invalidate()
+        }
         // Does not handle/alter data, only ends timer
     }
     
