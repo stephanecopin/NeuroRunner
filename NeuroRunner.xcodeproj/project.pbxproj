@@ -13,7 +13,7 @@
 		E8090A181E764D71002F79F7 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8090A171E764D71002F79F7 /* Colors.swift */; };
 		E8116AED1E6FC9DF0048859A /* AirHungerExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8116AEC1E6FC9DF0048859A /* AirHungerExercise.swift */; };
 		E82FF7691E5E132800AFE050 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF7681E5E132800AFE050 /* AppDelegate.swift */; };
-		E82FF76B1E5E132800AFE050 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF76A1E5E132800AFE050 /* HomeViewController.swift */; };
+		E82FF76B1E5E132800AFE050 /* AirGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF76A1E5E132800AFE050 /* AirGameViewController.swift */; };
 		E82FF7701E5E132800AFE050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E82FF76F1E5E132800AFE050 /* Assets.xcassets */; };
 		E82FF7731E5E132800AFE050 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82FF7711E5E132800AFE050 /* LaunchScreen.storyboard */; };
 		E82FF77E1E5E132900AFE050 /* NeuroRunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF77D1E5E132900AFE050 /* NeuroRunnerTests.swift */; };
@@ -33,6 +33,8 @@
 		E8ED99471E6768D400115DA6 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED99461E6768D400115DA6 /* ProfileViewController.swift */; };
 		E8ED994D1E67691600115DA6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED994C1E67691600115DA6 /* ProfileView.swift */; };
 		E8ED994F1E676ABA00115DA6 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED994E1E676ABA00115DA6 /* ContainerViewController.swift */; };
+		E8F519DA1EA7D2B0005DF4FE /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F519D91EA7D2B0005DF4FE /* InfoViewController.swift */; };
+		E8F519DC1EA7D3D9005DF4FE /* ExerciseMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F519DB1EA7D3D9005DF4FE /* ExerciseMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,7 +57,7 @@
 		E8116AEC1E6FC9DF0048859A /* AirHungerExercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirHungerExercise.swift; sourceTree = "<group>"; };
 		E82FF7651E5E132800AFE050 /* NeuroRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeuroRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E82FF7681E5E132800AFE050 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E82FF76A1E5E132800AFE050 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		E82FF76A1E5E132800AFE050 /* AirGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirGameViewController.swift; sourceTree = "<group>"; };
 		E82FF76F1E5E132800AFE050 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E82FF7721E5E132800AFE050 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E82FF7741E5E132800AFE050 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -78,6 +80,8 @@
 		E8ED99461E6768D400115DA6 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		E8ED994C1E67691600115DA6 /* ProfileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		E8ED994E1E676ABA00115DA6 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		E8F519D91EA7D2B0005DF4FE /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		E8F519DB1EA7D3D9005DF4FE /* ExerciseMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseMenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,9 +208,9 @@
 			isa = PBXGroup;
 			children = (
 				E8090A111E73207E002F79F7 /* Managers */,
-				E82FF76A1E5E132800AFE050 /* HomeViewController.swift */,
+				E8F519DD1EA7D3ED005DF4FE /* Exercise Controllers */,
+				E8F519D91EA7D2B0005DF4FE /* InfoViewController.swift */,
 				E8ED99461E6768D400115DA6 /* ProfileViewController.swift */,
-				E8090A141E733802002F79F7 /* GameSummaryViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -239,6 +243,16 @@
 				E8B51E8B1EA1349900432031 /* Exercises */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		E8F519DD1EA7D3ED005DF4FE /* Exercise Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E8F519DB1EA7D3D9005DF4FE /* ExerciseMenuViewController.swift */,
+				E82FF76A1E5E132800AFE050 /* AirGameViewController.swift */,
+				E8090A141E733802002F79F7 /* GameSummaryViewController.swift */,
+			);
+			name = "Exercise Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -395,7 +409,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E82FF76B1E5E132800AFE050 /* HomeViewController.swift in Sources */,
+				E82FF76B1E5E132800AFE050 /* AirGameViewController.swift in Sources */,
 				E8090A181E764D71002F79F7 /* Colors.swift in Sources */,
 				E8ED994D1E67691600115DA6 /* ProfileView.swift in Sources */,
 				E8B51E801EA1124300432031 /* ExerciseEnum.swift in Sources */,
@@ -409,6 +423,7 @@
 				E8A99A181E5E15900059D21C /* AirGameView.swift in Sources */,
 				E8ED99451E67688E00115DA6 /* MainTabBarController.swift in Sources */,
 				E8E7E1A51EA47BE800ED7834 /* Double Ext.swift in Sources */,
+				E8F519DC1EA7D3D9005DF4FE /* ExerciseMenuViewController.swift in Sources */,
 				E8090A151E733802002F79F7 /* GameSummaryViewController.swift in Sources */,
 				E8B51E8A1EA1345A00432031 /* Gyroscope.swift in Sources */,
 				E82FF7691E5E132800AFE050 /* AppDelegate.swift in Sources */,
@@ -417,6 +432,7 @@
 				E8ED99471E6768D400115DA6 /* ProfileViewController.swift in Sources */,
 				E8B51E821EA112B000432031 /* BalanceExercise.swift in Sources */,
 				E8A99A161E5E156A0059D21C /* User.swift in Sources */,
+				E8F519DA1EA7D2B0005DF4FE /* InfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

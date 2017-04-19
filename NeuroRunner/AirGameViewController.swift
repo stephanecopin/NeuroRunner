@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 
-class HomeViewController: UIViewController {
+class AirGameViewController: UIViewController {
 
     let store = DataStore.shared
     let airGameView = AirGameView()
@@ -76,7 +76,7 @@ protocol PresentGameSummaryDelegate {
     
 }
 
-extension HomeViewController: PresentGameSummaryDelegate {
+extension AirGameViewController: PresentGameSummaryDelegate {
     
     func presentGameSummary() {
         print("presentGameSummary delegate called")
