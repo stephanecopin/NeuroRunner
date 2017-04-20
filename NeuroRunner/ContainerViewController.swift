@@ -42,9 +42,6 @@ class ContainerViewController: UIViewController {
     // MARK: Override Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = UIColor.blue
-        
     }
     
     // MARK: Setup

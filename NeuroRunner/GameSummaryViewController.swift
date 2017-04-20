@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameSummaryViewController: UIViewController {
+class AirGameSummaryViewController: UIViewController {
 
     let store = DataStore.shared
     var user: User!
@@ -40,10 +40,14 @@ class GameSummaryViewController: UIViewController {
             // set properties of parent as they were
         }
         */
+        
+        dismiss(animated: true, completion: nil)
+        
+        /* Old transition
         willMove(toParentViewController: nil)
         view.removeFromSuperview()
         removeFromParentViewController()
-
+        */
     }
 
     override func didReceiveMemoryWarning() {

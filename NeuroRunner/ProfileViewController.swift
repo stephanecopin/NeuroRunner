@@ -46,6 +46,8 @@ class ProfileViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+
+        // TODO: Is this really necessary?
         profileView.removeFromSuperview()
         profileView = ProfileView()
         

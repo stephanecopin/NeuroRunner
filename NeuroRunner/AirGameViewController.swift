@@ -10,11 +10,11 @@ import UIKit
 import RealmSwift
 
 
-class HomeViewController: UIViewController {
+class AirGameViewController: UIViewController {
 
     let store = DataStore.shared
     let airGameView = AirGameView()
-    var gameSummaryViewController: GameSummaryViewController!
+    var airGameSummaryViewController: AirGameSummaryViewController!
     
     var isMicrophoneEnabled = false
     
@@ -33,7 +33,7 @@ class HomeViewController: UIViewController {
 
     func initialSetup() {
         // Customize Navigation Bar
-        navigationItem.title = "Home"
+        navigationItem.title = "Air Hunger Games"
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Mic Disabled", style: .plain, target: self, action: #selector(toggleMic))
         
         // Set Delegates
@@ -68,27 +68,26 @@ class HomeViewController: UIViewController {
 
 }
 
-protocol PresentGameSummaryDelegate {
-    
-    func presentGameSummary()
-    
-}
-
-extension HomeViewController: PresentGameSummaryDelegate {
+extension AirGameViewController: PresentGameSummaryDelegate {
     
     func presentGameSummary() {
-        gameSummaryViewController = GameSummaryViewController()
+        airGameSummaryViewController = AirGameSummaryViewController()
+
+        airGameSummaryViewController.providesPresentationContextTransitionStyle = true
+        airGameSummaryViewController.definesPresentationContext = true
+        airGameSummaryViewController.modalPresentationStyle = .overFullScreen
+        self.present(airGameSummaryViewController, animated: true, completion: nil)
         
+/*      Old transition
         addChildViewController(gameSummaryViewController)
-        
         view.addSubview(gameSummaryViewController.view)
         gameSummaryViewController.view.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-        
         gameSummaryViewController.didMove(toParentViewController: nil)
-        
         view.layoutIfNeeded()
+
+*/
         
     }
 }
