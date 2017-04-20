@@ -16,7 +16,6 @@ class AirGameViewModel {
     var newExercise: BreathingExercise!
     let exerciseTimer = ExerciseTimer()
     var inputTimer: InputTimer!
-    // TODO: Make sure this works when input Method is changed
     var inputMethod: InputMethod = .manual {
         didSet {
             inputTimer.inputMethod = self.inputMethod
@@ -41,9 +40,7 @@ class AirGameViewModel {
 extension AirGameViewModel {
     
     func startExercise(with initialStartTime: Double?, countdownDirection: Direction) {
-        // Optional because exercise may count up instead of down
         
-        print("start exercise direction \(countdownDirection)")
         if countdownDirection == .Down {
             if let initialStartTime = initialStartTime {
                 exerciseTimer.totalTime = initialStartTime
@@ -60,14 +57,12 @@ extension AirGameViewModel {
     }
     
     func cancelExercise() {
-        // Resets all timers and data
+        exerciseTimer.clearTimer()
+        inputTimer.clearTimer()
         
         if inputTimer.inputMethod == .Microphone {
             inputTimer.microphone.clearMicrophone()
         }
-        
-        exerciseTimer.clearTimer()
-        inputTimer.clearTimer()
     }
     
     func createAirHungerGame(totalTime: Double) {
@@ -75,7 +70,6 @@ extension AirGameViewModel {
         
         newExercise.timeSpentBreathing = inputTimer.totalInputTime.roundTo(places: 2)
         newExercise.timeSpentHungering = totalTime - inputTimer.totalInputTime.roundTo(places: 2)
-        
         
         try! store.realm.write {
             user.airHungerGames.append(newExercise)
@@ -85,7 +79,6 @@ extension AirGameViewModel {
              
         newExercise = nil
         cancelExercise()
-        
     }
     
 }

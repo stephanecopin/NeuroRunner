@@ -12,6 +12,7 @@ class InfoViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.title = "Information"
 
         // Do any additional setup after loading the view.
     }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class GameSummaryViewController: UIViewController {
+class AirGameSummaryViewController: UIViewController {
 
     let store = DataStore.shared
     var user: User!

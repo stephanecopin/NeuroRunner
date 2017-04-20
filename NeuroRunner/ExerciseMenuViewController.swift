@@ -26,6 +26,8 @@ class ExerciseMenuViewController: UIViewController {
     }
     
     func configure() {
+        navigationItem.title = "Exercise Menu"
+        
         airGameButton.backgroundColor = UIColor.blue.withAlphaComponent(0.4)
         airGameButton.setTitle("Air Hunger Games", for: .normal)
         airGameButton.addTarget(self, action: #selector(presentAirExerciseController), for: .touchUpInside)

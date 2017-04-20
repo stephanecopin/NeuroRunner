@@ -36,6 +36,7 @@
 		E8F519DA1EA7D2B0005DF4FE /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F519D91EA7D2B0005DF4FE /* InfoViewController.swift */; };
 		E8F519DC1EA7D3D9005DF4FE /* ExerciseMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F519DB1EA7D3D9005DF4FE /* ExerciseMenuViewController.swift */; };
 		E8F519DF1EA7E24E005DF4FE /* BalanceGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F519DE1EA7E24E005DF4FE /* BalanceGameViewController.swift */; };
+		E8F519E11EA7EB93005DF4FE /* PresentVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F519E01EA7EB93005DF4FE /* PresentVCDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		E8F519D91EA7D2B0005DF4FE /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		E8F519DB1EA7D3D9005DF4FE /* ExerciseMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseMenuViewController.swift; sourceTree = "<group>"; };
 		E8F519DE1EA7E24E005DF4FE /* BalanceGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceGameViewController.swift; sourceTree = "<group>"; };
+		E8F519E01EA7EB93005DF4FE /* PresentVCDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentVCDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -211,8 +213,8 @@
 			children = (
 				E8090A111E73207E002F79F7 /* Managers */,
 				E8F519DD1EA7D3ED005DF4FE /* Exercise Controllers */,
-				E8F519D91EA7D2B0005DF4FE /* InfoViewController.swift */,
-				E8ED99461E6768D400115DA6 /* ProfileViewController.swift */,
+				E8F519E31EA7EBB9005DF4FE /* Info Controllers */,
+				E8F519E21EA7EBB2005DF4FE /* Profile Controllers */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -253,9 +255,26 @@
 				E8F519DB1EA7D3D9005DF4FE /* ExerciseMenuViewController.swift */,
 				E8F519DE1EA7E24E005DF4FE /* BalanceGameViewController.swift */,
 				E82FF76A1E5E132800AFE050 /* AirGameViewController.swift */,
+				E8F519E01EA7EB93005DF4FE /* PresentVCDelegate.swift */,
 				E8090A141E733802002F79F7 /* GameSummaryViewController.swift */,
 			);
 			name = "Exercise Controllers";
+			sourceTree = "<group>";
+		};
+		E8F519E21EA7EBB2005DF4FE /* Profile Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E8ED99461E6768D400115DA6 /* ProfileViewController.swift */,
+			);
+			name = "Profile Controllers";
+			sourceTree = "<group>";
+		};
+		E8F519E31EA7EBB9005DF4FE /* Info Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				E8F519D91EA7D2B0005DF4FE /* InfoViewController.swift */,
+			);
+			name = "Info Controllers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -434,6 +453,7 @@
 				E8B51E861EA1332600432031 /* InputTimer.swift in Sources */,
 				E8B51E881EA1340E00432031 /* InputMethodEnum.swift in Sources */,
 				E8ED99471E6768D400115DA6 /* ProfileViewController.swift in Sources */,
+				E8F519E11EA7EB93005DF4FE /* PresentVCDelegate.swift in Sources */,
 				E8B51E821EA112B000432031 /* BalanceExercise.swift in Sources */,
 				E8A99A161E5E156A0059D21C /* User.swift in Sources */,
 				E8F519DA1EA7D2B0005DF4FE /* InfoViewController.swift in Sources */,
