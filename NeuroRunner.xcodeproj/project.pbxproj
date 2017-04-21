@@ -26,6 +26,7 @@
 		E8B51E861EA1332600432031 /* InputTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E851EA1332600432031 /* InputTimer.swift */; };
 		E8B51E881EA1340E00432031 /* InputMethodEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E871EA1340E00432031 /* InputMethodEnum.swift */; };
 		E8B51E8A1EA1345A00432031 /* Gyroscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E891EA1345A00432031 /* Gyroscope.swift */; };
+		E8C256401EAA97830015BF16 /* CustomPickerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C2563F1EAA97830015BF16 /* CustomPickerRowView.swift */; };
 		E8D1B1CE1E6B7BF000FD9A68 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D1B1CD1E6B7BF000FD9A68 /* DataStore.swift */; };
 		E8E7E1A51EA47BE800ED7834 /* Double Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E7E1A41EA47BE800ED7834 /* Double Ext.swift */; };
 		E8ED99431E64FEF700115DA6 /* AirGameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED99421E64FEF700115DA6 /* AirGameViewModel.swift */; };
@@ -76,6 +77,7 @@
 		E8B51E851EA1332600432031 /* InputTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputTimer.swift; sourceTree = "<group>"; };
 		E8B51E871EA1340E00432031 /* InputMethodEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputMethodEnum.swift; sourceTree = "<group>"; };
 		E8B51E891EA1345A00432031 /* Gyroscope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gyroscope.swift; sourceTree = "<group>"; };
+		E8C2563F1EAA97830015BF16 /* CustomPickerRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPickerRowView.swift; sourceTree = "<group>"; };
 		E8D1B1CD1E6B7BF000FD9A68 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		E8E7E1A41EA47BE800ED7834 /* Double Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double Ext.swift"; sourceTree = "<group>"; };
 		E8ED99421E64FEF700115DA6 /* AirGameViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirGameViewModel.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 			children = (
 				E8A99A171E5E15900059D21C /* AirGameView.swift */,
 				E8F519E41EAA8D06005DF4FE /* TimerView.swift */,
+				E8C2563F1EAA97830015BF16 /* CustomPickerRowView.swift */,
 				E8090A121E732A6E002F79F7 /* GameSummaryView.swift */,
 				E8ED994C1E67691600115DA6 /* ProfileView.swift */,
 			);
@@ -454,6 +457,7 @@
 				E8B51E8A1EA1345A00432031 /* Gyroscope.swift in Sources */,
 				E82FF7691E5E132800AFE050 /* AppDelegate.swift in Sources */,
 				E8B51E861EA1332600432031 /* InputTimer.swift in Sources */,
+				E8C256401EAA97830015BF16 /* CustomPickerRowView.swift in Sources */,
 				E8B51E881EA1340E00432031 /* InputMethodEnum.swift in Sources */,
 				E8F519E51EAA8D06005DF4FE /* TimerView.swift in Sources */,
 				E8ED99471E6768D400115DA6 /* ProfileViewController.swift in Sources */,

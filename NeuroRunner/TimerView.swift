@@ -61,7 +61,7 @@ extension TimerView: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        // TODO: Lots of memory wasted here
+        // TODO: Lots of memory wasted here?
         return pickerDataSize
     }
     
@@ -71,7 +71,21 @@ extension TimerView: UIPickerViewDelegate, UIPickerViewDataSource {
         return title
     }
     
+    // Custom Picker Cell Functions
+//    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
+//        return self.bounds.size.width
+//    }
     
+//    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
+//        return 44.0
+//    }
+    
+    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
+        let rowMod = row % 60
+        let rowData = pickerData[rowMod]
+        let customView = CustomPickerRowView(frame: .zero, rowData: rowData)
+        return customView
+    }
     
     
     
