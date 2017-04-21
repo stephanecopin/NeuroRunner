@@ -16,6 +16,7 @@ class AirGameView: UIView {
     
     // Timer UI Elements
     let pickerTimer = UIDatePicker()
+    let customTimerView = TimerView()
     var timerLabelView = UIView()
     
     var secondsLabel = UILabel() {
@@ -137,8 +138,8 @@ class AirGameView: UIView {
             $0.edges.equalToSuperview()
         }
         
-        addSubview(pickerTimer)
-        pickerTimer.snp.makeConstraints {
+        addSubview(customTimerView)
+        customTimerView.snp.makeConstraints {
             $0.width.equalToSuperview().multipliedBy(0.8)
             $0.height.equalToSuperview().dividedBy(10)
             $0.centerX.centerY.equalToSuperview()
@@ -147,7 +148,7 @@ class AirGameView: UIView {
         addSubview(upDownSegmentedControl)
         upDownSegmentedControl.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalTo(pickerTimer.snp.bottom).offset(15)
+            $0.top.equalTo(customTimerView.snp.bottom).offset(15)
         }
         
         addSubview(startStopButton)
@@ -204,13 +205,19 @@ class AirGameView: UIView {
     func timerOn() {
         isTimerOn = true
         
-        totalTime = Int(pickerTimer.countDownDuration)
+        let minuteData = Int(customTimerView.timerPicker.selectedRow(inComponent: 0) % 60)
+        let secondData = Int(customTimerView.timerPicker.selectedRow(inComponent: 1) % 60)
+        
+        
+        totalTime = (minuteData * 60) + (secondData)
+
+        print("minuteData = \(minuteData) \nsecondData = \(secondData)")
         
         viewTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
         if airGameViewModel.inputTimer.inputMethod == .manual {
             breathingButton.isHidden = false
         }
-        pickerTimer.isHidden = true
+        customTimerView.isHidden = true
         
         startStopButton.setTitle("Stop", for: .normal)
         startStopButton.backgroundColor = UIColor.startButtonStop
@@ -220,7 +227,7 @@ class AirGameView: UIView {
         viewTimer.invalidate()
         
         breathingButton.isHidden = true
-        pickerTimer.isHidden = false
+        customTimerView.isHidden = false
         
         startStopButton.setTitle("Start", for: .normal)
         startStopButton.backgroundColor = UIColor.startButtonStart

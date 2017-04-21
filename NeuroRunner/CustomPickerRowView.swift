@@ -30,8 +30,4 @@ class CustomPickerRowView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func createLabel() {
-        
-    }
-    
 }

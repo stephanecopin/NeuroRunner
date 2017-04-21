@@ -212,6 +212,15 @@
 			name = Timers;
 			sourceTree = "<group>";
 		};
+		E8C256411EAA9D780015BF16 /* CustomTimerView */ = {
+			isa = PBXGroup;
+			children = (
+				E8F519E41EAA8D06005DF4FE /* TimerView.swift */,
+				E8C2563F1EAA97830015BF16 /* CustomPickerRowView.swift */,
+			);
+			name = CustomTimerView;
+			sourceTree = "<group>";
+		};
 		E8ED99481E6768E200115DA6 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -234,9 +243,8 @@
 		E8ED994A1E6768F300115DA6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E8C256411EAA9D780015BF16 /* CustomTimerView */,
 				E8A99A171E5E15900059D21C /* AirGameView.swift */,
-				E8F519E41EAA8D06005DF4FE /* TimerView.swift */,
-				E8C2563F1EAA97830015BF16 /* CustomPickerRowView.swift */,
 				E8090A121E732A6E002F79F7 /* GameSummaryView.swift */,
 				E8ED994C1E67691600115DA6 /* ProfileView.swift */,
 			);
