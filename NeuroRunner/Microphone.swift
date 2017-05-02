@@ -23,9 +23,9 @@ class Microphone: NSObject, AVAudioRecorderDelegate {
     
     override init() {
         super.init()
-        // *** TODO: microphone disabled so as to test without disrupting music
-//        configure()
-//        setUpRecorder()
+        // *** microphone can be disabled so as to test without disrupting music
+        configure()
+        setUpRecorder()
     }
     
     func configure() {
