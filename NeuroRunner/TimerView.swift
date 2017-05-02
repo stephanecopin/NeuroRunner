@@ -28,8 +28,6 @@ class TimerView: UIView {
     }
     
     func configure() {
-        backgroundColor = UIColor.white
-        
         timerPicker.dataSource = self
         timerPicker.delegate = self
         

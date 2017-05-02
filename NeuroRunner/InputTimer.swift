@@ -35,7 +35,7 @@ extension InputTimer {
         case .Gyroscope:
             addUsingGyroscope()
         case .manual:
-            // manual input must be entered via the View's button
+            // No method here; manual input must be entered via the View's button
             break
         }
     }

@@ -15,7 +15,7 @@ class CustomPickerRowView: UIView {
     
     init(frame: CGRect, rowData: String) {
         super.init(frame: frame)
-        backgroundColor = UIColor().generateRandomColor()
+//        backgroundColor = UIColor().generateRandomColor()
 
         dataLabel.text = rowData
         

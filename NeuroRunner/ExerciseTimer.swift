@@ -13,9 +13,7 @@ enum Direction {
     case Up, Down
 }
 
-class ExerciseTimer {
-
-    
+class ExerciseTimer {    
     var primaryTimer: Timer!
     var direction: Direction = .Down
     var totalTime = 0.0

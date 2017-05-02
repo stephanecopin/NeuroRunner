@@ -11,7 +11,7 @@
 		E8090A131E732A6E002F79F7 /* GameSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8090A121E732A6E002F79F7 /* GameSummaryView.swift */; };
 		E8090A151E733802002F79F7 /* GameSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8090A141E733802002F79F7 /* GameSummaryViewController.swift */; };
 		E8090A181E764D71002F79F7 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8090A171E764D71002F79F7 /* Colors.swift */; };
-		E8116AED1E6FC9DF0048859A /* AirHungerExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8116AEC1E6FC9DF0048859A /* AirHungerExercise.swift */; };
+		E8116AED1E6FC9DF0048859A /* BreathingExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8116AEC1E6FC9DF0048859A /* BreathingExercise.swift */; };
 		E82FF7691E5E132800AFE050 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF7681E5E132800AFE050 /* AppDelegate.swift */; };
 		E82FF76B1E5E132800AFE050 /* AirGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF76A1E5E132800AFE050 /* AirGameViewController.swift */; };
 		E82FF7701E5E132800AFE050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E82FF76F1E5E132800AFE050 /* Assets.xcassets */; };
@@ -58,7 +58,7 @@
 		E8090A121E732A6E002F79F7 /* GameSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSummaryView.swift; sourceTree = "<group>"; };
 		E8090A141E733802002F79F7 /* GameSummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSummaryViewController.swift; sourceTree = "<group>"; };
 		E8090A171E764D71002F79F7 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
-		E8116AEC1E6FC9DF0048859A /* AirHungerExercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirHungerExercise.swift; sourceTree = "<group>"; };
+		E8116AEC1E6FC9DF0048859A /* BreathingExercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreathingExercise.swift; sourceTree = "<group>"; };
 		E82FF7651E5E132800AFE050 /* NeuroRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeuroRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E82FF7681E5E132800AFE050 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E82FF76A1E5E132800AFE050 /* AirGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirGameViewController.swift; sourceTree = "<group>"; };
@@ -187,7 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				E8B51E7F1EA1124300432031 /* ExerciseEnum.swift */,
-				E8116AEC1E6FC9DF0048859A /* AirHungerExercise.swift */,
+				E8116AEC1E6FC9DF0048859A /* BreathingExercise.swift */,
 				E8B51E811EA112B000432031 /* BalanceExercise.swift */,
 			);
 			name = Exercises;
@@ -454,7 +454,7 @@
 				E8ED994F1E676ABA00115DA6 /* ContainerViewController.swift in Sources */,
 				E8ED99431E64FEF700115DA6 /* AirGameViewModel.swift in Sources */,
 				E8D1B1CE1E6B7BF000FD9A68 /* DataStore.swift in Sources */,
-				E8116AED1E6FC9DF0048859A /* AirHungerExercise.swift in Sources */,
+				E8116AED1E6FC9DF0048859A /* BreathingExercise.swift in Sources */,
 				E8B51E7E1EA1106A00432031 /* ExerciseTimer.swift in Sources */,
 				E8A99A181E5E15900059D21C /* AirGameView.swift in Sources */,
 				E8ED99451E67688E00115DA6 /* MainTabBarController.swift in Sources */,

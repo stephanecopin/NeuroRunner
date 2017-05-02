@@ -8,7 +8,7 @@
 
 import Foundation
 
-class AirGameViewModel {
+final class AirGameViewModel {
     
     let store = DataStore.shared
     var user: User!

@@ -35,19 +35,9 @@ class AirGameSummaryViewController: UIViewController {
     }
     
     func dismissView() {
-        /*
-        if let parent = parent as? HomeViewController {
-            // set properties of parent as they were
-        }
-        */
         
         dismiss(animated: true, completion: nil)
         
-        /* Old transition
-        willMove(toParentViewController: nil)
-        view.removeFromSuperview()
-        removeFromParentViewController()
-        */
     }
 
     override func didReceiveMemoryWarning() {
