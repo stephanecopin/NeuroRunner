@@ -26,6 +26,8 @@
 		E8B51E861EA1332600432031 /* InputTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E851EA1332600432031 /* InputTimer.swift */; };
 		E8B51E881EA1340E00432031 /* InputMethodEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E871EA1340E00432031 /* InputMethodEnum.swift */; };
 		E8B51E8A1EA1345A00432031 /* Gyroscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E891EA1345A00432031 /* Gyroscope.swift */; };
+		E8B8C2301EB82D6200F9C865 /* BalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B8C22F1EB82D6200F9C865 /* BalanceView.swift */; };
+		E8B8C2321EB82DB200F9C865 /* BalanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B8C2311EB82DB200F9C865 /* BalanceViewModel.swift */; };
 		E8C256401EAA97830015BF16 /* CustomPickerRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8C2563F1EAA97830015BF16 /* CustomPickerRowView.swift */; };
 		E8D1B1CE1E6B7BF000FD9A68 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8D1B1CD1E6B7BF000FD9A68 /* DataStore.swift */; };
 		E8E7E1A51EA47BE800ED7834 /* Double Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8E7E1A41EA47BE800ED7834 /* Double Ext.swift */; };
@@ -77,6 +79,8 @@
 		E8B51E851EA1332600432031 /* InputTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputTimer.swift; sourceTree = "<group>"; };
 		E8B51E871EA1340E00432031 /* InputMethodEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputMethodEnum.swift; sourceTree = "<group>"; };
 		E8B51E891EA1345A00432031 /* Gyroscope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gyroscope.swift; sourceTree = "<group>"; };
+		E8B8C22F1EB82D6200F9C865 /* BalanceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceView.swift; sourceTree = "<group>"; };
+		E8B8C2311EB82DB200F9C865 /* BalanceViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceViewModel.swift; sourceTree = "<group>"; };
 		E8C2563F1EAA97830015BF16 /* CustomPickerRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPickerRowView.swift; sourceTree = "<group>"; };
 		E8D1B1CD1E6B7BF000FD9A68 /* DataStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		E8E7E1A41EA47BE800ED7834 /* Double Ext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Double Ext.swift"; sourceTree = "<group>"; };
@@ -236,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				E8ED99421E64FEF700115DA6 /* AirGameViewModel.swift */,
+				E8B8C2311EB82DB200F9C865 /* BalanceViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 			isa = PBXGroup;
 			children = (
 				E8C256411EAA9D780015BF16 /* CustomTimerView */,
+				E8B8C22F1EB82D6200F9C865 /* BalanceView.swift */,
 				E8A99A171E5E15900059D21C /* AirGameView.swift */,
 				E8090A121E732A6E002F79F7 /* GameSummaryView.swift */,
 				E8ED994C1E67691600115DA6 /* ProfileView.swift */,
@@ -458,6 +464,7 @@
 				E8B51E7E1EA1106A00432031 /* ExerciseTimer.swift in Sources */,
 				E8A99A181E5E15900059D21C /* AirGameView.swift in Sources */,
 				E8ED99451E67688E00115DA6 /* MainTabBarController.swift in Sources */,
+				E8B8C2321EB82DB200F9C865 /* BalanceViewModel.swift in Sources */,
 				E8E7E1A51EA47BE800ED7834 /* Double Ext.swift in Sources */,
 				E8F519DC1EA7D3D9005DF4FE /* ExerciseMenuViewController.swift in Sources */,
 				E8F519DF1EA7E24E005DF4FE /* BalanceGameViewController.swift in Sources */,
@@ -472,6 +479,7 @@
 				E8F519E11EA7EB93005DF4FE /* PresentVCDelegate.swift in Sources */,
 				E8B51E821EA112B000432031 /* BalanceExercise.swift in Sources */,
 				E8A99A161E5E156A0059D21C /* User.swift in Sources */,
+				E8B8C2301EB82D6200F9C865 /* BalanceView.swift in Sources */,
 				E8F519DA1EA7D2B0005DF4FE /* InfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

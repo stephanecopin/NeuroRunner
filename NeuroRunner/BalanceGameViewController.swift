@@ -10,9 +10,16 @@ import UIKit
 
 class BalanceGameViewController: UIViewController {
 
+    let balanceView = BalanceView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
+        view.addSubview(balanceView)
+        balanceView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
         // Do any additional setup after loading the view.
     }
 
