@@ -7,11 +7,8 @@
 //
 
 import Foundation
-// TODO: Eventually will have capability to program intervals?
 
-enum Direction {
-    case Up, Down
-}
+// Class associated with overall time of exercise; measured counting up from zero or counting down from set time
 
 class ExerciseTimer {    
     var primaryTimer: Timer!

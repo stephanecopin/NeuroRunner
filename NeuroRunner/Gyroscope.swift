@@ -13,6 +13,9 @@ class Gyroscope {
     let manager = CMMotionManager()
     let queue = OperationQueue()
 
+    var magnitudes = [Double]()
+    
+
 }
 
 extension Gyroscope {
@@ -22,16 +25,17 @@ extension Gyroscope {
             manager.deviceMotionUpdateInterval = 0.02
             manager.startDeviceMotionUpdates(to: .main) {
                 (data: CMDeviceMotion?, error: Error?) in
-                if let x = data?.userAcceleration.x,
-                    x < -2.5 {
-                        print("wobble wobble wobble")
-                        // Wobble!
+                if let x = data?.userAcceleration.x {
+                    
+                    self.magnitudes.append(x.roundTo(places: 6))
+                    
                 }
             }
         }
     }
     
-    func stop() {
+    func stop() -> [Double] {
         manager.stopGyroUpdates()
+        return magnitudes
     }
 }

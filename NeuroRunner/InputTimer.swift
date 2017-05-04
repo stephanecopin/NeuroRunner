@@ -15,9 +15,8 @@ class InputTimer {
     
     // TODO: InputMethod is tied to AGVM's didSet; will models deinitialize? should they be lazy vars?
     var inputMethod: InputMethod
-
+    
     lazy var microphone = Microphone()
-    lazy var gyroscope = Gyroscope()
     
     init(inputMethod: InputMethod) {
         self.inputMethod = inputMethod
@@ -33,7 +32,8 @@ extension InputTimer {
         case .Microphone:
             addUsingMicrophone()
         case .Gyroscope:
-            addUsingGyroscope()
+            break
+            // TODO: Is this safe?
         case .manual:
             // No method here; manual input must be entered via the View's button
             break
@@ -53,7 +53,7 @@ extension InputTimer {
         inputTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (timer) in
             self.totalInputTime = self.microphone.levelTimerCallback()
             print("total input time = \(self.totalInputTime)")
-
+            
         }
     }
     
@@ -63,10 +63,6 @@ extension InputTimer {
             self.totalInputTime += 0.01
             print("total input time = \(self.totalInputTime)")
         }
-    }
-    
-    private func addUsingGyroscope() {
-        
     }
     
 }

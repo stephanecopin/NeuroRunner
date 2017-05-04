@@ -97,9 +97,3 @@ extension Microphone {
     }
     
 }
-
-protocol SensorViewUpdateDelegate {
-    
-    func sensoryInputDetected(_ isDetected: Bool)
-    
-}

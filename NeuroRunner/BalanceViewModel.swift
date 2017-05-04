@@ -15,18 +15,27 @@ final class BalanceViewModel {
     
     var balanceExercise: BalanceExercise!
     let exerciseTimer = ExerciseTimer()
-    var inputTimer: InputTimer!
-    var inputMethod: InputMethod = .manual {
-        didSet {
-            inputTimer.inputMethod = self.inputMethod
-        }
-    }
-    
+    var intervalTimer = IntervalTimer()
     
     init() {
         user = store.user
-        inputTimer = InputTimer(inputMethod: inputMethod)
     }
     
     
+}
+
+extension BalanceViewModel {
+  
+    func startExercise() {
+    
+        intervalTimer.start()
+    
+    }
+    
+    func cancelExercise() {
+
+        intervalTimer.stop()
+        
+    }
+
 }
