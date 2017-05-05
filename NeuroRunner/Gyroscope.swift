@@ -11,23 +11,18 @@ import CoreMotion
 class Gyroscope {
 
     let manager = CMMotionManager()
-    let queue = OperationQueue()
-
     var magnitudes = [Double]()
-    
-
 }
 
 extension Gyroscope {
     
     func start() {
-        print("gyroscope starting")
         if manager.isDeviceMotionAvailable {
-            manager.deviceMotionUpdateInterval = 0.02
+            manager.deviceMotionUpdateInterval = collectionInterval
             manager.startDeviceMotionUpdates(to: .main) {
                 (data: CMDeviceMotion?, error: Error?) in
-                if let x = data?.userAcceleration.x {
-                    
+                if let x = data?.userAcceleration.x, let y = data?.userAcceleration.y, let z = data?.userAcceleration.z {
+                    // TODO find a way to triangulate coordinates
                     self.magnitudes.append(x.roundTo(places: 6))
                     
                 }

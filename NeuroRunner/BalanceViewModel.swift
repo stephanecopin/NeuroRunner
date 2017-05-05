@@ -15,7 +15,12 @@ final class BalanceViewModel {
     
     var newExercise: BalanceExercise!
     let exerciseTimer = ExerciseTimer()
-    var intervalTimer = IntervalTimer()
+    var magnitudeTimer = MagnitudeTimer()
+    
+    var timerDirection: Direction = .Up
+    
+    var presentGameSummaryDelegate: PresentGameSummaryDelegate?
+
     
     init() {
         user = store.user
@@ -30,14 +35,15 @@ extension BalanceViewModel {
         exerciseTimer.direction = .Up
         exerciseTimer.startCountUpTimer()
         
-        intervalTimer.start()
+        magnitudeTimer.start()
     
     }
     
     func cancelExercise() {
 
         createBreathingExercise()
-        intervalTimer.stop()
+        magnitudeTimer.stop()
+        magnitudeTimer.clearTimer()
 
     }
     
@@ -45,8 +51,8 @@ extension BalanceViewModel {
         newExercise = BalanceExercise()
         print("breathing exercise created!")
         let magTim = MagnitudeTime()
-        let magObjs = intervalTimer.gyroscope.magnitudes
-        let timeObjs = intervalTimer.intervals
+        let magObjs = magnitudeTimer.gyroscope.magnitudes
+        let timeObjs = magnitudeTimer.intervals
         
         for magnitude in magObjs {
             
@@ -70,10 +76,13 @@ extension BalanceViewModel {
             print("user has \(user.balanceExercises.count) balance exercises logged")
         }
         
-        print("breathing exercise magitudes \(newExercise.magnitudeTimes?.magnitudes)")
-        print("breathing exercise times \(newExercise.magnitudeTimes?.timeIntervals)")
+        print("breathing exercise magitudes \(String(describing: newExercise.magnitudeTimes?.magnitudes))")
+        print("breathing exercise times \(String(describing: newExercise.magnitudeTimes?.timeIntervals))")
+        
+        presentGameSummaryDelegate?.presentGameSummary()
         
         newExercise = nil
+        magnitudeTimer.clearTimer()
         
         
     }

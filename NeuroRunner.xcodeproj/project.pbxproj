@@ -17,7 +17,7 @@
 		E82FF7701E5E132800AFE050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E82FF76F1E5E132800AFE050 /* Assets.xcassets */; };
 		E82FF7731E5E132800AFE050 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82FF7711E5E132800AFE050 /* LaunchScreen.storyboard */; };
 		E82FF77E1E5E132900AFE050 /* NeuroRunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF77D1E5E132900AFE050 /* NeuroRunnerTests.swift */; };
-		E862DCFC1EBBABC90002EB97 /* IntervalTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E862DCFB1EBBABC90002EB97 /* IntervalTimer.swift */; };
+		E862DCFC1EBBABC90002EB97 /* MagnitudeTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E862DCFB1EBBABC90002EB97 /* MagnitudeTimer.swift */; };
 		E862DCFE1EBBAC520002EB97 /* DirectionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E862DCFD1EBBAC520002EB97 /* DirectionEnum.swift */; };
 		E862DD001EBBB6250002EB97 /* MagnitudeTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E862DCFF1EBBB6250002EB97 /* MagnitudeTime.swift */; };
 		E8A99A161E5E156A0059D21C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A99A151E5E156A0059D21C /* User.swift */; };
@@ -45,6 +45,8 @@
 		E8F519DF1EA7E24E005DF4FE /* BalanceGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F519DE1EA7E24E005DF4FE /* BalanceGameViewController.swift */; };
 		E8F519E11EA7EB93005DF4FE /* PresentVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F519E01EA7EB93005DF4FE /* PresentVCDelegate.swift */; };
 		E8F519E51EAA8D06005DF4FE /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F519E41EAA8D06005DF4FE /* TimerView.swift */; };
+		E8F8541A1EBD1A0D005143AC /* BalanceExerciseSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F854191EBD1A0D005143AC /* BalanceExerciseSummaryView.swift */; };
+		E8F8541C1EBD2093005143AC /* BalanceExerciseSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F8541B1EBD2093005143AC /* BalanceExerciseSummaryVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +76,7 @@
 		E82FF7791E5E132900AFE050 /* NeuroRunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeuroRunnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E82FF77D1E5E132900AFE050 /* NeuroRunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuroRunnerTests.swift; sourceTree = "<group>"; };
 		E82FF77F1E5E132900AFE050 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E862DCFB1EBBABC90002EB97 /* IntervalTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntervalTimer.swift; sourceTree = "<group>"; };
+		E862DCFB1EBBABC90002EB97 /* MagnitudeTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnitudeTimer.swift; sourceTree = "<group>"; };
 		E862DCFD1EBBAC520002EB97 /* DirectionEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionEnum.swift; sourceTree = "<group>"; };
 		E862DCFF1EBBB6250002EB97 /* MagnitudeTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnitudeTime.swift; sourceTree = "<group>"; };
 		E8A99A151E5E156A0059D21C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -102,6 +104,8 @@
 		E8F519DE1EA7E24E005DF4FE /* BalanceGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceGameViewController.swift; sourceTree = "<group>"; };
 		E8F519E01EA7EB93005DF4FE /* PresentVCDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentVCDelegate.swift; sourceTree = "<group>"; };
 		E8F519E41EAA8D06005DF4FE /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
+		E8F854191EBD1A0D005143AC /* BalanceExerciseSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceExerciseSummaryView.swift; sourceTree = "<group>"; };
+		E8F8541B1EBD2093005143AC /* BalanceExerciseSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceExerciseSummaryVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,7 +226,7 @@
 				E862DCFD1EBBAC520002EB97 /* DirectionEnum.swift */,
 				E8B51E7D1EA1106A00432031 /* ExerciseTimer.swift */,
 				E8B51E851EA1332600432031 /* InputTimer.swift */,
-				E862DCFB1EBBABC90002EB97 /* IntervalTimer.swift */,
+				E862DCFB1EBBABC90002EB97 /* MagnitudeTimer.swift */,
 			);
 			name = Timers;
 			sourceTree = "<group>";
@@ -260,9 +264,10 @@
 			isa = PBXGroup;
 			children = (
 				E8C256411EAA9D780015BF16 /* CustomTimerView */,
-				E8B8C22F1EB82D6200F9C865 /* BalanceView.swift */,
 				E8A99A171E5E15900059D21C /* AirGameView.swift */,
 				E8090A121E732A6E002F79F7 /* GameSummaryView.swift */,
+				E8B8C22F1EB82D6200F9C865 /* BalanceView.swift */,
+				E8F854191EBD1A0D005143AC /* BalanceExerciseSummaryView.swift */,
 				E8ED994C1E67691600115DA6 /* ProfileView.swift */,
 			);
 			name = Views;
@@ -284,11 +289,12 @@
 		E8F519DD1EA7D3ED005DF4FE /* Exercise Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E8F519E01EA7EB93005DF4FE /* PresentVCDelegate.swift */,
 				E8F519DB1EA7D3D9005DF4FE /* ExerciseMenuViewController.swift */,
 				E8F519DE1EA7E24E005DF4FE /* BalanceGameViewController.swift */,
 				E82FF76A1E5E132800AFE050 /* AirGameViewController.swift */,
-				E8F519E01EA7EB93005DF4FE /* PresentVCDelegate.swift */,
 				E8090A141E733802002F79F7 /* GameSummaryViewController.swift */,
+				E8F8541B1EBD2093005143AC /* BalanceExerciseSummaryVC.swift */,
 			);
 			name = "Exercise Controllers";
 			sourceTree = "<group>";
@@ -472,6 +478,7 @@
 				E8ED994F1E676ABA00115DA6 /* ContainerViewController.swift in Sources */,
 				E8ED99431E64FEF700115DA6 /* AirGameViewModel.swift in Sources */,
 				E8D1B1CE1E6B7BF000FD9A68 /* DataStore.swift in Sources */,
+				E8F8541A1EBD1A0D005143AC /* BalanceExerciseSummaryView.swift in Sources */,
 				E8116AED1E6FC9DF0048859A /* BreathingExercise.swift in Sources */,
 				E8B3EA351EB9815E00529301 /* SensorViewDelegate.swift in Sources */,
 				E8B51E7E1EA1106A00432031 /* ExerciseTimer.swift in Sources */,
@@ -484,7 +491,8 @@
 				E8090A151E733802002F79F7 /* GameSummaryViewController.swift in Sources */,
 				E862DCFE1EBBAC520002EB97 /* DirectionEnum.swift in Sources */,
 				E8B51E8A1EA1345A00432031 /* Gyroscope.swift in Sources */,
-				E862DCFC1EBBABC90002EB97 /* IntervalTimer.swift in Sources */,
+				E8F8541C1EBD2093005143AC /* BalanceExerciseSummaryVC.swift in Sources */,
+				E862DCFC1EBBABC90002EB97 /* MagnitudeTimer.swift in Sources */,
 				E82FF7691E5E132800AFE050 /* AppDelegate.swift in Sources */,
 				E8B51E861EA1332600432031 /* InputTimer.swift in Sources */,
 				E8C256401EAA97830015BF16 /* CustomPickerRowView.swift in Sources */,

@@ -8,7 +8,10 @@
 
 import Foundation
 
-class IntervalTimer {
+// TODO: Good practice?
+let collectionInterval = 0.05
+
+class MagnitudeTimer {
     
     var timer: Timer!
     var intervals = [Double]()
@@ -17,23 +20,30 @@ class IntervalTimer {
     
 }
 
-extension IntervalTimer {
+extension MagnitudeTimer {
     
     func start() {
         self.gyroscope.start()
-        timer = Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true, block: { (timer) in
+        
+        timer = Timer.scheduledTimer(withTimeInterval: collectionInterval, repeats: true, block: { (timer) in
 
             self.intervals.append(self.intervalTime)
-            self.intervalTime += 0.02
+            self.intervalTime += collectionInterval
             
         })
     }
     
     func stop() {
+        gyroscope.stop()
         if let timer = timer {
             timer.invalidate()
-            gyroscope.stop()
         }
+    }
+    
+    func clearTimer() {
+        intervals = []
+        intervalTime = 0.0
+        gyroscope.magnitudes = []
     }
     
 }

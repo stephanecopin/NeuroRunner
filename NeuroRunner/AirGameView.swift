@@ -15,7 +15,6 @@ class AirGameView: UIView {
     let airGameViewModel = AirGameViewModel()
     
     // Timer UI Elements
-    let pickerTimer = UIDatePicker()
     let customTimerView = TimerView()
     var timerLabelView = UIView()
     
@@ -96,8 +95,6 @@ class AirGameView: UIView {
         let backgroundImage = #imageLiteral(resourceName: "mountain")
         backgroundImageView = UIImageView(frame: CGRect(origin: CGPoint.init(x: -745, y: 0), size: backgroundImage.size))
         backgroundImageView.image = backgroundImage
-        
-        pickerTimer.datePickerMode = .countDownTimer
         
         startStopButton.backgroundColor = UIColor.startButtonStart
         startStopButton.setTitle("Start", for: .normal)

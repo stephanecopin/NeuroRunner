@@ -11,15 +11,17 @@ import UIKit
 class BalanceGameViewController: UIViewController {
 
     let balanceView = BalanceView()
+    var balanceExerciseSummaryVC: BalanceExerciseSummaryVC!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        balanceView.balanceViewModel.presentGameSummaryDelegate = self
         
         view.addSubview(balanceView)
         balanceView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+            $0.leading.trailing.top.equalToSuperview()
+            $0.bottom.equalToSuperview().offset(-49)        }
         // Do any additional setup after loading the view.
     }
 
@@ -27,16 +29,20 @@ class BalanceGameViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+}
+
+
+extension BalanceGameViewController: PresentGameSummaryDelegate {
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func presentGameSummary() {
+        print("should be presenting!")
+        balanceExerciseSummaryVC = BalanceExerciseSummaryVC()
+        
+        balanceExerciseSummaryVC.providesPresentationContextTransitionStyle = true
+        balanceExerciseSummaryVC.definesPresentationContext = true
+        balanceExerciseSummaryVC.modalPresentationStyle = .overFullScreen
+        self.present(balanceExerciseSummaryVC, animated: true, completion: nil)
+        
     }
-    */
-
 }
