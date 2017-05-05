@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		C55D0A173748985DE0C86AC8 /* Pods_NeuroRunner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 19CE9D71EB15F053A62F1FB7 /* Pods_NeuroRunner.framework */; };
-		E8090A131E732A6E002F79F7 /* GameSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8090A121E732A6E002F79F7 /* GameSummaryView.swift */; };
-		E8090A151E733802002F79F7 /* GameSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8090A141E733802002F79F7 /* GameSummaryViewController.swift */; };
+		E8090A131E732A6E002F79F7 /* BreathingExerciseSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8090A121E732A6E002F79F7 /* BreathingExerciseSummaryView.swift */; };
+		E8090A151E733802002F79F7 /* BreathingSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8090A141E733802002F79F7 /* BreathingSummaryVC.swift */; };
 		E8090A181E764D71002F79F7 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8090A171E764D71002F79F7 /* Colors.swift */; };
 		E8116AED1E6FC9DF0048859A /* BreathingExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8116AEC1E6FC9DF0048859A /* BreathingExercise.swift */; };
 		E82FF7691E5E132800AFE050 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF7681E5E132800AFE050 /* AppDelegate.swift */; };
-		E82FF76B1E5E132800AFE050 /* AirGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF76A1E5E132800AFE050 /* AirGameViewController.swift */; };
+		E82FF76B1E5E132800AFE050 /* BreathingExerciseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF76A1E5E132800AFE050 /* BreathingExerciseVC.swift */; };
 		E82FF7701E5E132800AFE050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E82FF76F1E5E132800AFE050 /* Assets.xcassets */; };
 		E82FF7731E5E132800AFE050 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82FF7711E5E132800AFE050 /* LaunchScreen.storyboard */; };
 		E82FF77E1E5E132900AFE050 /* NeuroRunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF77D1E5E132900AFE050 /* NeuroRunnerTests.swift */; };
@@ -21,7 +21,7 @@
 		E862DCFE1EBBAC520002EB97 /* DirectionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E862DCFD1EBBAC520002EB97 /* DirectionEnum.swift */; };
 		E862DD001EBBB6250002EB97 /* MagnitudeTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E862DCFF1EBBB6250002EB97 /* MagnitudeTime.swift */; };
 		E8A99A161E5E156A0059D21C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A99A151E5E156A0059D21C /* User.swift */; };
-		E8A99A181E5E15900059D21C /* AirGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A99A171E5E15900059D21C /* AirGameView.swift */; };
+		E8A99A181E5E15900059D21C /* BreathingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A99A171E5E15900059D21C /* BreathingView.swift */; };
 		E8B3EA351EB9815E00529301 /* SensorViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B3EA341EB9815E00529301 /* SensorViewDelegate.swift */; };
 		E8B51E7E1EA1106A00432031 /* ExerciseTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E7D1EA1106A00432031 /* ExerciseTimer.swift */; };
 		E8B51E801EA1124300432031 /* ExerciseEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E7F1EA1124300432031 /* ExerciseEnum.swift */; };
@@ -42,11 +42,11 @@
 		E8ED994F1E676ABA00115DA6 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8ED994E1E676ABA00115DA6 /* ContainerViewController.swift */; };
 		E8F519DA1EA7D2B0005DF4FE /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F519D91EA7D2B0005DF4FE /* InfoViewController.swift */; };
 		E8F519DC1EA7D3D9005DF4FE /* ExerciseMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F519DB1EA7D3D9005DF4FE /* ExerciseMenuViewController.swift */; };
-		E8F519DF1EA7E24E005DF4FE /* BalanceGameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F519DE1EA7E24E005DF4FE /* BalanceGameViewController.swift */; };
+		E8F519DF1EA7E24E005DF4FE /* BalanceExerciseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F519DE1EA7E24E005DF4FE /* BalanceExerciseVC.swift */; };
 		E8F519E11EA7EB93005DF4FE /* PresentVCDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F519E01EA7EB93005DF4FE /* PresentVCDelegate.swift */; };
 		E8F519E51EAA8D06005DF4FE /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F519E41EAA8D06005DF4FE /* TimerView.swift */; };
 		E8F8541A1EBD1A0D005143AC /* BalanceExerciseSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F854191EBD1A0D005143AC /* BalanceExerciseSummaryView.swift */; };
-		E8F8541C1EBD2093005143AC /* BalanceExerciseSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F8541B1EBD2093005143AC /* BalanceExerciseSummaryVC.swift */; };
+		E8F8541C1EBD2093005143AC /* BalanceSummaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F8541B1EBD2093005143AC /* BalanceSummaryVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,13 +63,13 @@
 		19CE9D71EB15F053A62F1FB7 /* Pods_NeuroRunner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NeuroRunner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D259B4A95FB79228845F94E /* Pods-NeuroRunner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeuroRunner.release.xcconfig"; path = "Pods/Target Support Files/Pods-NeuroRunner/Pods-NeuroRunner.release.xcconfig"; sourceTree = "<group>"; };
 		3EE4BC3EA3E8A833E7BC0337 /* Pods-NeuroRunner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NeuroRunner.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NeuroRunner/Pods-NeuroRunner.debug.xcconfig"; sourceTree = "<group>"; };
-		E8090A121E732A6E002F79F7 /* GameSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSummaryView.swift; sourceTree = "<group>"; };
-		E8090A141E733802002F79F7 /* GameSummaryViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameSummaryViewController.swift; sourceTree = "<group>"; };
+		E8090A121E732A6E002F79F7 /* BreathingExerciseSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreathingExerciseSummaryView.swift; sourceTree = "<group>"; };
+		E8090A141E733802002F79F7 /* BreathingSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreathingSummaryVC.swift; sourceTree = "<group>"; };
 		E8090A171E764D71002F79F7 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E8116AEC1E6FC9DF0048859A /* BreathingExercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreathingExercise.swift; sourceTree = "<group>"; };
 		E82FF7651E5E132800AFE050 /* NeuroRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeuroRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E82FF7681E5E132800AFE050 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E82FF76A1E5E132800AFE050 /* AirGameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirGameViewController.swift; sourceTree = "<group>"; };
+		E82FF76A1E5E132800AFE050 /* BreathingExerciseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingExerciseVC.swift; sourceTree = "<group>"; };
 		E82FF76F1E5E132800AFE050 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E82FF7721E5E132800AFE050 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E82FF7741E5E132800AFE050 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -80,7 +80,7 @@
 		E862DCFD1EBBAC520002EB97 /* DirectionEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionEnum.swift; sourceTree = "<group>"; };
 		E862DCFF1EBBB6250002EB97 /* MagnitudeTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnitudeTime.swift; sourceTree = "<group>"; };
 		E8A99A151E5E156A0059D21C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		E8A99A171E5E15900059D21C /* AirGameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AirGameView.swift; sourceTree = "<group>"; };
+		E8A99A171E5E15900059D21C /* BreathingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreathingView.swift; sourceTree = "<group>"; };
 		E8B3EA341EB9815E00529301 /* SensorViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorViewDelegate.swift; sourceTree = "<group>"; };
 		E8B51E7D1EA1106A00432031 /* ExerciseTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseTimer.swift; sourceTree = "<group>"; };
 		E8B51E7F1EA1124300432031 /* ExerciseEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseEnum.swift; sourceTree = "<group>"; };
@@ -101,11 +101,11 @@
 		E8ED994E1E676ABA00115DA6 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
 		E8F519D91EA7D2B0005DF4FE /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
 		E8F519DB1EA7D3D9005DF4FE /* ExerciseMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseMenuViewController.swift; sourceTree = "<group>"; };
-		E8F519DE1EA7E24E005DF4FE /* BalanceGameViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceGameViewController.swift; sourceTree = "<group>"; };
+		E8F519DE1EA7E24E005DF4FE /* BalanceExerciseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceExerciseVC.swift; sourceTree = "<group>"; };
 		E8F519E01EA7EB93005DF4FE /* PresentVCDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PresentVCDelegate.swift; sourceTree = "<group>"; };
 		E8F519E41EAA8D06005DF4FE /* TimerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		E8F854191EBD1A0D005143AC /* BalanceExerciseSummaryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceExerciseSummaryView.swift; sourceTree = "<group>"; };
-		E8F8541B1EBD2093005143AC /* BalanceExerciseSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceExerciseSummaryVC.swift; sourceTree = "<group>"; };
+		E8F8541B1EBD2093005143AC /* BalanceSummaryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceSummaryVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +177,11 @@
 		E82FF7671E5E132800AFE050 /* NeuroRunner */ = {
 			isa = PBXGroup;
 			children = (
+				E862DCFD1EBBAC520002EB97 /* DirectionEnum.swift */,
+				E8B51E871EA1340E00432031 /* InputMethodEnum.swift */,
+				E8B3EA341EB9815E00529301 /* SensorViewDelegate.swift */,
+				E8B51E7F1EA1124300432031 /* ExerciseEnum.swift */,
+				E8F519E01EA7EB93005DF4FE /* PresentVCDelegate.swift */,
 				E8ED994B1E6768FE00115DA6 /* Models */,
 				E8ED994A1E6768F300115DA6 /* Views */,
 				E8ED99491E6768EA00115DA6 /* ViewModels */,
@@ -199,10 +204,27 @@
 			path = NeuroRunnerTests;
 			sourceTree = "<group>";
 		};
+		E8829E001EBD283100921E46 /* BalanceVCs */ = {
+			isa = PBXGroup;
+			children = (
+				E8F519DE1EA7E24E005DF4FE /* BalanceExerciseVC.swift */,
+				E8F8541B1EBD2093005143AC /* BalanceSummaryVC.swift */,
+			);
+			name = BalanceVCs;
+			sourceTree = "<group>";
+		};
+		E8829E011EBD283B00921E46 /* BreathingVCs */ = {
+			isa = PBXGroup;
+			children = (
+				E82FF76A1E5E132800AFE050 /* BreathingExerciseVC.swift */,
+				E8090A141E733802002F79F7 /* BreathingSummaryVC.swift */,
+			);
+			name = BreathingVCs;
+			sourceTree = "<group>";
+		};
 		E8B51E8B1EA1349900432031 /* Exercises */ = {
 			isa = PBXGroup;
 			children = (
-				E8B51E7F1EA1124300432031 /* ExerciseEnum.swift */,
 				E8116AEC1E6FC9DF0048859A /* BreathingExercise.swift */,
 				E8B51E811EA112B000432031 /* BalanceExercise.swift */,
 			);
@@ -212,8 +234,6 @@
 		E8B51E8C1EA134A900432031 /* Sensors */ = {
 			isa = PBXGroup;
 			children = (
-				E8B51E871EA1340E00432031 /* InputMethodEnum.swift */,
-				E8B3EA341EB9815E00529301 /* SensorViewDelegate.swift */,
 				E8B51E831EA12C3A00432031 /* Microphone.swift */,
 				E8B51E891EA1345A00432031 /* Gyroscope.swift */,
 			);
@@ -223,7 +243,6 @@
 		E8B51E8D1EA134B400432031 /* Timers */ = {
 			isa = PBXGroup;
 			children = (
-				E862DCFD1EBBAC520002EB97 /* DirectionEnum.swift */,
 				E8B51E7D1EA1106A00432031 /* ExerciseTimer.swift */,
 				E8B51E851EA1332600432031 /* InputTimer.swift */,
 				E862DCFB1EBBABC90002EB97 /* MagnitudeTimer.swift */,
@@ -264,8 +283,8 @@
 			isa = PBXGroup;
 			children = (
 				E8C256411EAA9D780015BF16 /* CustomTimerView */,
-				E8A99A171E5E15900059D21C /* AirGameView.swift */,
-				E8090A121E732A6E002F79F7 /* GameSummaryView.swift */,
+				E8A99A171E5E15900059D21C /* BreathingView.swift */,
+				E8090A121E732A6E002F79F7 /* BreathingExerciseSummaryView.swift */,
 				E8B8C22F1EB82D6200F9C865 /* BalanceView.swift */,
 				E8F854191EBD1A0D005143AC /* BalanceExerciseSummaryView.swift */,
 				E8ED994C1E67691600115DA6 /* ProfileView.swift */,
@@ -289,12 +308,9 @@
 		E8F519DD1EA7D3ED005DF4FE /* Exercise Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E8F519E01EA7EB93005DF4FE /* PresentVCDelegate.swift */,
 				E8F519DB1EA7D3D9005DF4FE /* ExerciseMenuViewController.swift */,
-				E8F519DE1EA7E24E005DF4FE /* BalanceGameViewController.swift */,
-				E82FF76A1E5E132800AFE050 /* AirGameViewController.swift */,
-				E8090A141E733802002F79F7 /* GameSummaryViewController.swift */,
-				E8F8541B1EBD2093005143AC /* BalanceExerciseSummaryVC.swift */,
+				E8829E011EBD283B00921E46 /* BreathingVCs */,
+				E8829E001EBD283100921E46 /* BalanceVCs */,
 			);
 			name = "Exercise Controllers";
 			sourceTree = "<group>";
@@ -469,12 +485,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E82FF76B1E5E132800AFE050 /* AirGameViewController.swift in Sources */,
+				E82FF76B1E5E132800AFE050 /* BreathingExerciseVC.swift in Sources */,
 				E8090A181E764D71002F79F7 /* Colors.swift in Sources */,
 				E8ED994D1E67691600115DA6 /* ProfileView.swift in Sources */,
 				E8B51E801EA1124300432031 /* ExerciseEnum.swift in Sources */,
 				E8B51E841EA12C3A00432031 /* Microphone.swift in Sources */,
-				E8090A131E732A6E002F79F7 /* GameSummaryView.swift in Sources */,
+				E8090A131E732A6E002F79F7 /* BreathingExerciseSummaryView.swift in Sources */,
 				E8ED994F1E676ABA00115DA6 /* ContainerViewController.swift in Sources */,
 				E8ED99431E64FEF700115DA6 /* AirGameViewModel.swift in Sources */,
 				E8D1B1CE1E6B7BF000FD9A68 /* DataStore.swift in Sources */,
@@ -482,16 +498,16 @@
 				E8116AED1E6FC9DF0048859A /* BreathingExercise.swift in Sources */,
 				E8B3EA351EB9815E00529301 /* SensorViewDelegate.swift in Sources */,
 				E8B51E7E1EA1106A00432031 /* ExerciseTimer.swift in Sources */,
-				E8A99A181E5E15900059D21C /* AirGameView.swift in Sources */,
+				E8A99A181E5E15900059D21C /* BreathingView.swift in Sources */,
 				E8ED99451E67688E00115DA6 /* MainTabBarController.swift in Sources */,
 				E8B8C2321EB82DB200F9C865 /* BalanceViewModel.swift in Sources */,
 				E8E7E1A51EA47BE800ED7834 /* Double Ext.swift in Sources */,
 				E8F519DC1EA7D3D9005DF4FE /* ExerciseMenuViewController.swift in Sources */,
-				E8F519DF1EA7E24E005DF4FE /* BalanceGameViewController.swift in Sources */,
-				E8090A151E733802002F79F7 /* GameSummaryViewController.swift in Sources */,
+				E8F519DF1EA7E24E005DF4FE /* BalanceExerciseVC.swift in Sources */,
+				E8090A151E733802002F79F7 /* BreathingSummaryVC.swift in Sources */,
 				E862DCFE1EBBAC520002EB97 /* DirectionEnum.swift in Sources */,
 				E8B51E8A1EA1345A00432031 /* Gyroscope.swift in Sources */,
-				E8F8541C1EBD2093005143AC /* BalanceExerciseSummaryVC.swift in Sources */,
+				E8F8541C1EBD2093005143AC /* BalanceSummaryVC.swift in Sources */,
 				E862DCFC1EBBABC90002EB97 /* MagnitudeTimer.swift in Sources */,
 				E82FF7691E5E132800AFE050 /* AppDelegate.swift in Sources */,
 				E8B51E861EA1332600432031 /* InputTimer.swift in Sources */,

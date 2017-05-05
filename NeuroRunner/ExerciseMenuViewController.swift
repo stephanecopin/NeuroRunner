@@ -11,9 +11,9 @@ import UIKit
 class ExerciseMenuViewController: UIViewController {
     
     let airGameButton = UIButton()
-    var airGameViewController: AirGameViewController!
+    var breathingExerciseVC: BreathingExerciseVC!
     let balanceButton = UIButton()
-    var balanceGameViewController: BalanceGameViewController!
+    var balanceExerciseVC: BalanceExerciseVC!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,13 +57,13 @@ class ExerciseMenuViewController: UIViewController {
     }
     
     func presentAirExerciseController() {
-        airGameViewController = AirGameViewController()
-        navigationController?.pushViewController(airGameViewController, animated: true)
+        breathingExerciseVC = BreathingExerciseVC()
+        navigationController?.pushViewController(breathingExerciseVC, animated: true)
     }
     
     func presentBalanceExerciseController() {
-        balanceGameViewController = BalanceGameViewController()
-        navigationController?.pushViewController(balanceGameViewController, animated: true)
+        balanceExerciseVC = BalanceExerciseVC()
+        navigationController?.pushViewController(balanceExerciseVC, animated: true)
     }
     
     

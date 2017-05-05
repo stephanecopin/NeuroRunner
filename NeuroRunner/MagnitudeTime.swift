@@ -20,13 +20,4 @@ class MagnitudeTime: Object {
 
 class DoubleObj: Object {
     dynamic var value = 0.0
-    
-//    convenience init(value: Double) {
-//        self.init()
-//        self.value = value
-//    }
-//    
-//    required init() {
-//        fatalError("init() has not been implemented")
-//    }
 }

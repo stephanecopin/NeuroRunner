@@ -10,14 +10,15 @@ import Foundation
 
 // Class associated with overall time of exercise; measured counting up from zero or counting down from set time
 
-class ExerciseTimer {    
+class ExerciseTimer {
+    
     var primaryTimer: Timer!
     var direction: Direction = .Down
     var totalTime = 0.0
+    
 }
 
 extension ExerciseTimer {
-    
     
     func startCountDownTimer(completion: @escaping () -> ()) {
         primaryTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in

@@ -8,11 +8,11 @@
 
 import UIKit
 
-class AirGameSummaryViewController: UIViewController {
+class BreathingSummaryVC: UIViewController {
 
     let store = DataStore.shared
     var user: User!
-    var gameSummaryView: GameSummaryView!
+    var breathingExerciseSummaryView: BreathingExerciseSummaryView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,14 +21,14 @@ class AirGameSummaryViewController: UIViewController {
 
         if user.airHungerGames.count > 0, let lastGame = user.airHungerGames.last {
 
-            gameSummaryView = GameSummaryView(with: lastGame)
+            breathingExerciseSummaryView = BreathingExerciseSummaryView(with: lastGame)
             
-            view.addSubview(gameSummaryView)
-            gameSummaryView.snp.makeConstraints {
+            view.addSubview(breathingExerciseSummaryView)
+            breathingExerciseSummaryView.snp.makeConstraints {
                 $0.edges.equalToSuperview()
             }
             
-            gameSummaryView.dismissButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
+            breathingExerciseSummaryView.dismissButton.addTarget(self, action: #selector(dismissView), for: .touchUpInside)
             
         }
 

@@ -8,10 +8,10 @@
 
 import UIKit
 
-class BalanceGameViewController: UIViewController {
+class BalanceExerciseVC: UIViewController {
 
     let balanceView = BalanceView()
-    var balanceExerciseSummaryVC: BalanceExerciseSummaryVC!
+    var balanceSummaryVC: BalanceSummaryVC!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,16 +33,16 @@ class BalanceGameViewController: UIViewController {
 }
 
 
-extension BalanceGameViewController: PresentGameSummaryDelegate {
+extension BalanceExerciseVC: PresentGameSummaryDelegate {
     
     func presentGameSummary() {
         print("should be presenting!")
-        balanceExerciseSummaryVC = BalanceExerciseSummaryVC()
+        balanceSummaryVC = BalanceSummaryVC()
         
-        balanceExerciseSummaryVC.providesPresentationContextTransitionStyle = true
-        balanceExerciseSummaryVC.definesPresentationContext = true
-        balanceExerciseSummaryVC.modalPresentationStyle = .overFullScreen
-        self.present(balanceExerciseSummaryVC, animated: true, completion: nil)
+        balanceSummaryVC.providesPresentationContextTransitionStyle = true
+        balanceSummaryVC.definesPresentationContext = true
+        balanceSummaryVC.modalPresentationStyle = .overFullScreen
+        self.present(balanceSummaryVC, animated: true, completion: nil)
         
     }
 }

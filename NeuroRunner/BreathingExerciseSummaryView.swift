@@ -11,7 +11,7 @@ import SnapKit
 import Charts
 import RealmSwift
 
-class GameSummaryView: UIView {
+class BreathingExerciseSummaryView: UIView {
     
     var lastGame: BreathingExercise!
     var timeBreathing = 0.0

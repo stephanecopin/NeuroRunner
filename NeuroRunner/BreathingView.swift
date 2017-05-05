@@ -9,7 +9,7 @@
 import UIKit
 import SnapKit
 
-class AirGameView: UIView {
+class BreathingView: UIView {
     
     // View Model
     let airGameViewModel = AirGameViewModel()
@@ -281,7 +281,7 @@ class AirGameView: UIView {
     
 }
 
-extension AirGameView: SensorViewUpdateDelegate {
+extension BreathingView: SensorViewUpdateDelegate {
     
     // Strictly for visual cues
     func sensoryInputDetected(_ isDetected: Bool) {

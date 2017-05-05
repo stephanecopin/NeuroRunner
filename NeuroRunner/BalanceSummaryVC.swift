@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class BalanceExerciseSummaryVC: UIViewController {
+class BalanceSummaryVC: UIViewController {
     
     let store = DataStore.shared
     var user: User!

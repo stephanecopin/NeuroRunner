@@ -76,9 +76,6 @@ extension BalanceViewModel {
             print("user has \(user.balanceExercises.count) balance exercises logged")
         }
         
-        print("breathing exercise magitudes \(String(describing: newExercise.magnitudeTimes?.magnitudes))")
-        print("breathing exercise times \(String(describing: newExercise.magnitudeTimes?.timeIntervals))")
-        
         presentGameSummaryDelegate?.presentGameSummary()
         
         newExercise = nil

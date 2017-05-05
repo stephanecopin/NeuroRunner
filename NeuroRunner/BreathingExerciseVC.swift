@@ -10,11 +10,11 @@ import UIKit
 import RealmSwift
 
 
-class AirGameViewController: UIViewController {
+class BreathingExerciseVC: UIViewController {
 
     let store = DataStore.shared
-    let airGameView = AirGameView()
-    var airGameSummaryViewController: AirGameSummaryViewController!
+    let breathingView = BreathingView()
+    var breathingSummaryVC: BreathingSummaryVC!
     
     var isMicrophoneEnabled = false
     
@@ -37,26 +37,26 @@ class AirGameViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Mic Disabled", style: .plain, target: self, action: #selector(toggleMic))
         
         // Set Delegates
-        airGameView.airGameViewModel.presentGameSummaryDelegate = self
+        breathingView.airGameViewModel.presentGameSummaryDelegate = self
         
         // Add View
-        view.addSubview(airGameView)
-        airGameView.snp.makeConstraints{
+        view.addSubview(breathingView)
+        breathingView.snp.makeConstraints{
             $0.leading.trailing.top.equalToSuperview()
             $0.bottom.equalToSuperview().offset(-49)
         }
     }
     
     func toggleMic() {
-        airGameView.airGameViewModel.inputTimer.microphone.isMicrophoneEnabled = !airGameView.airGameViewModel.inputTimer.microphone.isMicrophoneEnabled
+        breathingView.airGameViewModel.inputTimer.microphone.isMicrophoneEnabled = !breathingView.airGameViewModel.inputTimer.microphone.isMicrophoneEnabled
         
         
-        if airGameView.airGameViewModel.inputTimer.microphone.isMicrophoneEnabled {
+        if breathingView.airGameViewModel.inputTimer.microphone.isMicrophoneEnabled {
             navigationItem.rightBarButtonItem?.title = "Mic Enabled"
-            airGameView.airGameViewModel.inputMethod = .Microphone
+            breathingView.airGameViewModel.inputMethod = .Microphone
         } else {
             navigationItem.rightBarButtonItem?.title = "Mic Disabled"
-            airGameView.airGameViewModel.inputMethod = .manual
+            breathingView.airGameViewModel.inputMethod = .manual
         }
 
     }
@@ -68,15 +68,15 @@ class AirGameViewController: UIViewController {
 
 }
 
-extension AirGameViewController: PresentGameSummaryDelegate {
+extension BreathingExerciseVC: PresentGameSummaryDelegate {
     
     func presentGameSummary() {
-        airGameSummaryViewController = AirGameSummaryViewController()
+        breathingSummaryVC = BreathingSummaryVC()
 
-        airGameSummaryViewController.providesPresentationContextTransitionStyle = true
-        airGameSummaryViewController.definesPresentationContext = true
-        airGameSummaryViewController.modalPresentationStyle = .overFullScreen
-        self.present(airGameSummaryViewController, animated: true, completion: nil)
+        breathingSummaryVC.providesPresentationContextTransitionStyle = true
+        breathingSummaryVC.definesPresentationContext = true
+        breathingSummaryVC.modalPresentationStyle = .overFullScreen
+        self.present(breathingSummaryVC, animated: true, completion: nil)
         
 /*      Old transition
         addChildViewController(gameSummaryViewController)
