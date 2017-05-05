@@ -17,6 +17,7 @@ final class DataStore {
     var user: User! = User()
 
     func addUserToRealm() {
+        
         try! realm.write {
             realm.add(user)
         }

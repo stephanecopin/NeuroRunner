@@ -12,5 +12,6 @@ class User: Object {
     
     dynamic var name = ""
     let airHungerGames = List<BreathingExercise>()
+    let balanceExercises = List<BalanceExercise>()
     
 }

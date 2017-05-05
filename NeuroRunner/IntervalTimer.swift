@@ -11,7 +11,8 @@ import Foundation
 class IntervalTimer {
     
     var timer: Timer!
-    
+    var intervals = [Double]()
+    var intervalTime = 0.0
     lazy var gyroscope = Gyroscope()
     
 }
@@ -19,9 +20,11 @@ class IntervalTimer {
 extension IntervalTimer {
     
     func start() {
+        self.gyroscope.start()
         timer = Timer.scheduledTimer(withTimeInterval: 0.02, repeats: true, block: { (timer) in
-            
-            self.gyroscope.start()
+
+            self.intervals.append(self.intervalTime)
+            self.intervalTime += 0.02
             
         })
     }
@@ -29,8 +32,7 @@ extension IntervalTimer {
     func stop() {
         if let timer = timer {
             timer.invalidate()
-            print("MAGNITUDES = \(self.gyroscope.stop())")
-            self.gyroscope.magnitudes = []
+            gyroscope.stop()
         }
     }
     

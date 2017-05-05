@@ -11,8 +11,7 @@ import RealmSwift
 
 class BalanceExercise: Object {
     
-    dynamic var timeSpentBalanced = 0.0
-    dynamic var timeWobbling = 0.0
+    dynamic var magnitudeTimes: MagnitudeTime?
     dynamic var dateOfExercise: Date = Date()
     
 }

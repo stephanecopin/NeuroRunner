@@ -7,5 +7,26 @@
 //
 
 import Foundation
+import RealmSwift
 
-typealias MagnitudeTime = (magnitude: Double, time: Double)
+// TODO: This is a work around for an array of primitives
+
+class MagnitudeTime: Object {
+    
+    let magnitudes = List<DoubleObj>()
+    let timeIntervals = List<DoubleObj>()
+    
+}
+
+class DoubleObj: Object {
+    dynamic var value = 0.0
+    
+//    convenience init(value: Double) {
+//        self.init()
+//        self.value = value
+//    }
+//    
+//    required init() {
+//        fatalError("init() has not been implemented")
+//    }
+}

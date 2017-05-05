@@ -21,6 +21,7 @@ class Gyroscope {
 extension Gyroscope {
     
     func start() {
+        print("gyroscope starting")
         if manager.isDeviceMotionAvailable {
             manager.deviceMotionUpdateInterval = 0.02
             manager.startDeviceMotionUpdates(to: .main) {
@@ -34,8 +35,7 @@ extension Gyroscope {
         }
     }
     
-    func stop() -> [Double] {
+    func stop() {
         manager.stopGyroUpdates()
-        return magnitudes
     }
 }
