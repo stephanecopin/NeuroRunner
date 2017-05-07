@@ -179,8 +179,8 @@
 			children = (
 				E862DCFD1EBBAC520002EB97 /* DirectionEnum.swift */,
 				E8B51E871EA1340E00432031 /* InputMethodEnum.swift */,
-				E8B3EA341EB9815E00529301 /* SensorViewDelegate.swift */,
 				E8B51E7F1EA1124300432031 /* ExerciseEnum.swift */,
+				E8B3EA341EB9815E00529301 /* SensorViewDelegate.swift */,
 				E8F519E01EA7EB93005DF4FE /* PresentVCDelegate.swift */,
 				E8ED994B1E6768FE00115DA6 /* Models */,
 				E8ED994A1E6768F300115DA6 /* Views */,

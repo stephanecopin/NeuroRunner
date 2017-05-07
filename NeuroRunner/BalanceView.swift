@@ -80,8 +80,7 @@ class BalanceView: UIView {
     }
     
     func configure() {
-        backgroundColor = UIColor.cyan
-        
+
         let items = ["Down", "Up"]
         upDownSegmentedControl = UISegmentedControl(items: items)
         upDownSegmentedControl.selectedSegmentIndex = 1

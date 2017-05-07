@@ -39,7 +39,6 @@ class TimerView: UIView {
             pickerData.append(numString)
         }
         timerPicker.selectRow(pickerDataSize/2, inComponent: 0, animated: false)
-        timerPicker.selectRow(pickerDataSize/2, inComponent: 1, animated: false)
     }
     
     func constrain() {
@@ -55,7 +54,7 @@ extension TimerView: UIPickerViewDelegate, UIPickerViewDataSource {
     
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 2
+        return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {

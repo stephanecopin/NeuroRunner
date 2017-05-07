@@ -205,11 +205,11 @@ class BreathingView: UIView {
         if timerDirection == .Up {
             totalTime = 0
             customTimerView.timerPicker.selectRow(customTimerView.pickerDataSize/2, inComponent: 0, animated: false)
-            customTimerView.timerPicker.selectRow(customTimerView.pickerDataSize/2, inComponent: 1, animated: false)
+//            customTimerView.timerPicker.selectRow(customTimerView.pickerDataSize/2, inComponent: 1, animated: false)
         } else {
             let minuteData = Int(customTimerView.timerPicker.selectedRow(inComponent: 0) % 60)
-            let secondData = Int(customTimerView.timerPicker.selectedRow(inComponent: 1) % 60)
-            totalTime = (minuteData * 60) + (secondData)
+//            let secondData = Int(customTimerView.timerPicker.selectedRow(inComponent: 1) % 60)
+            totalTime = (minuteData * 60)
         }
         
         viewTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
