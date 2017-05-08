@@ -52,7 +52,7 @@ class BreathingView: UIView {
     }
     
     var timerDirection: Direction {
-        if upDownSegmentedControl.selectedSegmentIndex == 0 {
+        if segmentedControl.selectedIndex == 0 {
             airGameViewModel.timerDirection = .Down
             return .Down
         } else {
@@ -64,7 +64,7 @@ class BreathingView: UIView {
     // Exercise buttons
     let startStopButton = UIButton()
     lazy var breathingButton = UIButton()
-    var upDownSegmentedControl: UISegmentedControl!
+    var segmentedControl: CustomSegmentedControl!
     
     // Background UI
     var backgroundImageView: UIImageView!
@@ -85,9 +85,9 @@ class BreathingView: UIView {
     func configure() {
         airGameViewModel.inputTimer.microphone.sensorViewUpdateDelegate = self
         
-        let items = ["Down", "Up"]
-        upDownSegmentedControl = UISegmentedControl(items: items)
-        upDownSegmentedControl.selectedSegmentIndex = 0
+        segmentedControl = CustomSegmentedControl()
+        segmentedControl.items = ["Count Down", "Count Up"]
+        segmentedControl.selectedIndex = 0
         
         blurView = UIVisualEffectView(effect: UIBlurEffect(style: .prominent))
         blurView.alpha = 0.4
@@ -135,17 +135,19 @@ class BreathingView: UIView {
             $0.edges.equalToSuperview()
         }
         
+        addSubview(segmentedControl)
+        segmentedControl.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.top.equalToSuperview().offset(100)
+            $0.width.equalToSuperview().multipliedBy(0.75)
+            $0.height.equalToSuperview().dividedBy(15)
+        }
+        
         addSubview(customTimerView)
         customTimerView.snp.makeConstraints {
             $0.width.equalToSuperview().multipliedBy(0.8)
             $0.height.equalToSuperview().dividedBy(10)
             $0.centerX.centerY.equalToSuperview()
-        }
-        
-        addSubview(upDownSegmentedControl)
-        upDownSegmentedControl.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.top.equalTo(customTimerView.snp.bottom).offset(25)
         }
         
         addSubview(startStopButton)
@@ -166,7 +168,7 @@ class BreathingView: UIView {
         timerLabelView.snp.makeConstraints {
             $0.width.centerX.equalToSuperview()
             $0.height.equalToSuperview().dividedBy(10)
-            $0.centerY.equalToSuperview().offset(-180)
+            $0.top.equalTo(segmentedControl.snp.bottom).offset(5)
         }
         
         timerLabelView.addSubview(minutesLabel)

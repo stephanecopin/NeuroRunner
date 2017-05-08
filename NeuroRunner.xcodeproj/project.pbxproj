@@ -20,6 +20,7 @@
 		E862DCFC1EBBABC90002EB97 /* MagnitudeTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E862DCFB1EBBABC90002EB97 /* MagnitudeTimer.swift */; };
 		E862DCFE1EBBAC520002EB97 /* DirectionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E862DCFD1EBBAC520002EB97 /* DirectionEnum.swift */; };
 		E862DD001EBBB6250002EB97 /* MagnitudeTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E862DCFF1EBBB6250002EB97 /* MagnitudeTime.swift */; };
+		E8829E031EC0D68300921E46 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8829E021EC0D68300921E46 /* CustomSegmentedControl.swift */; };
 		E8A99A161E5E156A0059D21C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A99A151E5E156A0059D21C /* User.swift */; };
 		E8A99A181E5E15900059D21C /* BreathingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A99A171E5E15900059D21C /* BreathingView.swift */; };
 		E8B3EA351EB9815E00529301 /* SensorViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B3EA341EB9815E00529301 /* SensorViewDelegate.swift */; };
@@ -79,6 +80,7 @@
 		E862DCFB1EBBABC90002EB97 /* MagnitudeTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnitudeTimer.swift; sourceTree = "<group>"; };
 		E862DCFD1EBBAC520002EB97 /* DirectionEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionEnum.swift; sourceTree = "<group>"; };
 		E862DCFF1EBBB6250002EB97 /* MagnitudeTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnitudeTime.swift; sourceTree = "<group>"; };
+		E8829E021EC0D68300921E46 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		E8A99A151E5E156A0059D21C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		E8A99A171E5E15900059D21C /* BreathingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreathingView.swift; sourceTree = "<group>"; };
 		E8B3EA341EB9815E00529301 /* SensorViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorViewDelegate.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 		E8ED994A1E6768F300115DA6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E8829E021EC0D68300921E46 /* CustomSegmentedControl.swift */,
 				E8C256411EAA9D780015BF16 /* CustomTimerView */,
 				E8A99A171E5E15900059D21C /* BreathingView.swift */,
 				E8090A121E732A6E002F79F7 /* BreathingExerciseSummaryView.swift */,
@@ -508,6 +511,7 @@
 				E862DCFE1EBBAC520002EB97 /* DirectionEnum.swift in Sources */,
 				E8B51E8A1EA1345A00432031 /* Gyroscope.swift in Sources */,
 				E8F8541C1EBD2093005143AC /* BalanceSummaryVC.swift in Sources */,
+				E8829E031EC0D68300921E46 /* CustomSegmentedControl.swift in Sources */,
 				E862DCFC1EBBABC90002EB97 /* MagnitudeTimer.swift in Sources */,
 				E82FF7691E5E132800AFE050 /* AppDelegate.swift in Sources */,
 				E8B51E861EA1332600432031 /* InputTimer.swift in Sources */,

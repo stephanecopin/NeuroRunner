@@ -15,10 +15,10 @@ class CustomPickerRowView: UIView {
     
     init(frame: CGRect, rowData: String) {
         super.init(frame: frame)
-        backgroundColor = UIColor().generateRandomColor()
-
         dataLabel.text = rowData
-        
+        dataLabel.textColor = UIColor.white
+        dataLabel.font = UIFont(name: "AvenirNext-Regular", size: 40)
+
         addSubview(dataLabel)
         dataLabel.snp.makeConstraints {
             $0.centerY.centerX.equalToSuperview()

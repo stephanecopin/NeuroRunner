@@ -80,7 +80,7 @@ class BalanceView: UIView {
     }
     
     func configure() {
-
+        
         let items = ["Down", "Up"]
         upDownSegmentedControl = UISegmentedControl(items: items)
         upDownSegmentedControl.selectedSegmentIndex = 1
@@ -104,6 +104,10 @@ class BalanceView: UIView {
         minutesLabel.textAlignment = .center
         minutesLabel.adjustsFontSizeToFitWidth = true
         
+
+    }
+    
+    func constrain() {
         addSubview(timerLabelView)
         timerLabelView.snp.makeConstraints {
             $0.width.centerX.equalToSuperview()
@@ -122,10 +126,7 @@ class BalanceView: UIView {
             $0.top.bottom.height.equalToSuperview()
             $0.leading.equalTo(timerLabelView.snp.centerX).offset(10)
         }
-    }
-    
-    func constrain() {
-
+        
         addSubview(customTimerView)
         customTimerView.snp.makeConstraints {
             $0.width.equalToSuperview().multipliedBy(0.8)
