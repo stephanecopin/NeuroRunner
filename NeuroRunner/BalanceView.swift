@@ -22,20 +22,22 @@ class BalanceView: UIView {
     // Timer Hardware
     var isTimerOn = false
     let minLabel = UILabel()
+    var localTimer: Timer!
+    var localTime = 0.0
     
-    var timerDirection: Direction {
-        if segmentedControl.selectedIndex == 0 {
-            balanceViewModel.timerDirection = .Down
-            timerView.timerDirection = .Down
-            pickerView.isHidden = false
-            print("down")
-            return .Down
-        } else {
-            balanceViewModel.timerDirection = .Up
-            timerView.timerDirection = .Up
-            pickerView.isHidden = true
-            print("up")
-            return .Up
+    var timerDirection: Direction = .Down {
+        didSet {
+            if timerDirection == .Down {
+                balanceViewModel.timerDirection = .Down
+                timerView.timerDirection = .Down
+                pickerView.isHidden = false
+                minLabel.isHidden = false
+            } else if timerDirection == .Up {
+                balanceViewModel.timerDirection = .Up
+                timerView.timerDirection = .Up
+                pickerView.isHidden = true
+                minLabel.isHidden = true
+            }
         }
     }
     
@@ -126,17 +128,10 @@ class BalanceView: UIView {
 extension BalanceView {
     
     func exerciseSelection(sender: CustomSegmentedControl) {
-
         if segmentedControl.selectedIndex == 0 {
-            balanceViewModel.timerDirection = .Down
-            timerView.timerDirection = .Down
-            pickerView.isHidden = false
-            minLabel.isHidden = false
-        } else {
-            balanceViewModel.timerDirection = .Up
-            timerView.timerDirection = .Up
-            pickerView.isHidden = true
-            minLabel.isHidden = true
+            timerDirection = .Down
+        } else if segmentedControl.selectedIndex == 1 {
+            timerDirection = .Up
         }
     }
 
@@ -149,11 +144,11 @@ extension BalanceView {
             balanceViewModel.startExercise()
             
         } else {
-            timerOff()
             
             balanceViewModel.cancelExercise()
 
-            
+            timerOff()
+
         }
     }
     
