@@ -73,6 +73,7 @@ extension AirGameViewModel {
         
         try! store.realm.write {
             user.airHungerGames.append(newExercise)
+            print("user now has \(user.airHungerGames.count) air hunger games exercises")
         }
         
         presentGameSummaryDelegate?.presentGameSummary()

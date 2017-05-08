@@ -51,9 +51,7 @@ extension InputTimer {
         print("microphone input")
         microphone.audioRecorder.record()
         inputTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (timer) in
-            self.totalInputTime = self.microphone.levelTimerCallback()
-            print("total input time = \(self.totalInputTime)")
-            
+            self.totalInputTime = self.microphone.levelTimerCallback()            
         }
     }
     
@@ -61,7 +59,6 @@ extension InputTimer {
         print("manual input")
         inputTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (timer) in
             self.totalInputTime += 0.01
-            print("total input time = \(self.totalInputTime)")
         }
     }
     

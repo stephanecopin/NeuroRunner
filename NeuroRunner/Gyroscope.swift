@@ -22,8 +22,9 @@ extension Gyroscope {
             manager.startDeviceMotionUpdates(to: .main) {
                 (data: CMDeviceMotion?, error: Error?) in
                 if let x = data?.userAcceleration.x, let y = data?.userAcceleration.y, let z = data?.userAcceleration.z {
+                    let totalAcc = x + y + z
                     // TODO find a way to triangulate coordinates
-                    self.magnitudes.append(x.roundTo(places: 6))
+                    self.magnitudes.append(totalAcc.roundTo(places: 6))
                     
                 }
             }

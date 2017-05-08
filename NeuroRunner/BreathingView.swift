@@ -22,20 +22,22 @@ class BreathingView: UIView {
     // Timer Hardware
     var isTimerOn = false
     let minLabel = UILabel()
+    var localTimer: Timer!
+    var localTime = 0.0
     
-    var timerDirection: Direction {
-        if segmentedControl.selectedIndex == 0 {
-            airGameViewModel.timerDirection = .Down
-            timerView.timerDirection = .Down
-            pickerView.isHidden = false
-            print("down")
-            return .Down
-        } else {
-            airGameViewModel.timerDirection = .Up
-            timerView.timerDirection = .Up
-            pickerView.isHidden = true
-            print("up")
-            return .Up
+    var timerDirection: Direction = .Down {
+        didSet {
+            if timerDirection == .Down {
+                airGameViewModel.timerDirection = .Down
+                timerView.timerDirection = .Down
+                pickerView.isHidden = false
+                minLabel.isHidden = false
+            } else if timerDirection == .Up {
+                airGameViewModel.timerDirection = .Up
+                timerView.timerDirection = .Up
+                pickerView.isHidden = true
+                minLabel.isHidden = true
+            }
         }
     }
     
@@ -66,6 +68,7 @@ class BreathingView: UIView {
         segmentedControl = CustomSegmentedControl()
         segmentedControl.items = ["Count Down", "Count Up"]
         segmentedControl.selectedIndex = 0
+        segmentedControl.addTarget(self, action: #selector(exerciseSelection(sender:)), for: .valueChanged)
         
         blurView = UIVisualEffectView(effect: UIBlurEffect(style: .prominent))
         blurView.alpha = 0.4
@@ -114,11 +117,10 @@ class BreathingView: UIView {
         
         addSubview(pickerView)
         pickerView.snp.makeConstraints {
-            $0.width.equalToSuperview().dividedBy(8)
-            $0.height.equalToSuperview().dividedBy(9)
+            $0.width.equalToSuperview().dividedBy(7)
+            $0.height.equalToSuperview().dividedBy(7)
             $0.centerY.equalToSuperview()
             $0.trailing.equalTo(self.snp.centerX)
-//            $0.centerX.equalToSuperview()
         }
         
         addSubview(minLabel)
@@ -147,8 +149,17 @@ class BreathingView: UIView {
             $0.height.equalToSuperview().dividedBy(10)
             $0.top.equalTo(segmentedControl.snp.bottom).offset(10)
         }
+    }
+}
 
-        
+extension BreathingView {
+
+    func exerciseSelection(sender: CustomSegmentedControl) {
+        if segmentedControl.selectedIndex == 0 {
+            timerDirection = .Down
+        } else if segmentedControl.selectedIndex == 1 {
+            timerDirection = .Up
+        }
     }
     
     // Only Start/Stop Button can begin or cancel Exercise via ViewModel
@@ -159,11 +170,11 @@ class BreathingView: UIView {
             timerOn()
             airGameViewModel.startExercise(with: Double(timerView.totalTime), countdownDirection: timerDirection)
         } else {
-            timerOff()
             if timerDirection == .Up {
                 airGameViewModel.createAirHungerGame(totalTime: Double(timerView.totalTime))
             }
             airGameViewModel.cancelExercise()
+            timerOff()
         }
     }
     
@@ -181,27 +192,40 @@ class BreathingView: UIView {
         
         if timerDirection == .Up {
             timerView.totalTime = 0
+            localTimer = Timer(timeInterval: 1, repeats: true, block: { (timer) in
+                self.localTime += 5
+            })
         } else if timerDirection == .Down {
             let minuteData = Int(pickerView.timerPicker.selectedRow(inComponent: 0) % 60)
             timerView.totalTime = (minuteData * 60)
         }
         
         timerView.timerOn()
-    
+        pickerView.isHidden = true
+
     }
     
     func timerOff() {
         timerView.timerOff()
-        
         breathingButton.isHidden = true
-        pickerView.isHidden = false
-        minLabel.isHidden = false
         
         startStopButton.setTitle("Start", for: .normal)
         startStopButton.backgroundColor = UIColor.startButtonStart
         
         blurView.alpha = 0.4
         isTimerOn = false
+        
+        if timerDirection == .Down {
+            pickerView.isHidden = false
+            minLabel.isHidden = false
+        } else {
+            if let localTimer = localTimer {
+                localTimer.invalidate()
+            }
+            pickerView.isHidden = true
+            minLabel.isHidden = true
+            localTime = 0.0
+        }
     }
     
     func takeBreathManualInput(_ sender: UIButton) {

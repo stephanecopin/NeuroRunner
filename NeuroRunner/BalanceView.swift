@@ -43,6 +43,8 @@ class BalanceView: UIView {
     let startStopButton = UIButton()
     lazy var breathingButton = UIButton() // TODO manual balance?
 
+    // Background UI
+    var backgroundImageView: UIImageView!
     
     // MARK: Initialization
     required init?(coder aDecoder: NSCoder) {
@@ -58,9 +60,14 @@ class BalanceView: UIView {
     
     func configure() {
         
+        let backgroundImage = #imageLiteral(resourceName: "Space")
+        backgroundImageView = UIImageView(frame: UIScreen.main.bounds)
+        backgroundImageView.image = backgroundImage
+        
         segmentedControl = CustomSegmentedControl()
         segmentedControl.items = ["Count Down", "Count Up"]
-        segmentedControl.selectedIndex = 0
+        segmentedControl.selectedIndex = 1
+        segmentedControl.addTarget(self, action: #selector(exerciseSelection(sender:)), for: .valueChanged)
         
         startStopButton.backgroundColor = UIColor.startButtonStart
         startStopButton.setTitle("Start", for: .normal)
@@ -76,6 +83,7 @@ class BalanceView: UIView {
     }
     
     func constrain() {
+        addSubview(backgroundImageView)
         
         addSubview(segmentedControl)
         segmentedControl.snp.makeConstraints {
@@ -94,11 +102,10 @@ class BalanceView: UIView {
         
         addSubview(pickerView)
         pickerView.snp.makeConstraints {
-            $0.width.equalToSuperview().dividedBy(8)
-            $0.height.equalToSuperview().dividedBy(9)
+            $0.width.equalToSuperview().dividedBy(7)
+            $0.height.equalToSuperview().dividedBy(7)
             $0.centerY.equalToSuperview()
             $0.trailing.equalTo(self.snp.centerX)
-            //            $0.centerX.equalToSuperview()
         }
         
         addSubview(minLabel)
@@ -114,7 +121,25 @@ class BalanceView: UIView {
         }
         
     }
+}
+
+extension BalanceView {
     
+    func exerciseSelection(sender: CustomSegmentedControl) {
+
+        if segmentedControl.selectedIndex == 0 {
+            balanceViewModel.timerDirection = .Down
+            timerView.timerDirection = .Down
+            pickerView.isHidden = false
+            minLabel.isHidden = false
+        } else {
+            balanceViewModel.timerDirection = .Up
+            timerView.timerDirection = .Up
+            pickerView.isHidden = true
+            minLabel.isHidden = true
+        }
+    }
+
     func startStopButtonTapped() {
         isTimerOn = !isTimerOn
         
@@ -141,8 +166,6 @@ class BalanceView: UIView {
         startStopButton.backgroundColor = UIColor.startButtonStop
         
         timerView.timerOn()
-        
-        pickerView.isHidden = true
         
     }
     

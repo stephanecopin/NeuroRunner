@@ -91,7 +91,7 @@ class CustomTimerLabel: UIView {
         if let timer = timer {
             timer.invalidate()
         }
-        
+        totalTime = 0
         secondsLabel.text = "00"
         minutesLabel.text = "00:"
     }
