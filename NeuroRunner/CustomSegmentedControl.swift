@@ -37,8 +37,9 @@ class CustomSegmentedControl: UIControl {
     }
     
     func configure() {
+        // TODO: FIX CORNER RADIUS
         layer.cornerRadius = self.frame.height / 2
-        layer.borderColor = UIColor.green.cgColor
+        layer.borderColor = UIColor.clear.cgColor
         layer.borderWidth = 2
         backgroundColor = UIColor.clear
         

@@ -1,20 +1,47 @@
 //
-//  TimerVier.swift
+//  CustomTimerLabel.swift
 //  NeuroRunner
 //
-//  Created by Robert Deans on 4/21/17.
+//  Created by Robert Deans on 5/8/17.
 //  Copyright © 2017 Robert Deans. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
-class TimerView: UIView {
-
+class CustomTimerLabel: UIView {
     
-    let timerPicker = UIPickerView()
-    var pickerData = [String]()
-    let pickerDataSize = 6000
+    // UI Elements
+    var secondsLabel = UILabel() {
+        didSet {
+            secondsLabel.text = "\(seconds)"
+            if 0...9 ~= seconds {
+                secondsLabel.text = "0\(seconds)"
+            }
+        }
+    }
+    var minutesLabel = UILabel() {
+        didSet {
+            minutesLabel.text = "\(minutes):"
+            if minutes == 0 {
+                minutesLabel.text = "00:"
+            }
+        }
+    }
+    
+    // Timer Elements
+    var timer: Timer!
+    var timerDirection: Direction = .Down
+    var totalTime = 0
+    var seconds: Int {
+        get {
+            return (totalTime % 60)
+        }
+    }
+    var minutes: Int {
+        get {
+            return (totalTime / 60)
+        }
+    }
     
     // MARK: Initialization
     required init?(coder aDecoder: NSCoder) {
@@ -28,71 +55,68 @@ class TimerView: UIView {
     }
     
     func configure() {
-        timerPicker.dataSource = self
-        timerPicker.delegate = self
         
-        for number in 0...59 {
-            var numString = "\(number)"
-            if numString.characters.count == 1 {
-                numString = "0" + numString
-            }
-            pickerData.append(numString)
-        }
-        timerPicker.selectRow(pickerDataSize/2, inComponent: 0, animated: false)
+        secondsLabel.font = UIFont(name: "AvenirNext-UltraLight", size: 75)
+        secondsLabel.textColor = UIColor.white
+        secondsLabel.text = "00"
+        secondsLabel.textAlignment = .center
+        secondsLabel.adjustsFontSizeToFitWidth = true
+        
+        minutesLabel.font = UIFont(name: "AvenirNext-UltraLight", size: 75)
+        minutesLabel.textColor = UIColor.white
+        minutesLabel.text = "00:"
+        minutesLabel.textAlignment = .center
+        minutesLabel.adjustsFontSizeToFitWidth = true
     }
     
     func constrain() {
-        addSubview(timerPicker)
-        timerPicker.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
+        addSubview(minutesLabel)
+        minutesLabel.snp.makeConstraints {
+            $0.top.bottom.height.equalToSuperview()
+            $0.trailing.equalTo(self.snp.centerX).offset(10)
+        }
+        
+        addSubview(secondsLabel)
+        secondsLabel.snp.makeConstraints {
+            $0.top.bottom.height.equalToSuperview()
+            $0.leading.equalTo(self.snp.centerX).offset(10)
         }
     }
     
-}
-
-extension TimerView: UIPickerViewDelegate, UIPickerViewDataSource {
-    
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
+    func timerOn() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
     }
     
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        // TODO: Lots of memory wasted here?
-        return pickerDataSize
+    func timerOff() {
+        if let timer = timer {
+            timer.invalidate()
+        }
+        
+        secondsLabel.text = "00"
+        minutesLabel.text = "00:"
     }
     
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        let rowMod = row % 60
-        let title = "\(pickerData[rowMod])"
-        return title
+    func updateTimerLabel() {
+        
+        if timerDirection == .Down {
+            totalTime -= 5
+        } else {
+            totalTime += 5
+        }
+        
+        // TODO: Remaining logic should be didSet
+        secondsLabel.text = "\(seconds)"
+        minutesLabel.text = "\(minutes):"
+        if 0...9 ~= seconds {
+            secondsLabel.text = "0\(seconds)"
+        }
+        if minutes == 0 {
+            minutesLabel.text = "00:"
+        }
+        
+        if totalTime <= 0 {
+            timerOff()
+        }
     }
-    
-    // Custom Picker Cell Functions
-//    func pickerView(_ pickerView: UIPickerView, widthForComponent component: Int) -> CGFloat {
-//        return self.bounds.size.width
-//    }
-    
-//    func pickerView(_ pickerView: UIPickerView, rowHeightForComponent component: Int) -> CGFloat {
-//        return 44.0
-//    }
-    
-    func pickerView(_ pickerView: UIPickerView, viewForRow row: Int, forComponent component: Int, reusing view: UIView?) -> UIView {
-        let rowMod = row % 60
-        let rowData = pickerData[rowMod]
-        let customView = CustomPickerRowView(frame: .zero, rowData: rowData)
-        return customView
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
 }

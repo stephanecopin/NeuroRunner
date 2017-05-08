@@ -13,11 +13,7 @@ class InfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Information"
-        let timerView = TimerView()
-        view.addSubview(timerView)
-        timerView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
+
         // Do any additional setup after loading the view.
     }
 

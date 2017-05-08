@@ -15,7 +15,7 @@ class BalanceView: UIView {
     let balanceViewModel = BalanceViewModel()
     
     // Timer UI Elements
-    let customTimerView = TimerView()
+    let customTimerView = CustomPickerView()
     var timerLabelView = UIView()
     
     var secondsLabel = UILabel() {

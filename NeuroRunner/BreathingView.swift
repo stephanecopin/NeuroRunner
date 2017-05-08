@@ -15,48 +15,26 @@ class BreathingView: UIView {
     let airGameViewModel = AirGameViewModel()
     
     // Timer UI Elements
-    let customTimerView = TimerView()
-    var timerLabelView = UIView()
-    
-    var secondsLabel = UILabel() {
-        didSet {
-            secondsLabel.text = "\(seconds)"
-            if 0...9 ~= seconds {
-                secondsLabel.text = "0\(seconds)"
-            }
-        }
-    }
-    var minutesLabel = UILabel() {
-        didSet {
-            minutesLabel.text = "\(minutes):"
-            if minutes == 0 {
-                minutesLabel.text = "00:"
-            }
-        }
-    }
+    let pickerView = CustomPickerView()
+    var timerView = CustomTimerLabel()
+    var segmentedControl: CustomSegmentedControl!
     
     // Timer Hardware
-    var viewTimer = Timer()
     var isTimerOn = false
-    
-    var totalTime = 0
-    var seconds: Int {
-        get {
-            return (totalTime % 60)
-        }
-    }
-    var minutes: Int {
-        get {
-            return (totalTime / 60)
-        }
-    }
+    let minLabel = UILabel()
     
     var timerDirection: Direction {
         if segmentedControl.selectedIndex == 0 {
             airGameViewModel.timerDirection = .Down
+            timerView.timerDirection = .Down
+            pickerView.isHidden = false
+            print("down")
             return .Down
         } else {
             airGameViewModel.timerDirection = .Up
+            timerView.timerDirection = .Up
+            pickerView.isHidden = true
+            print("up")
             return .Up
         }
     }
@@ -64,7 +42,7 @@ class BreathingView: UIView {
     // Exercise buttons
     let startStopButton = UIButton()
     lazy var breathingButton = UIButton()
-    var segmentedControl: CustomSegmentedControl!
+
     
     // Background UI
     var backgroundImageView: UIImageView!
@@ -114,18 +92,9 @@ class BreathingView: UIView {
         breathingButton.addTarget(self, action: #selector(takeBreathManualInput(_:)), for: .touchDown)
         breathingButton.addTarget(self, action: #selector(releaseBreathManualInput(_:)), for: .touchUpInside)
         
-        secondsLabel.font = UIFont(name: "AvenirNext-UltraLight", size: 75)
-        secondsLabel.textColor = UIColor.white
-        secondsLabel.text = "00"
-        secondsLabel.textAlignment = .center
-        secondsLabel.adjustsFontSizeToFitWidth = true
-        
-        minutesLabel.font = UIFont(name: "AvenirNext-UltraLight", size: 75)
-        minutesLabel.textColor = UIColor.white
-        minutesLabel.text = "00:"
-        minutesLabel.textAlignment = .center
-        minutesLabel.adjustsFontSizeToFitWidth = true
-        
+        minLabel.text = "  minutes"
+        minLabel.font = UIFont(name: "AvenirNext-Regular", size: 30)
+        minLabel.textColor = UIColor.white
     }
     
     func constrain() {
@@ -138,16 +107,24 @@ class BreathingView: UIView {
         addSubview(segmentedControl)
         segmentedControl.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.top.equalToSuperview().offset(100)
+            $0.top.equalToSuperview().offset(85)
             $0.width.equalToSuperview().multipliedBy(0.75)
             $0.height.equalToSuperview().dividedBy(15)
         }
         
-        addSubview(customTimerView)
-        customTimerView.snp.makeConstraints {
-            $0.width.equalToSuperview().multipliedBy(0.8)
-            $0.height.equalToSuperview().dividedBy(10)
-            $0.centerX.centerY.equalToSuperview()
+        addSubview(pickerView)
+        pickerView.snp.makeConstraints {
+            $0.width.equalToSuperview().dividedBy(8)
+            $0.height.equalToSuperview().dividedBy(9)
+            $0.centerY.equalToSuperview()
+            $0.trailing.equalTo(self.snp.centerX)
+//            $0.centerX.equalToSuperview()
+        }
+        
+        addSubview(minLabel)
+        minLabel.snp.makeConstraints {
+            $0.centerY.equalTo(pickerView.snp.centerY)
+            $0.leading.equalTo(pickerView.snp.trailing)
         }
         
         addSubview(startStopButton)
@@ -164,24 +141,13 @@ class BreathingView: UIView {
             $0.centerX.equalToSuperview()
         }
         
-        addSubview(timerLabelView)
-        timerLabelView.snp.makeConstraints {
+        addSubview(timerView)
+        timerView.snp.makeConstraints {
             $0.width.centerX.equalToSuperview()
             $0.height.equalToSuperview().dividedBy(10)
-            $0.top.equalTo(segmentedControl.snp.bottom).offset(5)
+            $0.top.equalTo(segmentedControl.snp.bottom).offset(10)
         }
-        
-        timerLabelView.addSubview(minutesLabel)
-        minutesLabel.snp.makeConstraints {
-            $0.top.bottom.height.equalToSuperview()
-            $0.trailing.equalTo(timerLabelView.snp.centerX).offset(10)
-        }
-        
-        timerLabelView.addSubview(secondsLabel)
-        secondsLabel.snp.makeConstraints {
-            $0.top.bottom.height.equalToSuperview()
-            $0.leading.equalTo(timerLabelView.snp.centerX).offset(10)
-        }
+
         
     }
     
@@ -191,11 +157,11 @@ class BreathingView: UIView {
         
         if isTimerOn {
             timerOn()
-            airGameViewModel.startExercise(with: Double(totalTime), countdownDirection: timerDirection)
+            airGameViewModel.startExercise(with: Double(timerView.totalTime), countdownDirection: timerDirection)
         } else {
             timerOff()
             if timerDirection == .Up {
-                airGameViewModel.createAirHungerGame(totalTime: Double(totalTime))
+                airGameViewModel.createAirHungerGame(totalTime: Double(timerView.totalTime))
             }
             airGameViewModel.cancelExercise()
         }
@@ -203,65 +169,39 @@ class BreathingView: UIView {
     
     func timerOn() {
         isTimerOn = true
+        pickerView.isHidden = true
+        minLabel.isHidden = true
         
-        if timerDirection == .Up {
-            totalTime = 0
-            customTimerView.timerPicker.selectRow(customTimerView.pickerDataSize/2, inComponent: 0, animated: false)
-//            customTimerView.timerPicker.selectRow(customTimerView.pickerDataSize/2, inComponent: 1, animated: false)
-        } else {
-            let minuteData = Int(customTimerView.timerPicker.selectedRow(inComponent: 0) % 60)
-//            let secondData = Int(customTimerView.timerPicker.selectedRow(inComponent: 1) % 60)
-            totalTime = (minuteData * 60)
-        }
-        
-        viewTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(updateTimerLabel), userInfo: nil, repeats: true)
+        startStopButton.setTitle("Stop", for: .normal)
+        startStopButton.backgroundColor = UIColor.startButtonStop
         
         if airGameViewModel.inputTimer.inputMethod == .manual {
             breathingButton.isHidden = false
         }
-        customTimerView.isHidden = true
         
-        startStopButton.setTitle("Stop", for: .normal)
-        startStopButton.backgroundColor = UIColor.startButtonStop
+        if timerDirection == .Up {
+            timerView.totalTime = 0
+        } else if timerDirection == .Down {
+            let minuteData = Int(pickerView.timerPicker.selectedRow(inComponent: 0) % 60)
+            timerView.totalTime = (minuteData * 60)
+        }
+        
+        timerView.timerOn()
+    
     }
     
     func timerOff() {
-        viewTimer.invalidate()
+        timerView.timerOff()
         
         breathingButton.isHidden = true
-        customTimerView.isHidden = false
+        pickerView.isHidden = false
+        minLabel.isHidden = false
         
         startStopButton.setTitle("Start", for: .normal)
         startStopButton.backgroundColor = UIColor.startButtonStart
         
-        secondsLabel.text = "00"
-        minutesLabel.text = "00:"
-        
         blurView.alpha = 0.4
         isTimerOn = false
-    }
-    
-    func updateTimerLabel() {
-        
-        if timerDirection == .Down {
-            totalTime -= 5
-        } else {
-            totalTime += 5
-        }
-        
-        // TODO: Remaining logic should be didSet
-        secondsLabel.text = "\(seconds)"
-        minutesLabel.text = "\(minutes):"
-        if 0...9 ~= seconds {
-            secondsLabel.text = "0\(seconds)"
-        }
-        if minutes == 0 {
-            minutesLabel.text = "00:"
-        }
-        
-        if totalTime == 0 {
-            timerOff()
-        }
     }
     
     func takeBreathManualInput(_ sender: UIButton) {

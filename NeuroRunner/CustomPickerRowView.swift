@@ -17,7 +17,7 @@ class CustomPickerRowView: UIView {
         super.init(frame: frame)
         dataLabel.text = rowData
         dataLabel.textColor = UIColor.white
-        dataLabel.font = UIFont(name: "AvenirNext-Regular", size: 40)
+        dataLabel.font = UIFont(name: "AvenirNext-UltraLight", size: 50)
 
         addSubview(dataLabel)
         dataLabel.snp.makeConstraints {
