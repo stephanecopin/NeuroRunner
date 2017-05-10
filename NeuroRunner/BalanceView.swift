@@ -62,7 +62,7 @@ class BalanceView: UIView {
     }
     
     func configure() {
-        
+
         let backgroundImage = #imageLiteral(resourceName: "Space")
         backgroundImageView = UIImageView(frame: UIScreen.main.bounds)
         backgroundImageView.image = backgroundImage

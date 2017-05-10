@@ -36,19 +36,23 @@ class CustomSegmentedControl: UIControl {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
+        configure()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        configure()
     }
     
     
     func configure() {
         // TODO: FIX CORNER RADIUS
-        layoutIfNeeded()
+        // Right now it uses the Screen + constraint in the Balance/BreathingView to set the corner radius
         
-        layer.cornerRadius = self.frame.height / 2
-        layer.borderColor = UIColor.clear.cgColor
+        let screenHeight = UIScreen.main.bounds.height
+        print("screen height is \(screenHeight)")
+        layer.cornerRadius = screenHeight / 17 / 2
+        layer.borderColor = UIColor.white.cgColor
         layer.borderWidth = 2
         backgroundColor = UIColor.clear
         
