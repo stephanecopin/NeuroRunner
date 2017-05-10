@@ -50,7 +50,6 @@ class CustomSegmentedControl: UIControl {
         // Right now it uses the Screen + constraint in the Balance/BreathingView to set the corner radius
         
         let screenHeight = UIScreen.main.bounds.height
-        print("screen height is \(screenHeight)")
         layer.cornerRadius = screenHeight / 17 / 2
         layer.borderColor = UIColor.white.cgColor
         layer.borderWidth = 2

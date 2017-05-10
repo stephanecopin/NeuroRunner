@@ -26,7 +26,7 @@ class BalanceView: UIView {
     var localTimer: Timer!
     var localTime = 0.0
     
-    var timerDirection: Direction = .Down {
+    var timerDirection: Direction = .Up {
         didSet {
             if timerDirection == .Down {
                 balanceViewModel.timerDirection = .Down
@@ -81,6 +81,8 @@ class BalanceView: UIView {
         minLabel.text = "  minutes"
         minLabel.font = UIFont(name: "AvenirNext-Regular", size: 30)
         minLabel.textColor = UIColor.white
+        
+        timerDirection = .Up
         
     }
     
