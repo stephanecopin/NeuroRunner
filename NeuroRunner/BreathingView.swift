@@ -65,9 +65,8 @@ class BreathingView: UIView {
     func configure() {
         airGameViewModel.inputTimer.microphone.sensorViewUpdateDelegate = self
         
-        segmentedControl = CustomSegmentedControl()
-        segmentedControl.items = ["Count Down", "Count Up"]
-        segmentedControl.selectedIndex = 0
+        segmentedControl = CustomSegmentedControl(items: ["Count Down", "Count Up"])
+        segmentedControl.selectedSegmentIndex = 0
         segmentedControl.addTarget(self, action: #selector(exerciseSelection(sender:)), for: .valueChanged)
         
         blurView = UIVisualEffectView(effect: UIBlurEffect(style: .prominent))
@@ -155,9 +154,9 @@ class BreathingView: UIView {
 extension BreathingView {
 
     func exerciseSelection(sender: CustomSegmentedControl) {
-        if segmentedControl.selectedIndex == 0 {
+        if segmentedControl.selectedSegmentIndex == 0 {
             timerDirection = .Down
-        } else if segmentedControl.selectedIndex == 1 {
+        } else if segmentedControl.selectedSegmentIndex == 1 {
             timerDirection = .Up
         }
     }

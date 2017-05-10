@@ -17,6 +17,7 @@ class BalanceView: UIView {
     // Timer UI Elements
     let pickerView = CustomPickerView()
     var timerView = CustomTimerLabel()
+    //    var segmentedControl: UISegmentedControl!
     var segmentedControl: CustomSegmentedControl!
     
     // Timer Hardware
@@ -44,7 +45,7 @@ class BalanceView: UIView {
     // Exercise buttons
     let startStopButton = UIButton()
     lazy var breathingButton = UIButton() // TODO manual balance?
-
+    
     // Background UI
     var backgroundImageView: UIImageView!
     
@@ -66,9 +67,14 @@ class BalanceView: UIView {
         backgroundImageView = UIImageView(frame: UIScreen.main.bounds)
         backgroundImageView.image = backgroundImage
         
+        //        segmentedControl = UISegmentedControl(items: ["Count Down", "Count Up"])
+        //        segmentedControl.selectedSegmentIndex = 1
+        //        segmentedControl.tintColor = UIColor.white.withAlphaComponent(0.5)
+        
+        
         segmentedControl = CustomSegmentedControl()
         segmentedControl.items = ["Count Down", "Count Up"]
-        segmentedControl.selectedIndex = 1
+        segmentedControl.selectedSegmentIndex = 1
         segmentedControl.addTarget(self, action: #selector(exerciseSelection(sender:)), for: .valueChanged)
         
         startStopButton.backgroundColor = UIColor.startButtonStart
@@ -81,7 +87,7 @@ class BalanceView: UIView {
         minLabel.text = "  minutes"
         minLabel.font = UIFont(name: "AvenirNext-Regular", size: 30)
         minLabel.textColor = UIColor.white
-
+        
     }
     
     func constrain() {
@@ -121,20 +127,28 @@ class BalanceView: UIView {
             $0.bottom.width.centerX.equalToSuperview()
             $0.height.equalToSuperview().dividedBy(10)
         }
-        
     }
 }
 
 extension BalanceView {
     
-    func exerciseSelection(sender: CustomSegmentedControl) {
-        if segmentedControl.selectedIndex == 0 {
-            timerDirection = .Down
-        } else if segmentedControl.selectedIndex == 1 {
-            timerDirection = .Up
+    func exerciseSelection(sender: UIControl) {
+        if let sender = sender as? CustomSegmentedControl {
+            if sender.selectedSegmentIndex == 0 {
+                timerDirection = .Down
+            } else if sender.selectedSegmentIndex == 1 {
+                timerDirection = .Up
+            }
+        }
+        if let sender = sender as? UISegmentedControl {
+            if sender.selectedSegmentIndex == 0 {
+                timerDirection = .Down
+            } else if sender.selectedSegmentIndex == 1 {
+                timerDirection = .Up
+            }
         }
     }
-
+    
     func startStopButtonTapped() {
         isTimerOn = !isTimerOn
         
@@ -146,9 +160,9 @@ extension BalanceView {
         } else {
             
             balanceViewModel.cancelExercise()
-
+            
             timerOff()
-
+            
         }
     }
     
@@ -169,7 +183,7 @@ extension BalanceView {
         
         startStopButton.setTitle("Start", for: .normal)
         startStopButton.backgroundColor = UIColor.startButtonStart
-
+        
         
         pickerView.isHidden = false
         minLabel.isHidden = false

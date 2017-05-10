@@ -14,16 +14,21 @@ class CustomSegmentedControl: UIControl {
     
     var thumbView = UIView()
     
-    var items = ["Item 1", "Item 2"] {
+    var items = [String]() {
         didSet {
             setupLabels()
         }
     }
     
-    var selectedIndex: Int = 0 {
+    var selectedSegmentIndex: Int = 0 {
         didSet {
             displayNewSelectedIndex()
         }
+    }
+    
+    convenience init(items: [String]) {
+        self.init()
+        self.items = items
     }
     
     override init(frame: CGRect) {
@@ -38,6 +43,8 @@ class CustomSegmentedControl: UIControl {
     
     func configure() {
         // TODO: FIX CORNER RADIUS
+        layoutIfNeeded()
+        
         layer.cornerRadius = self.frame.height / 2
         layer.borderColor = UIColor.clear.cgColor
         layer.borderWidth = 2
@@ -49,14 +56,16 @@ class CustomSegmentedControl: UIControl {
     }
     
     func setupLabels() {
+        layoutIfNeeded()
+        
         for label in labels {
             label.removeFromSuperview()
         }
         labels.removeAll(keepingCapacity: true)
         
-        for index in 1...items.count {
+        for item in items {
             let label = UILabel(frame: .zero)
-            label.text = items[index-1]
+            label.text = item
             label.textAlignment = .center
             label.textColor = UIColor.white
             self.addSubview(label)
@@ -65,32 +74,30 @@ class CustomSegmentedControl: UIControl {
     }
     
     func displayNewSelectedIndex() {
-        let label = labels[selectedIndex]
+        let label = labels[selectedSegmentIndex]
         self.thumbView.frame = label.frame
     }
-
+    
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        var selectFrame = self.bounds
-        let newWidth = selectFrame.width / CGFloat(items.count)
-        selectFrame.size.width = newWidth
-        
-        thumbView.frame = selectFrame
-        thumbView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
-        thumbView.layer.cornerRadius = thumbView.frame.height / 2
         
         let labelHeight = self.bounds.height
         let labelWidth = self.bounds.width / CGFloat(labels.count)
         
-        for index in 0...labels.count - 1{
-            let label = labels[index]
-            
+        for (index, label) in labels.enumerated() {
             let xPostition = CGFloat(index) * labelWidth
+            
             label.frame = CGRect(x: xPostition, y: 0, width: labelWidth, height: labelHeight)
             
         }
         
+        if labels.count > 0 && labels.count > selectedSegmentIndex {
+            let labelFrame = labels[selectedSegmentIndex].frame
+            
+            thumbView.frame = CGRect(x: labelFrame.minX, y: labelFrame.minY, width: labelFrame.width, height: labelFrame.height)
+            thumbView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
+            thumbView.layer.cornerRadius = thumbView.frame.height / 2
+        }
     }
     
     override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
@@ -104,7 +111,7 @@ class CustomSegmentedControl: UIControl {
         }
         
         if calculatedIndex != nil {
-            selectedIndex = calculatedIndex!
+            selectedSegmentIndex = calculatedIndex!
             sendActions(for: .valueChanged)
         }
         
