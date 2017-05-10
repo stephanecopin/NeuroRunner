@@ -67,14 +67,8 @@ class BalanceView: UIView {
         backgroundImageView = UIImageView(frame: UIScreen.main.bounds)
         backgroundImageView.image = backgroundImage
         
-        //        segmentedControl = UISegmentedControl(items: ["Count Down", "Count Up"])
-        //        segmentedControl.selectedSegmentIndex = 1
-        //        segmentedControl.tintColor = UIColor.white.withAlphaComponent(0.5)
-        
-        
-        segmentedControl = CustomSegmentedControl()
-        segmentedControl.items = ["Count Down", "Count Up"]
-        segmentedControl.selectedSegmentIndex = 1
+        segmentedControl = CustomSegmentedControl(items: ["Count Down", "Count Up"])
+        segmentedControl.selectedSegmentIndex = 0
         segmentedControl.addTarget(self, action: #selector(exerciseSelection(sender:)), for: .valueChanged)
         
         startStopButton.backgroundColor = UIColor.startButtonStart
@@ -132,21 +126,13 @@ class BalanceView: UIView {
 
 extension BalanceView {
     
-    func exerciseSelection(sender: UIControl) {
-        if let sender = sender as? CustomSegmentedControl {
-            if sender.selectedSegmentIndex == 0 {
-                timerDirection = .Down
-            } else if sender.selectedSegmentIndex == 1 {
-                timerDirection = .Up
-            }
+    func exerciseSelection(sender: CustomSegmentedControl) {
+        if sender.selectedSegmentIndex == 0 {
+            timerDirection = .Down
+        } else if sender.selectedSegmentIndex == 1 {
+            timerDirection = .Up
         }
-        if let sender = sender as? UISegmentedControl {
-            if sender.selectedSegmentIndex == 0 {
-                timerDirection = .Down
-            } else if sender.selectedSegmentIndex == 1 {
-                timerDirection = .Up
-            }
-        }
+        
     }
     
     func startStopButtonTapped() {

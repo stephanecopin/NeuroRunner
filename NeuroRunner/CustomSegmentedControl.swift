@@ -10,22 +10,24 @@ import UIKit
 
 class CustomSegmentedControl: UIControl {
     
+    // Segment Labels
     private var labels = [UILabel]()
-    
-    var thumbView = UIView()
-    
     var items = [String]() {
         didSet {
             setupLabels()
         }
     }
     
+    // Highlight for Selected Label
+    
+    var thumbView = UIView()
     var selectedSegmentIndex: Int = 0 {
         didSet {
             displayNewSelectedIndex()
         }
     }
     
+    // Initialization methods
     convenience init(items: [String]) {
         self.init()
         self.items = items
@@ -40,6 +42,7 @@ class CustomSegmentedControl: UIControl {
         super.init(coder: coder)
         configure()
     }
+    
     
     func configure() {
         // TODO: FIX CORNER RADIUS
@@ -73,11 +76,6 @@ class CustomSegmentedControl: UIControl {
         }
     }
     
-    func displayNewSelectedIndex() {
-        let label = labels[selectedSegmentIndex]
-        self.thumbView.frame = label.frame
-    }
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -98,6 +96,11 @@ class CustomSegmentedControl: UIControl {
             thumbView.backgroundColor = UIColor.white.withAlphaComponent(0.5)
             thumbView.layer.cornerRadius = thumbView.frame.height / 2
         }
+    }
+    
+    func displayNewSelectedIndex() {
+        let label = labels[selectedSegmentIndex]
+        self.thumbView.frame = label.frame
     }
     
     override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
