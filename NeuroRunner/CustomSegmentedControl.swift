@@ -31,16 +31,15 @@ class CustomSegmentedControl: UIControl {
     convenience init(items: [String]) {
         self.init()
         self.items = items
+        configure()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configure()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        configure()
     }
     
     

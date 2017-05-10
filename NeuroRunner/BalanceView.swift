@@ -68,7 +68,7 @@ class BalanceView: UIView {
         backgroundImageView.image = backgroundImage
         
         segmentedControl = CustomSegmentedControl(items: ["Count Down", "Count Up"])
-        segmentedControl.selectedSegmentIndex = 0
+        segmentedControl.selectedSegmentIndex = 1
         segmentedControl.addTarget(self, action: #selector(exerciseSelection(sender:)), for: .valueChanged)
         
         startStopButton.backgroundColor = UIColor.startButtonStart
