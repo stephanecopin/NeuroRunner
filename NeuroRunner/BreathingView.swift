@@ -50,6 +50,9 @@ class BreathingView: UIView {
     var backgroundImageView: UIImageView!
     var blurView: UIVisualEffectView!
     
+    // Info Text
+    var infoTextView: UITextView!
+    
     // MARK: Initialization
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -97,6 +100,12 @@ class BreathingView: UIView {
         minLabel.text = "  minutes"
         minLabel.font = UIFont(name: "AvenirNext-Regular", size: 30)
         minLabel.textColor = UIColor.white
+        
+        infoTextView = UITextView()
+        infoTextView.isEditable = false
+        infoTextView.backgroundColor = UIColor.white.withAlphaComponent(0.3)
+        infoTextView.textColor = UIColor.white
+        infoTextView.text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     }
     
     func constrain() {
@@ -114,11 +123,18 @@ class BreathingView: UIView {
             $0.height.equalToSuperview().dividedBy(15)
         }
         
+        addSubview(timerView)
+        timerView.snp.makeConstraints {
+            $0.width.centerX.equalToSuperview()
+            $0.height.equalToSuperview().dividedBy(10)
+            $0.top.equalTo(segmentedControl.snp.bottom).offset(15)
+        }
+        
         addSubview(pickerView)
         pickerView.snp.makeConstraints {
             $0.width.equalToSuperview().dividedBy(7)
             $0.height.equalToSuperview().dividedBy(7)
-            $0.centerY.equalToSuperview()
+            $0.top.equalTo(timerView.snp.bottom).offset(15)
             $0.trailing.equalTo(self.snp.centerX)
         }
         
@@ -134,6 +150,14 @@ class BreathingView: UIView {
             $0.height.equalToSuperview().dividedBy(10)
         }
         
+        addSubview(infoTextView)
+        infoTextView.snp.makeConstraints {
+            $0.top.equalTo(pickerView.snp.bottom).offset(25)
+            $0.leading.equalToSuperview().offset(25)
+            $0.trailing.equalToSuperview().offset(-25)
+            $0.bottom.equalTo(startStopButton.snp.top).offset(-25)
+        }
+        
         addSubview(breathingButton)
         breathingButton.snp.makeConstraints {
             $0.height.equalToSuperview().dividedBy(10)
@@ -142,12 +166,6 @@ class BreathingView: UIView {
             $0.centerX.equalToSuperview()
         }
         
-        addSubview(timerView)
-        timerView.snp.makeConstraints {
-            $0.width.centerX.equalToSuperview()
-            $0.height.equalToSuperview().dividedBy(10)
-            $0.top.equalTo(segmentedControl.snp.bottom).offset(10)
-        }
     }
 }
 
@@ -181,6 +199,7 @@ extension BreathingView {
         isTimerOn = true
         pickerView.isHidden = true
         minLabel.isHidden = true
+        infoTextView.isHidden = true
         
         startStopButton.setTitle("Stop", for: .normal)
         startStopButton.backgroundColor = UIColor.startButtonStop
@@ -207,6 +226,7 @@ extension BreathingView {
     func timerOff() {
         timerView.timerOff()
         breathingButton.isHidden = true
+        infoTextView.isHidden = false
         
         startStopButton.setTitle("Start", for: .normal)
         startStopButton.backgroundColor = UIColor.startButtonStart

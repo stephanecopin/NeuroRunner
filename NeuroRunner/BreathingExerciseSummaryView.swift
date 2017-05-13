@@ -56,7 +56,7 @@ class BreathingExerciseSummaryView: UIView {
         blurView = UIVisualEffectView(effect: UIBlurEffect(style: .light))
         
         summaryView.backgroundColor = UIColor.white.withAlphaComponent(0.4)
-        summaryView.layer.cornerRadius = 25
+        summaryView.layer.cornerRadius = 5
         summaryView.clipsToBounds = true
         
         titleLabel.text = "Last Game\n\(lastGame.dateOfExercise)"
@@ -81,9 +81,10 @@ class BreathingExerciseSummaryView: UIView {
         
         addSubview(summaryView)
         summaryView.snp.makeConstraints {
-            $0.centerX.centerY.equalToSuperview()
-            $0.width.equalToSuperview().multipliedBy(0.8)
-            $0.height.equalToSuperview().multipliedBy(0.6)
+            $0.centerX.equalToSuperview()
+            $0.edges.equalTo(UIEdgeInsetsMake(65, 25, 150, 25))
+//            $0.width.equalToSuperview().multipliedBy(0.8)
+//            $0.height.equalToSuperview().multipliedBy(0.6)
 
         }
         

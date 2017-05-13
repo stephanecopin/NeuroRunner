@@ -50,7 +50,7 @@ class BalanceExerciseSummaryView: UIView {
         
         
         summaryView.backgroundColor = UIColor.white.withAlphaComponent(0.4)
-        summaryView.layer.cornerRadius = 25
+        summaryView.layer.cornerRadius = 5
         summaryView.clipsToBounds = true
         
         titleLabel.text = "Last Game\n\(lastGame.dateOfExercise)"
