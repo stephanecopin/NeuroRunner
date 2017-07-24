@@ -5,6 +5,7 @@ NeuroRunner is a company dedicated to providing athletes with cognitive exercise
 Exercises currently available help monitor Breathing and Balance, and plot progress over the Charts framework on the user's profile
 
 Main Menu
+
 ![alt text](https://github.com/projectrob21/NeuroRunner/blob/master/menu.jpg)
 
 Balancing Exercise screen
@@ -24,3 +25,4 @@ Summary after exercise is complete
 
 User profile where they can track progress
 
+![alt text](https://github.com/projectrob21/NeuroRunner/blob/master/userProfile.jpg)
