@@ -150,13 +150,13 @@ class BreathingView: UIView {
             $0.height.equalToSuperview().dividedBy(10)
         }
         
-        addSubview(infoTextView)
-        infoTextView.snp.makeConstraints {
-            $0.top.equalTo(pickerView.snp.bottom).offset(25)
-            $0.leading.equalToSuperview().offset(25)
-            $0.trailing.equalToSuperview().offset(-25)
-            $0.bottom.equalTo(startStopButton.snp.top).offset(-25)
-        }
+//        addSubview(infoTextView)
+//        infoTextView.snp.makeConstraints {
+//            $0.top.equalTo(pickerView.snp.bottom).offset(25)
+//            $0.leading.equalToSuperview().offset(25)
+//            $0.trailing.equalToSuperview().offset(-25)
+//            $0.bottom.equalTo(startStopButton.snp.top).offset(-25)
+//        }
         
         addSubview(breathingButton)
         breathingButton.snp.makeConstraints {
@@ -211,7 +211,7 @@ extension BreathingView {
         if timerDirection == .Up {
             timerView.totalTime = 0
             localTimer = Timer(timeInterval: 1, repeats: true, block: { (timer) in
-                self.localTime += 5
+                self.localTime += 1
             })
         } else if timerDirection == .Down {
             let minuteData = Int(pickerView.timerPicker.selectedRow(inComponent: 0) % 60)

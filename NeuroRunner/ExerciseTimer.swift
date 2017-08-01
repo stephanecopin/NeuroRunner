@@ -22,7 +22,7 @@ extension ExerciseTimer {
     
     func startCountDownTimer(completion: @escaping () -> ()) {
         primaryTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
-            self.totalTime -= 5
+            self.totalTime -= 1
             if self.totalTime == 0.0 {
                 self.primaryTimer.invalidate()
                 completion()
@@ -32,7 +32,7 @@ extension ExerciseTimer {
     
     func startCountUpTimer() {
         primaryTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { (timer) in
-            self.totalTime += 5
+            self.totalTime += 1
         })
     }
     

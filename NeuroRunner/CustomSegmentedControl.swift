@@ -52,7 +52,7 @@ class CustomSegmentedControl: UIControl {
         let screenHeight = UIScreen.main.bounds.height
         layer.cornerRadius = screenHeight / 17 / 2
         layer.borderColor = UIColor.white.cgColor
-        layer.borderWidth = 2
+        layer.borderWidth = 1
         backgroundColor = UIColor.clear
         
         setupLabels()

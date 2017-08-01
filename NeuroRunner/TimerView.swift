@@ -99,9 +99,9 @@ class CustomTimerLabel: UIView {
     func updateTimerLabel() {
         
         if timerDirection == .Down {
-            totalTime -= 5
+            totalTime -= 1
         } else {
-            totalTime += 5
+            totalTime += 1
         }
         
         // TODO: Remaining logic should be didSet
