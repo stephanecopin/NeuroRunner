@@ -104,7 +104,6 @@ class CustomTimerLabel: UIView {
             totalTime += 1
         }
         
-        // TODO: Remaining logic should be didSet
         secondsLabel.text = "\(seconds)"
         minutesLabel.text = "\(minutes):"
         if 0...9 ~= seconds {

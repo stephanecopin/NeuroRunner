@@ -15,7 +15,9 @@ final class BalanceViewModel {
     
     var newExercise: BalanceExercise!
     let exerciseTimer = ExerciseTimer()
-    var magnitudeTimer = MagnitudeTimer()
+//    var magnitudeTimer = MagnitudeTimer()
+    
+    let gyroscope = Gyroscope()
     
     var timerDirection: Direction = .Up
     
@@ -32,24 +34,27 @@ final class BalanceViewModel {
 extension BalanceViewModel {
   
     func startExercise() {
-        exerciseTimer.direction = .Up
-        exerciseTimer.startCountUpTimer()
+//        exerciseTimer.direction = .Up
+//        exerciseTimer.startCountUpTimer()
         
-        magnitudeTimer.start()
+        gyroscope.start()
     
     }
     
     func cancelExercise() {
+        gyroscope.stop()
 
         createBreathingExercise()
-        magnitudeTimer.stop()
-        magnitudeTimer.clearTimer()
+
+        gyroscope.reset()
 
     }
     
     func createBreathingExercise() {
         newExercise = BalanceExercise()
         print("breathing exercise created!")
+        
+        /*
         let magTim = MagnitudeTime()
         let magObjs = magnitudeTimer.gyroscope.magnitudes
         let timeObjs = magnitudeTimer.intervals
@@ -69,7 +74,25 @@ extension BalanceViewModel {
             magTim.timeIntervals.append(timeDoub)
         }
         
-        newExercise.magnitudeTimes = magTim
+        */
+        
+        let exerciseTimeMag = TimeMagnitudeObj()
+        
+        for timeMag in gyroscope.timeMagnitudes {
+            let magDouble = DoubleObj()
+            magDouble.value = timeMag.Magnitude
+            
+            let timeDouble = DoubleObj()
+            timeDouble.value = timeMag.Time
+            
+            
+            exerciseTimeMag.magnitudes.append(magDouble)
+            exerciseTimeMag.timeIntervals.append(timeDouble)
+            
+            
+        }
+        
+        newExercise.magnitudeTimes = exerciseTimeMag
         
         try! store.realm.write {
             user.balanceExercises.append(newExercise)
@@ -79,8 +102,8 @@ extension BalanceViewModel {
         presentGameSummaryDelegate?.presentGameSummary()
         
         newExercise = nil
-        magnitudeTimer.clearTimer()
-        
+
+        gyroscope.reset()
         
     }
 

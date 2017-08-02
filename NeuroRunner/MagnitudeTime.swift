@@ -9,9 +9,9 @@
 import Foundation
 import RealmSwift
 
-// TODO: This is a work around for an array of primitives
+// TODO: This is a work around to write primitive arrays to Realm
 
-class MagnitudeTime: Object {
+class TimeMagnitudeObj: Object {
     
     let magnitudes = List<DoubleObj>()
     let timeIntervals = List<DoubleObj>()

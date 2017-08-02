@@ -8,7 +8,7 @@
 
 import Foundation
 
-// TODO: Good practice?
+// TODO: Good practice? Acts as a universal collection interval for gyroscope and timer
 let collectionInterval = 0.05
 
 class MagnitudeTimer {
@@ -43,7 +43,6 @@ extension MagnitudeTimer {
     func clearTimer() {
         intervals = []
         intervalTime = 0.0
-        gyroscope.magnitudes = []
     }
     
 }

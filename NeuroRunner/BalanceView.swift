@@ -156,9 +156,9 @@ extension BalanceView {
     
     func timerOn() {
         isTimerOn = true
+        
         pickerView.isHidden = true
         minLabel.isHidden = true
-        
         startStopButton.setTitle("Stop", for: .normal)
         startStopButton.backgroundColor = UIColor.startButtonStop
         
