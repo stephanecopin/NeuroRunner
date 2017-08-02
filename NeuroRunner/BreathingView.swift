@@ -28,12 +28,10 @@ class BreathingView: UIView {
     var timerDirection: Direction = .Down {
         didSet {
             if timerDirection == .Down {
-                airGameViewModel.timerDirection = .Down
                 timerView.timerDirection = .Down
                 pickerView.isHidden = false
                 minLabel.isHidden = false
             } else if timerDirection == .Up {
-                airGameViewModel.timerDirection = .Up
                 timerView.timerDirection = .Up
                 pickerView.isHidden = true
                 minLabel.isHidden = true
@@ -66,7 +64,7 @@ class BreathingView: UIView {
     }
     
     func configure() {
-        airGameViewModel.inputTimer.microphone.sensorViewUpdateDelegate = self
+        airGameViewModel.microphone.sensorViewUpdateDelegate = self
         
         segmentedControl = CustomSegmentedControl(items: ["Count Down", "Count Up"])
         segmentedControl.selectedSegmentIndex = 0
@@ -204,7 +202,7 @@ extension BreathingView {
         startStopButton.setTitle("Stop", for: .normal)
         startStopButton.backgroundColor = UIColor.startButtonStop
         
-        if airGameViewModel.inputTimer.inputMethod == .manual {
+        if airGameViewModel.inputMethod == .manual {
             breathingButton.isHidden = false
         }
         
@@ -251,14 +249,14 @@ extension BreathingView {
         sender.backgroundColor = UIColor.breathingButtonOn
         blurView.alpha = 0
         
-        airGameViewModel.inputTimer.addUsingManual()
+        airGameViewModel.manualInputTimer.addUsingManual()
         // Does not handle data, only provides stimulus for input
     }
     
     func releaseBreathManualInput(_ sender: UIButton) {
         sender.backgroundColor = UIColor.breathingButtonOff
         blurView.alpha = 0.4
-        if let timer = airGameViewModel.inputTimer.inputTimer {
+        if let timer = airGameViewModel.manualInputTimer.inputTimer {
             timer.invalidate()
         }
         // Does not handle/alter data, only ends timer

@@ -14,25 +14,17 @@ final class AirGameViewModel {
     var user: User!
     
     var newExercise: BreathingExercise!
-    let exerciseTimer = ExerciseTimer()
-    var inputTimer: InputTimer!
-    var inputMethod: InputMethod = .manual {
-        didSet {
-            inputTimer.inputMethod = self.inputMethod
-        }
-    }
     
-    var timerDirection: Direction = .Down {
-        didSet {
-            exerciseTimer.direction = timerDirection
-        }
-    }
+    let exerciseTimer = ExerciseTimer()
+    let microphone = Microphone()
+    let manualInputTimer = ManualInputTimer()
+    
+    var inputMethod: InputMethod = .manual
     
     var presentGameSummaryDelegate: PresentGameSummaryDelegate?
     
     init() {
         user = store.user
-        inputTimer = InputTimer(inputMethod: inputMethod)
     }
 }
 
@@ -43,33 +35,47 @@ extension AirGameViewModel {
         
         if countdownDirection == .Down {
             if let initialStartTime = initialStartTime {
-                exerciseTimer.totalTime = initialStartTime
                 
-                inputTimer.addTimeToTotalInput()
+                if inputMethod == .manual {
+                    // No .start() is required here since input is manual
+                } else if inputMethod == .Microphone {
+                    microphone.startTimer()
+                }
+                
+                exerciseTimer.totalTime = initialStartTime
                 
                 exerciseTimer.startCountDownTimer(completion: {
                     self.createAirHungerGame(totalTime: initialStartTime)
                 })
             }
         } else {
-            inputTimer.addTimeToTotalInput()
+            // Timer is going Up
+            if inputMethod == .manual {
+                // No .start() is required here since input is manual
+            } else if inputMethod == .Microphone {
+                microphone.startTimer()
+            }
         }
     }
     
     func cancelExercise() {
         exerciseTimer.clearTimer()
-        inputTimer.clearTimer()
-        
-        if inputTimer.inputMethod == .Microphone {
-            inputTimer.microphone.clearMicrophone()
-        }
+        manualInputTimer.reset()
+        microphone.reset()
     }
     
     func createAirHungerGame(totalTime: Double) {
         newExercise = BreathingExercise()
         
-        newExercise.timeSpentBreathing = inputTimer.totalInputTime.roundTo(places: 2)
-        newExercise.timeSpentHungering = totalTime - inputTimer.totalInputTime.roundTo(places: 2)
+        if inputMethod == .manual {
+            newExercise.timeSpentBreathing = manualInputTimer.totalInputTime.roundTo(places: 2)
+            newExercise.timeSpentHungering = totalTime - manualInputTimer.totalInputTime.roundTo(places: 2)
+            
+        } else if inputMethod == .Microphone {
+            newExercise.timeSpentBreathing = microphone.totalInputTime.roundTo(places: 2)
+            newExercise.timeSpentHungering = totalTime - microphone.totalInputTime.roundTo(places: 2)
+        }
+        
         
         try! store.realm.write {
             user.airHungerGames.append(newExercise)

@@ -48,10 +48,9 @@ class BreathingExerciseVC: UIViewController {
     }
     
     func toggleMic() {
-        breathingView.airGameViewModel.inputTimer.microphone.isMicrophoneEnabled = !breathingView.airGameViewModel.inputTimer.microphone.isMicrophoneEnabled
+        isMicrophoneEnabled = !isMicrophoneEnabled
         
-        
-        if breathingView.airGameViewModel.inputTimer.microphone.isMicrophoneEnabled {
+        if isMicrophoneEnabled {
             navigationItem.rightBarButtonItem?.title = "Mic Enabled"
             breathingView.airGameViewModel.inputMethod = .Microphone
         } else {

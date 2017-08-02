@@ -15,7 +15,7 @@ import Foundation
 class ExerciseTimer {
     
     var primaryTimer: Timer!
-    var direction: Direction = .Down
+
     var totalTime = 0.0
     
 }

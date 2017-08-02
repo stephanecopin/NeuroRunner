@@ -101,7 +101,7 @@ extension Microphone {
         return timeAbovePeak
     }
     
-    func clearMicrophone() {
+    func reset() {
         audioRecorder.stop()
         timeAbovePeak = 0.0
     }
