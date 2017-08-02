@@ -62,7 +62,7 @@ class BalanceView: UIView {
     }
     
     func configure() {
-
+        
         let backgroundImage = #imageLiteral(resourceName: "Space")
         backgroundImageView = UIImageView(frame: UIScreen.main.bounds)
         backgroundImageView.image = backgroundImage
@@ -172,9 +172,11 @@ extension BalanceView {
         startStopButton.setTitle("Start", for: .normal)
         startStopButton.backgroundColor = UIColor.startButtonStart
         
+        if timerDirection == .Down {
+            pickerView.isHidden = false
+            minLabel.isHidden = false
+        }
         
-        pickerView.isHidden = false
-        minLabel.isHidden = false
         isTimerOn = false
         
     }
