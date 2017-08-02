@@ -21,9 +21,11 @@ class Microphone: NSObject, AVAudioRecorderDelegate {
     var sensorViewUpdateDelegate: SensorViewUpdateDelegate?
     var isMicrophoneEnabled = false
     
+    var timer: Timer!
+    var totalInputTime = 0.0
+    
     override init() {
         super.init()
-        // *** microphone can be disabled so as to test without disrupting music
         configure()
         setUpRecorder()
     }
@@ -77,6 +79,14 @@ class Microphone: NSObject, AVAudioRecorderDelegate {
 
 // MARK: Observation methods
 extension Microphone {
+    
+    func startTimer() {
+        audioRecorder.record()
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (timer) in
+            self.totalInputTime = self.levelTimerCallback()
+        }
+    }
     
     func levelTimerCallback() -> Double {
         audioRecorder.updateMeters()

@@ -11,6 +11,8 @@ import Foundation
 
 typealias TimeMagnitude = (Time: Double, Magnitude: Double)
 
+let timerCollectionInterval = 0.05
+
 class Gyroscope {
 
     let manager = CMMotionManager()
@@ -31,7 +33,7 @@ extension Gyroscope {
         
         if manager.isDeviceMotionAvailable {
         
-            manager.deviceMotionUpdateInterval = collectionInterval
+            manager.deviceMotionUpdateInterval = timerCollectionInterval
 
             manager.startDeviceMotionUpdates(to: .main) {
                 (data: CMDeviceMotion?, error: Error?) in
@@ -41,7 +43,7 @@ extension Gyroscope {
                     let z = data?.userAcceleration.z {
                     let totalAcc = (x + y + z).roundTo(places: 6)
    
-                    self.timeElapsed += collectionInterval
+                    self.timeElapsed += timerCollectionInterval
    
                     if abs(totalAcc - previousAcc) > self.minimumVariation {
                         previousAcc = totalAcc

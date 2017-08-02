@@ -8,7 +8,7 @@
 
 import Foundation
 
-class InputTimer {
+class ManualInputTimer {
     
     var inputTimer: Timer!
     var totalInputTime = 0.0
@@ -24,7 +24,7 @@ class InputTimer {
     
 }
 
-extension InputTimer {
+extension ManualInputTimer {
     
     func addTimeToTotalInput() {
         print("InputTimer input method = \(inputMethod)")
@@ -50,15 +50,15 @@ extension InputTimer {
     private func addUsingMicrophone() {
         print("microphone input")
         microphone.audioRecorder.record()
-        inputTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (timer) in
+        inputTimer = Timer.scheduledTimer(withTimeInterval: timerCollectionInterval, repeats: true) { (timer) in
             self.totalInputTime = self.microphone.levelTimerCallback()            
         }
     }
     
     func addUsingManual() {
         print("manual input")
-        inputTimer = Timer.scheduledTimer(withTimeInterval: 0.01, repeats: true) { (timer) in
-            self.totalInputTime += 0.01
+        inputTimer = Timer.scheduledTimer(withTimeInterval: timerCollectionInterval, repeats: true) { (timer) in
+            self.totalInputTime += timerCollectionInterval
         }
     }
     

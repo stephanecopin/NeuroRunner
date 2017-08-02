@@ -53,29 +53,7 @@ extension BalanceViewModel {
     func createBreathingExercise() {
         newExercise = BalanceExercise()
         print("breathing exercise created!")
-        
-        /*
-        let magTim = MagnitudeTime()
-        let magObjs = magnitudeTimer.gyroscope.magnitudes
-        let timeObjs = magnitudeTimer.intervals
-        
-        for magnitude in magObjs {
-            
-            let magDoub = DoubleObj()
-            magDoub.value = magnitude
-            magTim.magnitudes.append(magDoub)
-            
-        }
 
-        for time in timeObjs {
-            
-            let timeDoub = DoubleObj()
-            timeDoub.value = time
-            magTim.timeIntervals.append(timeDoub)
-        }
-        
-        */
-        
         let exerciseTimeMag = TimeMagnitudeObj()
         
         for timeMag in gyroscope.timeMagnitudes {

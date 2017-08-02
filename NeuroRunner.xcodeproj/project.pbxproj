@@ -17,7 +17,6 @@
 		E82FF7701E5E132800AFE050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E82FF76F1E5E132800AFE050 /* Assets.xcassets */; };
 		E82FF7731E5E132800AFE050 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82FF7711E5E132800AFE050 /* LaunchScreen.storyboard */; };
 		E82FF77E1E5E132900AFE050 /* NeuroRunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF77D1E5E132900AFE050 /* NeuroRunnerTests.swift */; };
-		E862DCFC1EBBABC90002EB97 /* MagnitudeTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E862DCFB1EBBABC90002EB97 /* MagnitudeTimer.swift */; };
 		E862DCFE1EBBAC520002EB97 /* DirectionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E862DCFD1EBBAC520002EB97 /* DirectionEnum.swift */; };
 		E862DD001EBBB6250002EB97 /* MagnitudeTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = E862DCFF1EBBB6250002EB97 /* MagnitudeTime.swift */; };
 		E8829E031EC0D68300921E46 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8829E021EC0D68300921E46 /* CustomSegmentedControl.swift */; };
@@ -78,7 +77,6 @@
 		E82FF7791E5E132900AFE050 /* NeuroRunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeuroRunnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E82FF77D1E5E132900AFE050 /* NeuroRunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuroRunnerTests.swift; sourceTree = "<group>"; };
 		E82FF77F1E5E132900AFE050 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E862DCFB1EBBABC90002EB97 /* MagnitudeTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnitudeTimer.swift; sourceTree = "<group>"; };
 		E862DCFD1EBBAC520002EB97 /* DirectionEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionEnum.swift; sourceTree = "<group>"; };
 		E862DCFF1EBBB6250002EB97 /* MagnitudeTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MagnitudeTime.swift; sourceTree = "<group>"; };
 		E8829E021EC0D68300921E46 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
@@ -249,7 +247,6 @@
 			children = (
 				E8B51E7D1EA1106A00432031 /* ExerciseTimer.swift */,
 				E8B51E851EA1332600432031 /* InputTimer.swift */,
-				E862DCFB1EBBABC90002EB97 /* MagnitudeTimer.swift */,
 			);
 			name = Timers;
 			sourceTree = "<group>";
@@ -515,7 +512,6 @@
 				E8B51E8A1EA1345A00432031 /* Gyroscope.swift in Sources */,
 				E8F8541C1EBD2093005143AC /* BalanceSummaryVC.swift in Sources */,
 				E8829E031EC0D68300921E46 /* CustomSegmentedControl.swift in Sources */,
-				E862DCFC1EBBABC90002EB97 /* MagnitudeTimer.swift in Sources */,
 				E82FF7691E5E132800AFE050 /* AppDelegate.swift in Sources */,
 				E8B51E861EA1332600432031 /* InputTimer.swift in Sources */,
 				E8C256401EAA97830015BF16 /* CustomPickerRowView.swift in Sources */,
