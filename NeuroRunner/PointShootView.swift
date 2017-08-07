@@ -60,11 +60,13 @@ class PointShootView: UIView {
         beginExerciseButton.backgroundColor = UIColor.green
         beginExerciseButton.setTitle("Begin Exercise", for: .normal)
         beginExerciseButton.addTarget(self, action: #selector(beginExercise), for: .touchUpInside)
-
+        
+        beginExerciseButton.isHidden = true
+        
     }
     
     func constrain() {
-    
+        
         addSubview(startingPointLabel)
         startingPointLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
@@ -74,7 +76,7 @@ class PointShootView: UIView {
         addSubview(currentHeadingLabel)
         currentHeadingLabel.snp.makeConstraints {
             $0.centerX.centerY.equalToSuperview()
-
+            
         }
         
         addSubview(startingPointButton)
@@ -105,6 +107,8 @@ class PointShootView: UIView {
     }
     
     func recordStartHeading() {
+        beginExerciseButton.isHidden = false
+        
         exercise.recordStartHeading()
         
         if let startingPoint = exercise.startHeading?.magneticHeading.roundTo(places: 4) {
@@ -112,25 +116,24 @@ class PointShootView: UIView {
         } else {
             print("error :(")
         }
-
+        
     }
     
     func beginExercise() {
-
-        if let min = exercise.minHeading?.magneticHeading, let max = exercise.maxHeading?.magneticHeading {
-            print("MIN: \(min)\nMax: \(max)")
-        }
+        exercise.isShooting = true
     }
     
 }
 
 extension PointShootView: UpdateLabelDelegate {
     
-
-    func updateHeadingLabel(with current: String, min: String, max: String) {
+    
+    func updateHeadingLabel(with current: String, min: String?, max: String?) {
         currentHeadingLabel.text = current
-        minLabel.text = min
-        maxLabel.text = max
+        if let min = min, let max = max {
+            minLabel.text = min
+            maxLabel.text = max
+        }
     }
     
 }

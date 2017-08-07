@@ -10,6 +10,6 @@ import Foundation
 
 protocol UpdateLabelDelegate {
     
-    func updateHeadingLabel(with current: String, min: String, max: String)
+    func updateHeadingLabel(with current: String, min: String?, max: String?)
     
 }
