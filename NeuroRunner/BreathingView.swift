@@ -250,14 +250,14 @@ extension BreathingView {
         blurView.alpha = 0
         // TODO: alpha isn't changing...
         
-        airGameViewModel.manualInputTimer.addUsingManual()
+        airGameViewModel.manualTimer.addUsingManual()
         // Does not handle data, only provides stimulus for input
     }
     
     func releaseBreathManualInput(_ sender: UIButton) {
         sender.backgroundColor = UIColor.breathingButtonOff
         blurView.alpha = 0.4
-        if let timer = airGameViewModel.manualInputTimer.inputTimer {
+        if let timer = airGameViewModel.manualTimer.inputTimer {
             timer.invalidate()
         }
         // Does not handle/alter data, only ends timer
