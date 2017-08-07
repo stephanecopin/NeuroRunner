@@ -14,8 +14,8 @@ typealias TimeMagnitude = (Time: Double, Magnitude: Double)
 let timerCollectionInterval = 0.05
 
 class Gyroscope {
-
-    let manager = CMMotionManager()
+    
+    let manager = DataStore.shared.user.cmmanager
     
     var timeElapsed = 0.0
     

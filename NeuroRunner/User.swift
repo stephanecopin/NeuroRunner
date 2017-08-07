@@ -7,11 +7,16 @@
 //
 
 import RealmSwift
+import CoreMotion
 
 class User: Object {
     
     dynamic var name = ""
     let airHungerGames = List<BreathingExercise>()
     let balanceExercises = List<BalanceExercise>()
+    
+    // IMPORTANT: An app should create only a single instance of the CMMotionManager class. Multiple instances of this class can affect the rate at which data is received from the accelerometer and gyroscope.
+    
+    let cmmanager = CMMotionManager()
     
 }
