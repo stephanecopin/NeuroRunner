@@ -54,12 +54,13 @@ class ExerciseMenuViewController: UIViewController {
         balanceButton.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalTo(view.snp.centerX).offset(5)
+            $0.width.equalTo(airGameButton.snp.width)
         }
         
         view.addSubview(pointShootButton)
         pointShootButton.snp.makeConstraints {
             $0.centerX.equalTo(airGameButton.snp.centerX)
-            $0.top.equalTo(airGameButton.snp.bottom).offset(15)
+            $0.top.equalTo(airGameButton.snp.bottom).offset(10)
             $0.width.equalTo(airGameButton.snp.width)
         }
     }

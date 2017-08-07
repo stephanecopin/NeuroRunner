@@ -14,6 +14,7 @@
 		E80EC7301F38DDBE00B41A56 /* PointAndShootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80EC72F1F38DDBE00B41A56 /* PointAndShootVC.swift */; };
 		E80EC7321F38DEEB00B41A56 /* PointShootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80EC7311F38DEEB00B41A56 /* PointShootView.swift */; };
 		E80EC7341F38DF3900B41A56 /* PointShootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80EC7331F38DF3900B41A56 /* PointShootViewModel.swift */; };
+		E80EC7361F38E46B00B41A56 /* PointAndShoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80EC7351F38E46B00B41A56 /* PointAndShoot.swift */; };
 		E8116AED1E6FC9DF0048859A /* BreathingExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8116AEC1E6FC9DF0048859A /* BreathingExercise.swift */; };
 		E82FF7691E5E132800AFE050 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF7681E5E132800AFE050 /* AppDelegate.swift */; };
 		E82FF76B1E5E132800AFE050 /* BreathingExerciseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF76A1E5E132800AFE050 /* BreathingExerciseVC.swift */; };
@@ -72,6 +73,7 @@
 		E80EC72F1F38DDBE00B41A56 /* PointAndShootVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointAndShootVC.swift; sourceTree = "<group>"; };
 		E80EC7311F38DEEB00B41A56 /* PointShootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointShootView.swift; sourceTree = "<group>"; };
 		E80EC7331F38DF3900B41A56 /* PointShootViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointShootViewModel.swift; sourceTree = "<group>"; };
+		E80EC7351F38E46B00B41A56 /* PointAndShoot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointAndShoot.swift; sourceTree = "<group>"; };
 		E8116AEC1E6FC9DF0048859A /* BreathingExercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreathingExercise.swift; sourceTree = "<group>"; };
 		E82FF7651E5E132800AFE050 /* NeuroRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeuroRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E82FF7681E5E132800AFE050 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -237,9 +239,9 @@
 		E8B51E8B1EA1349900432031 /* Exercises */ = {
 			isa = PBXGroup;
 			children = (
-				E862DCFF1EBBB6250002EB97 /* TimeMagnitudeObj.swift */,
 				E8116AEC1E6FC9DF0048859A /* BreathingExercise.swift */,
 				E8B51E811EA112B000432031 /* BalanceExercise.swift */,
+				E80EC7351F38E46B00B41A56 /* PointAndShoot.swift */,
 			);
 			name = Exercises;
 			sourceTree = "<group>";
@@ -307,6 +309,7 @@
 			children = (
 				E8D1B1CD1E6B7BF000FD9A68 /* DataStore.swift */,
 				E8A99A151E5E156A0059D21C /* User.swift */,
+				E862DCFF1EBBB6250002EB97 /* TimeMagnitudeObj.swift */,
 				E8B51E8D1EA134B400432031 /* Timers */,
 				E8B51E8B1EA1349900432031 /* Exercises */,
 			);
@@ -494,6 +497,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E80EC7361F38E46B00B41A56 /* PointAndShoot.swift in Sources */,
 				E82FF76B1E5E132800AFE050 /* BreathingExerciseVC.swift in Sources */,
 				E8090A181E764D71002F79F7 /* Colors.swift in Sources */,
 				E8ED994D1E67691600115DA6 /* ProfileView.swift in Sources */,

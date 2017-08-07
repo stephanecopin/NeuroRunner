@@ -10,6 +10,8 @@ import UIKit
 
 class PointAndShootVC: UIViewController {
 
+    let exercise = PointAndShoot()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -17,24 +19,23 @@ class PointAndShootVC: UIViewController {
         
         view.addSubview(pointShootView)
         pointShootView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.leading.trailing.top.equalToSuperview()
+        $0.bottom.equalToSuperview().offset(-49)
         }
+
+        pointShootView.recordStartButton.addTarget(self, action: #selector(recordStartHeading), for: .touchUpInside)
+
+        
     }
 
+    func recordStartHeading() {
+        exercise.recordStartHeading()
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
