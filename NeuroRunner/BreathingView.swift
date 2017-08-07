@@ -248,6 +248,7 @@ extension BreathingView {
     func takeBreathManualInput(_ sender: UIButton) {
         sender.backgroundColor = UIColor.breathingButtonOn
         blurView.alpha = 0
+        // TODO: alpha isn't changing...
         
         airGameViewModel.manualInputTimer.addUsingManual()
         // Does not handle data, only provides stimulus for input

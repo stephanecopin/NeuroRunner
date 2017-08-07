@@ -8,6 +8,8 @@
 
 import Foundation
 
+// Presents new VC upon completion of an exercise
+
 protocol PresentGameSummaryDelegate {
     
     func presentGameSummary()

@@ -25,7 +25,6 @@
 		E8A99A181E5E15900059D21C /* BreathingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8A99A171E5E15900059D21C /* BreathingView.swift */; };
 		E8B3EA351EB9815E00529301 /* SensorViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B3EA341EB9815E00529301 /* SensorViewDelegate.swift */; };
 		E8B51E7E1EA1106A00432031 /* ExerciseTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E7D1EA1106A00432031 /* ExerciseTimer.swift */; };
-		E8B51E801EA1124300432031 /* ExerciseEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E7F1EA1124300432031 /* ExerciseEnum.swift */; };
 		E8B51E821EA112B000432031 /* BalanceExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E811EA112B000432031 /* BalanceExercise.swift */; };
 		E8B51E841EA12C3A00432031 /* Microphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E831EA12C3A00432031 /* Microphone.swift */; };
 		E8B51E861EA1332600432031 /* ManualInputTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E851EA1332600432031 /* ManualInputTimer.swift */; };
@@ -85,7 +84,6 @@
 		E8A99A171E5E15900059D21C /* BreathingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreathingView.swift; sourceTree = "<group>"; };
 		E8B3EA341EB9815E00529301 /* SensorViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SensorViewDelegate.swift; sourceTree = "<group>"; };
 		E8B51E7D1EA1106A00432031 /* ExerciseTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseTimer.swift; sourceTree = "<group>"; };
-		E8B51E7F1EA1124300432031 /* ExerciseEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseEnum.swift; sourceTree = "<group>"; };
 		E8B51E811EA112B000432031 /* BalanceExercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceExercise.swift; sourceTree = "<group>"; };
 		E8B51E831EA12C3A00432031 /* Microphone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Microphone.swift; sourceTree = "<group>"; };
 		E8B51E851EA1332600432031 /* ManualInputTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualInputTimer.swift; sourceTree = "<group>"; };
@@ -156,6 +154,15 @@
 			name = Managers;
 			sourceTree = "<group>";
 		};
+		E80EC72D1F328DD300B41A56 /* Timer Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E862DCFD1EBBAC520002EB97 /* DirectionEnum.swift */,
+				E8B51E871EA1340E00432031 /* InputMethodEnum.swift */,
+			);
+			name = "Timer Helpers";
+			sourceTree = "<group>";
+		};
 		E82FF75C1E5E132800AFE050 = {
 			isa = PBXGroup;
 			children = (
@@ -179,9 +186,6 @@
 		E82FF7671E5E132800AFE050 /* NeuroRunner */ = {
 			isa = PBXGroup;
 			children = (
-				E862DCFD1EBBAC520002EB97 /* DirectionEnum.swift */,
-				E8B51E871EA1340E00432031 /* InputMethodEnum.swift */,
-				E8B51E7F1EA1124300432031 /* ExerciseEnum.swift */,
 				E8B3EA341EB9815E00529301 /* SensorViewDelegate.swift */,
 				E8F519E01EA7EB93005DF4FE /* PresentVCDelegate.swift */,
 				E8ED994B1E6768FE00115DA6 /* Models */,
@@ -241,18 +245,20 @@
 				E8B51E851EA1332600432031 /* ManualInputTimer.swift */,
 				E8B51E831EA12C3A00432031 /* Microphone.swift */,
 				E8B51E891EA1345A00432031 /* Gyroscope.swift */,
+				E80EC72D1F328DD300B41A56 /* Timer Helpers */,
 			);
 			name = Timers;
 			sourceTree = "<group>";
 		};
-		E8C256411EAA9D780015BF16 /* CustomTimerView */ = {
+		E8C256411EAA9D780015BF16 /* CustomTimerViews */ = {
 			isa = PBXGroup;
 			children = (
+				E8829E021EC0D68300921E46 /* CustomSegmentedControl.swift */,
 				E8F519E41EAA8D06005DF4FE /* CustomPickerView.swift */,
 				E8C2563F1EAA97830015BF16 /* CustomPickerRowView.swift */,
 				E8829E041EC0E65E00921E46 /* TimerView.swift */,
 			);
-			name = CustomTimerView;
+			name = CustomTimerViews;
 			sourceTree = "<group>";
 		};
 		E8ED99481E6768E200115DA6 /* Controllers */ = {
@@ -278,8 +284,7 @@
 		E8ED994A1E6768F300115DA6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				E8829E021EC0D68300921E46 /* CustomSegmentedControl.swift */,
-				E8C256411EAA9D780015BF16 /* CustomTimerView */,
+				E8C256411EAA9D780015BF16 /* CustomTimerViews */,
 				E8A99A171E5E15900059D21C /* BreathingView.swift */,
 				E8090A121E732A6E002F79F7 /* BreathingExerciseSummaryView.swift */,
 				E8B8C22F1EB82D6200F9C865 /* BalanceView.swift */,
@@ -303,9 +308,9 @@
 		E8F519DD1EA7D3ED005DF4FE /* Exercise Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				E8F519DB1EA7D3D9005DF4FE /* ExerciseMenuViewController.swift */,
 				E8829E011EBD283B00921E46 /* BreathingVCs */,
 				E8829E001EBD283100921E46 /* BalanceVCs */,
+				E8F519DB1EA7D3D9005DF4FE /* ExerciseMenuViewController.swift */,
 			);
 			name = "Exercise Controllers";
 			sourceTree = "<group>";
@@ -483,7 +488,6 @@
 				E82FF76B1E5E132800AFE050 /* BreathingExerciseVC.swift in Sources */,
 				E8090A181E764D71002F79F7 /* Colors.swift in Sources */,
 				E8ED994D1E67691600115DA6 /* ProfileView.swift in Sources */,
-				E8B51E801EA1124300432031 /* ExerciseEnum.swift in Sources */,
 				E8B51E841EA12C3A00432031 /* Microphone.swift in Sources */,
 				E8090A131E732A6E002F79F7 /* BreathingExerciseSummaryView.swift in Sources */,
 				E8ED994F1E676ABA00115DA6 /* ContainerViewController.swift in Sources */,

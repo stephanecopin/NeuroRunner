@@ -53,6 +53,7 @@ class BreathingExerciseVC: UIViewController {
         if isMicrophoneEnabled {
             navigationItem.rightBarButtonItem?.title = "Mic Enabled"
             breathingView.airGameViewModel.inputMethod = .Microphone
+            
         } else {
             navigationItem.rightBarButtonItem?.title = "Mic Disabled"
             breathingView.airGameViewModel.inputMethod = .manual

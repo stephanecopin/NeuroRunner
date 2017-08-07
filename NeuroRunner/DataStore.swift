@@ -12,7 +12,10 @@ import RealmSwift
 final class DataStore {
     
     static let shared = DataStore()
-    let realm = try! Realm()
+    
+    var realm: Realm!
+    
+    
 
     var user: User! = User()
 
@@ -20,6 +23,14 @@ final class DataStore {
         
         try! realm.write {
             realm.add(user)
+        }
+    }
+    
+    init() {
+        do {
+            realm = try Realm()
+        } catch let error {
+            print("ERROR: \(error)")
         }
     }
     

@@ -44,7 +44,6 @@ class BalanceView: UIView {
     
     // Exercise buttons
     let startStopButton = UIButton()
-    lazy var breathingButton = UIButton() // TODO manual balance?
     
     // Background UI
     var backgroundImageView: UIImageView!

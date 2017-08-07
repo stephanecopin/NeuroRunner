@@ -13,10 +13,6 @@ class ManualInputTimer {
     var inputTimer: Timer!
     var totalInputTime = 0.0
     
-    init() {
-        
-    }
-    
 }
 
 extension ManualInputTimer {
@@ -33,8 +29,5 @@ extension ManualInputTimer {
             inputTimer.invalidate()
         }
     }
-
-    
-
     
 }

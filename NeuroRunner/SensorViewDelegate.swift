@@ -8,6 +8,8 @@
 
 import Foundation
 
+// Used to guve visual cues when microphone detects breathing
+
 protocol SensorViewUpdateDelegate {
     
     func sensoryInputDetected(_ isDetected: Bool)
