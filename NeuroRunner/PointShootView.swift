@@ -86,13 +86,13 @@ class PointShootView: UIView {
         addSubview(minLabel)
         minLabel.snp.makeConstraints {
             $0.leading.equalToSuperview()
-            $0.top.equalToSuperview().multipliedBy(0.75)
+            $0.centerY.equalToSuperview().multipliedBy(0.5)
         }
         
         addSubview(maxLabel)
         maxLabel.snp.makeConstraints {
             $0.trailing.equalToSuperview()
-            $0.top.equalToSuperview().multipliedBy(0.75)
+            $0.centerY.equalToSuperview().multipliedBy(0.5)
         }
         
         addSubview(beginExerciseButton)
@@ -126,7 +126,11 @@ class PointShootView: UIView {
 
 extension PointShootView: UpdateLabelDelegate {
     
-    func updateLabel(with content: String) {
-        currentHeadingLabel.text = "\(content)"
+
+    func updateHeadingLabel(with current: String, min: String, max: String) {
+        currentHeadingLabel.text = current
+        minLabel.text = min
+        maxLabel.text = max
     }
+    
 }

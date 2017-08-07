@@ -39,8 +39,6 @@ extension PointAndShoot: CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-        let heading = "\(newHeading.magneticHeading.roundTo(places: 4))"
-        updateLabelDelegate?.updateLabel(with: heading)
         
         if let minHeading = minHeading {
             if newHeading.magneticHeading < minHeading.magneticHeading {
@@ -57,8 +55,17 @@ extension PointAndShoot: CLLocationManagerDelegate {
         } else {
             maxHeading = newHeading
         }
-
+        
+        if let minHeading = minHeading, let maxHeading = maxHeading {
+            let currentString = "\(newHeading.magneticHeading.roundTo(places: 4))"
+            let minString = "\(minHeading.magneticHeading.roundTo(places: 4))"
+            let maxString = "\(maxHeading.magneticHeading.roundTo(places: 4))"
+            
+            updateLabelDelegate?.updateHeadingLabel(with: currentString, min: minString, max: maxString)
+            
+        }
     }
+    
 }
 
 
