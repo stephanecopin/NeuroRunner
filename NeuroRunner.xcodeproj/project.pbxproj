@@ -155,7 +155,6 @@
 		E8090A111E73207E002F79F7 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
-				E82FF7681E5E132800AFE050 /* AppDelegate.swift */,
 				E8ED994E1E676ABA00115DA6 /* ContainerViewController.swift */,
 				E8ED99441E67688E00115DA6 /* MainTabBarController.swift */,
 			);
@@ -194,8 +193,7 @@
 		E82FF7671E5E132800AFE050 /* NeuroRunner */ = {
 			isa = PBXGroup;
 			children = (
-				E8B3EA341EB9815E00529301 /* SensorViewDelegate.swift */,
-				E8F519E01EA7EB93005DF4FE /* PresentVCDelegate.swift */,
+				E82FF7681E5E132800AFE050 /* AppDelegate.swift */,
 				E8ED994B1E6768FE00115DA6 /* Models */,
 				E8ED994A1E6768F300115DA6 /* Views */,
 				E8ED99491E6768EA00115DA6 /* ViewModels */,
@@ -216,6 +214,15 @@
 				E82FF77F1E5E132900AFE050 /* Info.plist */,
 			);
 			path = NeuroRunnerTests;
+			sourceTree = "<group>";
+		};
+		E84D6E991F38EF3F00F3E7EC /* View Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E8B3EA341EB9815E00529301 /* SensorViewDelegate.swift */,
+				E8F519E01EA7EB93005DF4FE /* PresentVCDelegate.swift */,
+			);
+			name = "View Helpers";
 			sourceTree = "<group>";
 		};
 		E8829E001EBD283100921E46 /* BalanceVCs */ = {
@@ -293,6 +300,7 @@
 		E8ED994A1E6768F300115DA6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				E84D6E991F38EF3F00F3E7EC /* View Helpers */,
 				E8C256411EAA9D780015BF16 /* CustomTimerViews */,
 				E8A99A171E5E15900059D21C /* BreathingView.swift */,
 				E8090A121E732A6E002F79F7 /* BreathingExerciseSummaryView.swift */,

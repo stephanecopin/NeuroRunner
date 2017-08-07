@@ -12,7 +12,6 @@ import CoreLocation
 
 class PointAndShoot {
     
-
     let locationManager: CLLocationManager = {
         $0.requestWhenInUseAuthorization()
         $0.startUpdatingHeading()
@@ -35,7 +34,7 @@ extension PointAndShoot {
     func recordStartHeading() {
         if let currentHeading = locationManager.heading {
             startHeading = currentHeading
-            print("START HEADING = \(startHeading?.magneticHeading)")
+            print("START HEADING = \(currentHeading.magneticHeading)")
         }
     }
     

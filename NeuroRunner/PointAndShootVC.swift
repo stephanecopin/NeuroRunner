@@ -9,8 +9,6 @@
 import UIKit
 
 class PointAndShootVC: UIViewController {
-
-    let exercise = PointAndShoot()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,14 +21,9 @@ class PointAndShootVC: UIViewController {
         $0.bottom.equalToSuperview().offset(-49)
         }
 
-        pointShootView.recordStartButton.addTarget(self, action: #selector(recordStartHeading), for: .touchUpInside)
-
         
     }
 
-    func recordStartHeading() {
-        exercise.recordStartHeading()
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

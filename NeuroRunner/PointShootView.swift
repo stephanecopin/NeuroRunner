@@ -13,6 +13,8 @@ class PointShootView: UIView {
     
     let recordStartButton = UIButton()
 
+    let exercise = PointAndShoot()
+
     
     // MARK: Initialization
     required init?(coder aDecoder: NSCoder) {
@@ -28,6 +30,8 @@ class PointShootView: UIView {
     func configure() {
         recordStartButton.backgroundColor = UIColor.cyan
         recordStartButton.setTitle("Starting Point", for: .normal)
+        recordStartButton.addTarget(self, action: #selector(recordStartHeading), for: .touchUpInside)
+
     }
     
     func constrain() {
@@ -38,6 +42,10 @@ class PointShootView: UIView {
             $0.height.equalToSuperview().dividedBy(10)
         }
         
+    }
+    
+    func recordStartHeading() {
+        exercise.recordStartHeading()
     }
     
 }

@@ -14,24 +14,47 @@ final class DataStore {
     static let shared = DataStore()
     
     var realm: Realm!
+    var user: User!
     
-    
-
-    var user: User! = User()
-
-    func addUserToRealm() {
-        
-        try! realm.write {
-            realm.add(user)
-        }
-    }
     
     init() {
         do {
             realm = try Realm()
+            
+            if realm.objects(User.self).count == 0 {
+                user = User()
+                addUserToRealm()
+            } else {
+                user = realm.objects(User.self).first
+            }
+            
         } catch let error {
-            print("ERROR: \(error)")
+            print("ERROR initializing Realm: \(error)")
         }
     }
+    
+    
+    func addUserToRealm() {
+        do {
+            try realm.write {
+                realm.add(user)
+            }
+        } catch let error {
+            print("Could not write to database: \(error)")
+        }
+    }
+    
+    func deleteRealm() {
+        do {
+            try realm.write {
+                realm.deleteAll()
+                print("Realm databased deleted")
+            }
+        } catch let error {
+            print("Could not delete database: \(error)")
+        }
+    }
+    
+    
     
 }
