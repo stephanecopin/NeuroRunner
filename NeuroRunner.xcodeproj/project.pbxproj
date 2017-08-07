@@ -31,7 +31,7 @@
 		E8B51E7E1EA1106A00432031 /* ExerciseTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E7D1EA1106A00432031 /* ExerciseTimer.swift */; };
 		E8B51E821EA112B000432031 /* BalanceExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E811EA112B000432031 /* BalanceExercise.swift */; };
 		E8B51E841EA12C3A00432031 /* Microphone.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E831EA12C3A00432031 /* Microphone.swift */; };
-		E8B51E861EA1332600432031 /* ManualInputTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E851EA1332600432031 /* ManualInputTimer.swift */; };
+		E8B51E861EA1332600432031 /* ManualTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E851EA1332600432031 /* ManualTimer.swift */; };
 		E8B51E881EA1340E00432031 /* InputMethodEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E871EA1340E00432031 /* InputMethodEnum.swift */; };
 		E8B51E8A1EA1345A00432031 /* Gyroscope.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B51E891EA1345A00432031 /* Gyroscope.swift */; };
 		E8B8C2301EB82D6200F9C865 /* BalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B8C22F1EB82D6200F9C865 /* BalanceView.swift */; };
@@ -94,7 +94,7 @@
 		E8B51E7D1EA1106A00432031 /* ExerciseTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseTimer.swift; sourceTree = "<group>"; };
 		E8B51E811EA112B000432031 /* BalanceExercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceExercise.swift; sourceTree = "<group>"; };
 		E8B51E831EA12C3A00432031 /* Microphone.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Microphone.swift; sourceTree = "<group>"; };
-		E8B51E851EA1332600432031 /* ManualInputTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualInputTimer.swift; sourceTree = "<group>"; };
+		E8B51E851EA1332600432031 /* ManualTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ManualTimer.swift; sourceTree = "<group>"; };
 		E8B51E871EA1340E00432031 /* InputMethodEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InputMethodEnum.swift; sourceTree = "<group>"; };
 		E8B51E891EA1345A00432031 /* Gyroscope.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Gyroscope.swift; sourceTree = "<group>"; };
 		E8B8C22F1EB82D6200F9C865 /* BalanceView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BalanceView.swift; sourceTree = "<group>"; };
@@ -257,7 +257,7 @@
 			isa = PBXGroup;
 			children = (
 				E8B51E7D1EA1106A00432031 /* ExerciseTimer.swift */,
-				E8B51E851EA1332600432031 /* ManualInputTimer.swift */,
+				E8B51E851EA1332600432031 /* ManualTimer.swift */,
 				E8B51E831EA12C3A00432031 /* Microphone.swift */,
 				E8B51E891EA1345A00432031 /* Gyroscope.swift */,
 				E80EC72D1F328DD300B41A56 /* Timer Helpers */,
@@ -533,7 +533,7 @@
 				E80EC7321F38DEEB00B41A56 /* PointShootView.swift in Sources */,
 				E8829E031EC0D68300921E46 /* CustomSegmentedControl.swift in Sources */,
 				E82FF7691E5E132800AFE050 /* AppDelegate.swift in Sources */,
-				E8B51E861EA1332600432031 /* ManualInputTimer.swift in Sources */,
+				E8B51E861EA1332600432031 /* ManualTimer.swift in Sources */,
 				E8C256401EAA97830015BF16 /* CustomPickerRowView.swift in Sources */,
 				E8B51E881EA1340E00432031 /* InputMethodEnum.swift in Sources */,
 				E8F519E51EAA8D06005DF4FE /* CustomPickerView.swift in Sources */,

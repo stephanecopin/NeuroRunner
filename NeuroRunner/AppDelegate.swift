@@ -19,6 +19,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
+        /*
+        let defaults = UserDefaults.standard
+
+        for (key, value) in defaults.dictionaryRepresentation() {
+            print("'\(key)' : '\(value)'")
+        }
+        
+        if defaults.string(forKey: "isAppAlreadyLaunchedOnce") == "1"{
+            print("App already launched")
+        }else{
+            defaults.set(true, forKey: "isAppAlreadyLaunchedOnce")
+            print("App launched first time")
+        }
+        */
         
         containerViewController.childVC = MainTabBarController()
         containerViewController.setup(forAnimation: .slideUp)

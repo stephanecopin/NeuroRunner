@@ -8,14 +8,14 @@
 
 import Foundation
 
-class ManualInputTimer {
+class ManualTimer {
     
     var inputTimer: Timer!
     var totalInputTime = 0.0
     
 }
 
-extension ManualInputTimer {
+extension ManualTimer {
     
     func addUsingManual() {
         inputTimer = Timer.scheduledTimer(withTimeInterval: timerCollectionInterval, repeats: true) { (timer) in

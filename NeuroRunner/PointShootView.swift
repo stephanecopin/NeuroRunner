@@ -11,7 +11,8 @@ import SnapKit
 
 class PointShootView: UIView {
     
-    let recordStartButton = UIButton()
+    let startingPointButton = UIButton()
+    let beginExerciseButton = UIButton()
 
     let exercise = PointAndShoot()
 
@@ -28,24 +29,39 @@ class PointShootView: UIView {
     }
     
     func configure() {
-        recordStartButton.backgroundColor = UIColor.cyan
-        recordStartButton.setTitle("Starting Point", for: .normal)
-        recordStartButton.addTarget(self, action: #selector(recordStartHeading), for: .touchUpInside)
+        startingPointButton.backgroundColor = UIColor.cyan
+        startingPointButton.setTitle("Starting Point", for: .normal)
+        startingPointButton.addTarget(self, action: #selector(recordStartHeading), for: .touchUpInside)
+        
+        beginExerciseButton.backgroundColor = UIColor.green
+        beginExerciseButton.setTitle("Begin Exercise", for: .normal)
+        beginExerciseButton.addTarget(self, action: #selector(beginExercise), for: .touchUpInside)
 
     }
     
     func constrain() {
     
-        addSubview(recordStartButton)
-        recordStartButton.snp.makeConstraints {
+        addSubview(startingPointButton)
+        startingPointButton.snp.makeConstraints {
             $0.bottom.width.centerX.equalToSuperview()
             $0.height.equalToSuperview().dividedBy(10)
+        }
+        
+        addSubview(beginExerciseButton)
+        beginExerciseButton.snp.makeConstraints {
+            $0.width.centerX.equalToSuperview()
+            $0.height.equalToSuperview().dividedBy(10)
+            $0.bottom.equalTo(startingPointButton.snp.top).offset(-20)
         }
         
     }
     
     func recordStartHeading() {
         exercise.recordStartHeading()
+    }
+    
+    func beginExercise() {
+        
     }
     
 }

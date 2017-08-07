@@ -10,29 +10,29 @@ import RealmSwift
 import CoreLocation
 
 
-class PointAndShoot {
+class PointAndShoot: NSObject {
     
-    let locationManager: CLLocationManager = {
-        $0.requestWhenInUseAuthorization()
-        $0.startUpdatingHeading()
-        return $0
-    }(CLLocationManager())
+    let manager = DataStore.shared.user.locationManager
     
     var startHeading: CLHeading?
     
     var iterations = [CLHeading]()
     
-}
-
-extension PointAndShoot {
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-
-
+    override init() {
+        super.init()
+        manager.delegate = self
     }
     
+}
+
+extension PointAndShoot: CLLocationManagerDelegate {
+    
+    
+    
     func recordStartHeading() {
-        if let currentHeading = locationManager.heading {
+        manager.startUpdatingHeading()
+
+        if let currentHeading = manager.heading {
             startHeading = currentHeading
             print("START HEADING = \(currentHeading.magneticHeading)")
         }

@@ -8,6 +8,7 @@
 
 import RealmSwift
 import CoreMotion
+import CoreLocation
 
 class User: Object {
     
@@ -17,6 +18,8 @@ class User: Object {
     
     // IMPORTANT: An app should create only a single instance of the CMMotionManager class. Multiple instances of this class can affect the rate at which data is received from the accelerometer and gyroscope.
     
-    let cmmanager = CMMotionManager()
+    let motionManager = CMMotionManager()
+    
+    let locationManager = (CLLocationManager())
     
 }

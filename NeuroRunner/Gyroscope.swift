@@ -15,7 +15,7 @@ let timerCollectionInterval = 0.05
 
 class Gyroscope {
     
-    let manager = DataStore.shared.user.cmmanager
+    let manager = DataStore.shared.user.motionManager
     
     var timeElapsed = 0.0
     

@@ -17,7 +17,7 @@ final class AirGameViewModel {
     
     let exerciseTimer = ExerciseTimer()
     let microphone = Microphone()
-    let manualInputTimer = ManualInputTimer()
+    let manualTimer = ManualTimer()
     
     var inputMethod: InputMethod = .manual
     
@@ -60,7 +60,7 @@ extension AirGameViewModel {
     
     func cancelExercise() {
         exerciseTimer.clearTimer()
-        manualInputTimer.reset()
+        manualTimer.reset()
         microphone.reset()
     }
     
@@ -68,8 +68,8 @@ extension AirGameViewModel {
         newExercise = BreathingExercise()
         
         if inputMethod == .manual {
-            newExercise.timeSpentBreathing = manualInputTimer.totalInputTime.roundTo(places: 2)
-            newExercise.timeSpentHungering = totalTime - manualInputTimer.totalInputTime.roundTo(places: 2)
+            newExercise.timeSpentBreathing = manualTimer.totalInputTime.roundTo(places: 2)
+            newExercise.timeSpentHungering = totalTime - manualTimer.totalInputTime.roundTo(places: 2)
             
         } else if inputMethod == .Microphone {
             newExercise.timeSpentBreathing = microphone.totalInputTime.roundTo(places: 2)
