@@ -13,7 +13,6 @@
 		E8090A181E764D71002F79F7 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8090A171E764D71002F79F7 /* Colors.swift */; };
 		E80EC7301F38DDBE00B41A56 /* PointAndShootVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80EC72F1F38DDBE00B41A56 /* PointAndShootVC.swift */; };
 		E80EC7321F38DEEB00B41A56 /* PointShootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80EC7311F38DEEB00B41A56 /* PointShootView.swift */; };
-		E80EC7341F38DF3900B41A56 /* PointShootViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80EC7331F38DF3900B41A56 /* PointShootViewModel.swift */; };
 		E80EC7361F38E46B00B41A56 /* PointAndShoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = E80EC7351F38E46B00B41A56 /* PointAndShoot.swift */; };
 		E8116AED1E6FC9DF0048859A /* BreathingExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8116AEC1E6FC9DF0048859A /* BreathingExercise.swift */; };
 		E82FF7691E5E132800AFE050 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF7681E5E132800AFE050 /* AppDelegate.swift */; };
@@ -21,6 +20,7 @@
 		E82FF7701E5E132800AFE050 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E82FF76F1E5E132800AFE050 /* Assets.xcassets */; };
 		E82FF7731E5E132800AFE050 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E82FF7711E5E132800AFE050 /* LaunchScreen.storyboard */; };
 		E82FF77E1E5E132900AFE050 /* NeuroRunnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E82FF77D1E5E132900AFE050 /* NeuroRunnerTests.swift */; };
+		E84D6E9B1F38FE5900F3E7EC /* UpdateLabelDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E84D6E9A1F38FE5900F3E7EC /* UpdateLabelDelegate.swift */; };
 		E862DCFE1EBBAC520002EB97 /* DirectionEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = E862DCFD1EBBAC520002EB97 /* DirectionEnum.swift */; };
 		E862DD001EBBB6250002EB97 /* TimeMagnitudeObj.swift in Sources */ = {isa = PBXBuildFile; fileRef = E862DCFF1EBBB6250002EB97 /* TimeMagnitudeObj.swift */; };
 		E8829E031EC0D68300921E46 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8829E021EC0D68300921E46 /* CustomSegmentedControl.swift */; };
@@ -72,7 +72,6 @@
 		E8090A171E764D71002F79F7 /* Colors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		E80EC72F1F38DDBE00B41A56 /* PointAndShootVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointAndShootVC.swift; sourceTree = "<group>"; };
 		E80EC7311F38DEEB00B41A56 /* PointShootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointShootView.swift; sourceTree = "<group>"; };
-		E80EC7331F38DF3900B41A56 /* PointShootViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointShootViewModel.swift; sourceTree = "<group>"; };
 		E80EC7351F38E46B00B41A56 /* PointAndShoot.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointAndShoot.swift; sourceTree = "<group>"; };
 		E8116AEC1E6FC9DF0048859A /* BreathingExercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BreathingExercise.swift; sourceTree = "<group>"; };
 		E82FF7651E5E132800AFE050 /* NeuroRunner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NeuroRunner.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,6 +83,7 @@
 		E82FF7791E5E132900AFE050 /* NeuroRunnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NeuroRunnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E82FF77D1E5E132900AFE050 /* NeuroRunnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeuroRunnerTests.swift; sourceTree = "<group>"; };
 		E82FF77F1E5E132900AFE050 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E84D6E9A1F38FE5900F3E7EC /* UpdateLabelDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateLabelDelegate.swift; sourceTree = "<group>"; };
 		E862DCFD1EBBAC520002EB97 /* DirectionEnum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionEnum.swift; sourceTree = "<group>"; };
 		E862DCFF1EBBB6250002EB97 /* TimeMagnitudeObj.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeMagnitudeObj.swift; sourceTree = "<group>"; };
 		E8829E021EC0D68300921E46 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
@@ -221,6 +221,7 @@
 			children = (
 				E8B3EA341EB9815E00529301 /* SensorViewDelegate.swift */,
 				E8F519E01EA7EB93005DF4FE /* PresentVCDelegate.swift */,
+				E84D6E9A1F38FE5900F3E7EC /* UpdateLabelDelegate.swift */,
 			);
 			name = "View Helpers";
 			sourceTree = "<group>";
@@ -248,21 +249,21 @@
 			children = (
 				E8116AEC1E6FC9DF0048859A /* BreathingExercise.swift */,
 				E8B51E811EA112B000432031 /* BalanceExercise.swift */,
-				E80EC7351F38E46B00B41A56 /* PointAndShoot.swift */,
 			);
 			name = Exercises;
 			sourceTree = "<group>";
 		};
-		E8B51E8D1EA134B400432031 /* Timers */ = {
+		E8B51E8D1EA134B400432031 /* Timers & Sensors */ = {
 			isa = PBXGroup;
 			children = (
 				E8B51E7D1EA1106A00432031 /* ExerciseTimer.swift */,
 				E8B51E851EA1332600432031 /* ManualTimer.swift */,
 				E8B51E831EA12C3A00432031 /* Microphone.swift */,
 				E8B51E891EA1345A00432031 /* Gyroscope.swift */,
+				E80EC7351F38E46B00B41A56 /* PointAndShoot.swift */,
 				E80EC72D1F328DD300B41A56 /* Timer Helpers */,
 			);
-			name = Timers;
+			name = "Timers & Sensors";
 			sourceTree = "<group>";
 		};
 		E8C256411EAA9D780015BF16 /* CustomTimerViews */ = {
@@ -292,7 +293,6 @@
 			children = (
 				E8ED99421E64FEF700115DA6 /* AirGameViewModel.swift */,
 				E8B8C2311EB82DB200F9C865 /* BalanceViewModel.swift */,
-				E80EC7331F38DF3900B41A56 /* PointShootViewModel.swift */,
 			);
 			name = ViewModels;
 			sourceTree = "<group>";
@@ -318,7 +318,7 @@
 				E8D1B1CD1E6B7BF000FD9A68 /* DataStore.swift */,
 				E8A99A151E5E156A0059D21C /* User.swift */,
 				E862DCFF1EBBB6250002EB97 /* TimeMagnitudeObj.swift */,
-				E8B51E8D1EA134B400432031 /* Timers */,
+				E8B51E8D1EA134B400432031 /* Timers & Sensors */,
 				E8B51E8B1EA1349900432031 /* Exercises */,
 			);
 			name = Models;
@@ -327,10 +327,10 @@
 		E8F519DD1EA7D3ED005DF4FE /* Exercise Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				E80EC72F1F38DDBE00B41A56 /* PointAndShootVC.swift */,
 				E8829E011EBD283B00921E46 /* BreathingVCs */,
 				E8829E001EBD283100921E46 /* BalanceVCs */,
 				E8F519DB1EA7D3D9005DF4FE /* ExerciseMenuViewController.swift */,
-				E80EC72F1F38DDBE00B41A56 /* PointAndShootVC.swift */,
 			);
 			name = "Exercise Controllers";
 			sourceTree = "<group>";
@@ -516,13 +516,13 @@
 				E8D1B1CE1E6B7BF000FD9A68 /* DataStore.swift in Sources */,
 				E8F8541A1EBD1A0D005143AC /* BalanceExerciseSummaryView.swift in Sources */,
 				E8116AED1E6FC9DF0048859A /* BreathingExercise.swift in Sources */,
-				E80EC7341F38DF3900B41A56 /* PointShootViewModel.swift in Sources */,
 				E8B3EA351EB9815E00529301 /* SensorViewDelegate.swift in Sources */,
 				E8B51E7E1EA1106A00432031 /* ExerciseTimer.swift in Sources */,
 				E8A99A181E5E15900059D21C /* BreathingView.swift in Sources */,
 				E8ED99451E67688E00115DA6 /* MainTabBarController.swift in Sources */,
 				E8B8C2321EB82DB200F9C865 /* BalanceViewModel.swift in Sources */,
 				E8E7E1A51EA47BE800ED7834 /* Double Ext.swift in Sources */,
+				E84D6E9B1F38FE5900F3E7EC /* UpdateLabelDelegate.swift in Sources */,
 				E80EC7301F38DDBE00B41A56 /* PointAndShootVC.swift in Sources */,
 				E8F519DC1EA7D3D9005DF4FE /* ExerciseMenuViewController.swift in Sources */,
 				E8F519DF1EA7E24E005DF4FE /* BalanceExerciseVC.swift in Sources */,

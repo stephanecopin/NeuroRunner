@@ -1,5 +1,5 @@
 //
-//  PointShootViewModel.swift
+//  UpdateLabelDelegate.swift
 //  NeuroRunner
 //
 //  Created by Robert Deans on 8/7/17.
@@ -8,6 +8,8 @@
 
 import Foundation
 
-final class PointShootViewModel {
+protocol UpdateLabelDelegate {
+    
+    func updateLabel(with content: String)
     
 }

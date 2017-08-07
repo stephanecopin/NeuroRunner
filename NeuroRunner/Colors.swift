@@ -8,6 +8,11 @@
 
 import UIKit
 
+// Universal constraint constants
+let navBarHeight = 44.0
+let tabBarHeight = 49.0
+let statusBarHeight = 20.0
+
 // MARK: Theme Colors
 extension UIColor {
     // Pups & Playgrounds theme

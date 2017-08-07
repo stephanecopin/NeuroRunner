@@ -15,12 +15,15 @@ class PointAndShoot: NSObject {
     let manager = DataStore.shared.user.locationManager
     
     var startHeading: CLHeading?
+    var minHeading: CLHeading?
+    var maxHeading: CLHeading?
     
-    var iterations = [CLHeading]()
+    var updateLabelDelegate: UpdateLabelDelegate?
     
     override init() {
         super.init()
         manager.delegate = self
+        manager.startUpdatingHeading()
     }
     
 }
@@ -30,15 +33,32 @@ extension PointAndShoot: CLLocationManagerDelegate {
     
     
     func recordStartHeading() {
-        manager.startUpdatingHeading()
-
         if let currentHeading = manager.heading {
             startHeading = currentHeading
-            print("START HEADING = \(currentHeading.magneticHeading)")
         }
     }
     
-    func recordNewIteration() {
+    func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
+        let heading = "\(newHeading.magneticHeading.roundTo(places: 4))"
+        updateLabelDelegate?.updateLabel(with: heading)
         
+        if let minHeading = minHeading {
+            if newHeading.magneticHeading < minHeading.magneticHeading {
+                self.minHeading = newHeading
+            }
+        } else {
+            minHeading = newHeading
+        }
+        
+        if let maxHeading = maxHeading {
+            if newHeading.magneticHeading > maxHeading.magneticHeading {
+                self.maxHeading = newHeading
+            }
+        } else {
+            maxHeading = newHeading
+        }
+
     }
 }
+
+

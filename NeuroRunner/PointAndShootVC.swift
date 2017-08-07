@@ -17,10 +17,10 @@ class PointAndShootVC: UIViewController {
         
         view.addSubview(pointShootView)
         pointShootView.snp.makeConstraints {
-            $0.leading.trailing.top.equalToSuperview()
-        $0.bottom.equalToSuperview().offset(-49)
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalToSuperview().offset(navBarHeight + statusBarHeight)
+            $0.bottom.equalToSuperview().offset(-(tabBarHeight))
         }
-
         
     }
 
