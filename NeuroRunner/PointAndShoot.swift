@@ -95,13 +95,21 @@ extension PointAndShoot: CLLocationManagerDelegate {
     
     func findDegreesAndDirection(start: Double, current: Double) -> (difference: Double, isLeft: Bool) {
         
-        var minMaxBool = (0.0 ,false)
+        var isLeft = true
         
-        let difference = abs(current - start).truncatingRemainder(dividingBy: 360)
+        var difference = abs(current - start).truncatingRemainder(dividingBy: 360)
+        difference = difference > 180 ? (360 - difference) : difference
         
-        minMaxBool = difference > 180 ? (360 - difference, false) : (difference, true)
         
-        return minMaxBool
+        if start > 180 || start == 0 && current < 180 {
+            let range = abs(start - 180).truncatingRemainder(dividingBy: 360)
+            
+            if current > start || current < range {
+                isLeft = false
+            }
+        }
+        
+        return (difference, isLeft)
         
     }
     
