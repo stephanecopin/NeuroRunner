@@ -128,7 +128,7 @@ class PointShootView: UIView {
 extension PointShootView: UpdateLabelDelegate {
     
     
-    func updateHeadingLabel(with current: String, min: String?, max: String?) {
+    func updateHeadingLabel(with current: String, left min: String?, right max: String?) {
         currentHeadingLabel.text = current
         if let min = min, let max = max {
             minLabel.text = min
