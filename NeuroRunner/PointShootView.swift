@@ -111,7 +111,7 @@ class PointShootView: UIView {
         
         exercise.recordStartHeading()
         
-        if let startingPoint = exercise.startHeading?.magneticHeading.roundTo(places: 4) {
+        if let startingPoint = exercise.startHeading?.magneticHeading.roundTo(places: 2) {
             startingPointLabel.text = "\(startingPoint)"
         } else {
             print("error :(")

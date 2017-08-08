@@ -72,11 +72,15 @@ extension PointAndShoot: CLLocationManagerDelegate {
                 let distanceAndDirection = findDegreesAndDirection(start: start, current: current)
                 
                 if distanceAndDirection.isLeft {
-                    leftMax = distanceAndDirection.difference.roundTo(places: decPlaces)
+                    if distanceAndDirection.difference > leftMax {
+                        leftMax = distanceAndDirection.difference.roundTo(places: decPlaces)
+                    }
                 } else {
-                    rightMax = distanceAndDirection.difference.roundTo(places: decPlaces)
+                    if distanceAndDirection.difference > rightMax {
+                        rightMax = distanceAndDirection.difference.roundTo(places: decPlaces)
+                    }
                 }
-             
+                
                 let currentString = "\(newHeading.magneticHeading.roundTo(places: decPlaces))"
                 let leftMaxString = "\(leftMax)"
                 let rightMaxString = "\(rightMax)"
