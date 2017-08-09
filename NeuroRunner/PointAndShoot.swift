@@ -71,6 +71,7 @@ extension PointAndShoot: CLLocationManagerDelegate {
                 
                 let distanceAndDirection = findDegreesAndDirection(start: start, current: current)
                 
+                print(distanceAndDirection)
                 if distanceAndDirection.isLeft {
                     if distanceAndDirection.difference > leftMax {
                         leftMax = distanceAndDirection.difference.roundTo(places: decPlaces)
@@ -109,6 +110,10 @@ extension PointAndShoot: CLLocationManagerDelegate {
             let range = abs(start - 180).truncatingRemainder(dividingBy: 360)
             
             if current > start || current < range {
+                isLeft = false
+            }
+        } else if start < 180 {
+            if current < start + 180 && current > start {
                 isLeft = false
             }
         }
