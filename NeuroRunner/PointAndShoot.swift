@@ -45,15 +45,14 @@ extension PointAndShoot: CLLocationManagerDelegate {
     
     // TODO: Clean this up
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-        
-        
+
         if isShooting == false {
             
             
             if let minHeading = minHeading, let maxHeading = maxHeading {
-                let currentString = "\(newHeading.magneticHeading.roundTo(places: decPlaces))"
-                let minString = "\(minHeading.magneticHeading.roundTo(places: decPlaces))"
-                let maxString = "\(maxHeading.magneticHeading.roundTo(places: decPlaces))"
+                let currentString = "\(newHeading.trueHeading.roundTo(places: decPlaces))"
+                let minString = "\(minHeading.trueHeading.roundTo(places: decPlaces))"
+                let maxString = "\(maxHeading.trueHeading.roundTo(places: decPlaces))"
                 
                 updateLabelDelegate?.updateHeadingLabel(with: currentString, left: minString, right: maxString)
                 
@@ -64,10 +63,10 @@ extension PointAndShoot: CLLocationManagerDelegate {
         
         if isShooting {
             
-            let current = Double(newHeading.magneticHeading)
+            let current = Double(newHeading.trueHeading)
             
             if let startHeading = startHeading {
-                let start = Double(startHeading.magneticHeading)
+                let start = Double(startHeading.trueHeading)
                 
                 let distanceAndDirection = findDegreesAndDirection(start: start, current: current)
                 
@@ -82,7 +81,7 @@ extension PointAndShoot: CLLocationManagerDelegate {
                     }
                 }
                 
-                let currentString = "\(newHeading.magneticHeading.roundTo(places: decPlaces))"
+                let currentString = "\(newHeading.trueHeading.roundTo(places: decPlaces))"
                 let leftMaxString = "\(leftMax)"
                 let rightMaxString = "\(rightMax)"
                 
@@ -90,7 +89,7 @@ extension PointAndShoot: CLLocationManagerDelegate {
                 
             }
         } else {
-            let currentString = "\(newHeading.magneticHeading.roundTo(places: decPlaces))"
+            let currentString = "\(newHeading.trueHeading.roundTo(places: decPlaces))"
             
             updateLabelDelegate?.updateHeadingLabel(with: currentString, left: nil, right: nil)
         }
@@ -100,15 +99,15 @@ extension PointAndShoot: CLLocationManagerDelegate {
     
     func findDegreesAndDirection(start: Double, current: Double) -> (difference: Double, isLeft: Bool) {
         
-        var isLeft = true
-        
         var difference = abs(current - start).truncatingRemainder(dividingBy: 360)
+        
         difference = difference > 180 ? (360 - difference) : difference
         
         
+        var isLeft = true
+
         if start > 180 || start == 0 && current < 180 {
             let range = abs(start - 180).truncatingRemainder(dividingBy: 360)
-            
             if current > start || current < range {
                 isLeft = false
             }
