@@ -21,16 +21,6 @@ class MainTabBarController: UITabBarController {
         
         viewControllers = [exerciseNC, infoNC, profileNC]
 
-//        homeNC.navigationBar.isTranslucent = false
-//        homeNC.navigationBar.barTintColor = UIColor.blue
-//        homeNC.navigationBar.tintColor = UIColor.white
-//        homeNC.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
-        
-//        profileNC.navigationBar.isTranslucent = false
-//        profileNC.navigationBar.barTintColor = UIColor.blue
-//        profileNC.navigationBar.tintColor = UIColor.white
-//        profileNC.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white]
-
     
     }
 

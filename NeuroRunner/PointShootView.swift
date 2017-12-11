@@ -54,8 +54,8 @@ class PointShootView: UIView {
         maxLabel.textColor = UIColor.white
         
         startingPointButton.backgroundColor = UIColor.cyan
-        startingPointButton.setTitle("Starting Point", for: .normal)
-        startingPointButton.addTarget(self, action: #selector(recordStartHeading), for: .touchUpInside)
+        startingPointButton.setTitle("Set Starting Point", for: .normal)
+        startingPointButton.addTarget(self, action: #selector(recordOrResetStartHeading(_:)), for: .touchUpInside)
         
         beginExerciseButton.backgroundColor = UIColor.green
         beginExerciseButton.setTitle("Begin Exercise", for: .normal)
@@ -106,13 +106,43 @@ class PointShootView: UIView {
         
     }
     
-    func recordStartHeading() {
-        beginExerciseButton.isHidden = false
+}
+
+//MARK: Button Methods
+extension PointShootView {
+    
+    func recordOrResetStartHeading(_ sender: UIButton) {
         
-        exercise.recordStartHeading()
+        switch sender.titleLabel?.text {
+        case "Set Starting Point"?:
+            exercise.recordStartHeading()
+
+            if let startingPoint = exercise.startHeading?.roundTo(places: 2) {
+                startingPointLabel.text = startingPoint.returnFormattedString()
+            } else {
+                print("error :(")
+            }
+            
+            beginExerciseButton.isHidden = false
+            sender.setTitle("Reset", for: .normal)
+            sender.backgroundColor = UIColor.red.withAlphaComponent(0.8)
+        case "Reset"?:
+            exercise.reset()
+            
+            beginExerciseButton.isHidden = true
+            
+            startingPointLabel.text = nil
+            minLabel.text = nil
+            maxLabel.text = nil
+            
+            sender.backgroundColor = UIColor.cyan
+            sender.setTitle("Set Starting Point", for: .normal)
+        default:
+            break
+        }
         
-        if let startingPoint = exercise.startHeading?.magneticHeading.roundTo(places: 2) {
-            startingPointLabel.text = "\(startingPoint)"
+        if let startingPoint = exercise.startHeading?.roundTo(places: 2) {
+            startingPointLabel.text = startingPoint.returnFormattedString()
         } else {
             print("error :(")
         }
@@ -128,11 +158,12 @@ class PointShootView: UIView {
 extension PointShootView: UpdateLabelDelegate {
     
     
-    func updateHeadingLabel(with current: String, left min: String?, right max: String?) {
-        currentHeadingLabel.text = current
+    func updateHeadingLabel(with current: Double, left min: Double?, right max: Double?) {
+        currentHeadingLabel.text = current.returnFormattedString()
+
         if let min = min, let max = max {
-            minLabel.text = min
-            maxLabel.text = max
+            minLabel.text = min.returnFormattedString()
+            maxLabel.text = max.returnFormattedString()
         }
     }
     
