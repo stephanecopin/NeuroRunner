@@ -1,25 +1,25 @@
 PODS:
-  - Charts (3.0.1):
-    - Charts/Core (= 3.0.1)
-  - Charts/Core (3.0.1)
-  - Realm (2.4.3):
-    - Realm/Headers (= 2.4.3)
-  - Realm/Headers (2.4.3)
-  - RealmSwift (2.4.3):
-    - Realm (= 2.4.3)
-  - SnapKit (3.0.2)
+  - Charts (3.0.3):
+    - Charts/Core (= 3.0.3)
+  - Charts/Core (3.0.3)
+  - Realm (3.0.2):
+    - Realm/Headers (= 3.0.2)
+  - Realm/Headers (3.0.2)
+  - RealmSwift (3.0.2):
+    - Realm (= 3.0.2)
+  - SnapKit (3.2.0)
 
 DEPENDENCIES:
-  - Charts
+  - Charts (= 3.0.3)
   - RealmSwift
   - SnapKit (~> 3.0)
 
 SPEC CHECKSUMS:
-  Charts: 0e84f4418e87dad6a9edde221fba37ebb51d3ba7
-  Realm: e08d60b0048ccccd3949c8c28a92c4db5712d7e9
-  RealmSwift: 30d49739ccb3385d201242736ca4dda56aec9dfc
-  SnapKit: 2e456761aa92d4d4067a7a5594c18769d451a8ad
+  Charts: bcde37724c161958c1438dd4883971fcb2d50c06
+  Realm: 6f23fd1f178a09342eac21bfa7c2bf4312a7a180
+  RealmSwift: 695393add1b8f9d5fa75dd16e6355cf3935f71e2
+  SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
 
-PODFILE CHECKSUM: 6cd82ccb4b85c2a8e67da73f6cfcb4b10d86913f
+PODFILE CHECKSUM: 6187df322817f26ce0d75a6b7e507f0809cc70e9
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.3.1

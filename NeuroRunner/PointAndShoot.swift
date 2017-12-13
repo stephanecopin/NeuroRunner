@@ -9,21 +9,20 @@
 import RealmSwift
 import CoreLocation
 
-
-// TODO: Convert magnetic heading to more accurately describe mins and maxs (setting a new point Zero)
+// Class uses magnetic north to avoid location-based conversions
 
 class PointAndShoot: NSObject {
     
     let manager = DataStore.shared.user.locationManager
-    
-    var startHeading: CLHeading?
-    var minHeading: CLHeading?
-    var maxHeading: CLHeading?
+    var updateLabelDelegate: UpdateLabelDelegate?
+
+    var startHeading: Double?
+    var minHeading: Double?
+    var maxHeading: Double?
     
     var leftMax = 0.0
     var rightMax = 0.0
     
-    var updateLabelDelegate: UpdateLabelDelegate?
     var isShooting = false
     var decPlaces = 2
     
@@ -38,39 +37,22 @@ class PointAndShoot: NSObject {
 extension PointAndShoot: CLLocationManagerDelegate {
     
     func recordStartHeading() {
-        if let currentHeading = manager.heading {
+        if let currentHeading = manager.heading?.magneticHeading.roundTo(places: 2) {
             startHeading = currentHeading
         }
     }
     
     // TODO: Clean this up
     func locationManager(_ manager: CLLocationManager, didUpdateHeading newHeading: CLHeading) {
-
-        if isShooting == false {
-            
-            
-            if let minHeading = minHeading, let maxHeading = maxHeading {
-                let currentString = "\(newHeading.trueHeading.roundTo(places: decPlaces))"
-                let minString = "\(minHeading.trueHeading.roundTo(places: decPlaces))"
-                let maxString = "\(maxHeading.trueHeading.roundTo(places: decPlaces))"
-                
-                updateLabelDelegate?.updateHeadingLabel(with: currentString, left: minString, right: maxString)
-                
-            }
-        }
-        
-        
         
         if isShooting {
             
-            let current = Double(newHeading.trueHeading)
+            let current = Double(newHeading.magneticHeading)
             
             if let startHeading = startHeading {
-                let start = Double(startHeading.trueHeading)
                 
-                let distanceAndDirection = findDegreesAndDirection(start: start, current: current)
+                let distanceAndDirection = findDegreesAndDirection(start: startHeading, current: current)
                 
-                print(distanceAndDirection)
                 if distanceAndDirection.isLeft {
                     if distanceAndDirection.difference > leftMax {
                         leftMax = distanceAndDirection.difference.roundTo(places: decPlaces)
@@ -81,18 +63,23 @@ extension PointAndShoot: CLLocationManagerDelegate {
                     }
                 }
                 
-                let currentString = "\(newHeading.trueHeading.roundTo(places: decPlaces))"
-                let leftMaxString = "\(leftMax)"
-                let rightMaxString = "\(rightMax)"
+                let leftMaxString = leftMax
+                let rightMaxString = rightMax
                 
-                updateLabelDelegate?.updateHeadingLabel(with: currentString, left: leftMaxString, right: rightMaxString)
+                updateLabelDelegate?.updateHeadingLabel(with: distanceAndDirection.difference, left: leftMaxString, right: rightMaxString)
                 
             }
         } else {
-            let currentString = "\(newHeading.trueHeading.roundTo(places: decPlaces))"
             
-            updateLabelDelegate?.updateHeadingLabel(with: currentString, left: nil, right: nil)
+            if let startHeading = startHeading {
+            let currentHeading = newHeading.magneticHeading.roundTo(places: 2)
+            
+            let distance = findDegreesAndDirection(start: startHeading, current: currentHeading)
+            updateLabelDelegate?.updateHeadingLabel(with: distance.difference, left: nil, right: nil)
+            
+            }
         }
+        
         
     }
     
@@ -105,7 +92,7 @@ extension PointAndShoot: CLLocationManagerDelegate {
         
         
         var isLeft = true
-
+        
         if start > 180 || start == 0 && current < 180 {
             let range = abs(start - 180).truncatingRemainder(dividingBy: 360)
             if current > start || current < range {
@@ -117,8 +104,19 @@ extension PointAndShoot: CLLocationManagerDelegate {
             }
         }
         
-        return (difference, isLeft)
+        return (difference.roundTo(places: 2), isLeft)
         
+    }
+    
+    func reset() {
+        startHeading = nil
+        minHeading = nil
+        maxHeading = nil
+        
+        leftMax = 0.0
+        rightMax = 0.0
+        
+        isShooting = false
     }
     
 }

@@ -35,7 +35,7 @@ class CustomPickerView: UIView {
         
         for number in 0...59 {
             var numString = "\(number)"
-            if numString.characters.count == 1 {
+            if numString.count == 1 {
                 numString = "0" + numString
             }
             pickerData.append(numString)
