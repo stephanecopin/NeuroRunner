@@ -71,11 +71,13 @@ extension PointAndShoot: CLLocationManagerDelegate {
             }
         } else {
             
+            if let startHeading = startHeading {
             let currentHeading = newHeading.magneticHeading.roundTo(places: 2)
             
-            updateLabelDelegate?.updateHeadingLabel(with: currentHeading, left: nil, right: nil)
+            let distance = findDegreesAndDirection(start: startHeading, current: currentHeading)
+            updateLabelDelegate?.updateHeadingLabel(with: distance.difference, left: nil, right: nil)
             
-            
+            }
         }
         
         

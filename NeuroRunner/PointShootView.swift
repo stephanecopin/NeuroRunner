@@ -117,34 +117,31 @@ extension PointShootView {
         case "Set Starting Point"?:
             exercise.recordStartHeading()
 
-            if let startingPoint = exercise.startHeading?.roundTo(places: 2) {
-                startingPointLabel.text = startingPoint.returnFormattedString()
-            } else {
-                print("error :(")
-            }
+//            if let startingPoint = exercise.startHeading?.roundTo(places: 2) {
+//                startingPointLabel.text = startingPoint.returnFormattedString()
+//            } else {
+//                print("error :(")
+//            }
             
             beginExerciseButton.isHidden = false
             sender.setTitle("Reset", for: .normal)
             sender.backgroundColor = UIColor.red.withAlphaComponent(0.8)
+       
         case "Reset"?:
             exercise.reset()
             
             beginExerciseButton.isHidden = true
             
+            currentHeadingLabel.text = nil
             startingPointLabel.text = nil
             minLabel.text = nil
             maxLabel.text = nil
             
             sender.backgroundColor = UIColor.cyan
             sender.setTitle("Set Starting Point", for: .normal)
+        
         default:
             break
-        }
-        
-        if let startingPoint = exercise.startHeading?.roundTo(places: 2) {
-            startingPointLabel.text = startingPoint.returnFormattedString()
-        } else {
-            print("error :(")
         }
         
     }
